@@ -5,8 +5,8 @@ func _ready():
 	$ColorRect/AnimationPlayer.play("fadeout")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	$ColorRect.visible = false
-	
-func _on_TextureButton_pressed():
+
+func _on_TextureButtonNivel1_pressed():
 	$ColorRect.visible = true
 	$ColorRect/AnimationPlayer.play("fadein")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
@@ -23,3 +23,4 @@ func _on_TextureButton3_pressed():
 	$ColorRect/AnimationPlayer.play("fadein")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	get_tree().change_scene("res://nivel3/Nivel3.tscn")
+

@@ -254,6 +254,6 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
 anims/fadein = SubResource( 2 )
 anims/fadeout = SubResource( 3 )
-[connection signal="pressed" from="MarginContainerMain/Menu/MarginContainer/VBoxContainer/TextureButtonNivel1" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="MarginContainerMain/Menu/MarginContainer/VBoxContainer/TextureButtonNivel1" to="." method="_on_TextureButtonNivel1_pressed"]
 [connection signal="pressed" from="MarginContainerMain/Menu/MarginContainer/VBoxContainer/TextureButtonNivel2" to="." method="_on_TextureButton2_pressed"]
 [connection signal="pressed" from="MarginContainerMain/Menu/MarginContainer/VBoxContainer/TextureButtonNivel3" to="." method="_on_TextureButton3_pressed"]
