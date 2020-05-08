@@ -24,3 +24,8 @@ frames = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( -50, -45, -57, 4, -55, 31, -46, 58, -5, 74, 32, 74, 48, 48, 58, 21, 58, -18, 58, -49, 38, -69, 14, -76, -8, -76, -28, -64, -35, -53, -44, -27, -42, 7, -35, 25, -18, 34, 9, 35 )
+default_color = Color( 0.223529, 0.635294, 0.164706, 1 )
+[connection signal="input_event" from="." to="." method="_on_Object_input_event"]

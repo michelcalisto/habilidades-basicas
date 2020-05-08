@@ -1,7 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://nivel1/Nivel1.gd" type="Script" id=1]
 [ext_resource path="res://assets/boxs/box-nivel-gradient-average.png" type="Texture" id=2]
+[ext_resource path="res://object/Object.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/buttons/button-audio-normal-01.png" type="Texture" id=4]
+[ext_resource path="res://assets/buttons/button-audio-pressed-01.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://nivel1/MarginContainer.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 6 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "fadeout"
@@ -20,6 +33,7 @@ tracks/0/keys = {
 
 [node name="Nivel1" type="Node2D"]
 script = ExtResource( 1 )
+Objeto = ExtResource( 3 )
 
 [node name="MarginContainerMain" type="MarginContainer" parent="."]
 margin_left = 120.0
@@ -38,6 +52,81 @@ texture = ExtResource( 2 )
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainerMain"]
 margin_right = 1040.0
 margin_bottom = 560.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainerMain/VBoxContainer"]
+margin_right = 1040.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainerMain/VBoxContainer"]
+margin_left = 467.0
+margin_top = 29.0
+margin_right = 572.0
+margin_bottom = 134.0
+rect_min_size = Vector2( 105, 105 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+expand = true
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+margin_right = 640.0
+margin_bottom = 80.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+margin_left = 214.0
+margin_top = 20.0
+margin_right = 425.0
+margin_bottom = 59.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelScore" type="Label" parent="MarginContainer/GridContainer"]
+margin_right = 182.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
+custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Puntaje :"
+align = 1
+
+[node name="Score" type="Label" parent="MarginContainer/GridContainer"]
+margin_left = 186.0
+margin_right = 211.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
+custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "0"
+align = 1
+
+[node name="ControlTop" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ObjectsContainer" type="Node2D" parent="."]
+
+[node name="ObjectsSoundContainer" type="Node2D" parent="."]
+
+[node name="ObjectsOptionsContainer" type="Node2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
