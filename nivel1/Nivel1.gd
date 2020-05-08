@@ -8,6 +8,8 @@ var time_final = 0
 var nivel = 1
 
 func _ready():
+	$Control/Win.visible = false
+	$Control/Error.visible = false
 	$ColorRect.visible = true
 	$ColorRect/AnimationPlayer.play("fadeout")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
@@ -16,7 +18,7 @@ func _ready():
 	time_final = 2
 	$ObjectsContainer.visible = false
 	$ObjectsSoundContainer.visible = false
-	$ObjectsOptionsContainer.visible = false
+	#$ObjectsOptionsContainer.visible = false
 	load_objects()
 	first_sound()
 	load_opciones()
@@ -184,14 +186,14 @@ func _is_code(x):
 
 func game_over():
 	print("game over")
-	#$Control/Error.visible = true
+	$Control/Error.visible = true
 	#$Timer.start()
 
 func win():
 	score += 1
 	#$MarginContainer.updateScore(score)
 	print("you win")
-	#$Control/Ok.visible = true
+	$Control/Win.visible = true
 	#$Timer.start()
 
 
@@ -204,3 +206,11 @@ func _on_TextureButtonRegresar_pressed():
 
 func _on_TextureButtonAudio_pressed():
 	$MarginContainerMain/VBoxContainer/TextureButtonAudio/AudioStreamPlayer.play()
+
+
+func _on_TextureButtonOption1_pressed():
+	print("nose")
+
+
+func _on_TextureButtonOption2_pressed():
+	print("jue")

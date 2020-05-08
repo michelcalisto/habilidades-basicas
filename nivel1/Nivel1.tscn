@@ -352,6 +352,29 @@ stretch_mode = 3
 
 [node name="ObjectsOptionsContainer" type="Node2D" parent="."]
 
+[node name="Control" type="Control" parent="."]
+margin_left = 226.274
+margin_top = 325.27
+margin_right = 266.274
+margin_bottom = 365.27
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Win" type="Label" parent="Control"]
+margin_right = 40.0
+margin_bottom = 14.0
+rect_scale = Vector2( 6, 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "si"
+
+[node name="Error" type="Label" parent="Control"]
+margin_right = 40.0
+margin_bottom = 14.0
+rect_scale = Vector2( 6, 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "no"
+
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 anchor_right = 1.0
@@ -369,3 +392,5 @@ anims/fadein = SubResource( 3 )
 anims/fadeout = SubResource( 4 )
 [connection signal="pressed" from="MarginContainerTop1/GridContainer/TextureButtonRegresar" to="." method="_on_TextureButtonRegresar_pressed"]
 [connection signal="pressed" from="MarginContainerMain/VBoxContainer/TextureButtonAudio" to="." method="_on_TextureButtonAudio_pressed"]
+[connection signal="pressed" from="MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1" to="." method="_on_TextureButtonOption1_pressed"]
+[connection signal="pressed" from="MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption2" to="." method="_on_TextureButtonOption2_pressed"]
