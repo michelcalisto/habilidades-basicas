@@ -5,6 +5,7 @@ const objects_file = "res://data/objects.json"
 var time_left = 0
 var score = 0
 var time_final = 0
+var nivel = 1
 
 func _ready():
 	$ColorRect.visible = true
@@ -18,6 +19,7 @@ func _ready():
 	load_objects()
 	first_sound()
 	load_opciones()
+	nivel = 1
 
 func load_objects():
 	var file = File.new()
@@ -88,7 +90,7 @@ func load_opciones():
 func get_options(json):
 	var count = 0
 	var card_x = 400
-	var card_width = 140
+	var card_width = 160
 	var deck = Array()
 	var tres = Array()
 	for i in json:

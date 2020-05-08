@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://nivel1/Nivel1.gd" type="Script" id=1]
 [ext_resource path="res://assets/boxs/box-nivel-gradient-average.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://nivel1/ParallaxBackground.gd" type="Script" id=14]
 [ext_resource path="res://assets/buttons/button-normal-regresar.png" type="Texture" id=15]
 [ext_resource path="res://assets/buttons/button-pressed-regresar.png" type="Texture" id=16]
+[ext_resource path="res://assets/buttons/button-object-x150.png" type="Texture" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -23,6 +24,10 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 25
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
 font_data = ExtResource( 6 )
 
 [sub_resource type="Animation" id=3]
@@ -135,7 +140,7 @@ __meta__ = {
 
 [node name="MarginContainerTop1" type="MarginContainer" parent="."]
 anchor_right = 1.0
-margin_right = 640.0
+margin_right = 426.0
 margin_bottom = 80.0
 script = ExtResource( 7 )
 __meta__ = {
@@ -143,9 +148,9 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainerTop1"]
-margin_left = 210.0
+margin_left = 103.0
 margin_top = 11.0
-margin_right = 430.0
+margin_right = 323.0
 margin_bottom = 68.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -166,8 +171,8 @@ stretch_mode = 3
 
 [node name="MarginContainerTop2" type="MarginContainer" parent="."]
 anchor_right = 1.0
-margin_left = 640.0
-margin_right = 1280.0
+margin_left = 426.0
+margin_right = 852.0
 margin_bottom = 80.0
 script = ExtResource( 7 )
 __meta__ = {
@@ -175,9 +180,9 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainerTop2"]
-margin_left = 214.0
+margin_left = 142.0
 margin_top = 20.0
-margin_right = 425.0
+margin_right = 284.0
 margin_bottom = 59.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -186,7 +191,52 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelScore" type="Label" parent="MarginContainerTop2/GridContainer"]
+[node name="LabelNivel" type="Label" parent="MarginContainerTop2/GridContainer"]
+margin_right = 119.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
+custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Nivel :"
+align = 1
+
+[node name="Nivel" type="Label" parent="MarginContainerTop2/GridContainer"]
+margin_left = 123.0
+margin_right = 142.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
+custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "1"
+align = 1
+
+[node name="MarginContainerTop3" type="MarginContainer" parent="."]
+anchor_right = 1.0
+margin_left = 852.0
+margin_right = 1278.0
+margin_bottom = 80.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainerTop3"]
+margin_left = 107.0
+margin_top = 20.0
+margin_right = 318.0
+margin_bottom = 59.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelScore" type="Label" parent="MarginContainerTop3/GridContainer"]
 margin_right = 182.0
 margin_bottom = 39.0
 custom_fonts/font = SubResource( 1 )
@@ -197,7 +247,7 @@ custom_constants/shadow_offset_y = 2
 text = "Puntaje :"
 align = 1
 
-[node name="Score" type="Label" parent="MarginContainerTop2/GridContainer"]
+[node name="Score" type="Label" parent="MarginContainerTop3/GridContainer"]
 margin_left = 186.0
 margin_right = 211.0
 margin_bottom = 39.0
@@ -219,24 +269,33 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainerMain"]
-margin_right = 1040.0
+margin_right = 1476.0
 margin_bottom = 560.0
 texture = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainerMain"]
-margin_right = 1040.0
+margin_right = 1476.0
 margin_bottom = 560.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainerMain/VBoxContainer"]
-margin_right = 1040.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 0, 25 )
+margin_right = 1476.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 150 )
+
+[node name="Label" type="Label" parent="MarginContainerMain/VBoxContainer/MarginContainer"]
+margin_top = 39.0
+margin_right = 1476.0
+margin_bottom = 110.0
+custom_fonts/font = SubResource( 5 )
+text = "ESCUCHA CON ATENCION Y ADIVINA LOS SONIDOS DE LOS 
+ANIMALES DE LA GRANJA."
+align = 1
 
 [node name="TextureButtonAudio" type="TextureButton" parent="MarginContainerMain/VBoxContainer"]
-margin_left = 467.0
-margin_top = 29.0
-margin_right = 572.0
-margin_bottom = 134.0
+margin_left = 685.0
+margin_top = 154.0
+margin_right = 790.0
+margin_bottom = 259.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -246,6 +305,42 @@ expand = true
 stretch_mode = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainerMain/VBoxContainer/TextureButtonAudio"]
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainerMain/VBoxContainer"]
+margin_top = 263.0
+margin_right = 1476.0
+margin_bottom = 313.0
+rect_min_size = Vector2( 0, 50 )
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainerMain/VBoxContainer"]
+margin_left = 586.0
+margin_top = 317.0
+margin_right = 890.0
+margin_bottom = 467.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainerMain/VBoxContainer/GridContainer"]
+margin_right = 150.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 150, 150 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 17 )
+expand = true
+stretch_mode = 3
+
+[node name="TextureButton2" type="TextureButton" parent="MarginContainerMain/VBoxContainer/GridContainer"]
+margin_left = 154.0
+margin_right = 304.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 150, 150 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 17 )
+expand = true
+stretch_mode = 3
 
 [node name="ObjectsContainer" type="Node2D" parent="."]
 
