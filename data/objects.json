@@ -2,31 +2,31 @@
   "01": {
     "name": "Cuchara",
     "code": "01-Cuchara",
-    "sound": "",
+    "sound": "res://data/sound/caballo.ogg",
     "image": "res://data/img/cuchara.png"
   },
   "02": {
     "name": "Frambuesa",
     "code": "02-Frambuesa",
-    "sound": "",
+    "sound": "res://data/sound/cerdo.ogg",
     "image": "res://data/img/frambuesa.png"
   },
   "03": {
     "name": "Galleta",
     "code": "03-Galleta",
-    "sound": "",
+    "sound": "res://data/sound/gallina.ogg",
     "image": "res://data/img/galleta.png"
   },
   "04": {
     "name": "Gato",
     "code": "04-Gato",
-    "sound": "",
+    "sound": "res://data/sound/gallo.ogg",
     "image": "res://data/img/gato.png"
   },
   "05": {
     "name": "Lechuga",
     "code": "05-Lechuga",
-    "sound": "",
+    "sound": "res://data/sound/oveja.ogg",
     "image": "res://data/img/lechuga.png"
   }
 }

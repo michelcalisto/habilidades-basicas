@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cerdo.ogg-5a26ac5462ec05b5410772b3b2728243.oggstr"
+
+[deps]
+
+source_file="res://data/sound/cerdo.ogg"
+dest_files=[ "res://.import/cerdo.ogg-5a26ac5462ec05b5410772b3b2728243.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

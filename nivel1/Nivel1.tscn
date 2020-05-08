@@ -17,15 +17,15 @@
 [ext_resource path="res://assets/buttons/button-normal-regresar.png" type="Texture" id=15]
 [ext_resource path="res://assets/buttons/button-pressed-regresar.png" type="Texture" id=16]
 
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=2]
 size = 25
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 25
-font_data = ExtResource( 6 )
-
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "fadein"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -40,8 +40,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "fadeout"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -155,10 +154,8 @@ __meta__ = {
 }
 
 [node name="TextureButtonRegresar" type="TextureButton" parent="MarginContainerTop1/GridContainer"]
-margin_left = -1.0
-margin_top = -1.0
-margin_right = 219.0
-margin_bottom = 56.0
+margin_right = 220.0
+margin_bottom = 57.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -192,7 +189,7 @@ __meta__ = {
 [node name="LabelScore" type="Label" parent="MarginContainerTop2/GridContainer"]
 margin_right = 182.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
 custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
 custom_constants/shadow_offset_x = 2
@@ -204,7 +201,7 @@ align = 1
 margin_left = 186.0
 margin_right = 211.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
 custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
 custom_constants/shadow_offset_x = 2
@@ -235,7 +232,7 @@ margin_right = 1040.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 0, 25 )
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainerMain/VBoxContainer"]
+[node name="TextureButtonAudio" type="TextureButton" parent="MarginContainerMain/VBoxContainer"]
 margin_left = 467.0
 margin_top = 29.0
 margin_right = 572.0
@@ -247,6 +244,8 @@ texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 expand = true
 stretch_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainerMain/VBoxContainer/TextureButtonAudio"]
 
 [node name="ObjectsContainer" type="Node2D" parent="."]
 
@@ -266,6 +265,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
-anims/fadein = SubResource( 4 )
-anims/fadeout = SubResource( 1 )
+anims/fadein = SubResource( 3 )
+anims/fadeout = SubResource( 4 )
 [connection signal="pressed" from="MarginContainerTop1/GridContainer/TextureButtonRegresar" to="." method="_on_TextureButtonRegresar_pressed"]
+[connection signal="pressed" from="MarginContainerMain/VBoxContainer/TextureButtonAudio" to="." method="_on_TextureButtonAudio_pressed"]

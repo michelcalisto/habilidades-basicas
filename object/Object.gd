@@ -22,6 +22,9 @@ func set_code(x):
 func set_sound(x):
 	sound = x
 
+func get_sound():
+	return sound
+	
 func set_image(x):
 	image = x
 	var res = load(image)
@@ -35,3 +38,18 @@ func _on_Object_input_event(viewport, event, shape_idx):
 			$Line2D.visible = true
 			print(id,code)
 			emit_signal("is_code")
+
+
+func _on_Control_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			print("si nose")
+			#if self.is_in_group("deck"):
+			#	emit_signal("in_deck")
+			#else:
+			#	if self.is_in_group("hand"):
+			#		emit_signal("in_hand")
+			#	else:
+			#		if self.is_in_group("defense"):
+			#			$Line2D.visible = true
+			#			emit_signal("in_attack")

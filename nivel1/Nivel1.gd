@@ -14,6 +14,7 @@ func _ready():
 	time_left = 2
 	time_final = 2
 	$ObjectsContainer.visible = false
+	$ObjectsSoundContainer.visible = false
 	load_objects()
 	first_sound()
 	load_opciones()
@@ -64,6 +65,10 @@ func first_sound():
 			obj_x = obj_x + obj_width
 			$ObjectsContainer.remove_child(i)
 			$ObjectsSoundContainer.add_child(obj)
+			var ogg = AudioStreamOGGVorbis.new()
+			ogg = load(obj.get_sound())
+			ogg.loop = false
+			$MarginContainerMain/VBoxContainer/TextureButtonAudio/AudioStreamPlayer.stream = ogg
 		else:
 			count += 1
 
@@ -145,12 +150,12 @@ func win():
 	#$Timer.start()
 
 
-func _on_TextureButton_pressed():
-	pass # Replace with function body.
-
 
 func _on_TextureButtonRegresar_pressed():
 	$ColorRect.visible = true
 	$ColorRect/AnimationPlayer.play("fadein")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	get_tree().change_scene("res://title-screen/TitleScreen.tscn")
+
+func _on_TextureButtonAudio_pressed():
+	$MarginContainerMain/VBoxContainer/TextureButtonAudio/AudioStreamPlayer.play()
