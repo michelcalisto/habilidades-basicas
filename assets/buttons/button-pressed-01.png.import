@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/metalPanel_yellow.png-8129a13bad740bc4d3c717596d154b8b.stex"
+path="res://.import/button-pressed-01.png-b6b91777767f6bec7d89aa2146d41159.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/metalPanel_yellow.png"
-dest_files=[ "res://.import/metalPanel_yellow.png-8129a13bad740bc4d3c717596d154b8b.stex" ]
+source_file="res://assets/buttons/button-pressed-01.png"
+dest_files=[ "res://.import/button-pressed-01.png-b6b91777767f6bec7d89aa2146d41159.stex" ]
 
 [params]
 

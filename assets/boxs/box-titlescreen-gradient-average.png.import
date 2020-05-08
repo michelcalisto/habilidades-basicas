@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button-pressed2.png-1cd88168729a2aebbba6900d2071dfce.stex"
+path="res://.import/box-titlescreen-gradient-average.png-dfbf820e780bbc090cd1e651de412242.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/button-pressed2.png"
-dest_files=[ "res://.import/button-pressed2.png-1cd88168729a2aebbba6900d2071dfce.stex" ]
+source_file="res://assets/boxs/box-titlescreen-gradient-average.png"
+dest_files=[ "res://.import/box-titlescreen-gradient-average.png-dfbf820e780bbc090cd1e651de412242.stex" ]
 
 [params]
 

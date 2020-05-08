@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/InnerPanel.png-abb6d4bff75201b220a395a4c0ee9e09.stex"
+path="res://.import/button-normal-01.png-16ea6ef8ce6463a17c92581b79d24833.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/InnerPanel.png"
-dest_files=[ "res://.import/InnerPanel.png-abb6d4bff75201b220a395a4c0ee9e09.stex" ]
+source_file="res://assets/buttons/button-normal-01.png"
+dest_files=[ "res://.import/button-normal-01.png-16ea6ef8ce6463a17c92581b79d24833.stex" ]
 
 [params]
 
