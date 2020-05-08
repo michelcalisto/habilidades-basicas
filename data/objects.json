@@ -1,20 +1,32 @@
 {
   "01": {
-    "name": "",
-    "value": "",
+    "name": "Cuchara",
+    "code": "01-Cuchara",
     "sound": "",
-    "image": ""
+    "image": "res://data/img/cuchara.png"
   },
   "02": {
-    "name": "",
-    "value": "",
+    "name": "Frambuesa",
+    "code": "02-Frambuesa",
     "sound": "",
-    "image": ""
+    "image": "res://data/img/frambuesa.png"
   },
   "03": {
-    "name": "",
-    "value": "",
+    "name": "Galleta",
+    "code": "03-Galleta",
     "sound": "",
-    "image": ""
+    "image": "res://data/img/galleta.png"
   },
+  "04": {
+    "name": "Gato",
+    "code": "04-Gato",
+    "sound": "",
+    "image": "res://data/img/gato.png"
+  },
+  "05": {
+    "name": "Lechuga",
+    "code": "05-Lechuga",
+    "sound": "",
+    "image": "res://data/img/lechuga.png"
+  }
 }
