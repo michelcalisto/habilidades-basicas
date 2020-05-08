@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/audio1.png-929b6ccc2a888644904b14168bb1451c.stex"
+path="res://.import/button-audio-pressed-01.png-7ba65e561f55cabc8f257099de79f297.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/audio1.png"
-dest_files=[ "res://.import/audio1.png-929b6ccc2a888644904b14168bb1451c.stex" ]
+source_file="res://assets/buttons/button-audio-pressed-01.png"
+dest_files=[ "res://.import/button-audio-pressed-01.png-7ba65e561f55cabc8f257099de79f297.stex" ]
 
 [params]
 
