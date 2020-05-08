@@ -141,3 +141,11 @@ func win():
 	print("you win")
 	#$Control/Ok.visible = true
 	#$Timer.start()
+
+
+func _on_TextureButton_pressed():
+	pass # Replace with function body.
+
+
+func _on_TextureButtonRegresar_pressed():
+	get_tree().change_scene("res://title-screen/TitleScreen.tscn")
