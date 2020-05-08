@@ -269,22 +269,22 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainerMain"]
-margin_right = 1476.0
+margin_right = 1040.0
 margin_bottom = 560.0
 texture = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainerMain"]
-margin_right = 1476.0
+margin_right = 1040.0
 margin_bottom = 560.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainerMain/VBoxContainer"]
-margin_right = 1476.0
+margin_right = 1040.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 0, 150 )
 
 [node name="Label" type="Label" parent="MarginContainerMain/VBoxContainer/MarginContainer"]
 margin_top = 39.0
-margin_right = 1476.0
+margin_right = 1040.0
 margin_bottom = 110.0
 custom_fonts/font = SubResource( 5 )
 text = "ESCUCHA CON ATENCION Y ADIVINA LOS SONIDOS DE LOS 
@@ -292,9 +292,9 @@ ANIMALES DE LA GRANJA."
 align = 1
 
 [node name="TextureButtonAudio" type="TextureButton" parent="MarginContainerMain/VBoxContainer"]
-margin_left = 685.0
+margin_left = 467.0
 margin_top = 154.0
-margin_right = 790.0
+margin_right = 572.0
 margin_bottom = 259.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
@@ -308,20 +308,20 @@ stretch_mode = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainerMain/VBoxContainer"]
 margin_top = 263.0
-margin_right = 1476.0
+margin_right = 1040.0
 margin_bottom = 313.0
 rect_min_size = Vector2( 0, 50 )
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainerMain/VBoxContainer"]
-margin_left = 586.0
+margin_left = 368.0
 margin_top = 317.0
-margin_right = 890.0
+margin_right = 672.0
 margin_bottom = 467.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 2
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainerMain/VBoxContainer/GridContainer"]
+[node name="TextureButtonOption1" type="TextureButton" parent="MarginContainerMain/VBoxContainer/GridContainer"]
 margin_right = 150.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 150, 150 )
@@ -331,7 +331,9 @@ texture_normal = ExtResource( 17 )
 expand = true
 stretch_mode = 3
 
-[node name="TextureButton2" type="TextureButton" parent="MarginContainerMain/VBoxContainer/GridContainer"]
+[node name="Sprite" type="Sprite" parent="MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1"]
+
+[node name="TextureButtonOption2" type="TextureButton" parent="MarginContainerMain/VBoxContainer/GridContainer"]
 margin_left = 154.0
 margin_right = 304.0
 margin_bottom = 150.0
@@ -342,6 +344,8 @@ texture_normal = ExtResource( 17 )
 expand = true
 stretch_mode = 3
 
+[node name="Sprite" type="Sprite" parent="MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption2"]
+
 [node name="ObjectsContainer" type="Node2D" parent="."]
 
 [node name="ObjectsSoundContainer" type="Node2D" parent="."]
@@ -349,6 +353,7 @@ stretch_mode = 3
 [node name="ObjectsOptionsContainer" type="Node2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1280.0

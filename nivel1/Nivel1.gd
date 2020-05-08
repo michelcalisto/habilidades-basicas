@@ -16,6 +16,7 @@ func _ready():
 	time_final = 2
 	$ObjectsContainer.visible = false
 	$ObjectsSoundContainer.visible = false
+	$ObjectsOptionsContainer.visible = false
 	load_objects()
 	first_sound()
 	load_opciones()
@@ -81,13 +82,13 @@ func load_opciones():
 		var data = parse_json(file.get_as_text())
 		file.close()
 		if typeof(data) == TYPE_DICTIONARY:
-			get_options(data)
+			generate_options(data)
 		else:
 			printerr("Corrupted data!")
 	else:
 		printerr("File don't exist!")
 
-func get_options(json):
+func generate_options(json):
 	var count = 0
 	var card_x = 400
 	var card_width = 160
@@ -102,7 +103,7 @@ func get_options(json):
 			tres.append(y)
 			
 	var indexList = range(deck.size())
-	for i in range(2):
+	for i in range(1):
 		randomize()
 		var x = randi()%indexList.size()	
 		for y in deck:
@@ -114,7 +115,7 @@ func get_options(json):
 	var indice_tres = 0
 	
 	var in_list = range(tres.size())
-	for i in range(3):
+	for i in range(2):
 		randomize()
 		var x = randi()%in_list.size()	
 		for y in json:
@@ -130,9 +131,51 @@ func get_options(json):
 				obj.connect("is_code", self, "_is_code", [obj])
 				card_x = card_x + card_width
 				$ObjectsOptionsContainer.add_child(obj)
+				
+				#var res = load(obj.get_image())
+				#$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1/Sprite.texture = res
+				#$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1/Sprite.texture.set_flags(1)
+				#$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1/Sprite.set_position(Vector2(75,75))
+				#$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1/Sprite.set_scale(Vector2(0.3,0.3))
+				
+				
+				
+				#var opt = Texture.new()
+				#opt = load(obj.get_image())
+				#$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1.set_normal_texture(opt)
+				#$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1.set_stretch_mode(3)
+				#$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1.set_scale(Vector2(0.1,0.1))
+					
 		in_list.remove(x)
 		tres.remove(x)
+		get_options()
+		get_options2()
 
+func get_options():
+	#var count = 0
+	#for i in $ObjectsOptionsContainer.get_children():		
+	var obj = $ObjectsOptionsContainer.get_child(0)
+	print(obj.get_image(),"---")
+	
+	var res = load(obj.get_image())
+	$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1/Sprite.texture = res
+	$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1/Sprite.texture.set_flags(1)
+	$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1/Sprite.set_position(Vector2(75,75))
+	$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1/Sprite.set_scale(Vector2(0.3,0.3))
+	#count += 1
+
+func get_options2():
+	var count = 0
+	for i in $ObjectsOptionsContainer.get_children():		
+		var obj = $ObjectsOptionsContainer.get_child(count)
+		print(obj.get_image(),"---")
+		var res = load(obj.get_image())
+		$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption2/Sprite.texture = res
+		$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption2/Sprite.texture.set_flags(1)
+		$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption2/Sprite.set_position(Vector2(75,75))
+		$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption2/Sprite.set_scale(Vector2(0.3,0.3))
+		count += 1
+		
 func _is_code(x):
 	if $ObjectsSoundContainer.get_child(0).code == x.code:
 		win()

@@ -32,6 +32,9 @@ func set_image(x):
 	$AnimatedSprite/Sprite.texture.set_flags(1)
 	$AnimatedSprite/Sprite.set_scale(Vector2(0.1,0.1))
 
+func get_image():
+	return image
+	
 func _on_Object_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.is_pressed():
