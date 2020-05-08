@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://nivel1/Nivel1.gd" type="Script" id=1]
 [ext_resource path="res://assets/boxs/box-nivel-gradient-average.png" type="Texture" id=2]
@@ -24,6 +24,21 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=3]
 size = 25
 font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "fadein"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "fadeout"
@@ -258,6 +273,6 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
-autoplay = "fadeout"
+anims/fadein = SubResource( 4 )
 anims/fadeout = SubResource( 1 )
 [connection signal="pressed" from="MarginContainer/GridContainer/TextureButtonRegresar" to="." method="_on_TextureButtonRegresar_pressed"]

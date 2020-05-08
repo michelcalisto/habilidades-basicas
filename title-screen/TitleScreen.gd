@@ -1,8 +1,11 @@
 extends Control
 
 func _ready():
+	$ColorRect.visible = true
+	$ColorRect/AnimationPlayer.play("fadeout")
+	yield($ColorRect/AnimationPlayer, "animation_finished")
 	$ColorRect.visible = false
-
+	
 func _on_TextureButton_pressed():
 	$ColorRect.visible = true
 	$ColorRect/AnimationPlayer.play("fadein")

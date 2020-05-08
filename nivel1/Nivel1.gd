@@ -7,6 +7,8 @@ var score = 0
 var time_final = 0
 
 func _ready():
+	$ColorRect.visible = true
+	$ColorRect/AnimationPlayer.play("fadeout")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	$ColorRect.visible = false
 	time_left = 2
@@ -148,4 +150,7 @@ func _on_TextureButton_pressed():
 
 
 func _on_TextureButtonRegresar_pressed():
+	$ColorRect.visible = true
+	$ColorRect/AnimationPlayer.play("fadein")
+	yield($ColorRect/AnimationPlayer, "animation_finished")
 	get_tree().change_scene("res://title-screen/TitleScreen.tscn")
