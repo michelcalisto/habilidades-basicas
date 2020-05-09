@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://nivel1/Nivel1.gd" type="Script" id=1]
 [ext_resource path="res://assets/boxs/box-nivel-gradient-average.png" type="Texture" id=2]
@@ -16,13 +16,18 @@
 [ext_resource path="res://nivel1/ParallaxBackground.gd" type="Script" id=14]
 [ext_resource path="res://assets/buttons/button-normal-regresar.png" type="Texture" id=15]
 [ext_resource path="res://assets/buttons/button-pressed-regresar.png" type="Texture" id=16]
-[ext_resource path="res://assets/buttons/button-object-x150.png" type="Texture" id=17]
+[ext_resource path="res://assets/buttons/button-pressed-finalizar.png" type="Texture" id=17]
 [ext_resource path="res://assets/boxs/box-dialog-gradient-average-x500.png" type="Texture" id=18]
 [ext_resource path="res://assets/buttons/button-normal-si.png" type="Texture" id=19]
 [ext_resource path="res://assets/buttons/button-pressed-si.png" type="Texture" id=20]
 [ext_resource path="res://assets/buttons/button-pressed-no.png" type="Texture" id=21]
 [ext_resource path="res://assets/buttons/button-normal-no.png" type="Texture" id=22]
 [ext_resource path="res://nivel1/PopupMenuStatus.gd" type="Script" id=23]
+[ext_resource path="res://assets/buttons/button-pressed-reintentar.png" type="Texture" id=24]
+[ext_resource path="res://assets/buttons/button-normal-finalizar.png" type="Texture" id=25]
+[ext_resource path="res://assets/buttons/button-normal-reintentar.png" type="Texture" id=26]
+[ext_resource path="res://assets/buttons/button-pressed-continuar.png" type="Texture" id=27]
+[ext_resource path="res://assets/buttons/button-normal-continuar.png" type="Texture" id=28]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -320,40 +325,6 @@ margin_right = 1040.0
 margin_bottom = 313.0
 rect_min_size = Vector2( 0, 50 )
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainerMain/VBoxContainer"]
-margin_left = 368.0
-margin_top = 317.0
-margin_right = 672.0
-margin_bottom = 467.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-columns = 2
-
-[node name="TextureButtonOption1" type="TextureButton" parent="MarginContainerMain/VBoxContainer/GridContainer"]
-margin_right = 150.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 17 )
-expand = true
-stretch_mode = 3
-
-[node name="Sprite" type="Sprite" parent="MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1"]
-
-[node name="TextureButtonOption2" type="TextureButton" parent="MarginContainerMain/VBoxContainer/GridContainer"]
-margin_left = 154.0
-margin_right = 304.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 150, 150 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 17 )
-expand = true
-stretch_mode = 3
-
-[node name="Sprite" type="Sprite" parent="MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption2"]
-
 [node name="ObjectsContainer" type="Node2D" parent="."]
 
 [node name="ObjectsSoundContainer" type="Node2D" parent="."]
@@ -437,6 +408,165 @@ texture_pressed = ExtResource( 21 )
 expand = true
 stretch_mode = 3
 
+[node name="PopupMenuOverNivel" type="PopupMenu" parent="."]
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 660.0
+margin_bottom = 380.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="PopupMenuOverNivel"]
+texture = ExtResource( 18 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupMenuOverNivel"]
+margin_left = -200.0
+margin_top = -100.0
+margin_right = 208.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 400, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labeltxt" type="Label" parent="PopupMenuOverNivel/MarginContainer"]
+margin_top = 27.0
+margin_right = 408.0
+margin_bottom = 105.0
+custom_fonts/font = SubResource( 4 )
+text = "FELICITACIONES HAS 
+DESBLOQUEADO EL 
+SIGUIENTE NIVEL"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="PopupMenuOverNivel"]
+margin_left = -250.0
+margin_top = 50.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 250, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButtonContinuar" type="TextureButton" parent="PopupMenuOverNivel/MarginContainer2"]
+margin_left = 15.0
+margin_top = 11.0
+margin_right = 235.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 220, 57 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 28 )
+texture_pressed = ExtResource( 27 )
+expand = true
+stretch_mode = 3
+
+[node name="MarginContainerFin" type="MarginContainer" parent="PopupMenuOverNivel"]
+margin_top = 50.0
+margin_right = 250.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 250, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButtonFinalizaar1" type="TextureButton" parent="PopupMenuOverNivel/MarginContainerFin"]
+margin_left = 15.0
+margin_top = 11.0
+margin_right = 235.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 220, 57 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 17 )
+expand = true
+stretch_mode = 3
+
+[node name="PopupMenuOverGame" type="PopupMenu" parent="."]
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 660.0
+margin_bottom = 380.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="PopupMenuOverGame"]
+texture = ExtResource( 18 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupMenuOverGame"]
+margin_left = -200.0
+margin_top = -100.0
+margin_right = 208.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 400, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labeltxtss" type="Label" parent="PopupMenuOverGame/MarginContainer"]
+margin_top = 13.0
+margin_right = 408.0
+margin_bottom = 118.0
+custom_fonts/font = SubResource( 4 )
+text = "LAMENTABLEMENTE NO
+HAS LOGRADO 
+DESBLOQUEAR EL 
+SIGUIENTE NIVEL"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="PopupMenuOverGame"]
+margin_left = -250.0
+margin_top = 50.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 250, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButtonReintentar" type="TextureButton" parent="PopupMenuOverGame/MarginContainer2"]
+margin_left = 15.0
+margin_top = 11.0
+margin_right = 235.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 220, 57 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 24 )
+expand = true
+stretch_mode = 3
+
+[node name="MarginContainerFin" type="MarginContainer" parent="PopupMenuOverGame"]
+margin_top = 50.0
+margin_right = 250.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 250, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButtonFinalizar" type="TextureButton" parent="PopupMenuOverGame/MarginContainerFin"]
+margin_left = 15.0
+margin_top = 11.0
+margin_right = 235.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 220, 57 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 17 )
+expand = true
+stretch_mode = 3
+
 [node name="PopupMenuStatus" type="PopupMenu" parent="."]
 margin_left = 640.0
 margin_top = 360.0
@@ -513,9 +643,10 @@ anims/fadeout = SubResource( 6 )
 [node name="TimerLevel" type="Timer" parent="."]
 [connection signal="pressed" from="MarginContainerTop1/GridContainer/TextureButtonRegresar" to="." method="_on_TextureButtonRegresar_pressed"]
 [connection signal="pressed" from="MarginContainerMain/VBoxContainer/TextureButtonAudio" to="." method="_on_TextureButtonAudio_pressed"]
-[connection signal="pressed" from="MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1" to="." method="_on_TextureButtonOption1_pressed"]
-[connection signal="pressed" from="MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption2" to="." method="_on_TextureButtonOption2_pressed"]
 [connection signal="pressed" from="PopupMenuRegresar/MarginContainer2/TextureButtonSi" to="." method="_on_TextureButtonSi_pressed"]
 [connection signal="pressed" from="PopupMenuRegresar/MarginContainer3/TextureButtonNo" to="." method="_on_TextureButtonNo_pressed"]
+[connection signal="pressed" from="PopupMenuOverNivel/MarginContainerFin/TextureButtonFinalizaar1" to="." method="_on_TextureButtonFinalizaar1_pressed"]
+[connection signal="pressed" from="PopupMenuOverGame/MarginContainer2/TextureButtonReintentar" to="." method="_on_TextureButtonReintentar_pressed"]
+[connection signal="pressed" from="PopupMenuOverGame/MarginContainerFin/TextureButtonFinalizar" to="." method="_on_TextureButtonFinalizar_pressed"]
 [connection signal="timeout" from="TimerResponse" to="." method="_on_TimerResponse_timeout"]
 [connection signal="timeout" from="TimerLevel" to="." method="_on_TimerLevel_timeout"]

@@ -20,7 +20,7 @@ func _ready():
 	$ObjectsOptionsContainer.visible = false
 	nivel = 1
 	intentos = 0
-	
+	score = 0
 	load_objects()
 	
 	first_sound()
@@ -215,12 +215,6 @@ func _on_TextureButtonAudio_pressed():
 	$MarginContainerMain/VBoxContainer/TextureButtonAudio/AudioStreamPlayer.play()
 
 
-func _on_TextureButtonOption1_pressed():
-	print("nose")
-
-
-func _on_TextureButtonOption2_pressed():
-	print("jue")
 
 
 
@@ -265,8 +259,10 @@ func next():
 		load_opciones()
 	else:
 		if score >= 4:
+			$PopupMenuOverNivel.show()
 			print("desbloqueado nivel")
 		else:
+			$PopupMenuOverGame.show()
 			print("fin")
 		#$Control/Label.visible = true
 		#$TimerLevel.start()
@@ -305,3 +301,43 @@ func _on_TextureButtonSi_pressed():
 func _on_TextureButtonNo_pressed():
 	$PopupMenuRegresar.hide()
 	#$Control2.visible = false
+
+
+func _on_TextureButtonFinalizaar1_pressed():
+	$PopupMenuOverNivel.hide()
+	$ColorRect.visible = true
+	$ColorRect/AnimationPlayer.play("fadein")
+	yield($ColorRect/AnimationPlayer, "animation_finished")
+	get_tree().change_scene("res://title-screen/TitleScreen.tscn")
+
+
+func _on_TextureButtonReintentar_pressed():
+	$PopupMenuOverGame.hide()
+	refresh_nivel()
+
+
+func _on_TextureButtonFinalizar_pressed():
+	$PopupMenuOverGame.hide()
+	$ColorRect.visible = true
+	$ColorRect/AnimationPlayer.play("fadein")
+	yield($ColorRect/AnimationPlayer, "animation_finished")
+	get_tree().change_scene("res://title-screen/TitleScreen.tscn")
+
+func refresh_nivel():
+	$ColorRect.visible = true
+	$ColorRect/AnimationPlayer.play("fadeout")
+	yield($ColorRect/AnimationPlayer, "animation_finished")
+	$ColorRect.visible = false
+	time_left = 2
+	time_final = 2
+	$ObjectsContainer.visible = false
+	$ObjectsSoundContainer.visible = false
+	$ObjectsOptionsContainer.visible = false
+	nivel = 1
+	intentos = 0
+	score = 0
+	$MarginContainerTop3.updateScore(score)
+	load_objects()
+	
+	first_sound()
+	load_opciones()
