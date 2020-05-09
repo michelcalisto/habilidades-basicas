@@ -13,11 +13,20 @@ func _ready():
 func set_id(x):
 	id = x
 
+func gett_id():
+	return id
+
 func set_nombre(x):
 	nombre = x
 
+func get_nombre():
+	return nombre
+
 func set_code(x):
 	code = x
+
+func get_code():
+	return code
 
 func set_sound(x):
 	sound = x

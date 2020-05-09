@@ -6,6 +6,7 @@ var time_left = 0
 var score = 0
 var time_final = 0
 var nivel = 1
+var intentos = 0
 
 func _ready():
 	$ColorRect.visible = true
@@ -17,10 +18,13 @@ func _ready():
 	$ObjectsContainer.visible = false
 	$ObjectsSoundContainer.visible = false
 	$ObjectsOptionsContainer.visible = false
+	nivel = 1
+	intentos = 0
+	
 	load_objects()
+	
 	first_sound()
 	load_opciones()
-	nivel = 1
 
 func load_objects():
 	var file = File.new()
@@ -54,10 +58,13 @@ func create_deck(json):
 				obj.position = Vector2(80,500)
 				$ObjectsContainer.add_child(obj)
 		indexList.remove(x)
-		deck.remove(x)
+		deck.remove(x)	
+		
+	for i in $ObjectsContainer.get_children():
+		print(i,i.id,i.nombre)
+	print("...................")
 
 func first_sound():
-	# pasar el audio del objeto al button
 	var count = 0
 	var obj_x = 640
 	var obj_width = 140
@@ -74,6 +81,12 @@ func first_sound():
 			$MarginContainerMain/VBoxContainer/TextureButtonAudio/AudioStreamPlayer.stream = ogg
 		else:
 			count += 1
+	for i in $ObjectsSoundContainer.get_children():
+		print(i,i.id,i.nombre)
+	print("...................")
+	for i in $ObjectsContainer.get_children():
+		print(i,i.id,i.nombre)
+	print("...................")
 
 func load_opciones():
 	var file = File.new()
@@ -90,8 +103,8 @@ func load_opciones():
 
 func generate_options(json):
 	var count = 0
-	var card_x = 400
-	var card_width = 160
+	var card_x = 555
+	var card_width = 170
 	var deck = Array()
 	var tres = Array()
 	for i in json:
@@ -132,31 +145,20 @@ func generate_options(json):
 				card_x = card_x + card_width
 				$ObjectsOptionsContainer.add_child(obj)
 				
-				#var res = load(obj.get_image())
-				#$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1/Sprite.texture = res
-				#$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1/Sprite.texture.set_flags(1)
-				#$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1/Sprite.set_position(Vector2(75,75))
-				#$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1/Sprite.set_scale(Vector2(0.3,0.3))
-				
-				
-				
-				#var opt = Texture.new()
-				#opt = load(obj.get_image())
-				#$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1.set_normal_texture(opt)
-				#$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1.set_stretch_mode(3)
-				#$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1.set_scale(Vector2(0.1,0.1))
-					
 		in_list.remove(x)
 		tres.remove(x)
 		$ObjectsOptionsContainer.visible = true
-		get_options()
-		get_options2()
+		#get_options()
+		#get_options2()
+	for i in $ObjectsOptionsContainer.get_children():
+		print(i,i.id,i.nombre)
+	print("...................")
 
 func get_options():
 	#var count = 0
 	#for i in $ObjectsOptionsContainer.get_children():		
 	var obj = $ObjectsOptionsContainer.get_child(0)
-	print(obj.get_image(),"---")
+	#print(obj.get_image(),"---")
 	
 	var res = load(obj.get_image())
 	$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1/Sprite.texture = res
@@ -169,7 +171,7 @@ func get_options2():
 	var count = 0
 	for i in $ObjectsOptionsContainer.get_children():		
 		var obj = $ObjectsOptionsContainer.get_child(count)
-		print(obj.get_image(),"---")
+		#print(obj.get_image(),"---")
 		var res = load(obj.get_image())
 		$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption2/Sprite.texture = res
 		$MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption2/Sprite.texture.set_flags(1)
@@ -184,12 +186,14 @@ func _is_code(x):
 		game_over()
 
 func game_over():
+	intentos += 1
 	print("game over")
 	$PopupMenuStatus.show()
 	$PopupMenuStatus.updateStatustxt("INCORRECTA")
 	$TimerResponse.start()
 
 func win():
+	intentos += 1
 	score += 1
 	$MarginContainerTop3.updateScore(score)
 	print("you win")
@@ -223,8 +227,50 @@ func _on_TextureButtonOption2_pressed():
 func _on_TimerResponse_timeout():
 	time_left -=1
 	if time_left <= 0:
-		next_level()
+		next()
+#		if intentos < 3:
+#			next()
+#		else: 
+#			print("intentos acabados")
+		#next_level()
 
+func reset_sound():
+	for i in $ObjectsSoundContainer.get_children():
+		$ObjectsSoundContainer.remove_child(i)
+
+func eliminar_last_object():
+	var count = 0
+	for i in $ObjectsContainer.get_children():
+		if count >= $ObjectsContainer.get_child_count() - 1:
+			var obj = $ObjectsContainer.get_child(count)
+			$ObjectsContainer.remove_child(i)
+		else:
+			count += 1
+
+func next():
+	$PopupMenuStatus.visible = false
+	$TimerResponse.stop()
+#	for i in $ObjectsContainer.get_children():
+#		$ObjectsContainer.remove_child(i)
+	#eliminar_last_object()
+#	for i in $ObjectsContainer.get_children():
+#		print(i,i.id,i.nombre)
+#	print("......***************")
+	reset_sound()
+	time_left = 2
+	$ObjectsOptionsContainer.visible = false
+	if intentos < 5:
+		#load_objects()
+		first_sound()
+		load_opciones()
+	else:
+		if score >= 4:
+			print("desbloqueado nivel")
+		else:
+			print("fin")
+		#$Control/Label.visible = true
+		#$TimerLevel.start()
+		
 func next_level():
 	$PopupMenuStatus.visible = false
 	$TimerResponse.stop()
