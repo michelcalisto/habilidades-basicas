@@ -18,7 +18,7 @@ func _ready():
 	time_final = 2
 	$ObjectsContainer.visible = false
 	$ObjectsSoundContainer.visible = false
-	#$ObjectsOptionsContainer.visible = false
+	$ObjectsOptionsContainer.visible = false
 	load_objects()
 	first_sound()
 	load_opciones()
@@ -150,6 +150,7 @@ func generate_options(json):
 					
 		in_list.remove(x)
 		tres.remove(x)
+		$ObjectsOptionsContainer.visible = true
 		get_options()
 		get_options2()
 
@@ -187,14 +188,14 @@ func _is_code(x):
 func game_over():
 	print("game over")
 	$Control/Error.visible = true
-	#$Timer.start()
+	$TimerResponse.start()
 
 func win():
 	score += 1
-	#$MarginContainer.updateScore(score)
+	$MarginContainerTop3.updateScore(score)
 	print("you win")
 	$Control/Win.visible = true
-	#$Timer.start()
+	$TimerResponse.start()
 
 
 
@@ -214,3 +215,33 @@ func _on_TextureButtonOption1_pressed():
 
 func _on_TextureButtonOption2_pressed():
 	print("jue")
+
+
+
+func _on_TimerResponse_timeout():
+	time_left -=1
+	if time_left <= 0:
+		next_level()
+
+func next_level():
+	$TimerResponse.stop()
+	for i in $ObjectsContainer.get_children():
+		$ObjectsContainer.remove_child(i)
+	for i in $ObjectsSoundContainer.get_children():
+		$ObjectsSoundContainer.remove_child(i)
+	time_left = 2
+	$Control/Win.visible = false
+	$Control/Error.visible = false
+	$ObjectsOptionsContainer.visible = false
+	if $ObjectsOptionsContainer.get_child_count() != 0:
+		load_objects()
+		first_sound()
+		load_opciones()
+	else:
+		$Control/Label.visible = true
+		$TimerLevel.start()
+
+func _on_TimerLevel_timeout():
+	time_final -=1
+	if time_final <= 0:
+		get_tree().change_scene("res://title-screen/TitleScreen.tscn")
