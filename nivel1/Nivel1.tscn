@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://nivel1/Nivel1.gd" type="Script" id=1]
 [ext_resource path="res://assets/boxs/box-nivel-gradient-average.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://assets/buttons/button-pressed-si.png" type="Texture" id=20]
 [ext_resource path="res://assets/buttons/button-pressed-no.png" type="Texture" id=21]
 [ext_resource path="res://assets/buttons/button-normal-no.png" type="Texture" id=22]
+[ext_resource path="res://nivel1/PopupMenuStatus.gd" type="Script" id=23]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -359,38 +360,6 @@ stretch_mode = 3
 
 [node name="ObjectsOptionsContainer" type="Node2D" parent="."]
 
-[node name="Control" type="Control" parent="."]
-margin_left = 226.274
-margin_top = 325.27
-margin_right = 266.274
-margin_bottom = 365.27
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Win" type="Label" parent="Control"]
-margin_right = 40.0
-margin_bottom = 14.0
-rect_scale = Vector2( 6, 6 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "si"
-
-[node name="Error" type="Label" parent="Control"]
-margin_right = 40.0
-margin_bottom = 14.0
-rect_scale = Vector2( 6, 6 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "no"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Control"]
-margin_right = 40.0
-margin_bottom = 14.0
-rect_scale = Vector2( 7, 7 )
-text = "Puntaje final"
-
 [node name="PopupMenuRegresar" type="PopupMenu" parent="."]
 margin_left = 640.0
 margin_top = 360.0
@@ -410,9 +379,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="PopupMenuRegresar/MarginContainer"]
-margin_right = 408.0
-margin_bottom = 132.0
+[node name="Labelx" type="Label" parent="PopupMenuRegresar/MarginContainer"]
+margin_right = 564.0
+margin_bottom = 182.0
 custom_fonts/font = SubResource( 4 )
 text = "RECUERDA QUE AL RETROCEDER
 AL MENU PRINCIPAL, TU PROGRESO
@@ -467,6 +436,61 @@ texture_normal = ExtResource( 22 )
 texture_pressed = ExtResource( 21 )
 expand = true
 stretch_mode = 3
+
+[node name="PopupMenuStatus" type="PopupMenu" parent="."]
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 660.0
+margin_bottom = 380.0
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="PopupMenuStatus"]
+texture = ExtResource( 18 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupMenuStatus"]
+margin_left = -200.0
+margin_top = -100.0
+margin_right = 208.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 400, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels" type="Label" parent="PopupMenuStatus/MarginContainer"]
+margin_top = 49.0
+margin_right = 408.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 4 )
+text = "RESPUESTA"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="PopupMenuStatus"]
+margin_left = -200.0
+margin_top = 32.0
+margin_right = 208.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 400, 80 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelStatus" type="Label" parent="PopupMenuStatus/MarginContainer2"]
+margin_top = 23.0
+margin_right = 408.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 4 )
+text = "RESPUESTA"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false

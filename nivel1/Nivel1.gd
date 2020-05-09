@@ -8,8 +8,6 @@ var time_final = 0
 var nivel = 1
 
 func _ready():
-	$Control/Win.visible = false
-	$Control/Error.visible = false
 	$ColorRect.visible = true
 	$ColorRect/AnimationPlayer.play("fadeout")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
@@ -187,14 +185,16 @@ func _is_code(x):
 
 func game_over():
 	print("game over")
-	$Control/Error.visible = true
+	$PopupMenuStatus.show()
+	$PopupMenuStatus.updateStatustxt("INCORRECTA")
 	$TimerResponse.start()
 
 func win():
 	score += 1
 	$MarginContainerTop3.updateScore(score)
 	print("you win")
-	$Control/Win.visible = true
+	$PopupMenuStatus.show()
+	$PopupMenuStatus.updateStatustxt("CORRECTA")
 	$TimerResponse.start()
 
 
@@ -226,14 +226,13 @@ func _on_TimerResponse_timeout():
 		next_level()
 
 func next_level():
+	$PopupMenuStatus.visible = false
 	$TimerResponse.stop()
 	for i in $ObjectsContainer.get_children():
 		$ObjectsContainer.remove_child(i)
 	for i in $ObjectsSoundContainer.get_children():
 		$ObjectsSoundContainer.remove_child(i)
 	time_left = 2
-	$Control/Win.visible = false
-	$Control/Error.visible = false
 	$ObjectsOptionsContainer.visible = false
 	if $ObjectsOptionsContainer.get_child_count() != 0:
 		load_objects()
