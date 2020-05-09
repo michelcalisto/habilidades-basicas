@@ -200,10 +200,12 @@ func win():
 
 
 func _on_TextureButtonRegresar_pressed():
-	$ColorRect.visible = true
-	$ColorRect/AnimationPlayer.play("fadein")
-	yield($ColorRect/AnimationPlayer, "animation_finished")
-	get_tree().change_scene("res://title-screen/TitleScreen.tscn")
+	#$Control2.visible = true
+	$PopupMenuRegresar.show()
+#	$ColorRect.visible = true
+#	$ColorRect/AnimationPlayer.play("fadein")
+#	yield($ColorRect/AnimationPlayer, "animation_finished")
+#	get_tree().change_scene("res://title-screen/TitleScreen.tscn")
 
 func _on_TextureButtonAudio_pressed():
 	$MarginContainerMain/VBoxContainer/TextureButtonAudio/AudioStreamPlayer.play()
@@ -245,3 +247,16 @@ func _on_TimerLevel_timeout():
 	time_final -=1
 	if time_final <= 0:
 		get_tree().change_scene("res://title-screen/TitleScreen.tscn")
+
+
+func _on_TextureButtonSi_pressed():
+	$PopupMenuRegresar.hide()
+	$ColorRect.visible = true
+	$ColorRect/AnimationPlayer.play("fadein")
+	yield($ColorRect/AnimationPlayer, "animation_finished")
+	get_tree().change_scene("res://title-screen/TitleScreen.tscn")
+
+
+func _on_TextureButtonNo_pressed():
+	$PopupMenuRegresar.hide()
+	#$Control2.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://nivel1/Nivel1.gd" type="Script" id=1]
 [ext_resource path="res://assets/boxs/box-nivel-gradient-average.png" type="Texture" id=2]
@@ -17,6 +17,11 @@
 [ext_resource path="res://assets/buttons/button-normal-regresar.png" type="Texture" id=15]
 [ext_resource path="res://assets/buttons/button-pressed-regresar.png" type="Texture" id=16]
 [ext_resource path="res://assets/buttons/button-object-x150.png" type="Texture" id=17]
+[ext_resource path="res://assets/boxs/box-dialog-gradient-average-x500.png" type="Texture" id=18]
+[ext_resource path="res://assets/buttons/button-normal-si.png" type="Texture" id=19]
+[ext_resource path="res://assets/buttons/button-pressed-si.png" type="Texture" id=20]
+[ext_resource path="res://assets/buttons/button-pressed-no.png" type="Texture" id=21]
+[ext_resource path="res://assets/buttons/button-normal-no.png" type="Texture" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -26,12 +31,14 @@ font_data = ExtResource( 6 )
 size = 25
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=3]
 size = 22
 font_data = ExtResource( 6 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "fadein"
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -45,7 +52,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -286,7 +293,7 @@ rect_min_size = Vector2( 0, 150 )
 margin_top = 39.0
 margin_right = 1040.0
 margin_bottom = 110.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 3 )
 text = "ESCUCHA CON ATENCION Y ADIVINA LOS SONIDOS DE LOS 
 ANIMALES DE LA GRANJA."
 align = 1
@@ -384,6 +391,83 @@ margin_bottom = 14.0
 rect_scale = Vector2( 7, 7 )
 text = "Puntaje final"
 
+[node name="PopupMenuRegresar" type="PopupMenu" parent="."]
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 660.0
+margin_bottom = 380.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenuRegresar"]
+texture = ExtResource( 18 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupMenuRegresar"]
+margin_left = -200.0
+margin_top = -100.0
+margin_right = 208.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 400, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PopupMenuRegresar/MarginContainer"]
+margin_right = 408.0
+margin_bottom = 132.0
+custom_fonts/font = SubResource( 4 )
+text = "RECUERDA QUE AL RETROCEDER
+AL MENU PRINCIPAL, TU PROGRESO
+SE PERDERA.
+
+¿REGRESAR AL MENU PRINCIPAL? "
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="PopupMenuRegresar"]
+margin_left = -250.0
+margin_top = 50.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 250, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButtonSi" type="TextureButton" parent="PopupMenuRegresar/MarginContainer2"]
+margin_left = 15.0
+margin_top = 11.0
+margin_right = 235.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 220, 57 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 20 )
+expand = true
+stretch_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="PopupMenuRegresar"]
+margin_top = 50.0
+margin_right = 250.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 250, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButtonNo" type="TextureButton" parent="PopupMenuRegresar/MarginContainer3"]
+margin_left = 15.0
+margin_top = 11.0
+margin_right = 235.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 220, 57 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 22 )
+texture_pressed = ExtResource( 21 )
+expand = true
+stretch_mode = 3
+
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 anchor_right = 1.0
@@ -397,8 +481,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
-anims/fadein = SubResource( 3 )
-anims/fadeout = SubResource( 4 )
+anims/fadein = SubResource( 5 )
+anims/fadeout = SubResource( 6 )
 
 [node name="TimerResponse" type="Timer" parent="."]
 
@@ -407,5 +491,7 @@ anims/fadeout = SubResource( 4 )
 [connection signal="pressed" from="MarginContainerMain/VBoxContainer/TextureButtonAudio" to="." method="_on_TextureButtonAudio_pressed"]
 [connection signal="pressed" from="MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption1" to="." method="_on_TextureButtonOption1_pressed"]
 [connection signal="pressed" from="MarginContainerMain/VBoxContainer/GridContainer/TextureButtonOption2" to="." method="_on_TextureButtonOption2_pressed"]
+[connection signal="pressed" from="PopupMenuRegresar/MarginContainer2/TextureButtonSi" to="." method="_on_TextureButtonSi_pressed"]
+[connection signal="pressed" from="PopupMenuRegresar/MarginContainer3/TextureButtonNo" to="." method="_on_TextureButtonNo_pressed"]
 [connection signal="timeout" from="TimerResponse" to="." method="_on_TimerResponse_timeout"]
 [connection signal="timeout" from="TimerLevel" to="." method="_on_TimerLevel_timeout"]
