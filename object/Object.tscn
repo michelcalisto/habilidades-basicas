@@ -12,7 +12,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 67, 90 )
+extents = Vector2( 72, 70.0945 )
 
 [node name="Object" type="Area2D"]
 script = ExtResource( 1 )
@@ -25,15 +25,17 @@ frames = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
-[node name="Line2D" type="Line2D" parent="."]
-points = PoolVector2Array( -50, -45, -57, 4, -55, 31, -46, 58, -5, 74, 32, 74, 48, 48, 58, 21, 58, -18, 58, -49, 38, -69, 14, -76, -8, -76, -28, -64, -35, -53, -44, -27, -42, 7, -35, 25, -18, 34, 9, 35 )
-default_color = Color( 0.223529, 0.635294, 0.164706, 1 )
-
 [node name="Control" type="Control" parent="."]
-margin_right = 72.0
-margin_bottom = 91.0
+margin_left = -75.0
+margin_top = -75.0
+margin_right = 75.0
+margin_bottom = 75.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( -6, -54.0945, -38, -44.0945, -49, -30.0945, -56, -16.0945, -57, 10.9055, -54, 27.9055, -40, 39.9055, -19, 56.9055, 9, 56.9055, 40, 37.9055, 49, 16.9055, 52, 1.90549, 52, -20.0945, 45, -35.0945, 36, -51.0945, 22, -54.0945, -29, -57.0945 )
+default_color = Color( 0.211765, 0.729412, 0.152941, 1 )
 [connection signal="input_event" from="." to="." method="_on_Object_input_event"]
 [connection signal="gui_input" from="Control" to="." method="_on_Control_gui_input"]
