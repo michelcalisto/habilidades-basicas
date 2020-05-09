@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lechuga.png-87c71fcb0954072583273f312f0cac4b.stex"
+path="res://.import/oveja.png-3cbf3ba3a673f16c6ec929667716c2e3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/img/lechuga.png"
-dest_files=[ "res://.import/lechuga.png-87c71fcb0954072583273f312f0cac4b.stex" ]
+source_file="res://data/img/oveja.png"
+dest_files=[ "res://.import/oveja.png-3cbf3ba3a673f16c6ec929667716c2e3.stex" ]
 
 [params]
 

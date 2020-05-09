@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gato.png-6086d9f553a6441d751c4b10a35b4970.stex"
+path="res://.import/gallina.png-6bc7b7ae9b5ddaf961e0dfd6aed215f0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/img/gato.png"
-dest_files=[ "res://.import/gato.png-6086d9f553a6441d751c4b10a35b4970.stex" ]
+source_file="res://data/img/gallina.png"
+dest_files=[ "res://.import/gallina.png-6bc7b7ae9b5ddaf961e0dfd6aed215f0.stex" ]
 
 [params]
 

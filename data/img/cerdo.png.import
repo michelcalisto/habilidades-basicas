@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/galleta.png-3f468e54d78d5a9e3d1bf56b656c18e4.stex"
+path="res://.import/cerdo.png-797ca824549723b709c80ca266a16701.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/img/galleta.png"
-dest_files=[ "res://.import/galleta.png-3f468e54d78d5a9e3d1bf56b656c18e4.stex" ]
+source_file="res://data/img/cerdo.png"
+dest_files=[ "res://.import/cerdo.png-797ca824549723b709c80ca266a16701.stex" ]
 
 [params]
 

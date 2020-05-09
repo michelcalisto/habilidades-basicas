@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cuchara.png-0d40198eb4328f0ebe2be1d251ed7d4f.stex"
+path="res://.import/caballo.png-e081abdd776dbd7eae1f0e89f9e4d8d8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/img/cuchara.png"
-dest_files=[ "res://.import/cuchara.png-0d40198eb4328f0ebe2be1d251ed7d4f.stex" ]
+source_file="res://data/img/caballo.png"
+dest_files=[ "res://.import/caballo.png-e081abdd776dbd7eae1f0e89f9e4d8d8.stex" ]
 
 [params]
 

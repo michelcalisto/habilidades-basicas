@@ -30,7 +30,7 @@ func set_image(x):
 	var res = load(image)
 	$AnimatedSprite/Sprite.texture = res
 	$AnimatedSprite/Sprite.texture.set_flags(1)
-	$AnimatedSprite/Sprite.set_scale(Vector2(0.1,0.1))
+	$AnimatedSprite/Sprite.set_scale(Vector2(0.3,0.3))
 
 func get_image():
 	return image

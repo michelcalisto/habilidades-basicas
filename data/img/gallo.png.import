@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/frambuesa.png-1448249d0994caf46179bf5516171cc4.stex"
+path="res://.import/gallo.png-53fc6e0cef048c7dc45d1ca33ca6daa8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/img/frambuesa.png"
-dest_files=[ "res://.import/frambuesa.png-1448249d0994caf46179bf5516171cc4.stex" ]
+source_file="res://data/img/gallo.png"
+dest_files=[ "res://.import/gallo.png-53fc6e0cef048c7dc45d1ca33ca6daa8.stex" ]
 
 [params]
 
