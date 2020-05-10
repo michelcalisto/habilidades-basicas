@@ -1,0 +1,32 @@
+{
+  "01": {
+    "name": "Caballo",
+    "code": "01-Caballo",
+    "sound": "res://data/sound/caballo.ogg",
+    "image": "res://data/img/caballo.png"
+  },
+  "02": {
+    "name": "Cerdo",
+    "code": "02-Cerdo",
+    "sound": "res://data/sound/cerdo.ogg",
+    "image": "res://data/img/cerdo.png"
+  },
+  "03": {
+    "name": "Gallina",
+    "code": "03-Gallina",
+    "sound": "res://data/sound/gallina.ogg",
+    "image": "res://data/img/gallina.png"
+  },
+  "04": {
+    "name": "Gallo",
+    "code": "04-Gallo",
+    "sound": "res://data/sound/gallo.ogg",
+    "image": "res://data/img/gallo.png"
+  },
+  "05": {
+    "name": "Oveja",
+    "code": "05-Oveja",
+    "sound": "res://data/sound/oveja.ogg",
+    "image": "res://data/img/oveja.png"
+  }
+}
