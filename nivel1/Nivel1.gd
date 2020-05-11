@@ -232,6 +232,16 @@ func reset_sound():
 	for i in $ObjectsSoundContainer.get_children():
 		$ObjectsSoundContainer.remove_child(i)
 
+func reset_options():
+	#var count = 0
+	for i in $ObjectsOptionsContainer.get_children():
+		$ObjectsOptionsContainer.remove_child(i)
+#		if count >= $ObjectsOptionsContainer.get_child_count() - 1:
+#			var obj = $ObjectsOptionsContainer.get_child(count)
+#			$ObjectsOptionsContainer.remove_child(i)
+#		else:
+#			count += 1
+		
 func eliminar_last_object():
 	var count = 0
 	for i in $ObjectsContainer.get_children():
@@ -244,17 +254,17 @@ func eliminar_last_object():
 func next():
 	$PopupMenuStatus.visible = false
 	$TimerResponse.stop()
-#	for i in $ObjectsContainer.get_children():
-#		$ObjectsContainer.remove_child(i)
-	#eliminar_last_object()
-#	for i in $ObjectsContainer.get_children():
-#		print(i,i.id,i.nombre)
-#	print("......***************")
 	reset_sound()
+	for i in $ObjectsOptionsContainer.get_children():
+		print(i,i.id,i.nombre)
+	print("...................")
+	reset_options()
+	for i in $ObjectsOptionsContainer.get_children():
+		print(i,i.id,i.nombre)
+	print("...................")
 	time_left = 2
 	$ObjectsOptionsContainer.visible = false
 	if intentos < 5:
-		#load_objects()
 		first_sound()
 		load_opciones()
 	else:
@@ -264,8 +274,6 @@ func next():
 		else:
 			$PopupMenuOverGame.show()
 			print("fin")
-		#$Control/Label.visible = true
-		#$TimerLevel.start()
 		
 func next_level():
 	$PopupMenuStatus.visible = false
