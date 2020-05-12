@@ -2,25 +2,25 @@ extends Node2D
 
 export(PackedScene) var Objeto
 const objects_file = "res://data/objects.json"
-var time_left = 0
-var score = 0
+
+var score
+var time_left
+
 var time_final = 0
-var nivel = 1
 var intentos = 0
 
 func _ready():
+	score = 0
+	time_left = 2
 	$ColorRect.visible = true
 	$ColorRect/AnimationPlayer.play("fadeout")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	$ColorRect.visible = false
-	time_left = 2
 	time_final = 2
 	$ObjectsContainer.visible = false
 	$ObjectsSoundContainer.visible = false
 	$ObjectsOptionsContainer.visible = false
-	nivel = 1
 	intentos = 0
-	score = 0
 	load_objects()
 	
 	first_sound()
@@ -341,7 +341,7 @@ func refresh_nivel():
 	$ObjectsContainer.visible = false
 	$ObjectsSoundContainer.visible = false
 	$ObjectsOptionsContainer.visible = false
-	nivel = 1
+	#nivel = 1
 	intentos = 0
 	score = 0
 	$MarginContainerTop3.updateScore(score)
