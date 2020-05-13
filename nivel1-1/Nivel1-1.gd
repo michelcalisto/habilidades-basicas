@@ -249,7 +249,7 @@ func _on_Continuar_pressed():
 		$Transition.visible = true
 		$Transition/AnimationPlayer.play("fade-in")
 		yield($Transition/AnimationPlayer, "animation_finished")
-		get_tree().change_scene("res://nivel1/Nivel1.tscn")
+		get_tree().change_scene("res://nivel1-2/Nivel1-2.tscn")
 	else:
 		$PopupFinal.hide()
 		$Transition.visible = true
