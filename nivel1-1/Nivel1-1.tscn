@@ -508,5 +508,6 @@ anims/scala = SubResource( 9 )
 [connection signal="pressed" from="Main/VBox/Margin2/Escuchar" to="." method="_on_Escuchar_pressed"]
 [connection signal="pressed" from="PopupToMenu/VBox/HBox/Margin1/Si" to="." method="_on_Si_pressed"]
 [connection signal="pressed" from="PopupToMenu/VBox/HBox/Margin2/No" to="." method="_on_No_pressed"]
+[connection signal="pressed" from="PopupFinal/VBox/HBox/Margin1/Continuar" to="." method="_on_Continuar_pressed"]
 [connection signal="pressed" from="PopupFinal/VBox/HBox/Margin2/Finalizar" to="." method="_on_Finalizar_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

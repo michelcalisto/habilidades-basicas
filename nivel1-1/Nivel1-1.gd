@@ -4,6 +4,8 @@ export(PackedScene) var Objeto
 const objects_file = "res://data/objects.json"
 var audio = AudioStreamPlayer.new()
 var ogg = AudioStreamOGGVorbis.new()
+var texture_normal = Texture.new()
+var texture_pressed = Texture.new()
 var json
 var score
 var intentos
@@ -185,6 +187,10 @@ func next():
 			$PopupFinal.show()
 			print("desbloqueado nivel")
 		else:
+			texture_normal = load("res://assets/buttons/button-normal-reintentar.png")
+			$PopupFinal/VBox/HBox/Margin1/Continuar.texture_normal = texture_normal
+			texture_pressed = load("res://assets/buttons/button-pressed-reintentar.png")
+			$PopupFinal/VBox/HBox/Margin1/Continuar.texture_pressed = texture_pressed
 			$PopupFinal.show()
 			print("fin")
 
@@ -228,3 +234,17 @@ func _on_Finalizar_pressed():
 	$Transition/AnimationPlayer.play("fade-in")
 	yield($Transition/AnimationPlayer, "animation_finished")
 	get_tree().change_scene("res://title-screen/TitleScreen.tscn")
+
+func _on_Continuar_pressed():
+	if score >= 4:
+		$PopupFinal.hide()
+		$Transition.visible = true
+		$Transition/AnimationPlayer.play("fade-in")
+		yield($Transition/AnimationPlayer, "animation_finished")
+		get_tree().change_scene("res://nivel1/Nivel1.tscn")
+	else:
+		$PopupFinal.hide()
+		$Transition.visible = true
+		$Transition/AnimationPlayer.play("fade-in")
+		yield($Transition/AnimationPlayer, "animation_finished")
+		get_tree().change_scene("res://title-screen/TitleScreen.tscn")
