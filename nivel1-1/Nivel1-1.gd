@@ -8,6 +8,7 @@ var json
 var score
 var intentos
 var time_left
+var seleccionado
 
 func _ready():
 	# Icons
@@ -28,6 +29,7 @@ func _ready():
 	score = 0
 	intentos = 0
 	time_left = 2
+	seleccionado = 0
 	# Functions
 	$TopPanel.update_score(score)
 	json = read_json()
@@ -131,15 +133,16 @@ func set_options(x, agregar):
 
 # Funcion que se ejecuta al clickear en un objeto
 func _is_code(x):
-	print(x.position)
-	var existe = false
-	for i in $ObjectsSounds.get_children():
-		if i.code == x.code:
-			existe = true
-	if existe == true:
-		correct(x.position.x, x.position.y)
-	else:
-		incorrect(x.position.x, x.position.y)
+	seleccionado += 1
+	if seleccionado == 1:
+		var existe = false
+		for i in $ObjectsSounds.get_children():
+			if i.code == x.code:
+				existe = true
+		if existe == true:
+			correct(x.position.x, x.position.y)
+		else:
+			incorrect(x.position.x, x.position.y)
 
 func correct(x, y):
 	intentos += 1
@@ -150,8 +153,6 @@ func correct(x, y):
 	$Correct.visible = true
 	$Correct.position = Vector2(x, 500)
 	$Correct/AnimationPlayer.play("scala")
-	#$test/Sprite.position = Vector2(x, 500)
-	#$test/Sprite/AnimationPlayer.play("test")
 
 func incorrect(x, y):
 	intentos += 1
@@ -173,6 +174,7 @@ func next():
 	$ObjectsOptions.visible = false
 	# Vars
 	time_left = 2
+	seleccionado = 0
 	if intentos < 5:
 		# Functions
 		set_sounds(1)
