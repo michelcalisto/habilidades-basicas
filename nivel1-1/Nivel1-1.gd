@@ -184,9 +184,11 @@ func next():
 		set_options(json, 1)
 	else:
 		if score >= 4:
+			audio.stop()
 			$PopupFinal.show()
 			print("desbloqueado nivel")
 		else:
+			audio.stop()
 			texture_normal = load("res://assets/buttons/button-normal-reintentar.png")
 			$PopupFinal/VBox/HBox/Margin1/Continuar.texture_normal = texture_normal
 			texture_pressed = load("res://assets/buttons/button-pressed-reintentar.png")
