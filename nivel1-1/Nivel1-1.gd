@@ -6,6 +6,7 @@ var audio = AudioStreamPlayer.new()
 var ogg = AudioStreamOGGVorbis.new()
 var texture_normal = Texture.new()
 var texture_pressed = Texture.new()
+var texture_audio_pressed = Texture.new()
 var json
 var score
 var intentos
@@ -208,8 +209,13 @@ func _on_ToMenu_pressed():
 
 # Main
 func _on_Escuchar_pressed():
+	texture_audio_pressed = load("res://assets/buttons/button-audio-pressed-01.png")
+	$Main/VBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
 	audio.play()
-
+	yield(audio, "finished")
+	texture_audio_pressed = load("res://assets/buttons/button-audio-normal-02.png")
+	$Main/VBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
+	
 # PopupToMenu
 func _on_Si_pressed():
 	$PopupToMenu.hide()
