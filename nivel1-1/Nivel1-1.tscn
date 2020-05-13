@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://assets/img/Hills1.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/Hills4.png" type="Texture" id=2]
@@ -23,6 +23,10 @@
 [ext_resource path="res://object/Object.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/icons/correct.png" type="Texture" id=22]
 [ext_resource path="res://assets/icons/incorrect.png" type="Texture" id=23]
+[ext_resource path="res://assets/buttons/button-normal-finalizar.png" type="Texture" id=24]
+[ext_resource path="res://assets/buttons/button-pressed-finalizar.png" type="Texture" id=25]
+[ext_resource path="res://assets/buttons/button-pressed-continuar.png" type="Texture" id=26]
+[ext_resource path="res://assets/buttons/button-normal-continuar.png" type="Texture" id=27]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -39,8 +43,10 @@ font_data = ExtResource( 8 )
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "fade-in"
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -54,8 +60,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "fade-out"
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -340,12 +345,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Margin1" type="MarginContainer" parent="PopupToMenu/VBox"]
+[node name="Margin" type="MarginContainer" parent="PopupToMenu/VBox"]
 margin_right = 504.0
 margin_bottom = 172.0
 rect_min_size = Vector2( 0, 172 )
 
-[node name="Info" type="Label" parent="PopupToMenu/VBox/Margin1"]
+[node name="Info" type="Label" parent="PopupToMenu/VBox/Margin"]
 margin_top = 47.0
 margin_right = 504.0
 margin_bottom = 125.0
@@ -360,12 +365,12 @@ margin_top = 176.0
 margin_right = 504.0
 margin_bottom = 276.0
 
-[node name="Margin2" type="MarginContainer" parent="PopupToMenu/VBox/HBox"]
+[node name="Margin1" type="MarginContainer" parent="PopupToMenu/VBox/HBox"]
 margin_right = 250.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 250, 100 )
 
-[node name="Si" type="TextureButton" parent="PopupToMenu/VBox/HBox/Margin2"]
+[node name="Si" type="TextureButton" parent="PopupToMenu/VBox/HBox/Margin1"]
 margin_left = 15.0
 margin_top = 21.0
 margin_right = 235.0
@@ -378,13 +383,13 @@ texture_pressed = ExtResource( 17 )
 expand = true
 stretch_mode = 3
 
-[node name="Margin3" type="MarginContainer" parent="PopupToMenu/VBox/HBox"]
+[node name="Margin2" type="MarginContainer" parent="PopupToMenu/VBox/HBox"]
 margin_left = 254.0
 margin_right = 504.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 250, 100 )
 
-[node name="No" type="TextureButton" parent="PopupToMenu/VBox/HBox/Margin3"]
+[node name="No" type="TextureButton" parent="PopupToMenu/VBox/HBox/Margin2"]
 margin_left = 15.0
 margin_top = 21.0
 margin_right = 235.0
@@ -394,6 +399,80 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 19 )
 texture_pressed = ExtResource( 20 )
+expand = true
+stretch_mode = 3
+
+[node name="PopupFinal" type="PopupMenu" parent="."]
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 660.0
+margin_bottom = 380.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="PopupFinal"]
+texture = ExtResource( 16 )
+
+[node name="VBox" type="VBoxContainer" parent="PopupFinal"]
+margin_left = -250.0
+margin_top = -136.0
+margin_right = 254.0
+margin_bottom = 36.0
+
+[node name="Margin" type="MarginContainer" parent="PopupFinal/VBox"]
+margin_right = 504.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 504, 172 )
+
+[node name="Info" type="Label" parent="PopupFinal/VBox/Margin"]
+margin_top = 74.0
+margin_right = 504.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 5 )
+text = "RECUERDA QUE AL RETROCEDER"
+align = 1
+
+[node name="HBox" type="HBoxContainer" parent="PopupFinal/VBox"]
+margin_top = 176.0
+margin_right = 504.0
+margin_bottom = 276.0
+rect_min_size = Vector2( 504, 100 )
+
+[node name="Margin1" type="MarginContainer" parent="PopupFinal/VBox/HBox"]
+margin_right = 250.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 250, 100 )
+
+[node name="Continuar" type="TextureButton" parent="PopupFinal/VBox/HBox/Margin1"]
+margin_left = 14.0
+margin_top = 21.0
+margin_right = 234.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 220, 57 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 27 )
+texture_pressed = ExtResource( 26 )
+expand = true
+stretch_mode = 3
+
+[node name="Margin2" type="MarginContainer" parent="PopupFinal/VBox/HBox"]
+margin_left = 254.0
+margin_right = 504.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 250, 100 )
+
+[node name="Finalizar" type="TextureButton" parent="PopupFinal/VBox/HBox/Margin2"]
+margin_left = 14.0
+margin_top = 21.0
+margin_right = 234.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 220, 57 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 24 )
+texture_pressed = ExtResource( 25 )
 expand = true
 stretch_mode = 3
 
@@ -407,8 +486,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-anims/fade-in = SubResource( 5 )
-anims/fade-out = SubResource( 6 )
+anims/fade-in = SubResource( 6 )
+anims/fade-out = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -427,6 +506,7 @@ texture = ExtResource( 23 )
 anims/scala = SubResource( 9 )
 [connection signal="pressed" from="TopPanel/HBox/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]
 [connection signal="pressed" from="Main/VBox/Margin2/Escuchar" to="." method="_on_Escuchar_pressed"]
-[connection signal="pressed" from="PopupToMenu/VBox/HBox/Margin2/Si" to="." method="_on_Si_pressed"]
-[connection signal="pressed" from="PopupToMenu/VBox/HBox/Margin3/No" to="." method="_on_No_pressed"]
+[connection signal="pressed" from="PopupToMenu/VBox/HBox/Margin1/Si" to="." method="_on_Si_pressed"]
+[connection signal="pressed" from="PopupToMenu/VBox/HBox/Margin2/No" to="." method="_on_No_pressed"]
+[connection signal="pressed" from="PopupFinal/VBox/HBox/Margin2/Finalizar" to="." method="_on_Finalizar_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

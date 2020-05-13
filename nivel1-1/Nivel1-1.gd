@@ -11,6 +11,7 @@ var time_left
 var seleccionado
 
 func _ready():
+	$Main/VBox/Margin2/Escuchar.texture_normal
 	# Icons
 	$Correct.visible = false
 	$Incorrect.visible = false
@@ -181,8 +182,10 @@ func next():
 		set_options(json, 1)
 	else:
 		if score >= 4:
+			$PopupFinal.show()
 			print("desbloqueado nivel")
 		else:
+			$PopupFinal.show()
 			print("fin")
 
 func reset_sounds():
@@ -217,3 +220,11 @@ func _on_Timer_timeout():
 	time_left -=1
 	if time_left <= 0:
 		next()
+
+# PopupFinal
+func _on_Finalizar_pressed():
+	$PopupFinal.hide()
+	$Transition.visible = true
+	$Transition/AnimationPlayer.play("fade-in")
+	yield($Transition/AnimationPlayer, "animation_finished")
+	get_tree().change_scene("res://title-screen/TitleScreen.tscn")
