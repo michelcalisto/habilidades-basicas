@@ -133,7 +133,6 @@ func set_options(x, agregar):
 				$ObjectsOptions.add_child(obj)
 		in_list.remove(y)
 		options.remove(y)
-		$ObjectsOptions.visible = true
 
 # Funcion que se ejecuta al clickear en un objeto
 func _is_code(x):
@@ -212,6 +211,7 @@ func _on_Escuchar_pressed():
 	texture_audio_pressed = load("res://assets/buttons/button-audio-pressed-01.png")
 	$Main/VBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
 	audio.play()
+	$ObjectsOptions.visible = true
 	yield(audio, "finished")
 	texture_audio_pressed = load("res://assets/buttons/button-audio-normal-02.png")
 	$Main/VBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
@@ -253,4 +253,4 @@ func _on_Continuar_pressed():
 		$Transition.visible = true
 		$Transition/AnimationPlayer.play("fade-in")
 		yield($Transition/AnimationPlayer, "animation_finished")
-		get_tree().change_scene("res://title-screen/TitleScreen.tscn")
+		get_tree().change_scene("res://nivel1-1/Nivel1-1.tscn")
