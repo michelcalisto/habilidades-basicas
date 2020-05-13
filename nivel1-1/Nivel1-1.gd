@@ -10,6 +10,9 @@ var intentos
 var time_left
 
 func _ready():
+	# Icons
+	$Correct.visible = false
+	$Incorrect.visible = false
 	# Childs
 	add_child(audio)
 	# Transition
@@ -128,29 +131,41 @@ func set_options(x, agregar):
 
 # Funcion que se ejecuta al clickear en un objeto
 func _is_code(x):
+	print(x.position)
 	var existe = false
 	for i in $ObjectsSounds.get_children():
 		if i.code == x.code:
 			existe = true
 	if existe == true:
-		correct()
+		correct(x.position.x, x.position.y)
 	else:
-		incorrect()
+		incorrect(x.position.x, x.position.y)
 
-func correct():
+func correct(x, y):
 	intentos += 1
 	score += 1
 	$TopPanel.update_score(score)
 	print("ok")
-	next()
+	$Timer.start()
+	$Correct.visible = true
+	$Correct.position = Vector2(x, 500)
+	$Correct/AnimationPlayer.play("scala")
+	#$test/Sprite.position = Vector2(x, 500)
+	#$test/Sprite/AnimationPlayer.play("test")
 
-func incorrect():
+func incorrect(x, y):
 	intentos += 1
 	print("no")
-	next()
+	$Timer.start()
+	$Incorrect.visible = true
+	$Incorrect.position = Vector2(x, 500)
+	$Incorrect/AnimationPlayer.play("scala")
 
 func next():
 	$Timer.stop()
+	# Icons
+	$Correct.visible = false
+	$Incorrect.visible = false
 	# Functions
 	reset_sounds()
 	reset_options()

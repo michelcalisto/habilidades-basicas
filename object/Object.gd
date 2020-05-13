@@ -7,9 +7,6 @@ var sound
 var image
 signal is_code
 
-func _ready():
-	$Line2D.visible = false
-	
 func set_id(x):
 	id = x
 
@@ -47,5 +44,4 @@ func get_image():
 func _on_Control_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed():
-			$Line2D.visible = true
 			emit_signal("is_code")

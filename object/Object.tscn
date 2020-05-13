@@ -33,9 +33,5 @@ margin_bottom = 75.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Line2D" type="Line2D" parent="."]
-points = PoolVector2Array( -6, -54.0945, -38, -44.0945, -49, -30.0945, -56, -16.0945, -57, 10.9055, -54, 27.9055, -40, 39.9055, -19, 56.9055, 9, 56.9055, 40, 37.9055, 49, 16.9055, 52, 1.90549, 52, -20.0945, 45, -35.0945, 36, -51.0945, 22, -54.0945, -29, -57.0945 )
-default_color = Color( 0.211765, 0.729412, 0.152941, 1 )
 [connection signal="input_event" from="." to="." method="_on_Object_input_event"]
 [connection signal="gui_input" from="Control" to="." method="_on_Control_gui_input"]
