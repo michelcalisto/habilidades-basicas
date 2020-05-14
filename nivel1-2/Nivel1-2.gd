@@ -14,6 +14,7 @@ var intentos
 var time_left
 var seleccionado
 var eleccion_correcta
+var segundo_audio
 
 func _ready():
 	$Main/VBox/Margin2/Escuchar.texture_normal
@@ -39,6 +40,7 @@ func _ready():
 	time_left = 2
 	seleccionado = 0
 	eleccion_correcta = false
+	segundo_audio = false
 	# Functions
 	$TopPanel.update_score(score)
 	json = read_json()
@@ -123,7 +125,7 @@ func set_options(x, agregar):
 		all.remove(y)
 
 	# Set options to ObjectsOptions
-	var card_x = 555
+	var card_x = 470
 	var card_width = 170
 	var in_list = range(options.size())
 	for i in range(options.size()):
@@ -146,8 +148,8 @@ func set_options(x, agregar):
 
 # Funcion que se ejecuta al clickear en un objeto
 func _is_code(x):
-	seleccionado += 1
-	if seleccionado == 1:
+	#seleccionado += 1
+	if seleccionado == 0:
 		var existe = false
 		for i in $ObjectsSounds.get_children():
 			if i.code == x.code:
@@ -157,7 +159,7 @@ func _is_code(x):
 			correct(x.position.x, x.position.y)
 		else:
 			incorrect(x.position.x, x.position.y)
-	elif seleccionado == 2:
+	elif seleccionado == 1 and segundo_audio == true:
 		var existe = false
 		for i in $ObjectsSounds.get_children():
 			if i.code == x.code:
@@ -166,18 +168,22 @@ func _is_code(x):
 			correctNext(x.position.x, x.position.y)
 		else:
 			incorrectNext(x.position.x, x.position.y)
-
+	print(seleccionado)
+	
 func correct(x, y):
+	seleccionado += 1
 	$Correct.visible = true
 	$Correct.position = Vector2(x, 500)
 	$Correct/AnimationPlayer.play("scala")
 
 func incorrect(x, y):
+	seleccionado += 1
 	$Incorrect.visible = true
 	$Incorrect.position = Vector2(x, 500)
 	$Incorrect/AnimationPlayer.play("scala")
 
 func correctNext(x, y):
+	seleccionado += 1
 	intentos += 1
 	if eleccion_correcta == true:
 		score += 1
@@ -189,6 +195,7 @@ func correctNext(x, y):
 	$Correct2/AnimationPlayer.play("scala")
 
 func incorrectNext(x, y):
+	seleccionado += 1
 	intentos += 1
 	print("no")
 	$Timer.start()
@@ -198,6 +205,10 @@ func incorrectNext(x, y):
 
 func next():
 	$Timer.stop()
+	audio1.stop()
+	audio2.stop()
+	texture_audio_pressed = load("res://assets/buttons/button-audio-normal-02.png")
+	$Main/VBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
 	# Icons
 	$Correct.visible = false
 	$Correct2.visible = false
@@ -211,22 +222,25 @@ func next():
 	time_left = 2
 	seleccionado = 0
 	eleccion_correcta = false
+	segundo_audio = false
 	if intentos < 5:
 		# Functions
 		set_sounds(2)
 		set_options(json, 1)
 	else:
 		if score >= 4:
-			#audio2.stop()
-			#$PopupFinal.show()
+			audio1.stop()
+			audio2.stop()
+			$PopupFinal.show()
 			print("desbloqueado nivel")
 		else:
-#			audio.stop()
-#			texture_normal = load("res://assets/buttons/button-normal-reintentar.png")
-#			$PopupFinal/VBox/HBox/Margin1/Continuar.texture_normal = texture_normal
-#			texture_pressed = load("res://assets/buttons/button-pressed-reintentar.png")
-#			$PopupFinal/VBox/HBox/Margin1/Continuar.texture_pressed = texture_pressed
-#			$PopupFinal.show()
+			audio1.stop()
+			audio2.stop()
+			texture_normal = load("res://assets/buttons/button-normal-reintentar.png")
+			$PopupFinal/VBox/HBox/Margin1/Continuar.texture_normal = texture_normal
+			texture_pressed = load("res://assets/buttons/button-pressed-reintentar.png")
+			$PopupFinal/VBox/HBox/Margin1/Continuar.texture_pressed = texture_pressed
+			$PopupFinal.show()
 			print("fin")
 
 func reset_sounds():
@@ -249,6 +263,8 @@ func _on_Escuchar_pressed():
 	$ObjectsOptions.visible = true
 	yield(audio1, "finished") 
 	audio2.play()
+	segundo_audio = true
+	print(segundo_audio)
 	yield(audio2, "finished")
 	texture_audio_pressed = load("res://assets/buttons/button-audio-normal-02.png")
 	$Main/VBox/Margin2/Escuchar.texture_normal = texture_audio_pressed

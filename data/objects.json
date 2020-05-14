@@ -46,5 +46,17 @@
     "code": "08-Vaca",
     "sound": "res://data/sound/vaca.ogg",
     "image": "res://data/img/vaca.png"
+  },
+  "09": {
+    "name": "Gato",
+    "code": "09-Gato",
+    "sound": "res://data/sound/gato.ogg",
+    "image": "res://data/img/gato.png"
+  },
+  "10": {
+    "name": "Ganso",
+    "code": "10-Ganso",
+    "sound": "res://data/sound/ganso.ogg",
+    "image": "res://data/img/ganso.png"
   }
 }

@@ -91,7 +91,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 resource_name = "scala"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -106,8 +106,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "scala"
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
@@ -507,14 +506,14 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 26 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Correct2"]
-anims/scala = SubResource( 10 )
+anims/scala = SubResource( 9 )
 
 [node name="Incorrect" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 25 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Incorrect"]
-anims/scala = SubResource( 9 )
+anims/scala = SubResource( 10 )
 [connection signal="pressed" from="TopPanel/HBox/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]
 [connection signal="pressed" from="Main/VBox/Margin2/Escuchar" to="." method="_on_Escuchar_pressed"]
 [connection signal="pressed" from="PopupToMenu/VBox/HBox/Margin1/Si" to="." method="_on_Si_pressed"]
