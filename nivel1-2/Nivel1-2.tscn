@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://nivel1-2/Nivel1-2.gd" type="Script" id=1]
 [ext_resource path="res://nivel1-2/Parallax.gd" type="Script" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://assets/buttons/button-normal-finalizar.png" type="Texture" id=24]
 [ext_resource path="res://assets/icons/incorrect.png" type="Texture" id=25]
 [ext_resource path="res://assets/icons/correct.png" type="Texture" id=26]
+[ext_resource path="res://object/Object.tscn" type="PackedScene" id=27]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -90,6 +91,21 @@ tracks/0/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
 }
 
+[sub_resource type="Animation" id=10]
+resource_name = "scala"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
+}
+
 [sub_resource type="Animation" id=9]
 resource_name = "scala"
 tracks/0/type = "value"
@@ -107,6 +123,7 @@ tracks/0/keys = {
 
 [node name="Nivel1-2" type="Node2D"]
 script = ExtResource( 1 )
+Objeto = ExtResource( 27 )
 
 [node name="Parallax" type="ParallaxBackground" parent="."]
 script = ExtResource( 2 )
@@ -432,9 +449,9 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 250, 100 )
 
 [node name="Continuar" type="TextureButton" parent="PopupFinal/VBox/HBox/Margin1"]
-margin_left = 14.0
+margin_left = 15.0
 margin_top = 21.0
-margin_right = 234.0
+margin_right = 235.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
@@ -451,9 +468,9 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 250, 100 )
 
 [node name="Finalizar" type="TextureButton" parent="PopupFinal/VBox/HBox/Margin2"]
-margin_left = 14.0
+margin_left = 15.0
 margin_top = 21.0
-margin_right = 234.0
+margin_right = 235.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
@@ -484,6 +501,13 @@ texture = ExtResource( 26 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Correct"]
 anims/scala = SubResource( 8 )
+
+[node name="Correct2" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 26 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Correct2"]
+anims/scala = SubResource( 10 )
 
 [node name="Incorrect" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )

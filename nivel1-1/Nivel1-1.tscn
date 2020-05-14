@@ -445,9 +445,9 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 250, 100 )
 
 [node name="Continuar" type="TextureButton" parent="PopupFinal/VBox/HBox/Margin1"]
-margin_left = 14.0
+margin_left = 15.0
 margin_top = 21.0
-margin_right = 234.0
+margin_right = 235.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
@@ -464,9 +464,9 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 250, 100 )
 
 [node name="Finalizar" type="TextureButton" parent="PopupFinal/VBox/HBox/Margin2"]
-margin_left = 14.0
+margin_left = 15.0
 margin_top = 21.0
-margin_right = 234.0
+margin_right = 235.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
