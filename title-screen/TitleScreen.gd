@@ -22,5 +22,5 @@ func _on_TextureButton3_pressed():
 	$ColorRect.visible = true
 	$ColorRect/AnimationPlayer.play("fadein")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
-	get_tree().change_scene("res://nivel3/Nivel3.tscn")
+	get_tree().change_scene("res://nivel2-1/Nivel2-1.tscn")
 
