@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://nivel2-1/Nivel2-1.gd" type="Script" id=1]
 [ext_resource path="res://nivel2-1/Parallax.gd" type="Script" id=2]
@@ -27,6 +27,8 @@
 [ext_resource path="res://assets/icons/incorrect.png" type="Texture" id=25]
 [ext_resource path="res://assets/icons/correct.png" type="Texture" id=26]
 [ext_resource path="res://objectdragdrop/ObjectDragDrop.tscn" type="PackedScene" id=27]
+[ext_resource path="res://nivel2-1/Panel1.gd" type="Script" id=28]
+[ext_resource path="res://nivel2-1/Panel2.gd" type="Script" id=29]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -354,6 +356,7 @@ margin_bottom = 197.0
 rect_min_size = Vector2( 160, 190 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource( 28 )
 
 [node name="Margin" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox/Margin1/Panel1"]
 margin_right = 40.0
@@ -387,6 +390,7 @@ margin_bottom = 197.0
 rect_min_size = Vector2( 160, 190 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource( 29 )
 
 [node name="Margin" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox/Margin2/Panel2"]
 margin_right = 40.0

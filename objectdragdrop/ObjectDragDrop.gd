@@ -65,7 +65,7 @@ func set_order_audio(x):
 	order_audio = x
 
 func _on_Control_gui_input(event):
-	if event.is_action_pressed("left_click"):
+	if event.is_action_pressed("left_click") and order_slot == 0:
 		in_action = true
 		liberado = false
 	if event.is_action_released("left_click"):

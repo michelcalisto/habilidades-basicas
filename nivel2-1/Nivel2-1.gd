@@ -57,13 +57,14 @@ func _process(delta):
 		for i in $ObjectsOptions.get_children():
 			if $ObjectsOptions.get_child(count).in_action == true:
 				
-				if $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().has_point(cursor_pos):
+				if $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().has_point(cursor_pos) and $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.contain_slot_item == false:
 					if $ObjectsOptions.get_child(count).liberado == true:
 						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().position.y, 1)
-						#$Main/VBox/HBox/VBox/HBox/Margin1/Panel1.set_code_obj($ObjectsOptions.get_child(count).code)
-				elif $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().has_point(cursor_pos):
+						$Main/VBox/HBox/VBox/HBox/Margin1/Panel1.set_slot_item(true)
+				elif $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().has_point(cursor_pos) and $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.contain_slot_item == false:
 					if $ObjectsOptions.get_child(count).liberado == true:
 						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().position.y, 2)
+						$Main/VBox/HBox/VBox/HBox/Margin2/Panel2.set_slot_item(true)
 				elif $ObjectsOptions.get_child(count).liberado == true:
 					$ObjectsOptions.get_child(count).reset_start_position()
 					
@@ -276,12 +277,16 @@ func next():
 	seleccionado = 0
 	eleccion_correcta = false
 	segundo_audio = false
-	if intentos < 5:
+	
+	$Main/VBox/HBox/VBox/HBox/Margin1/Panel1.set_slot_item(false)
+	$Main/VBox/HBox/VBox/HBox/Margin2/Panel2.set_slot_item(false)
+	
+	if intentos < 2:
 		# Functions
 		set_sounds(2)
 		set_options(json, 1)
 	else:
-		if score >= 4:
+		if score == 2:
 			audio1.stop()
 			audio2.stop()
 			$PopupFinal.show()

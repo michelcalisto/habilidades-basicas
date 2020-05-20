@@ -49,9 +49,10 @@ func _process(delta):
 		for i in $ObjectsOptions.get_children():
 			if $ObjectsOptions.get_child(count).in_action == true:
 				
-				if $Panel1.get_global_rect().has_point(cursor_pos):
+				if $Panel1.get_global_rect().has_point(cursor_pos) and $Panel1.contain_slot_item == false:
 					if $ObjectsOptions.get_child(count).liberado == true:
 						$ObjectsOptions.get_child(count).set_obj_slot($Panel1.get_global_rect().position.x, $Panel1.get_global_rect().position.y, 1)
+						$Panel1.set_slot_item(true)
 						#$Panel1.set_code_obj($ObjectsOptions.get_child(count).code)
 				elif $Panel2.get_global_rect().has_point(cursor_pos):
 					if $ObjectsOptions.get_child(count).liberado == true:
@@ -321,6 +322,7 @@ func incorrect(x, y):
 	$Incorrect/AnimationPlayer.play("scala")
 
 func next():
+	$Panel1.set_slot_item(false)
 	$Timer.stop()
 	# Icons
 	$Correct.visible = false
