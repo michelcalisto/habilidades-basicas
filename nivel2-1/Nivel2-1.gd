@@ -318,12 +318,12 @@ func _on_Escuchar_pressed():
 	texture_audio_pressed = load("res://assets/buttons/button-audio-pressed-01.png")
 	$Main/VBox/HBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
 	audio1.play()
-	$ObjectsOptions.visible = true
 	yield(audio1, "finished") 
 	audio2.play()
 	segundo_audio = true
 	print(segundo_audio)
 	yield(audio2, "finished")
+	$ObjectsOptions.visible = true
 	texture_audio_pressed = load("res://assets/buttons/button-audio-normal-02.png")
 	$Main/VBox/HBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
 
@@ -353,7 +353,7 @@ func _on_Finalizar_pressed():
 	get_tree().change_scene("res://title-screen/TitleScreen.tscn")
 
 func _on_Continuar_pressed():
-	if score >= 4:
+	if score == 2:
 		$PopupFinal.hide()
 		$Transition.visible = true
 		$Transition/AnimationPlayer.play("fade-in")

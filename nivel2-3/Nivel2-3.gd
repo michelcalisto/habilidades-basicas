@@ -401,12 +401,12 @@ func _on_Finalizar_pressed():
 	get_tree().change_scene("res://title-screen/TitleScreen.tscn")
 
 func _on_Continuar_pressed():
-	if score >= 4:
+	if score == 2:
 		$PopupFinal.hide()
 		$Transition.visible = true
 		$Transition/AnimationPlayer.play("fade-in")
 		yield($Transition/AnimationPlayer, "animation_finished")
-		get_tree().change_scene("res://nivel1-3/Nivel1-3.tscn")
+		get_tree().change_scene("res://nivel2-4/Nivel2-4.tscn")
 	else:
 		$PopupFinal.hide()
 		$Transition.visible = true

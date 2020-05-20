@@ -1,14 +1,14 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=48 format=2]
 
-[ext_resource path="res://nivel2-3/Nivel2-3.gd" type="Script" id=1]
-[ext_resource path="res://nivel2-3/Parallax.gd" type="Script" id=2]
+[ext_resource path="res://nivel2-4/Nivel2-4.gd" type="Script" id=1]
+[ext_resource path="res://nivel2-4/Parallax.gd" type="Script" id=2]
 [ext_resource path="res://assets/img/Hills2.png" type="Texture" id=3]
 [ext_resource path="res://assets/img/Hills4.png" type="Texture" id=4]
 [ext_resource path="res://assets/img/Hills5.png" type="Texture" id=5]
 [ext_resource path="res://assets/img/Hills6.png" type="Texture" id=6]
 [ext_resource path="res://assets/img/Hills1.png" type="Texture" id=7]
 [ext_resource path="res://assets/img/Hills3.png" type="Texture" id=8]
-[ext_resource path="res://nivel2-3/TopPanel.gd" type="Script" id=9]
+[ext_resource path="res://nivel2-4/TopPanel.gd" type="Script" id=9]
 [ext_resource path="res://assets/buttons/button-pressed-regresar.png" type="Texture" id=10]
 [ext_resource path="res://assets/buttons/button-normal-regresar.png" type="Texture" id=11]
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=12]
@@ -27,9 +27,10 @@
 [ext_resource path="res://assets/icons/incorrect.png" type="Texture" id=25]
 [ext_resource path="res://assets/icons/correct.png" type="Texture" id=26]
 [ext_resource path="res://objectdragdrop/ObjectDragDrop.tscn" type="PackedScene" id=27]
-[ext_resource path="res://nivel2-3/Panel2.gd" type="Script" id=28]
-[ext_resource path="res://nivel2-3/Panel1.gd" type="Script" id=29]
-[ext_resource path="res://nivel2-3/Panel3.gd" type="Script" id=30]
+[ext_resource path="res://nivel2-4/Panel2.gd" type="Script" id=28]
+[ext_resource path="res://nivel2-4/Panel3.gd" type="Script" id=29]
+[ext_resource path="res://nivel2-4/Panel4.gd" type="Script" id=30]
+[ext_resource path="res://nivel2-4/Panel1.gd" type="Script" id=31]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -123,6 +124,20 @@ tracks/0/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
 }
 
+[sub_resource type="Animation" id=15]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
+}
+
 [sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -165,7 +180,21 @@ tracks/0/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
 }
 
-[node name="Nivel2-3" type="Node2D"]
+[sub_resource type="Animation" id=16]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
+}
+
+[node name="Nivel2-4" type="Node2D"]
 script = ExtResource( 1 )
 Objeto = ExtResource( 27 )
 
@@ -341,13 +370,13 @@ __meta__ = {
 }
 
 [node name="Margin1" type="MarginContainer" parent="Main/VBox"]
-margin_right = 1044.0
+margin_right = 1056.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 1040, 150 )
 
 [node name="Indicaciones" type="Label" parent="Main/VBox/Margin1"]
 margin_top = 39.0
-margin_right = 1044.0
+margin_right = 1056.0
 margin_bottom = 110.0
 custom_fonts/font = SubResource( 3 )
 text = "ESCUCHA CON ATENCION Y ADIVINA LOS SONIDOS DE LOS 
@@ -356,15 +385,15 @@ align = 1
 
 [node name="HBox" type="HBoxContainer" parent="Main/VBox"]
 margin_top = 154.0
-margin_right = 1044.0
+margin_right = 1056.0
 margin_bottom = 568.0
 
 [node name="VBox" type="VBoxContainer" parent="Main/VBox/HBox"]
-margin_right = 800.0
+margin_right = 812.0
 margin_bottom = 414.0
 
 [node name="HBox" type="HBoxContainer" parent="Main/VBox/HBox/VBox"]
-margin_right = 800.0
+margin_right = 812.0
 margin_bottom = 205.0
 rect_min_size = Vector2( 800, 205 )
 
@@ -381,7 +410,7 @@ margin_bottom = 197.0
 rect_min_size = Vector2( 160, 190 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource( 29 )
+script = ExtResource( 31 )
 
 [node name="Margin" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox/Margin1/Panel1"]
 margin_right = 40.0
@@ -449,7 +478,7 @@ margin_bottom = 197.0
 rect_min_size = Vector2( 160, 190 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource( 30 )
+script = ExtResource( 29 )
 
 [node name="Margin" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox/Margin3/Panel3"]
 margin_right = 40.0
@@ -469,15 +498,49 @@ custom_fonts/font = SubResource( 4 )
 text = "3"
 align = 1
 
+[node name="Margin4" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox"]
+margin_left = 612.0
+margin_right = 812.0
+margin_bottom = 205.0
+rect_min_size = Vector2( 200, 205 )
+
+[node name="Panel4" type="Panel" parent="Main/VBox/HBox/VBox/HBox/Margin4"]
+margin_left = 20.0
+margin_top = 7.0
+margin_right = 180.0
+margin_bottom = 197.0
+rect_min_size = Vector2( 160, 190 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource( 30 )
+
+[node name="Margin" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox/Margin4/Panel4"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 160, 40 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/VBox/HBox/VBox/HBox/Margin4/Panel4/Margin"]
+margin_left = 73.0
+margin_top = 9.0
+margin_right = 87.0
+margin_bottom = 31.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 4 )
+text = "4"
+align = 1
+
 [node name="Margin2" type="MarginContainer" parent="Main/VBox/HBox/VBox"]
 margin_top = 209.0
-margin_right = 800.0
+margin_right = 812.0
 margin_bottom = 414.0
 rect_min_size = Vector2( 800, 205 )
 
 [node name="Margin2" type="MarginContainer" parent="Main/VBox/HBox"]
-margin_left = 804.0
-margin_right = 1044.0
+margin_left = 816.0
+margin_right = 1056.0
 margin_bottom = 414.0
 rect_min_size = Vector2( 240, 410 )
 
@@ -684,6 +747,13 @@ texture = ExtResource( 26 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Correct3"]
 anims/scala = SubResource( 11 )
 
+[node name="Correct4" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 26 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Correct4"]
+anims/scala = SubResource( 15 )
+
 [node name="Incorrect" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 25 )
@@ -704,6 +774,13 @@ texture = ExtResource( 25 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Incorrect3"]
 anims/scala = SubResource( 14 )
+
+[node name="Incorrect4" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 25 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Incorrect4"]
+anims/scala = SubResource( 16 )
 [connection signal="pressed" from="TopPanel/HBox/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]
 [connection signal="pressed" from="Main/VBox/HBox/Margin2/Escuchar" to="." method="_on_Escuchar_pressed"]
 [connection signal="pressed" from="PopupToMenu/VBox/HBox/Margin1/Si" to="." method="_on_Si_pressed"]
