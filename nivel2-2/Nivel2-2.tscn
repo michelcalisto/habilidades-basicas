@@ -1,14 +1,14 @@
 [gd_scene load_steps=42 format=2]
 
-[ext_resource path="res://nivel2-1/Nivel2-1.gd" type="Script" id=1]
-[ext_resource path="res://nivel2-1/Parallax.gd" type="Script" id=2]
+[ext_resource path="res://nivel2-2/Nivel2-2.gd" type="Script" id=1]
+[ext_resource path="res://nivel2-2/Parallax.gd" type="Script" id=2]
 [ext_resource path="res://assets/img/Hills2.png" type="Texture" id=3]
 [ext_resource path="res://assets/img/Hills4.png" type="Texture" id=4]
 [ext_resource path="res://assets/img/Hills5.png" type="Texture" id=5]
 [ext_resource path="res://assets/img/Hills6.png" type="Texture" id=6]
 [ext_resource path="res://assets/img/Hills1.png" type="Texture" id=7]
 [ext_resource path="res://assets/img/Hills3.png" type="Texture" id=8]
-[ext_resource path="res://nivel2-1/TopPanel.gd" type="Script" id=9]
+[ext_resource path="res://nivel2-2/TopPanel.gd" type="Script" id=9]
 [ext_resource path="res://assets/buttons/button-pressed-regresar.png" type="Texture" id=10]
 [ext_resource path="res://assets/buttons/button-normal-regresar.png" type="Texture" id=11]
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=12]
@@ -27,8 +27,8 @@
 [ext_resource path="res://assets/icons/incorrect.png" type="Texture" id=25]
 [ext_resource path="res://assets/icons/correct.png" type="Texture" id=26]
 [ext_resource path="res://objectdragdrop/ObjectDragDrop.tscn" type="PackedScene" id=27]
-[ext_resource path="res://nivel2-1/Panel1.gd" type="Script" id=28]
-[ext_resource path="res://nivel2-1/Panel2.gd" type="Script" id=29]
+[ext_resource path="res://nivel2-2/Panel2.gd" type="Script" id=28]
+[ext_resource path="res://nivel2-2/Panel1.gd" type="Script" id=29]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -136,7 +136,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
 }
 
-[node name="Nivel2-1" type="Node2D"]
+[node name="Nivel2-2" type="Node2D"]
 script = ExtResource( 1 )
 Objeto = ExtResource( 27 )
 
@@ -352,7 +352,7 @@ margin_bottom = 197.0
 rect_min_size = Vector2( 160, 190 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource( 28 )
+script = ExtResource( 29 )
 
 [node name="Margin" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox/Margin1/Panel1"]
 margin_right = 40.0
@@ -386,7 +386,7 @@ margin_bottom = 197.0
 rect_min_size = Vector2( 160, 190 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource( 29 )
+script = ExtResource( 28 )
 
 [node name="Margin" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox/Margin2/Panel2"]
 margin_right = 40.0

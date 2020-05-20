@@ -138,15 +138,15 @@ func set_options(x, agregar):
 			options.append(i)
 
 	# Inclucion de objetos extras
-#	var indexList = range(all.size())
-#	for i in range(agregar):
-#		randomize()
-#		var y = randi()%indexList.size()
-#		for z in all:
-#			if z == all[y]:
-#				options.append(z)
-#		indexList.remove(y)
-#		all.remove(y)
+	var indexList = range(all.size())
+	for i in range(agregar):
+		randomize()
+		var y = randi()%indexList.size()
+		for z in all:
+			if z == all[y]:
+				options.append(z)
+		indexList.remove(y)
+		all.remove(y)
 
 	# Set options to ObjectsOptions
 	var card_x = 220
@@ -358,10 +358,10 @@ func _on_Continuar_pressed():
 		$Transition.visible = true
 		$Transition/AnimationPlayer.play("fade-in")
 		yield($Transition/AnimationPlayer, "animation_finished")
-		get_tree().change_scene("res://nivel2-2/Nivel2-2.tscn")
+		get_tree().change_scene("res://nivel1-3/Nivel1-3.tscn")
 	else:
 		$PopupFinal.hide()
 		$Transition.visible = true
 		$Transition/AnimationPlayer.play("fade-in")
 		yield($Transition/AnimationPlayer, "animation_finished")
-		get_tree().change_scene("res://nivel2-1/Nivel2-1.tscn")
+		get_tree().change_scene("res://nivel2-2/Nivel2-2.tscn")
