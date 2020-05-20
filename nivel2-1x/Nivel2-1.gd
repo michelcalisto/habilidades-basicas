@@ -52,7 +52,7 @@ func _process(delta):
 				if $Panel1.get_global_rect().has_point(cursor_pos):
 					if $ObjectsOptions.get_child(count).liberado == true:
 						$ObjectsOptions.get_child(count).set_obj_slot($Panel1.get_global_rect().position.x, $Panel1.get_global_rect().position.y, 1)
-						$Panel1.set_code_obj($ObjectsOptions.get_child(count).code)
+						#$Panel1.set_code_obj($ObjectsOptions.get_child(count).code)
 				elif $Panel2.get_global_rect().has_point(cursor_pos):
 					if $ObjectsOptions.get_child(count).liberado == true:
 						$ObjectsOptions.get_child(count).set_obj_slot($Panel2.get_global_rect().position.x, $Panel2.get_global_rect().position.y, 2)
@@ -289,6 +289,19 @@ func _is_code(x):
 		else:
 			incorrect(x.position.x, x.position.y)
 
+func _is_order_and_code(x):
+	seleccionado += 1
+	if seleccionado == 1:
+		var existe = false
+		for i in $ObjectsSounds.get_children():
+			if x.order_slot != 0 and x.order_slot == i.order_audio:
+				if i.code == x.code:
+					existe = true
+		if existe == true:
+			correct(x.position.x, x.position.y)
+		else:
+			incorrect(x.position.x, x.position.y)
+			
 func correct(x, y):
 	intentos += 1
 	score += 1
@@ -400,18 +413,7 @@ func _on_Continuar_pressed():
 		get_tree().change_scene("res://nivel1-1/Nivel1-1.tscn")
 
 
-func _is_order_and_code(x):
-	seleccionado += 1
-	if seleccionado == 1:
-		var existe = false
-		for i in $ObjectsSounds.get_children():
-			if x.order_slot != 0 and x.order_slot == i.order_audio:
-				if i.code == x.code:
-					existe = true
-		if existe == true:
-			correct(x.position.x, x.position.y)
-		else:
-			incorrect(x.position.x, x.position.y)
+
 			
 			
 			

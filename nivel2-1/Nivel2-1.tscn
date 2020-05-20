@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://nivel2-1/Nivel2-1.gd" type="Script" id=1]
 [ext_resource path="res://nivel2-1/Parallax.gd" type="Script" id=2]
@@ -38,6 +38,10 @@ font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 22
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 14
 font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -107,6 +111,20 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=10]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
@@ -283,40 +301,128 @@ __meta__ = {
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBox" type="VBoxContainer" parent="Main"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1040.0
+margin_bottom = 560.0
 rect_min_size = Vector2( 1040, 560 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Margin1" type="MarginContainer" parent="Main/VBox"]
-margin_right = 1040.0
+margin_right = 1044.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 1040, 150 )
 
 [node name="Indicaciones" type="Label" parent="Main/VBox/Margin1"]
 margin_top = 39.0
-margin_right = 1040.0
+margin_right = 1044.0
 margin_bottom = 110.0
 custom_fonts/font = SubResource( 3 )
 text = "ESCUCHA CON ATENCION Y ADIVINA LOS SONIDOS DE LOS 
 ANIMALES DE LA GRANJA."
 align = 1
 
-[node name="Margin2" type="MarginContainer" parent="Main/VBox"]
+[node name="HBox" type="HBoxContainer" parent="Main/VBox"]
 margin_top = 154.0
-margin_right = 1040.0
-margin_bottom = 304.0
-rect_min_size = Vector2( 1040, 150 )
+margin_right = 1044.0
+margin_bottom = 568.0
 
-[node name="Escuchar" type="TextureButton" parent="Main/VBox/Margin2"]
-margin_left = 467.0
-margin_top = 22.0
-margin_right = 572.0
-margin_bottom = 127.0
+[node name="VBox" type="VBoxContainer" parent="Main/VBox/HBox"]
+margin_right = 800.0
+margin_bottom = 414.0
+
+[node name="HBox" type="HBoxContainer" parent="Main/VBox/HBox/VBox"]
+margin_right = 800.0
+margin_bottom = 205.0
+rect_min_size = Vector2( 800, 205 )
+
+[node name="Margin1" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox"]
+margin_right = 200.0
+margin_bottom = 205.0
+rect_min_size = Vector2( 200, 205 )
+
+[node name="Panel1" type="Panel" parent="Main/VBox/HBox/VBox/HBox/Margin1"]
+margin_left = 20.0
+margin_top = 7.0
+margin_right = 180.0
+margin_bottom = 197.0
+rect_min_size = Vector2( 160, 190 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Margin" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox/Margin1/Panel1"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 160, 40 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/VBox/HBox/VBox/HBox/Margin1/Panel1/Margin"]
+margin_left = 74.0
+margin_top = 9.0
+margin_right = 85.0
+margin_bottom = 31.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 11 )
+text = "1"
+align = 1
+
+[node name="Margin2" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox"]
+margin_left = 204.0
+margin_right = 404.0
+margin_bottom = 205.0
+rect_min_size = Vector2( 200, 205 )
+
+[node name="Panel2" type="Panel" parent="Main/VBox/HBox/VBox/HBox/Margin2"]
+margin_left = 20.0
+margin_top = 7.0
+margin_right = 180.0
+margin_bottom = 197.0
+rect_min_size = Vector2( 160, 190 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Margin" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox/Margin2/Panel2"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 160, 40 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/VBox/HBox/VBox/HBox/Margin2/Panel2/Margin"]
+margin_left = 73.0
+margin_top = 9.0
+margin_right = 87.0
+margin_bottom = 31.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 11 )
+text = "2"
+align = 1
+
+[node name="Margin2" type="MarginContainer" parent="Main/VBox/HBox/VBox"]
+margin_top = 209.0
+margin_right = 800.0
+margin_bottom = 414.0
+rect_min_size = Vector2( 800, 205 )
+
+[node name="Margin2" type="MarginContainer" parent="Main/VBox/HBox"]
+margin_left = 804.0
+margin_right = 1044.0
+margin_bottom = 414.0
+rect_min_size = Vector2( 240, 410 )
+
+[node name="Escuchar" type="TextureButton" parent="Main/VBox/HBox/Margin2"]
+margin_left = 67.0
+margin_top = 154.0
+margin_right = 172.0
+margin_bottom = 259.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -514,8 +620,15 @@ texture = ExtResource( 25 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Incorrect"]
 anims/scala = SubResource( 10 )
+
+[node name="Incorrect2" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 25 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Incorrect2"]
+anims/scala = SubResource( 12 )
 [connection signal="pressed" from="TopPanel/HBox/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]
-[connection signal="pressed" from="Main/VBox/Margin2/Escuchar" to="." method="_on_Escuchar_pressed"]
+[connection signal="pressed" from="Main/VBox/HBox/Margin2/Escuchar" to="." method="_on_Escuchar_pressed"]
 [connection signal="pressed" from="PopupToMenu/VBox/HBox/Margin1/Si" to="." method="_on_Si_pressed"]
 [connection signal="pressed" from="PopupToMenu/VBox/HBox/Margin2/No" to="." method="_on_No_pressed"]
 [connection signal="pressed" from="PopupFinal/VBox/HBox/Margin1/Continuar" to="." method="_on_Continuar_pressed"]

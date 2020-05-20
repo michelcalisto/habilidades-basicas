@@ -29,7 +29,6 @@
 [ext_resource path="res://assets/buttons/button-normal-continuar.png" type="Texture" id=27]
 [ext_resource path="res://nivel2-1x/Panel1.gd" type="Script" id=28]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 25
 font_data = ExtResource( 8 )

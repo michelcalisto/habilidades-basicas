@@ -17,11 +17,12 @@ var eleccion_correcta
 var segundo_audio
 
 func _ready():
-	$Main/VBox/Margin2/Escuchar.texture_normal
+	$Main/VBox/HBox/Margin2/Escuchar.texture_normal
 	# Icons
 	$Correct.visible = false
 	$Correct2.visible = false
 	$Incorrect.visible = false
+	$Incorrect2.visible = false
 	# Childs
 	add_child(audio1)
 	add_child(audio2)
@@ -48,6 +49,26 @@ func _ready():
 	set_sounds(2)
 	set_options(json, 1)
 
+func _process(delta):
+	var cursor_pos = get_global_mouse_position()
+	
+	if $ObjectsOptions.get_child_count() != 0:
+		var count = 0
+		for i in $ObjectsOptions.get_children():
+			if $ObjectsOptions.get_child(count).in_action == true:
+				
+				if $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().has_point(cursor_pos):
+					if $ObjectsOptions.get_child(count).liberado == true:
+						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().position.y, 1)
+						#$Main/VBox/HBox/VBox/HBox/Margin1/Panel1.set_code_obj($ObjectsOptions.get_child(count).code)
+				elif $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().has_point(cursor_pos):
+					if $ObjectsOptions.get_child(count).liberado == true:
+						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().position.y, 2)
+				elif $ObjectsOptions.get_child(count).liberado == true:
+					$ObjectsOptions.get_child(count).reset_start_position()
+					
+			count += 1
+			
 func read_json():
 	var file = File.new()
 	if file.file_exists(objects_file):
@@ -88,6 +109,8 @@ func set_sounds(x):
 		if count >= $Objects.get_child_count() - x:
 			var obj = $Objects.get_child(count)
 			$Objects.remove_child(i)
+			# Orden del audio
+			obj.set_order_audio($ObjectsSounds.get_child_count()+1)
 			$ObjectsSounds.add_child(obj)
 			ogg = load(obj.get_sound())
 			ogg.loop = false
@@ -114,19 +137,19 @@ func set_options(x, agregar):
 			options.append(i)
 
 	# Inclucion de objetos extras
-	var indexList = range(all.size())
-	for i in range(agregar):
-		randomize()
-		var y = randi()%indexList.size()
-		for z in all:
-			if z == all[y]:
-				options.append(z)
-		indexList.remove(y)
-		all.remove(y)
+#	var indexList = range(all.size())
+#	for i in range(agregar):
+#		randomize()
+#		var y = randi()%indexList.size()
+#		for z in all:
+#			if z == all[y]:
+#				options.append(z)
+#		indexList.remove(y)
+#		all.remove(y)
 
 	# Set options to ObjectsOptions
-	var card_x = 470
-	var card_width = 170
+	var card_x = 220
+	var card_width = 150 + 10 + 40 + 5
 	var in_list = range(options.size())
 	for i in range(options.size()):
 		randomize()
@@ -139,47 +162,76 @@ func set_options(x, agregar):
 				obj.set_code(x[z]["code"])
 				obj.set_sound(x[z]["sound"])
 				obj.set_image(x[z]["image"])
-				obj.position = Vector2(card_x,500)
-				obj.connect("is_code", self, "_is_code", [obj])
+				obj.position = Vector2(card_x,530)
+				# Posicion inicial
+				obj.set_start_position(card_x, 530)
+				obj.connect("is_order_and_code", self, "_is_order_and_code", [obj])
+				#obj.connect("is_code", self, "_is_code", [obj])
 				card_x = card_x + card_width
 				$ObjectsOptions.add_child(obj)
 		in_list.remove(y)
 		options.remove(y)
 
-# Funcion que se ejecuta al clickear en un objeto
-func _is_code(x):
-	#seleccionado += 1
+# Funcion que se ejecuta al soltar un elemento sobre un slot
+func _is_order_and_code(x):
+	print(seleccionado,segundo_audio)
 	if seleccionado == 0:
 		var existe = false
 		for i in $ObjectsSounds.get_children():
-			if i.code == x.code:
-				existe = true
+			if x.order_slot != 0 and x.order_slot == i.order_audio:
+				if i.code == x.code:
+					existe = true
 		if existe == true:
 			eleccion_correcta = true
 			correct(x.position.x, x.position.y)
 		else:
 			incorrect(x.position.x, x.position.y)
 	elif seleccionado == 1 and segundo_audio == true:
+		print("2")
 		var existe = false
 		for i in $ObjectsSounds.get_children():
-			if i.code == x.code:
-				existe = true
+			if x.order_slot != 0 and x.order_slot == i.order_audio:
+				if i.code == x.code:
+					existe = true
 		if existe == true:
 			correctNext(x.position.x, x.position.y)
 		else:
 			incorrectNext(x.position.x, x.position.y)
-	print(seleccionado)
+
+# Funcion que se ejecuta al clickear en un objeto
+#func _is_code(x):
+#	#seleccionado += 1
+#	if seleccionado == 0:
+#		var existe = false
+#		for i in $ObjectsSounds.get_children():
+#			if i.code == x.code:
+#				existe = true
+#		if existe == true:
+#			eleccion_correcta = true
+#			correct(x.position.x, x.position.y)
+#		else:
+#			incorrect(x.position.x, x.position.y)
+#	elif seleccionado == 1 and segundo_audio == true:
+#		var existe = false
+#		for i in $ObjectsSounds.get_children():
+#			if i.code == x.code:
+#				existe = true
+#		if existe == true:
+#			correctNext(x.position.x, x.position.y)
+#		else:
+#			incorrectNext(x.position.x, x.position.y)
+#	print(seleccionado)
 	
 func correct(x, y):
 	seleccionado += 1
 	$Correct.visible = true
-	$Correct.position = Vector2(x, 500)
+	$Correct.position = Vector2(x, y)
 	$Correct/AnimationPlayer.play("scala")
 
 func incorrect(x, y):
 	seleccionado += 1
 	$Incorrect.visible = true
-	$Incorrect.position = Vector2(x, 500)
+	$Incorrect.position = Vector2(x, y)
 	$Incorrect/AnimationPlayer.play("scala")
 
 func correctNext(x, y):
@@ -191,7 +243,7 @@ func correctNext(x, y):
 	print("ok")
 	$Timer.start()
 	$Correct2.visible = true
-	$Correct2.position = Vector2(x, 500)
+	$Correct2.position = Vector2(x, y)
 	$Correct2/AnimationPlayer.play("scala")
 
 func incorrectNext(x, y):
@@ -199,20 +251,21 @@ func incorrectNext(x, y):
 	intentos += 1
 	print("no")
 	$Timer.start()
-	$Incorrect.visible = true
-	$Incorrect.position = Vector2(x, 500)
-	$Incorrect/AnimationPlayer.play("scala")
+	$Incorrect2.visible = true
+	$Incorrect2.position = Vector2(x, y)
+	$Incorrect2/AnimationPlayer.play("scala")
 
 func next():
 	$Timer.stop()
 	audio1.stop()
 	audio2.stop()
 	texture_audio_pressed = load("res://assets/buttons/button-audio-normal-02.png")
-	$Main/VBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
+	$Main/VBox/HBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
 	# Icons
 	$Correct.visible = false
 	$Correct2.visible = false
 	$Incorrect.visible = false
+	$Incorrect2.visible = false
 	# Functions
 	reset_sounds()
 	reset_options()
@@ -258,7 +311,7 @@ func _on_ToMenu_pressed():
 # Main
 func _on_Escuchar_pressed():
 	texture_audio_pressed = load("res://assets/buttons/button-audio-pressed-01.png")
-	$Main/VBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
+	$Main/VBox/HBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
 	audio1.play()
 	$ObjectsOptions.visible = true
 	yield(audio1, "finished") 
@@ -267,7 +320,7 @@ func _on_Escuchar_pressed():
 	print(segundo_audio)
 	yield(audio2, "finished")
 	texture_audio_pressed = load("res://assets/buttons/button-audio-normal-02.png")
-	$Main/VBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
+	$Main/VBox/HBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
 
 # PopupToMenu
 func _on_Si_pressed():
