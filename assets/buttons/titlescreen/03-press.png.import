@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/box-titlescreen-gradient-average.png-dfbf820e780bbc090cd1e651de412242.stex"
+path="res://.import/03-press.png-1782c570919c3099987fcfb682b5bfa1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/boxs/box-titlescreen-gradient-average.png"
-dest_files=[ "res://.import/box-titlescreen-gradient-average.png-dfbf820e780bbc090cd1e651de412242.stex" ]
+source_file="res://assets/buttons/titlescreen/03-press.png"
+dest_files=[ "res://.import/03-press.png-1782c570919c3099987fcfb682b5bfa1.stex" ]
 
 [params]
 
