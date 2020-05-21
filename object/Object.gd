@@ -34,12 +34,19 @@ func get_sound():
 func set_image(x):
 	image = x
 	var res = load(image)
-	$AnimatedSprite/Sprite.texture = res
-	$AnimatedSprite/Sprite.texture.set_flags(1)
-	$AnimatedSprite/Sprite.set_scale(Vector2(0.3,0.3))
+	$Background/Imagen.texture = res
+	$Background/Imagen.texture.set_flags(1)
+	$Background/Imagen.set_scale(Vector2(0.3,0.3))
 
 func get_image():
 	return image
+
+func set_status(x):
+	image = x
+	var res = load(image)
+	$Background/Imagen/Status.texture = res
+	$Background/Imagen/Status.texture.set_flags(1)
+	$Background/Imagen/Status/AnimationPlayer.play("scale")
 
 func _on_Control_gui_input(event):
 	if event is InputEventMouseButton:

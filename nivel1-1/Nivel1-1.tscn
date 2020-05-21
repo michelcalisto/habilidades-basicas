@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/img/Hills1.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/Hills4.png" type="Texture" id=2]
@@ -8,21 +8,15 @@
 [ext_resource path="res://assets/img/Hills6.png" type="Texture" id=6]
 [ext_resource path="res://nivel1-1/Parallax.gd" type="Script" id=7]
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://assets/buttons/button-pressed-regresar.png" type="Texture" id=9]
-[ext_resource path="res://assets/buttons/button-normal-regresar.png" type="Texture" id=10]
+[ext_resource path="res://assets/buttons/nivels/regresar-basic.png" type="Texture" id=9]
+[ext_resource path="res://assets/buttons/nivels/regresar-press.png" type="Texture" id=10]
 [ext_resource path="res://nivel1-1/Nivel1-1.gd" type="Script" id=11]
 [ext_resource path="res://nivel1-1/TopPanel.gd" type="Script" id=12]
-[ext_resource path="res://assets/boxs/box-nivel-gradient-average.png" type="Texture" id=13]
-[ext_resource path="res://assets/buttons/button-audio-pressed-01.png" type="Texture" id=14]
-[ext_resource path="res://assets/buttons/button-audio-normal-02.png" type="Texture" id=15]
-[ext_resource path="res://assets/boxs/box-dialog-gradient-average-x500.png" type="Texture" id=16]
-[ext_resource path="res://assets/buttons/button-pressed-si.png" type="Texture" id=17]
-[ext_resource path="res://assets/buttons/button-normal-si.png" type="Texture" id=18]
-[ext_resource path="res://assets/buttons/button-normal-no.png" type="Texture" id=19]
-[ext_resource path="res://assets/buttons/button-pressed-no.png" type="Texture" id=20]
+[ext_resource path="res://assets/boxs/nivels.png" type="Texture" id=13]
+[ext_resource path="res://assets/buttons/nivels/audio-basic.png" type="Texture" id=14]
+[ext_resource path="res://assets/buttons/nivels/audio-press.png" type="Texture" id=15]
 [ext_resource path="res://object/Object.tscn" type="PackedScene" id=21]
-[ext_resource path="res://assets/icons/correct.png" type="Texture" id=22]
-[ext_resource path="res://assets/icons/incorrect.png" type="Texture" id=23]
+[ext_resource path="res://assets/boxs/popup.png" type="Texture" id=22]
 [ext_resource path="res://assets/buttons/button-normal-finalizar.png" type="Texture" id=24]
 [ext_resource path="res://assets/buttons/button-pressed-finalizar.png" type="Texture" id=25]
 [ext_resource path="res://assets/buttons/button-pressed-continuar.png" type="Texture" id=26]
@@ -38,12 +32,6 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 22
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 8 )
 
 [sub_resource type="Animation" id=6]
@@ -74,35 +62,8 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "scala"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 2, 0.5 ),
-"update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
-}
-
-[sub_resource type="Animation" id=9]
-resource_name = "scala"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 2, 0.5 ),
-"update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
-}
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 8 )
 
 [node name="Nivel1-1" type="Node2D"]
 script = ExtResource( 11 )
@@ -183,7 +144,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TopPanel" type="Control" parent="."]
+[node name="TopPanel" type="HBoxContainer" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 1280, 80 )
@@ -192,11 +153,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBox" type="HBoxContainer" parent="TopPanel"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="Margin1" type="MarginContainer" parent="TopPanel/HBox"]
+[node name="Margin1" type="MarginContainer" parent="TopPanel"]
 margin_right = 426.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 426, 80 )
@@ -204,7 +161,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ToMenu" type="TextureButton" parent="TopPanel/HBox/Margin1"]
+[node name="ToMenu" type="TextureButton" parent="TopPanel/Margin1"]
 margin_left = 103.0
 margin_top = 11.0
 margin_right = 323.0
@@ -212,12 +169,12 @@ margin_bottom = 68.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 10 )
-texture_pressed = ExtResource( 9 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
 expand = true
 stretch_mode = 3
 
-[node name="Margin2" type="MarginContainer" parent="TopPanel/HBox"]
+[node name="Margin2" type="MarginContainer" parent="TopPanel"]
 margin_left = 430.0
 margin_right = 856.0
 margin_bottom = 80.0
@@ -226,7 +183,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Nivel" type="Label" parent="TopPanel/HBox/Margin2"]
+[node name="Nivel" type="Label" parent="TopPanel/Margin2"]
 margin_top = 20.0
 margin_right = 426.0
 margin_bottom = 59.0
@@ -238,7 +195,7 @@ custom_constants/shadow_offset_y = 2
 text = "Nivel : 1"
 align = 1
 
-[node name="Margin3" type="MarginContainer" parent="TopPanel/HBox"]
+[node name="Margin3" type="MarginContainer" parent="TopPanel"]
 margin_left = 860.0
 margin_right = 1286.0
 margin_bottom = 80.0
@@ -247,7 +204,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score" type="Label" parent="TopPanel/HBox/Margin3"]
+[node name="Score" type="Label" parent="TopPanel/Margin3"]
 margin_top = 20.0
 margin_right = 426.0
 margin_bottom = 59.0
@@ -312,8 +269,8 @@ margin_bottom = 127.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 15 )
-texture_pressed = ExtResource( 14 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
 expand = true
 stretch_mode = 3
 
@@ -322,159 +279,6 @@ stretch_mode = 3
 [node name="ObjectsSounds" type="Node2D" parent="."]
 
 [node name="ObjectsOptions" type="Node2D" parent="."]
-
-[node name="PopupToMenu" type="PopupMenu" parent="."]
-margin_left = 640.0
-margin_top = 360.0
-margin_right = 660.0
-margin_bottom = 380.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="PopupToMenu"]
-texture = ExtResource( 16 )
-
-[node name="VBox" type="VBoxContainer" parent="PopupToMenu"]
-margin_left = -250.0
-margin_top = -136.0
-margin_right = 254.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 500, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Margin" type="MarginContainer" parent="PopupToMenu/VBox"]
-margin_right = 504.0
-margin_bottom = 172.0
-rect_min_size = Vector2( 0, 172 )
-
-[node name="Info" type="Label" parent="PopupToMenu/VBox/Margin"]
-margin_top = 47.0
-margin_right = 504.0
-margin_bottom = 125.0
-custom_fonts/font = SubResource( 4 )
-text = "RECUERDA QUE AL RETROCEDER
-AL MENU PRINCIPAL, TU PROGRESO
-SE PERDERA."
-align = 1
-
-[node name="HBox" type="HBoxContainer" parent="PopupToMenu/VBox"]
-margin_top = 176.0
-margin_right = 504.0
-margin_bottom = 276.0
-
-[node name="Margin1" type="MarginContainer" parent="PopupToMenu/VBox/HBox"]
-margin_right = 250.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 250, 100 )
-
-[node name="Si" type="TextureButton" parent="PopupToMenu/VBox/HBox/Margin1"]
-margin_left = 15.0
-margin_top = 21.0
-margin_right = 235.0
-margin_bottom = 78.0
-rect_min_size = Vector2( 220, 57 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 18 )
-texture_pressed = ExtResource( 17 )
-expand = true
-stretch_mode = 3
-
-[node name="Margin2" type="MarginContainer" parent="PopupToMenu/VBox/HBox"]
-margin_left = 254.0
-margin_right = 504.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 250, 100 )
-
-[node name="No" type="TextureButton" parent="PopupToMenu/VBox/HBox/Margin2"]
-margin_left = 15.0
-margin_top = 21.0
-margin_right = 235.0
-margin_bottom = 78.0
-rect_min_size = Vector2( 220, 57 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 19 )
-texture_pressed = ExtResource( 20 )
-expand = true
-stretch_mode = 3
-
-[node name="PopupFinal" type="PopupMenu" parent="."]
-margin_left = 640.0
-margin_top = 360.0
-margin_right = 660.0
-margin_bottom = 380.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="PopupFinal"]
-texture = ExtResource( 16 )
-
-[node name="VBox" type="VBoxContainer" parent="PopupFinal"]
-margin_left = -250.0
-margin_top = -136.0
-margin_right = 254.0
-margin_bottom = 36.0
-
-[node name="Margin" type="MarginContainer" parent="PopupFinal/VBox"]
-margin_right = 504.0
-margin_bottom = 172.0
-rect_min_size = Vector2( 504, 172 )
-
-[node name="Info" type="Label" parent="PopupFinal/VBox/Margin"]
-margin_top = 74.0
-margin_right = 504.0
-margin_bottom = 98.0
-custom_fonts/font = SubResource( 5 )
-text = "RECUERDA QUE AL RETROCEDER"
-align = 1
-
-[node name="HBox" type="HBoxContainer" parent="PopupFinal/VBox"]
-margin_top = 176.0
-margin_right = 504.0
-margin_bottom = 276.0
-rect_min_size = Vector2( 504, 100 )
-
-[node name="Margin1" type="MarginContainer" parent="PopupFinal/VBox/HBox"]
-margin_right = 250.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 250, 100 )
-
-[node name="Continuar" type="TextureButton" parent="PopupFinal/VBox/HBox/Margin1"]
-margin_left = 15.0
-margin_top = 21.0
-margin_right = 235.0
-margin_bottom = 78.0
-rect_min_size = Vector2( 220, 57 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 27 )
-texture_pressed = ExtResource( 26 )
-expand = true
-stretch_mode = 3
-
-[node name="Margin2" type="MarginContainer" parent="PopupFinal/VBox/HBox"]
-margin_left = 254.0
-margin_right = 504.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 250, 100 )
-
-[node name="Finalizar" type="TextureButton" parent="PopupFinal/VBox/HBox/Margin2"]
-margin_left = 15.0
-margin_top = 21.0
-margin_right = 235.0
-margin_bottom = 78.0
-rect_min_size = Vector2( 220, 57 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 24 )
-texture_pressed = ExtResource( 25 )
-expand = true
-stretch_mode = 3
 
 [node name="Transition" type="ColorRect" parent="."]
 margin_right = 40.0
@@ -491,23 +295,77 @@ anims/fade-out = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Correct" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+[node name="PopUp" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
 texture = ExtResource( 22 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Correct"]
-anims/scala = SubResource( 8 )
+[node name="VBox" type="VBoxContainer" parent="PopUp"]
+margin_left = -252.0
+margin_top = -136.0
+margin_right = 252.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 500, 272 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Incorrect" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 23 )
+[node name="Margin" type="MarginContainer" parent="PopUp/VBox"]
+margin_right = 504.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 500, 172 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Incorrect"]
-anims/scala = SubResource( 9 )
-[connection signal="pressed" from="TopPanel/HBox/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]
+[node name="Info" type="Label" parent="PopUp/VBox/Margin"]
+margin_top = 74.0
+margin_right = 504.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 5 )
+text = "Info"
+align = 1
+
+[node name="HBox" type="HBoxContainer" parent="PopUp/VBox"]
+margin_top = 176.0
+margin_right = 504.0
+margin_bottom = 276.0
+rect_min_size = Vector2( 500, 100 )
+
+[node name="Margin1" type="MarginContainer" parent="PopUp/VBox/HBox"]
+margin_right = 250.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 250, 100 )
+
+[node name="Aceptar" type="TextureButton" parent="PopUp/VBox/HBox/Margin1"]
+margin_left = 15.0
+margin_top = 21.0
+margin_right = 235.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 220, 57 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 27 )
+texture_pressed = ExtResource( 26 )
+expand = true
+stretch_mode = 3
+
+[node name="Margin2" type="MarginContainer" parent="PopUp/VBox/HBox"]
+margin_left = 250.0
+margin_right = 500.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 250, 100 )
+
+[node name="Rechazar" type="TextureButton" parent="PopUp/VBox/HBox/Margin2"]
+margin_left = 15.0
+margin_top = 21.0
+margin_right = 235.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 220, 57 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 24 )
+texture_pressed = ExtResource( 25 )
+expand = true
+stretch_mode = 3
+[connection signal="pressed" from="TopPanel/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]
 [connection signal="pressed" from="Main/VBox/Margin2/Escuchar" to="." method="_on_Escuchar_pressed"]
-[connection signal="pressed" from="PopupToMenu/VBox/HBox/Margin1/Si" to="." method="_on_Si_pressed"]
-[connection signal="pressed" from="PopupToMenu/VBox/HBox/Margin2/No" to="." method="_on_No_pressed"]
-[connection signal="pressed" from="PopupFinal/VBox/HBox/Margin1/Continuar" to="." method="_on_Continuar_pressed"]
-[connection signal="pressed" from="PopupFinal/VBox/HBox/Margin2/Finalizar" to="." method="_on_Finalizar_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="PopUp/VBox/HBox/Margin1/Aceptar" to="." method="_on_Aceptar_pressed"]
+[connection signal="pressed" from="PopUp/VBox/HBox/Margin2/Rechazar" to="." method="_on_Rechazar_pressed"]

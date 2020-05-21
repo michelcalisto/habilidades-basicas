@@ -4,9 +4,7 @@ export(PackedScene) var Objeto
 const objects_file = "res://data/objects.json"
 var audio = AudioStreamPlayer.new()
 var ogg = AudioStreamOGGVorbis.new()
-var texture_normal = Texture.new()
-var texture_pressed = Texture.new()
-var texture_audio_pressed = Texture.new()
+var popup_status
 var json
 var score
 var intentos
@@ -14,10 +12,9 @@ var time_left
 var seleccionado
 
 func _ready():
-	$Main/VBox/Margin2/Escuchar.texture_normal
-	# Icons
-	$Correct.visible = false
-	$Incorrect.visible = false
+	# PopUp
+	popup_status = 0
+	$PopUp.visible = false
 	# Childs
 	add_child(audio)
 	# Transition
@@ -143,58 +140,66 @@ func _is_code(x):
 			if i.code == x.code:
 				existe = true
 		if existe == true:
-			correct(x.position.x, x.position.y)
+			correct(x)
 		else:
-			incorrect(x.position.x, x.position.y)
+			incorrect(x)
 
-func correct(x, y):
+func correct(x):
 	intentos += 1
 	score += 1
 	$TopPanel.update_score(score)
-	print("ok")
 	$Timer.start()
-	$Correct.visible = true
-	$Correct.position = Vector2(x, 500)
-	$Correct/AnimationPlayer.play("scala")
+	x.set_status("res://assets/icons/correct.png")
+	audio.stop()
+	$Main/VBox/Margin2/Escuchar.disabled = true
 
-func incorrect(x, y):
+func incorrect(x):
 	intentos += 1
-	print("no")
 	$Timer.start()
-	$Incorrect.visible = true
-	$Incorrect.position = Vector2(x, 500)
-	$Incorrect/AnimationPlayer.play("scala")
+	x.set_status("res://assets/icons/incorrect.png")
+	audio.stop()
+	$Main/VBox/Margin2/Escuchar.disabled = true
+
+# Timer
+func _on_Timer_timeout():
+	time_left -=1
+	if time_left <= 0:
+		next()
 
 func next():
+	# Timer
 	$Timer.stop()
-	# Icons
-	$Correct.visible = false
-	$Incorrect.visible = false
-	# Functions
-	reset_sounds()
-	reset_options()
 	# Containers
 	$ObjectsOptions.visible = false
 	# Vars
 	time_left = 2
-	seleccionado = 0
+	seleccionado = 0	
+	# Functions
+	reset_sounds()
+	reset_options()
+
 	if intentos < 5:
 		# Functions
 		set_sounds(1)
 		set_options(json, 1)
+		$Main/VBox/Margin2/Escuchar.disabled = false
 	else:
 		if score >= 4:
-			audio.stop()
-			$PopupFinal.show()
-			print("desbloqueado nivel")
+			popup_status = 2
+			$TopPanel/Margin1/ToMenu.disabled = true
+			$PopUp/VBox/HBox/Margin1/Aceptar.texture_normal = load("res://assets/buttons/nivels/continuar-basic.png")
+			$PopUp/VBox/HBox/Margin1/Aceptar.texture_pressed = load("res://assets/buttons/nivels/continuar-press.png")
+			$PopUp/VBox/HBox/Margin2/Rechazar.texture_normal = load("res://assets/buttons/nivels/finalizar-basic.png")
+			$PopUp/VBox/HBox/Margin2/Rechazar.texture_pressed = load("res://assets/buttons/nivels/finalizar-press.png")
+			$PopUp.visible = true
 		else:
-			audio.stop()
-			texture_normal = load("res://assets/buttons/button-normal-reintentar.png")
-			$PopupFinal/VBox/HBox/Margin1/Continuar.texture_normal = texture_normal
-			texture_pressed = load("res://assets/buttons/button-pressed-reintentar.png")
-			$PopupFinal/VBox/HBox/Margin1/Continuar.texture_pressed = texture_pressed
-			$PopupFinal.show()
-			print("fin")
+			popup_status = 3
+			$TopPanel/Margin1/ToMenu.disabled = true
+			$PopUp/VBox/HBox/Margin1/Aceptar.texture_normal = load("res://assets/buttons/nivels/reintentar-basic.png")
+			$PopUp/VBox/HBox/Margin1/Aceptar.texture_pressed = load("res://assets/buttons/nivels/reintentar-press.png")
+			$PopUp/VBox/HBox/Margin2/Rechazar.texture_normal = load("res://assets/buttons/nivels/finalizar-basic.png")
+			$PopUp/VBox/HBox/Margin2/Rechazar.texture_pressed = load("res://assets/buttons/nivels/finalizar-press.png")
+			$PopUp.visible = true
 
 func reset_sounds():
 	for i in $ObjectsSounds.get_children():
@@ -206,53 +211,45 @@ func reset_options():
 
 # TopPanel
 func _on_ToMenu_pressed():
-	$PopupToMenu.show()
+	popup_status = 1
+	$PopUp/VBox/HBox/Margin1/Aceptar.texture_normal = load("res://assets/buttons/nivels/si-basic.png")
+	$PopUp/VBox/HBox/Margin1/Aceptar.texture_pressed = load("res://assets/buttons/nivels/si-press.png")
+	$PopUp/VBox/HBox/Margin2/Rechazar.texture_normal = load("res://assets/buttons/nivels/no-basic.png")
+	$PopUp/VBox/HBox/Margin2/Rechazar.texture_pressed = load("res://assets/buttons/nivels/no-press.png")
+	$PopUp.visible = true
 
 # Main
 func _on_Escuchar_pressed():
-	texture_audio_pressed = load("res://assets/buttons/button-audio-pressed-01.png")
-	$Main/VBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
+	$Main/VBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-press.png")
 	audio.play()
-	$ObjectsOptions.visible = true
+	$Main/VBox/Margin2/Escuchar.disabled = true
 	yield(audio, "finished")
-	texture_audio_pressed = load("res://assets/buttons/button-audio-normal-02.png")
-	$Main/VBox/Margin2/Escuchar.texture_normal = texture_audio_pressed
-	
-# PopupToMenu
-func _on_Si_pressed():
-	$PopupToMenu.hide()
+	$Main/VBox/Margin2/Escuchar.disabled = false
+	$ObjectsOptions.visible = true
+	$Main/VBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-basic.png")
+
+# PopUp
+func _on_Aceptar_pressed():
+	$PopUp.visible = false
 	$Transition.visible = true
 	$Transition/AnimationPlayer.play("fade-in")
 	yield($Transition/AnimationPlayer, "animation_finished")
-	get_tree().change_scene("res://title-screen/TitleScreen.tscn")
-
-func _on_No_pressed():
-	$PopupToMenu.hide()
-
-# Timer
-func _on_Timer_timeout():
-	time_left -=1
-	if time_left <= 0:
-		next()
-
-# PopupFinal
-func _on_Finalizar_pressed():
-	$PopupFinal.hide()
-	$Transition.visible = true
-	$Transition/AnimationPlayer.play("fade-in")
-	yield($Transition/AnimationPlayer, "animation_finished")
-	get_tree().change_scene("res://title-screen/TitleScreen.tscn")
-
-func _on_Continuar_pressed():
-	if score >= 4:
-		$PopupFinal.hide()
-		$Transition.visible = true
-		$Transition/AnimationPlayer.play("fade-in")
-		yield($Transition/AnimationPlayer, "animation_finished")
+	if popup_status == 1:
+		get_tree().change_scene("res://title-screen/TitleScreen.tscn")
+	if popup_status == 2:
 		get_tree().change_scene("res://nivel1-2/Nivel1-2.tscn")
+	if popup_status == 3:
+		get_tree().change_scene("res://nivel1-1/Nivel1-1.tscn")
+
+func _on_Rechazar_pressed():
+	if popup_status == 1:
+		$PopUp.visible = false
 	else:
-		$PopupFinal.hide()
+		$PopUp.visible = false
 		$Transition.visible = true
 		$Transition/AnimationPlayer.play("fade-in")
 		yield($Transition/AnimationPlayer, "animation_finished")
-		get_tree().change_scene("res://nivel1-1/Nivel1-1.tscn")
+		if popup_status == 2:
+			get_tree().change_scene("res://title-screen/TitleScreen.tscn")
+		if popup_status == 3:
+			get_tree().change_scene("res://title-screen/TitleScreen.tscn")
