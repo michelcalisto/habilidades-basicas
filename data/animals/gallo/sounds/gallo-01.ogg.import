@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gallo-01.ogg-f11a5fd1baadd7d75391b71222a5a207.oggstr"
+
+[deps]
+
+source_file="res://data/animals/gallo/sounds/gallo-01.ogg"
+dest_files=[ "res://.import/gallo-01.ogg-f11a5fd1baadd7d75391b71222a5a207.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

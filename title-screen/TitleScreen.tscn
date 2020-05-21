@@ -198,9 +198,8 @@ margin_bottom = 136.0
 rect_min_size = Vector2( 0, 82 )
 
 [node name="Nivel1" type="TextureButton" parent="VBox/Margin2/VBoxContainer/Margin1"]
-margin_left = -1.0
 margin_top = 12.0
-margin_right = 449.0
+margin_right = 450.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 450, 57 )
 size_flags_horizontal = 4
@@ -217,9 +216,8 @@ margin_bottom = 222.0
 rect_min_size = Vector2( 450, 82 )
 
 [node name="Nivel2" type="TextureButton" parent="VBox/Margin2/VBoxContainer/Margin2"]
-margin_left = -1.0
 margin_top = 12.0
-margin_right = 449.0
+margin_right = 450.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 450, 57 )
 size_flags_horizontal = 4
@@ -236,9 +234,8 @@ margin_bottom = 308.0
 rect_min_size = Vector2( 450, 82 )
 
 [node name="Nivel3" type="TextureButton" parent="VBox/Margin2/VBoxContainer/Margin3"]
-margin_left = -1.0
 margin_top = 12.0
-margin_right = 449.0
+margin_right = 450.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 450, 57 )
 size_flags_horizontal = 4

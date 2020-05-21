@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/oveja-01.ogg-b16e310c79eb82bc3fd9ebc779360582.oggstr"
+
+[deps]
+
+source_file="res://data/animals/oveja/sounds/oveja-01.ogg"
+dest_files=[ "res://.import/oveja-01.ogg-b16e310c79eb82bc3fd9ebc779360582.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

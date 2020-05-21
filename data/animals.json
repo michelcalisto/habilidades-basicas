@@ -1,0 +1,62 @@
+{
+  "01": {
+    "name": "Caballo",
+    "code": "01-Caballo",
+    "sound": "res://data/animals/caballo/sounds/caballo-01.ogg",
+    "image": "res://data/img/caballo.png"
+  },
+  "02": {
+    "name": "Cerdo",
+    "code": "02-Cerdo",
+    "sound": "res://data/animals/cerdo/sounds/cerdo-01.ogg",
+    "image": "res://data/img/cerdo.png"
+  },
+  "03": {
+    "name": "Gallina",
+    "code": "03-Gallina",
+    "sound": "res://data/animals/gallina/sounds/gallina-01.ogg",
+    "image": "res://data/img/gallina.png"
+  },
+  "04": {
+    "name": "Gallo",
+    "code": "04-Gallo",
+    "sound": "res://data/animals/gallo/sounds/gallo-01.ogg",
+    "image": "res://data/img/gallo.png"
+  },
+  "05": {
+    "name": "Ganso",
+    "code": "05-Ganso",
+    "sound": "res://data/animals/ganso/sounds/ganso-01.ogg",
+    "image": "res://data/img/ganso.png"
+  },
+  "06": {
+    "name": "Gato",
+    "code": "06-Gato",
+    "sound": "res://data/animals/gato/sounds/gato-01.ogg",
+    "image": "res://data/img/gato.png"
+  },
+  "07": {
+    "name": "Oveja",
+    "code": "07-Oveja",
+    "sound": "res://data/animals/oveja/sounds/oveja-01.ogg",
+    "image": "res://data/img/oveja.png"
+  },
+  "08": {
+    "name": "Pato",
+    "code": "08-Pato",
+    "sound": "res://data/animals/pato/sounds/pato-01.ogg",
+    "image": "res://data/img/pato.png"
+  },
+  "09": {
+    "name": "Perro",
+    "code": "09-Perro",
+    "sound": "res://data/animals/perro/sounds/perro-01.ogg",
+    "image": "res://data/img/perro.png"
+  },
+  "10": {
+    "name": "Vaca",
+    "code": "10-Vaca",
+    "sound": "res://data/animals/vaca/sounds/vaca-01.ogg",
+    "image": "res://data/img/vaca.png"
+  }
+}
