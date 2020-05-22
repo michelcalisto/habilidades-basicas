@@ -1,11 +1,16 @@
 extends ParallaxBackground
 
-var off_set
 
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	off_set = 0
-	set_process(true)
+	pass # Replace with function body.
 
-func _process(delta):
-	off_set -= 100 * delta
-	set_scroll_offset(Vector2(off_set, 0))
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass

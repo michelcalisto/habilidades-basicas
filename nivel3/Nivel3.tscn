@@ -1,44 +1,390 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://nivel3/Nivel3.gd" type="Script" id=1]
-[ext_resource path="res://nivel3/Parallax.gd" type="Script" id=2]
-[ext_resource path="res://assets/img/Hills2.png" type="Texture" id=3]
-[ext_resource path="res://assets/img/Hills4.png" type="Texture" id=4]
-[ext_resource path="res://assets/img/Hills5.png" type="Texture" id=5]
+[ext_resource path="res://assets/img/Hills1.png" type="Texture" id=1]
+[ext_resource path="res://assets/img/Hills4.png" type="Texture" id=2]
+[ext_resource path="res://assets/img/Hills5.png" type="Texture" id=3]
+[ext_resource path="res://assets/img/Hills2.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/Hills3.png" type="Texture" id=5]
 [ext_resource path="res://assets/img/Hills6.png" type="Texture" id=6]
-[ext_resource path="res://assets/img/Hills1.png" type="Texture" id=7]
-[ext_resource path="res://assets/img/Hills3.png" type="Texture" id=8]
-[ext_resource path="res://nivel3/TopPanel.gd" type="Script" id=9]
-[ext_resource path="res://assets/boxs/nivels.png" type="Texture" id=10]
-[ext_resource path="res://assets/buttons/nivels/regresar-basic.png" type="Texture" id=11]
-[ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://assets/buttons/nivels/regresar-press.png" type="Texture" id=13]
+[ext_resource path="res://nivel3/PopUp.gd" type="Script" id=7]
+[ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://assets/buttons/nivels/regresar-basic.png" type="Texture" id=9]
+[ext_resource path="res://assets/buttons/nivels/regresar-press.png" type="Texture" id=10]
+[ext_resource path="res://nivel3/Icon.gd" type="Script" id=11]
+[ext_resource path="res://assets/boxs/nivels.png" type="Texture" id=13]
 [ext_resource path="res://assets/buttons/nivels/audio-basic.png" type="Texture" id=14]
 [ext_resource path="res://assets/buttons/nivels/audio-press.png" type="Texture" id=15]
-[ext_resource path="res://assets/icons/incorrect.png" type="Texture" id=25]
-[ext_resource path="res://assets/icons/correct.png" type="Texture" id=26]
-[ext_resource path="res://object/Object.tscn" type="PackedScene" id=27]
-[ext_resource path="res://nivel3/Main.gd" type="Script" id=28]
-[ext_resource path="res://assets/boxs/popup.png" type="Texture" id=29]
-[ext_resource path="res://assets/buttons/nivels/continuar-basic.png" type="Texture" id=30]
-[ext_resource path="res://assets/buttons/nivels/continuar-press.png" type="Texture" id=31]
-[ext_resource path="res://assets/buttons/nivels/finalizar-basic.png" type="Texture" id=32]
-[ext_resource path="res://assets/buttons/nivels/finalizar-press.png" type="Texture" id=33]
+[ext_resource path="res://object/Object.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/boxs/popup.png" type="Texture" id=22]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+export(PackedScene) var Objeto
+const objects_file = \"res://data/animals-comparation.json\"
+var json
+var audio = AudioStreamPlayer.new()
+var ogg = AudioStreamOGGVorbis.new()
+var seleccionados = 0
+var intentos_level = 0
+var level = 1
+var score_level = 0
+var score_user = 0
+var score_total = 0
+var time_left = 2
+var popup_status = 0
+
+func _ready():
+	# Icon
+	$Icon.visible = false
+	# Buttons
+	$Main/VBox/HBox.visible = false
+	# PopUp
+	$PopUp.visible = false
+	# Labels
+	$TopPanel.update_level(level)
+	$TopPanel.update_score(score_total)
+	$Main.update_indicaciones(\"ESCUCHA CON ATENCION LAS PALABRAS E IDENTIFICA\\nSI SON IGUALES O DIFERENTES.\")
+	# Transition
+	$Transition.visible = true
+	$Transition/AnimationPlayer.play(\"fade-out\")
+	yield($Transition/AnimationPlayer, \"animation_finished\")
+	$Transition.visible = false
+	# Containers
+	$Objects.visible = false
+	$ObjectsSounds.visible = false
+	$ObjectsOptions.visible = false
+	# Childs
+	add_child(audio)
+	# Functions
+	json = read_json()
+	set_objects(json)
+	set_sounds(2)
+	set_options(json, 0)
+
+func read_json():
+	var file = File.new()
+	if file.file_exists(objects_file):
+		file.open(objects_file, File.READ)
+		var data = parse_json(file.get_as_text())
+		file.close()
+		if typeof(data) == TYPE_DICTIONARY:
+			return data
+		else:
+			printerr(\"Corrupted data!\")
+	else:
+		printerr(\"File don't exist!\")
+
+func set_objects(x):
+	var deck = Array()
+	for i in x:
+		deck.append(i)
+	var indexList = range(deck.size())
+	var y = 0
+	for i in range(deck.size()):
+#		randomize()
+#		var y = randi()%indexList.size()	
+		for z in x:
+			if z == deck[y]:
+				var obj = Objeto.instance()
+				obj.set_id(z)
+				obj.set_nombre(x[z][\"name\"])
+				obj.set_code(x[z][\"code\"])
+				obj.set_sound(x[z][\"sound\"])
+				obj.set_image(x[z][\"image\"])
+				$Objects.add_child(obj)
+		#indexList.remove(y)
+		#deck.remove(y)
+		y += 1
+
+func set_sounds(x):
+	var count = 0
+	var countAudio = 0
+	for i in $Objects.get_children():
+		if count >= $Objects.get_child_count() - x:
+			var obj = $Objects.get_child(count)
+			$Objects.remove_child(i)
+			$ObjectsSounds.add_child(obj)
+		else:
+			count += 1
+
+func set_options(x, agregar):
+	# Distribucion de los objetos
+	var all = Array()
+	var options = Array()
+	for i in x:
+		var existe = false
+		for j in $ObjectsSounds.get_children():
+			if x[i][\"code\"] == j.code:
+				existe = true
+		if existe == false:
+			all.append(i)
+		else:
+			options.append(i)
+
+	# Inclucion de objetos extras
+	var indexList = range(all.size())
+	for i in range(agregar):
+		randomize()
+		var y = randi()%indexList.size()
+		for z in all:
+			if z == all[y]:
+				options.append(z)
+		indexList.remove(y)
+		all.remove(y)
+	
+	#var card_x = 640 - (85 * (options.size()-1))
+	#var card_width = 170
+	var card_x = 480
+	var card_width = 170 + 150
+	var in_list = range(options.size())
+	for i in range(options.size()):
+		randomize()
+		var y = randi()%in_list.size()	
+		for z in x:
+			if z == options[y]:
+				var obj = Objeto.instance()
+				obj.z_index = 1
+				obj.set_id(z)
+				obj.set_nombre(x[z][\"name\"])
+				obj.set_code(x[z][\"code\"])
+				obj.set_sound(x[z][\"sound\"])
+				obj.set_image(x[z][\"image\"])
+				obj.position = Vector2(card_x,360)
+				card_x = card_x + card_width
+				$ObjectsOptions.add_child(obj)
+		in_list.remove(y)
+		options.remove(y)
+
+# Main
+func _on_Escuchar_pressed():
+	if level == 1 and seleccionados != 1:
+		$Main/VBox/Margin2/Escuchar.texture_normal = load(\"res://assets/buttons/nivels/audio-press.png\")
+		$Main/VBox/Margin2/Escuchar.disabled = true
+		for i in $ObjectsSounds.get_children():
+			if seleccionados != 1:
+				ogg = load(i.get_sound())
+				ogg.loop = false
+				audio.stream = ogg
+				audio.play()
+				yield(audio, \"finished\")
+			else:
+				$Main/VBox/Margin2/Escuchar.disabled = false
+				$Main/VBox/HBox.visible = false
+				$Main/VBox/Margin2/Escuchar.texture_normal = load(\"res://assets/buttons/nivels/audio-basic.png\")
+				break
+		if  seleccionados != 1:
+			$Main/VBox/Margin2/Escuchar.disabled = false
+			$Main/VBox/HBox.visible = true
+			$Main/VBox/Margin2/Escuchar.texture_normal = load(\"res://assets/buttons/nivels/audio-basic.png\")
+
+func _on_Igual_pressed():
+	$Main/VBox/HBox.visible = false
+	if level == 1 and seleccionados == 0:
+		seleccionados += 1
+		intentos_level += 1
+		audio.stop()
+		if $ObjectsSounds.get_child(0).code == $ObjectsSounds.get_child(1).code:
+			correct()
+		else:
+			incorrect()
+
+func _on_Diferente_pressed():
+	if level == 1 and seleccionados == 0:
+		seleccionados += 1
+		intentos_level += 1
+		audio.stop()
+		if $ObjectsSounds.get_child(0).code != $ObjectsSounds.get_child(1).code:
+			correct()
+		else:
+			incorrect()
+	
+func correct():
+	if level == 1:
+		score_level += 1
+		score_total += 1
+		$TopPanel.update_score(score_total)
+		$Timer.start()
+		$PopUp.z_index = 0
+		$PopUp.update_info(\"\")
+		$TopPanel/Margin1/ToMenu.disabled = true
+		$PopUp.set_nextlevel()
+		$PopUp.visible = true
+		$ObjectsOptions.visible = true
+		$Icon.update_icon(\"res://assets/icons/correct.png\")
+		$Icon.visible = true
+		$Icon/AnimationPlayer.play(\"scale\")
+
+func incorrect():
+	if level == 1:
+		$Timer.start()
+		$TopPanel.update_score(score_total)
+		$Timer.start()
+		$PopUp.z_index = 0
+		$PopUp.update_info(\"\")
+		$TopPanel/Margin1/ToMenu.disabled = true
+		$PopUp.set_nextlevel()
+		$PopUp.visible = true
+		$ObjectsOptions.visible = true
+		$Icon.update_icon(\"res://assets/icons/incorrect.png\")
+		$Icon.visible = true
+		$Icon/AnimationPlayer.play(\"scale\")
+
+# Timer
+func _on_Timer_timeout():
+	time_left -=1
+	if time_left <= 0:
+		if intentos_level <= 5:
+			next()
+
+func next():
+	# Icon
+	$Icon.visible = false
+	$PopUp.reset_nextlevel()
+	$TopPanel/Margin1/ToMenu.disabled = false
+	# Buttons
+	$Main/VBox/HBox.visible = false
+	# PopUp
+	$PopUp.visible = false
+	# Timer
+	$Timer.stop()
+	# Containers
+	$ObjectsOptions.visible = false
+	# Vars
+	time_left = 2
+	seleccionados = 0
+	# Functions
+	reset_containers()
+	
+	if intentos_level < 5:
+		if level == 1:
+			set_sounds(2)
+			set_options(json, 0)
+	else:
+		if score_level >= 4:
+			popup_status = 1
+			$PopUp.update_info(\"FELICITACIONES HAS COMPLETADO\\nEL NIVEL\\n\\nPUNTAJE FINAL : \"+str(score_total)+\" de 8\")
+			$TopPanel/Margin1/ToMenu.disabled = true
+			$PopUp.update_textures_aceptar(\"res://assets/buttons/nivels/finalizar-basic.png\",\"res://assets/buttons/nivels/finalizar-press.png\")
+			$PopUp.set_final()
+			$Main/VBox/Margin2/Escuchar.visible = false
+			$PopUp.visible = true
+		else:
+			popup_status = 2
+			$PopUp.update_info(\"SIGUELO INTENTANDO\")
+			$TopPanel/Margin1/ToMenu.disabled = true
+			$PopUp.update_textures_aceptar(\"res://assets/buttons/nivels/reintentar-basic.png\",\"res://assets/buttons/nivels/reintentar-press.png\")
+			$PopUp.update_textures_rechazar(\"res://assets/buttons/nivels/finalizar-basic.png\",\"res://assets/buttons/nivels/finalizar-press.png\")
+			$Main/VBox/Margin2/Escuchar.visible = false
+			$PopUp.visible = true
+
+func reset_containers():
+	for i in $ObjectsSounds.get_children():
+		$ObjectsSounds.remove_child(i)
+	for i in $ObjectsOptions.get_children():
+		$ObjectsOptions.remove_child(i)
+
+# TopPanel
+func _on_ToMenu_pressed():
+	popup_status = 1
+	$PopUp.update_info(\"RECUERDA QUE AL REGRESAR AL\\nMENU PRINCIPAL PERDERAS TU\\nPROGRESO\")
+	$PopUp.update_textures_aceptar(\"res://assets/buttons/nivels/si-basic.png\",\"res://assets/buttons/nivels/si-press.png\")
+	$PopUp.update_textures_rechazar(\"res://assets/buttons/nivels/no-basic.png\",\"res://assets/buttons/nivels/no-press.png\")
+	$PopUp.visible = true
+
+# PopUp
+func _on_Aceptar_pressed():
+	if popup_status == 1:
+		$PopUp.visible = false
+		$Transition.visible = true
+		$Transition/AnimationPlayer.play(\"fade-in\")
+		yield($Transition/AnimationPlayer, \"animation_finished\")
+		get_tree().change_scene(\"res://title-screen/TitleScreen.tscn\")
+	if popup_status == 2:
+		reintentar()
+		$TopPanel/Margin1/ToMenu.disabled = false
+		$Main/VBox/Margin2/Escuchar.visible = true
+		$PopUp.visible = false
+
+func _on_Rechazar_pressed():
+	if popup_status == 1:
+		$PopUp.visible = false
+	if popup_status == 2:
+		$PopUp.visible = false
+		$Transition.visible = true
+		$Transition/AnimationPlayer.play(\"fade-in\")
+		yield($Transition/AnimationPlayer, \"animation_finished\")
+		get_tree().change_scene(\"res://title-screen/TitleScreen.tscn\")
+
+func reintentar():
+	$TopPanel.update_score(score_user)
+	$Main/VBox/Margin2/Escuchar.visible = true
+	# Timer
+	$Timer.stop()
+	# Containers
+	$ObjectsOptions.visible = false
+	# Vars
+	seleccionados = 0
+	intentos_level = 0
+	#level = 1
+	score_level = 0
+	#score_user = 0
+	score_total = score_user
+	time_left = 2
+	#popup_status = 0
+	# Functions
+	reset_containers()
+	json = read_json()
+	set_objects(json)
+	if level == 1:
+		set_sounds(2)
+		set_options(json, 0)
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends ParallaxBackground
+
+var off_set
+
+func _ready():
+	off_set = 0
+	set_process(true)
+
+func _process(delta):
+	off_set -= 100 * delta
+	set_scroll_offset(Vector2(off_set, 0))
+"
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends HBoxContainer
+
+func update_score(x):
+	$Margin3/Score.text = \"Puntaje : \" + str(x)
+
+func update_level(x):
+	$Margin2/Nivel.text = \"Nivel : \" + str(x)
+"
+
+[sub_resource type="DynamicFont" id=4]
 size = 25
-font_data = ExtResource( 12 )
+font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 25
-font_data = ExtResource( 12 )
+font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 22
-font_data = ExtResource( 12 )
+[sub_resource type="GDScript" id=6]
+script/source = "extends TextureRect
 
-[sub_resource type="Animation" id=6]
-resource_name = "fade-in"
+func update_indicaciones(x):
+	$VBox/Margin1/Indicaciones.text = str(x)
+"
+
+[sub_resource type="DynamicFont" id=7]
+size = 18
+font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -49,11 +395,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "fade-out"
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -67,11 +412,11 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=11]
-font_data = ExtResource( 12 )
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=8]
-resource_name = "scala"
+[sub_resource type="Animation" id=11]
+resource_name = "scale"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
@@ -80,31 +425,17 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 2, 0.5 ),
-"update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
-}
-
-[sub_resource type="Animation" id=10]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 2, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
 }
 
 [node name="Nivel3" type="Node2D"]
-script = ExtResource( 1 )
-Objeto = ExtResource( 27 )
+script = SubResource( 1 )
+Objeto = ExtResource( 21 )
 
 [node name="Parallax" type="ParallaxBackground" parent="."]
-script = ExtResource( 2 )
+script = SubResource( 2 )
 
 [node name="Layer1" type="ParallaxLayer" parent="Parallax"]
 motion_scale = Vector2( 0.1, 1 )
@@ -113,7 +444,7 @@ motion_mirroring = Vector2( 1042, 0 )
 [node name="Texture" type="TextureRect" parent="Parallax/Layer1"]
 margin_right = 40.0
 margin_bottom = 40.0
-texture = ExtResource( 7 )
+texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -125,7 +456,7 @@ motion_mirroring = Vector2( 1042, 0 )
 [node name="Texture" type="TextureRect" parent="Parallax/Layer2"]
 margin_right = 40.0
 margin_bottom = 40.0
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -137,7 +468,7 @@ motion_mirroring = Vector2( 1042, 0 )
 [node name="Texture" type="TextureRect" parent="Parallax/Layer3"]
 margin_right = 40.0
 margin_bottom = 40.0
-texture = ExtResource( 8 )
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -149,7 +480,7 @@ motion_mirroring = Vector2( 1042, 0 )
 [node name="Texture" type="TextureRect" parent="Parallax/Layer4"]
 margin_right = 40.0
 margin_bottom = 40.0
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -161,7 +492,7 @@ motion_mirroring = Vector2( 1042, 0 )
 [node name="Texture" type="TextureRect" parent="Parallax/Layer5"]
 margin_right = 40.0
 margin_bottom = 40.0
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -179,10 +510,10 @@ __meta__ = {
 }
 
 [node name="TopPanel" type="HBoxContainer" parent="."]
-margin_right = 1286.0
-margin_bottom = 80.0
+margin_right = 40.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 1280, 80 )
-script = ExtResource( 9 )
+script = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -191,6 +522,9 @@ __meta__ = {
 margin_right = 426.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 426, 80 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ToMenu" type="TextureButton" parent="TopPanel/Margin1"]
 margin_left = 103.0
@@ -200,8 +534,8 @@ margin_bottom = 68.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 11 )
-texture_pressed = ExtResource( 13 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
 expand = true
 stretch_mode = 3
 
@@ -210,17 +544,19 @@ margin_left = 430.0
 margin_right = 856.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 426, 80 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Nivel" type="Label" parent="TopPanel/Margin2"]
 margin_top = 20.0
 margin_right = 426.0
 margin_bottom = 59.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
 custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-text = "Nivel : 1"
 align = 1
 
 [node name="Margin3" type="MarginContainer" parent="TopPanel"]
@@ -228,67 +564,104 @@ margin_left = 860.0
 margin_right = 1286.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 426, 80 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Score" type="Label" parent="TopPanel/Margin3"]
 margin_top = 20.0
 margin_right = 426.0
 margin_bottom = 59.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
 custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-text = "Puntaje : 0"
 align = 1
 
-[node name="Main" type="Control" parent="."]
+[node name="Main" type="TextureRect" parent="."]
 margin_left = 120.0
 margin_top = 80.0
-margin_right = 160.0
-margin_bottom = 120.0
-rect_min_size = Vector2( 1040, 560 )
-script = ExtResource( 28 )
+margin_right = 1160.0
+margin_bottom = 640.0
+texture = ExtResource( 13 )
+script = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Box" type="TextureRect" parent="Main"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 10 )
-
 [node name="VBox" type="VBoxContainer" parent="Main"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 1040, 560 )
+margin_right = 1040.0
+margin_bottom = 560.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Margin1" type="MarginContainer" parent="Main/VBox"]
-margin_right = 1040.0
+margin_right = 1044.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 1040, 150 )
 
 [node name="Indicaciones" type="Label" parent="Main/VBox/Margin1"]
-margin_top = 39.0
-margin_right = 1040.0
-margin_bottom = 110.0
-custom_fonts/font = SubResource( 3 )
-text = "ESCUCHA CON ATENCION Y ADIVINA LOS SONIDOS DE LOS 
-ANIMALES DE LA GRANJA."
+margin_top = 61.0
+margin_right = 1044.0
+margin_bottom = 89.0
+custom_fonts/font = SubResource( 7 )
 align = 1
 
 [node name="Margin2" type="MarginContainer" parent="Main/VBox"]
 margin_top = 154.0
-margin_right = 1040.0
+margin_right = 1044.0
 margin_bottom = 304.0
 rect_min_size = Vector2( 1040, 150 )
 
 [node name="Escuchar" type="TextureButton" parent="Main/VBox/Margin2"]
-margin_left = 467.0
+margin_left = 469.0
 margin_top = 22.0
-margin_right = 572.0
+margin_right = 574.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 105, 105 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
+expand = true
+stretch_mode = 3
+
+[node name="HBox" type="HBoxContainer" parent="Main/VBox"]
+margin_top = 308.0
+margin_right = 1044.0
+margin_bottom = 458.0
+rect_min_size = Vector2( 1040, 150 )
+
+[node name="Margin3" type="MarginContainer" parent="Main/VBox/HBox"]
+margin_right = 520.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 520, 150 )
+
+[node name="Igual" type="TextureButton" parent="Main/VBox/HBox/Margin3"]
+margin_left = 207.0
+margin_top = 22.0
+margin_right = 312.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 105, 105 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
+expand = true
+stretch_mode = 3
+
+[node name="Margin4" type="MarginContainer" parent="Main/VBox/HBox"]
+margin_left = 524.0
+margin_right = 1044.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 520, 150 )
+
+[node name="Diferente" type="TextureButton" parent="Main/VBox/HBox/Margin4"]
+margin_left = 207.0
+margin_top = 22.0
+margin_right = 312.0
 margin_bottom = 127.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
@@ -305,8 +678,8 @@ stretch_mode = 3
 [node name="ObjectsOptions" type="Node2D" parent="."]
 
 [node name="Transition" type="ColorRect" parent="."]
-margin_right = 1280.0
-margin_bottom = 720.0
+margin_right = 40.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 1280, 720 )
 color = Color( 0, 0, 0, 0 )
 __meta__ = {
@@ -314,41 +687,42 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-anims/fade-in = SubResource( 6 )
-anims/fade-out = SubResource( 7 )
+anims/fade-in = SubResource( 8 )
+anims/fade-out = SubResource( 9 )
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="PopUp" type="Sprite" parent="."]
 position = Vector2( 640, 360 )
-texture = ExtResource( 29 )
+texture = ExtResource( 22 )
+script = ExtResource( 7 )
 
 [node name="VBox" type="VBoxContainer" parent="PopUp"]
 margin_left = -252.0
 margin_top = -136.0
-margin_right = -212.0
-margin_bottom = -96.0
+margin_right = 252.0
+margin_bottom = 140.0
 rect_min_size = Vector2( 500, 272 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Margin" type="MarginContainer" parent="PopUp/VBox"]
-margin_right = 758.0
+margin_right = 504.0
 margin_bottom = 172.0
 rect_min_size = Vector2( 500, 172 )
 
 [node name="Info" type="Label" parent="PopUp/VBox/Margin"]
 margin_top = 74.0
-margin_right = 758.0
+margin_right = 504.0
 margin_bottom = 98.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 10 )
 text = "Info"
 align = 1
 
 [node name="HBox" type="HBoxContainer" parent="PopUp/VBox"]
 margin_top = 176.0
-margin_right = 758.0
+margin_right = 504.0
 margin_bottom = 276.0
 rect_min_size = Vector2( 500, 100 )
 
@@ -358,15 +732,13 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 250, 100 )
 
 [node name="Aceptar" type="TextureButton" parent="PopUp/VBox/HBox/Margin1"]
-margin_left = 14.0
+margin_left = 15.0
 margin_top = 21.0
-margin_right = 234.0
+margin_right = 235.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 30 )
-texture_pressed = ExtResource( 31 )
 expand = true
 stretch_mode = 3
 
@@ -377,74 +749,27 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 250, 100 )
 
 [node name="Rechazar" type="TextureButton" parent="PopUp/VBox/HBox/Margin2"]
-margin_left = 14.0
+margin_left = 15.0
 margin_top = 21.0
-margin_right = 234.0
+margin_right = 235.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 32 )
-texture_pressed = ExtResource( 33 )
 expand = true
 stretch_mode = 3
 
-[node name="Margin3" type="MarginContainer" parent="PopUp/VBox/HBox"]
-margin_left = 508.0
-margin_right = 758.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 250, 100 )
-
-[node name="Finalizar" type="TextureButton" parent="PopUp/VBox/HBox/Margin3"]
-margin_left = 14.0
-margin_top = 21.0
-margin_right = 234.0
-margin_bottom = 78.0
-rect_min_size = Vector2( 220, 57 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 32 )
-texture_pressed = ExtResource( 33 )
-expand = true
-stretch_mode = 3
-
-[node name="Correct" type="Sprite" parent="."]
+[node name="Icon" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 26 )
+script = ExtResource( 11 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Correct"]
-anims/scala = SubResource( 8 )
-
-[node name="Incorrect" type="Sprite" parent="."]
-scale = Vector2( 2, 2 )
-texture = ExtResource( 25 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Incorrect"]
-anims/scala = SubResource( 10 )
-
-[node name="Button1" type="Button" parent="."]
-margin_left = 304.122
-margin_top = 276.642
-margin_right = 346.122
-margin_bottom = 296.642
-text = "igual"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button2" type="Button" parent="."]
-margin_left = 943.701
-margin_top = 276.985
-margin_right = 1015.7
-margin_bottom = 296.985
-text = "Diferente"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Icon"]
+anims/scale = SubResource( 11 )
 [connection signal="pressed" from="TopPanel/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]
 [connection signal="pressed" from="Main/VBox/Margin2/Escuchar" to="." method="_on_Escuchar_pressed"]
+[connection signal="pressed" from="Main/VBox/HBox/Margin3/Igual" to="." method="_on_Igual_pressed"]
+[connection signal="pressed" from="Main/VBox/HBox/Margin4/Diferente" to="." method="_on_Diferente_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="PopUp/VBox/HBox/Margin1/Aceptar" to="." method="_on_Aceptar_pressed"]
 [connection signal="pressed" from="PopUp/VBox/HBox/Margin2/Rechazar" to="." method="_on_Rechazar_pressed"]
-[connection signal="pressed" from="Button1" to="." method="_on_Button1_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

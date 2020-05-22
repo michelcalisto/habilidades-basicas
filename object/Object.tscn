@@ -27,7 +27,7 @@ texture = ExtResource( 2 )
 [node name="Imagen" type="Sprite" parent="Background"]
 
 [node name="Status" type="Sprite" parent="Background/Imagen"]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 2, 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Imagen/Status"]
 anims/scale = SubResource( 1 )
