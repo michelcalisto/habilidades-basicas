@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/img/Hills1.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/Hills4.png" type="Texture" id=2]
@@ -19,10 +19,6 @@
 [ext_resource path="res://nivel1/Box.gd" type="Script" id=20]
 [ext_resource path="res://object/Object.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/boxs/popup.png" type="Texture" id=22]
-[ext_resource path="res://assets/buttons/button-normal-finalizar.png" type="Texture" id=24]
-[ext_resource path="res://assets/buttons/button-pressed-finalizar.png" type="Texture" id=25]
-[ext_resource path="res://assets/buttons/button-pressed-continuar.png" type="Texture" id=26]
-[ext_resource path="res://assets/buttons/button-normal-continuar.png" type="Texture" id=27]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -333,8 +329,6 @@ margin_bottom = 78.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 27 )
-texture_pressed = ExtResource( 26 )
 expand = true
 stretch_mode = 3
 
@@ -352,8 +346,6 @@ margin_bottom = 78.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 24 )
-texture_pressed = ExtResource( 25 )
 expand = true
 stretch_mode = 3
 [connection signal="pressed" from="TopPanel/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]
