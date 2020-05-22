@@ -1,42 +1,44 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=33 format=2]
 
-[ext_resource path="res://assets/img/Hills1.png" type="Texture" id=1]
-[ext_resource path="res://assets/img/Hills4.png" type="Texture" id=2]
-[ext_resource path="res://assets/img/Hills5.png" type="Texture" id=3]
-[ext_resource path="res://assets/img/Hills2.png" type="Texture" id=4]
-[ext_resource path="res://assets/img/Hills3.png" type="Texture" id=5]
+[ext_resource path="res://nivel3/Nivel3.gd" type="Script" id=1]
+[ext_resource path="res://nivel3/Parallax.gd" type="Script" id=2]
+[ext_resource path="res://assets/img/Hills2.png" type="Texture" id=3]
+[ext_resource path="res://assets/img/Hills4.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/Hills5.png" type="Texture" id=5]
 [ext_resource path="res://assets/img/Hills6.png" type="Texture" id=6]
-[ext_resource path="res://nivel1/Nivel1.gd" type="Script" id=7]
-[ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://assets/buttons/nivels/regresar-basic.png" type="Texture" id=9]
-[ext_resource path="res://assets/buttons/nivels/regresar-press.png" type="Texture" id=10]
-[ext_resource path="res://nivel1/Parallax.gd" type="Script" id=11]
-[ext_resource path="res://nivel1/TopPanel.gd" type="Script" id=12]
-[ext_resource path="res://assets/boxs/nivels.png" type="Texture" id=13]
+[ext_resource path="res://assets/img/Hills1.png" type="Texture" id=7]
+[ext_resource path="res://assets/img/Hills3.png" type="Texture" id=8]
+[ext_resource path="res://nivel3/TopPanel.gd" type="Script" id=9]
+[ext_resource path="res://assets/boxs/nivels.png" type="Texture" id=10]
+[ext_resource path="res://assets/buttons/nivels/regresar-basic.png" type="Texture" id=11]
+[ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://assets/buttons/nivels/regresar-press.png" type="Texture" id=13]
 [ext_resource path="res://assets/buttons/nivels/audio-basic.png" type="Texture" id=14]
 [ext_resource path="res://assets/buttons/nivels/audio-press.png" type="Texture" id=15]
-[ext_resource path="res://nivel1/PopUp.gd" type="Script" id=16]
-[ext_resource path="res://nivel1/Box.gd" type="Script" id=20]
-[ext_resource path="res://object/Object.tscn" type="PackedScene" id=21]
-[ext_resource path="res://assets/boxs/popup.png" type="Texture" id=22]
-[ext_resource path="res://assets/buttons/button-normal-finalizar.png" type="Texture" id=24]
-[ext_resource path="res://assets/buttons/button-pressed-finalizar.png" type="Texture" id=25]
-[ext_resource path="res://assets/buttons/button-pressed-continuar.png" type="Texture" id=26]
-[ext_resource path="res://assets/buttons/button-normal-continuar.png" type="Texture" id=27]
+[ext_resource path="res://assets/icons/incorrect.png" type="Texture" id=25]
+[ext_resource path="res://assets/icons/correct.png" type="Texture" id=26]
+[ext_resource path="res://object/Object.tscn" type="PackedScene" id=27]
+[ext_resource path="res://nivel3/Main.gd" type="Script" id=28]
+[ext_resource path="res://assets/boxs/popup.png" type="Texture" id=29]
+[ext_resource path="res://assets/buttons/nivels/continuar-basic.png" type="Texture" id=30]
+[ext_resource path="res://assets/buttons/nivels/continuar-press.png" type="Texture" id=31]
+[ext_resource path="res://assets/buttons/nivels/finalizar-basic.png" type="Texture" id=32]
+[ext_resource path="res://assets/buttons/nivels/finalizar-press.png" type="Texture" id=33]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
-font_data = ExtResource( 8 )
+font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 25
-font_data = ExtResource( 8 )
+font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 18
-font_data = ExtResource( 8 )
+size = 22
+font_data = ExtResource( 12 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
+resource_name = "fade-in"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -47,10 +49,11 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
+resource_name = "fade-out"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -64,15 +67,44 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=6]
-font_data = ExtResource( 8 )
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 12 )
 
-[node name="Nivel1" type="Node2D"]
-script = ExtResource( 7 )
-Objeto = ExtResource( 21 )
+[sub_resource type="Animation" id=8]
+resource_name = "scala"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
+}
+
+[node name="Nivel3" type="Node2D"]
+script = ExtResource( 1 )
+Objeto = ExtResource( 27 )
 
 [node name="Parallax" type="ParallaxBackground" parent="."]
-script = ExtResource( 11 )
+script = ExtResource( 2 )
 
 [node name="Layer1" type="ParallaxLayer" parent="Parallax"]
 motion_scale = Vector2( 0.1, 1 )
@@ -81,7 +113,7 @@ motion_mirroring = Vector2( 1042, 0 )
 [node name="Texture" type="TextureRect" parent="Parallax/Layer1"]
 margin_right = 40.0
 margin_bottom = 40.0
-texture = ExtResource( 1 )
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -93,7 +125,7 @@ motion_mirroring = Vector2( 1042, 0 )
 [node name="Texture" type="TextureRect" parent="Parallax/Layer2"]
 margin_right = 40.0
 margin_bottom = 40.0
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -105,7 +137,7 @@ motion_mirroring = Vector2( 1042, 0 )
 [node name="Texture" type="TextureRect" parent="Parallax/Layer3"]
 margin_right = 40.0
 margin_bottom = 40.0
-texture = ExtResource( 5 )
+texture = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -117,7 +149,7 @@ motion_mirroring = Vector2( 1042, 0 )
 [node name="Texture" type="TextureRect" parent="Parallax/Layer4"]
 margin_right = 40.0
 margin_bottom = 40.0
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -129,7 +161,7 @@ motion_mirroring = Vector2( 1042, 0 )
 [node name="Texture" type="TextureRect" parent="Parallax/Layer5"]
 margin_right = 40.0
 margin_bottom = 40.0
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -147,10 +179,10 @@ __meta__ = {
 }
 
 [node name="TopPanel" type="HBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1286.0
+margin_bottom = 80.0
 rect_min_size = Vector2( 1280, 80 )
-script = ExtResource( 12 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -159,9 +191,6 @@ __meta__ = {
 margin_right = 426.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 426, 80 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ToMenu" type="TextureButton" parent="TopPanel/Margin1"]
 margin_left = 103.0
@@ -171,8 +200,8 @@ margin_bottom = 68.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 13 )
 expand = true
 stretch_mode = 3
 
@@ -181,9 +210,6 @@ margin_left = 430.0
 margin_right = 856.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 426, 80 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Nivel" type="Label" parent="TopPanel/Margin2"]
 margin_top = 20.0
@@ -194,6 +220,7 @@ custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
 custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+text = "Nivel : 1"
 align = 1
 
 [node name="Margin3" type="MarginContainer" parent="TopPanel"]
@@ -201,9 +228,6 @@ margin_left = 860.0
 margin_right = 1286.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 426, 80 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Score" type="Label" parent="TopPanel/Margin3"]
 margin_top = 20.0
@@ -214,22 +238,29 @@ custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
 custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+text = "Puntaje : 0"
 align = 1
 
-[node name="Main" type="TextureRect" parent="."]
+[node name="Main" type="Control" parent="."]
 margin_left = 120.0
 margin_top = 80.0
-margin_right = 1160.0
-margin_bottom = 640.0
-texture = ExtResource( 13 )
-script = ExtResource( 20 )
+margin_right = 160.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 1040, 560 )
+script = ExtResource( 28 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Box" type="TextureRect" parent="Main"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 10 )
+
 [node name="VBox" type="VBoxContainer" parent="Main"]
-margin_right = 1040.0
-margin_bottom = 560.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1040, 560 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -240,10 +271,12 @@ margin_bottom = 150.0
 rect_min_size = Vector2( 1040, 150 )
 
 [node name="Indicaciones" type="Label" parent="Main/VBox/Margin1"]
-margin_top = 61.0
+margin_top = 39.0
 margin_right = 1040.0
-margin_bottom = 89.0
+margin_bottom = 110.0
 custom_fonts/font = SubResource( 3 )
+text = "ESCUCHA CON ATENCION Y ADIVINA LOS SONIDOS DE LOS 
+ANIMALES DE LA GRANJA."
 align = 1
 
 [node name="Margin2" type="MarginContainer" parent="Main/VBox"]
@@ -272,8 +305,8 @@ stretch_mode = 3
 [node name="ObjectsOptions" type="Node2D" parent="."]
 
 [node name="Transition" type="ColorRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1280.0
+margin_bottom = 720.0
 rect_min_size = Vector2( 1280, 720 )
 color = Color( 0, 0, 0, 0 )
 __meta__ = {
@@ -281,42 +314,41 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-anims/fade-in = SubResource( 4 )
-anims/fade-out = SubResource( 5 )
+anims/fade-in = SubResource( 6 )
+anims/fade-out = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="PopUp" type="Sprite" parent="."]
 position = Vector2( 640, 360 )
-texture = ExtResource( 22 )
-script = ExtResource( 16 )
+texture = ExtResource( 29 )
 
 [node name="VBox" type="VBoxContainer" parent="PopUp"]
 margin_left = -252.0
 margin_top = -136.0
-margin_right = 252.0
-margin_bottom = 140.0
+margin_right = -212.0
+margin_bottom = -96.0
 rect_min_size = Vector2( 500, 272 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Margin" type="MarginContainer" parent="PopUp/VBox"]
-margin_right = 504.0
+margin_right = 758.0
 margin_bottom = 172.0
 rect_min_size = Vector2( 500, 172 )
 
 [node name="Info" type="Label" parent="PopUp/VBox/Margin"]
 margin_top = 74.0
-margin_right = 504.0
+margin_right = 758.0
 margin_bottom = 98.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 11 )
 text = "Info"
 align = 1
 
 [node name="HBox" type="HBoxContainer" parent="PopUp/VBox"]
 margin_top = 176.0
-margin_right = 504.0
+margin_right = 758.0
 margin_bottom = 276.0
 rect_min_size = Vector2( 500, 100 )
 
@@ -326,15 +358,15 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 250, 100 )
 
 [node name="Aceptar" type="TextureButton" parent="PopUp/VBox/HBox/Margin1"]
-margin_left = 15.0
+margin_left = 14.0
 margin_top = 21.0
-margin_right = 235.0
+margin_right = 234.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 27 )
-texture_pressed = ExtResource( 26 )
+texture_normal = ExtResource( 30 )
+texture_pressed = ExtResource( 31 )
 expand = true
 stretch_mode = 3
 
@@ -345,19 +377,74 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 250, 100 )
 
 [node name="Rechazar" type="TextureButton" parent="PopUp/VBox/HBox/Margin2"]
-margin_left = 15.0
+margin_left = 14.0
 margin_top = 21.0
-margin_right = 235.0
+margin_right = 234.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 24 )
-texture_pressed = ExtResource( 25 )
+texture_normal = ExtResource( 32 )
+texture_pressed = ExtResource( 33 )
 expand = true
 stretch_mode = 3
+
+[node name="Margin3" type="MarginContainer" parent="PopUp/VBox/HBox"]
+margin_left = 508.0
+margin_right = 758.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 250, 100 )
+
+[node name="Finalizar" type="TextureButton" parent="PopUp/VBox/HBox/Margin3"]
+margin_left = 14.0
+margin_top = 21.0
+margin_right = 234.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 220, 57 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 32 )
+texture_pressed = ExtResource( 33 )
+expand = true
+stretch_mode = 3
+
+[node name="Correct" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 26 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Correct"]
+anims/scala = SubResource( 8 )
+
+[node name="Incorrect" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 25 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Incorrect"]
+anims/scala = SubResource( 10 )
+
+[node name="Button1" type="Button" parent="."]
+margin_left = 304.122
+margin_top = 276.642
+margin_right = 346.122
+margin_bottom = 296.642
+text = "igual"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 943.701
+margin_top = 276.985
+margin_right = 1015.7
+margin_bottom = 296.985
+text = "Diferente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="TopPanel/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]
 [connection signal="pressed" from="Main/VBox/Margin2/Escuchar" to="." method="_on_Escuchar_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="PopUp/VBox/HBox/Margin1/Aceptar" to="." method="_on_Aceptar_pressed"]
 [connection signal="pressed" from="PopUp/VBox/HBox/Margin2/Rechazar" to="." method="_on_Rechazar_pressed"]
+[connection signal="pressed" from="Button1" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
