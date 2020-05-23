@@ -18,7 +18,7 @@ var eleccion_correcta2 = false
 var eleccion_correcta3 = false
 
 func _ready():
-	var panels_x = 526 - (200 * (2-1))
+	var panels_x = 515 - (125 * (2-1))
 	$Panels.rect_position.x = panels_x
 	# Panels
 	$Panels/Margin1.visible = true
@@ -30,7 +30,7 @@ func _ready():
 	# Labels
 	$TopPanel.update_level(level)
 	$TopPanel.update_score(score_total)
-	$Main.update_indicaciones("ESCUCHA CON ATENCION\n\nY ORDENA LAS IMAGENES SEGUN LO ESCUCHADO.")
+	$Main.update_indicaciones("ESCUCHA CON ATENCION\n\n\"ORDENA LAS IMAGENES SEGUN LO ESCUCHADO\"")
 	# Transition
 	$Transition.visible = true
 	$Transition/AnimationPlayer.play("fade-out")
@@ -46,6 +46,7 @@ func _ready():
 	json = read_json()
 	set_objects(json)
 	set_sounds(2)
+	_on_Escuchar_pressed()
 	set_options(json, 0)
 
 func _process(delta):
@@ -193,7 +194,7 @@ func set_options(x, agregar):
 		indexList.remove(y)
 		all.remove(y)
 		
-	var card_x = 526 - (100 * (options.size()-1))
+	var card_x = 560 - (100 * (options.size()-1))
 	var card_width = 205
 	var in_list = range(options.size())
 	for i in range(options.size()):
@@ -207,8 +208,8 @@ func set_options(x, agregar):
 				obj.set_code(x[z]["code"])
 				obj.set_sound(x[z]["sound"])
 				obj.set_image(x[z]["image"])
-				obj.position = Vector2(card_x,530)
-				obj.set_start_position(card_x, 530)
+				obj.position = Vector2(card_x,560)
+				obj.set_start_position(card_x, 560)
 				obj.connect("is_order_and_code", self, "_is_order_and_code", [obj])
 				card_x = card_x + card_width
 				$ObjectsOptions.add_child(obj)
@@ -218,8 +219,8 @@ func set_options(x, agregar):
 # Main
 func _on_Escuchar_pressed():
 	if level == 1 and seleccionados != 2:
-		$Main/VBox/HBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-press.png")
-		$Main/VBox/HBox/Margin2/Escuchar.disabled = true
+		$Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-press.png")
+		$Margin2/Escuchar.disabled = true
 		for i in $ObjectsSounds.get_children():
 			if seleccionados != 2:
 				ogg = load(i.get_sound())
@@ -229,12 +230,12 @@ func _on_Escuchar_pressed():
 				yield(audio, "finished")
 			else:
 				break
-		$Main/VBox/HBox/Margin2/Escuchar.disabled = false
+		$Margin2/Escuchar.disabled = false
 		$ObjectsOptions.visible = true
-		$Main/VBox/HBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-basic.png")
+		$Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-basic.png")
 	if level == 2 and seleccionados != 2:
-		$Main/VBox/HBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-press.png")
-		$Main/VBox/HBox/Margin2/Escuchar.disabled = true
+		$Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-press.png")
+		$Margin2/Escuchar.disabled = true
 		for i in $ObjectsSounds.get_children():
 			if seleccionados != 2:
 				ogg = load(i.get_sound())
@@ -244,12 +245,12 @@ func _on_Escuchar_pressed():
 				yield(audio, "finished")
 			else:
 				break
-		$Main/VBox/HBox/Margin2/Escuchar.disabled = false
+		$Margin2/Escuchar.disabled = false
 		$ObjectsOptions.visible = true
-		$Main/VBox/HBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-basic.png")
+		$Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-basic.png")
 	if level == 3 and seleccionados != 3:
-		$Main/VBox/HBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-press.png")
-		$Main/VBox/HBox/Margin2/Escuchar.disabled = true
+		$Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-press.png")
+		$Margin2/Escuchar.disabled = true
 		for i in $ObjectsSounds.get_children():
 			if seleccionados != 3:
 				ogg = load(i.get_sound())
@@ -259,12 +260,12 @@ func _on_Escuchar_pressed():
 				yield(audio, "finished")
 			else:
 				break
-		$Main/VBox/HBox/Margin2/Escuchar.disabled = false
+		$Margin2/Escuchar.disabled = false
 		$ObjectsOptions.visible = true
-		$Main/VBox/HBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-basic.png")
+		$Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-basic.png")
 	if level == 4 and seleccionados != 4:
-		$Main/VBox/HBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-press.png")
-		$Main/VBox/HBox/Margin2/Escuchar.disabled = true
+		$Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-press.png")
+		$Margin2/Escuchar.disabled = true
 		for i in $ObjectsSounds.get_children():
 			if seleccionados != 4:
 				ogg = load(i.get_sound())
@@ -274,9 +275,9 @@ func _on_Escuchar_pressed():
 				yield(audio, "finished")
 			else:
 				break
-		$Main/VBox/HBox/Margin2/Escuchar.disabled = false
+		$Margin2/Escuchar.disabled = false
 		$ObjectsOptions.visible = true
-		$Main/VBox/HBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-basic.png")
+		$Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-basic.png")
 
 # Funcion que se ejecuta al soltar un elemento sobre un slot
 func _is_order_and_code(x):
@@ -545,15 +546,19 @@ func next():
 	if intentos_level < 2:
 		if level == 1:
 			set_sounds(2)
+			_on_Escuchar_pressed()
 			set_options(json, 0)
 		if level == 2:
 			set_sounds(2)
+			_on_Escuchar_pressed()
 			set_options(json, 1)
 		if level == 3:
 			set_sounds(3)
+			_on_Escuchar_pressed()
 			set_options(json, 0)
 		if level == 4:
 			set_sounds(4)
+			_on_Escuchar_pressed()
 			set_options(json, 0)
 	else:
 		if score_level == 2:
@@ -563,7 +568,7 @@ func next():
 				$TopPanel/Margin1/ToMenu.disabled = true
 				$PopUp.update_textures_aceptar("res://assets/buttons/nivels/finalizar-basic.png","res://assets/buttons/nivels/finalizar-press.png")
 				$PopUp.set_final()
-				$Main/VBox/HBox/Margin2/Escuchar.visible = false
+				$Margin2/Escuchar.visible = false
 				$PopUp.visible = true
 			else:
 				intentos_level += 1
@@ -571,7 +576,7 @@ func next():
 				$PopUp.update_info("FELICITACIONES SIGUE AVANZANDO")
 				$TopPanel/Margin1/ToMenu.disabled = true
 				$PopUp.set_nextlevel()
-				$Main/VBox/HBox/Margin2/Escuchar.visible = false
+				$Margin2/Escuchar.visible = false
 				$PopUp.visible = true
 		else:
 			popup_status = 2
@@ -579,7 +584,7 @@ func next():
 			$TopPanel/Margin1/ToMenu.disabled = true
 			$PopUp.update_textures_aceptar("res://assets/buttons/nivels/reintentar-basic.png","res://assets/buttons/nivels/reintentar-press.png")
 			$PopUp.update_textures_rechazar("res://assets/buttons/nivels/finalizar-basic.png","res://assets/buttons/nivels/finalizar-press.png")
-			$Main/VBox/HBox/Margin2/Escuchar.visible = false
+			$Margin2/Escuchar.visible = false
 			$PopUp.visible = true
 
 func reset_containers():
@@ -607,7 +612,7 @@ func _on_Aceptar_pressed():
 	if popup_status == 2:
 		reintentar()
 		$TopPanel/Margin1/ToMenu.disabled = false
-		$Main/VBox/HBox/Margin2/Escuchar.visible = true
+		$Margin2/Escuchar.visible = true
 		$PopUp.visible = false
 
 func _on_Rechazar_pressed():
@@ -622,33 +627,33 @@ func _on_Rechazar_pressed():
 
 func next_level(s,t,l):
 	if l == 2:
-		var panels_x = 526 - (200 * (2-1))
+		var panels_x = 515 - (125 * (2-1))
 		$Panels.rect_position.x = panels_x
 		# Panels
 		$Panels/Margin1.visible = true
 		$Panels/Margin2.visible = true
 		$Panels/Margin3.visible = false
 		$Panels/Margin4.visible = false
-		$Main.update_indicaciones("\n\nORDENA LAS IMAGENES SEGUN LO ESCUCHADO.")
+		$Main.update_indicaciones("\n\n\"ORDENA LAS IMAGENES SEGUN LO ESCUCHADO\"")
 	if l == 3:
-		var panels_x = 426 - (100 * (3-1))
+		var panels_x = 515 - (125 * (3-1))
 		$Panels.rect_position.x = panels_x
 		# Panels
 		$Panels/Margin1.visible = true
 		$Panels/Margin2.visible = true
 		$Panels/Margin3.visible = true
 		$Panels/Margin4.visible = false
-		$Main.update_indicaciones("\n\nORDENA LAS IMAGENES SEGUN LO ESCUCHADO.")
+		$Main.update_indicaciones("\n\n\"ORDENA LAS IMAGENES SEGUN LO ESCUCHADO\"")
 	if l == 4:
-		var panels_x = 426 - (100 * (4-1))
+		var panels_x = 515 - (125 * (4-1))
 		$Panels.rect_position.x = panels_x
 		# Panels
 		$Panels/Margin1.visible = true
 		$Panels/Margin2.visible = true
 		$Panels/Margin3.visible = true
 		$Panels/Margin4.visible = true
-		$Main.update_indicaciones("\n\nORDENA LAS IMAGENES SEGUN LO ESCUCHADO.")
-	$Main/VBox/HBox/Margin2/Escuchar.visible = true
+		$Main.update_indicaciones("\n\n\"ORDENA LAS IMAGENES SEGUN LO ESCUCHADO\"")
+	$Margin2/Escuchar.visible = true
 	# Timer
 	$Timer.stop()
 	# Containers
@@ -672,17 +677,20 @@ func next_level(s,t,l):
 	set_objects(json)
 	if level == 2:
 		set_sounds(2)
+		_on_Escuchar_pressed()
 		set_options(json, 1)
 	if level == 3:
 		set_sounds(3)
+		_on_Escuchar_pressed()
 		set_options(json, 0)
 	if level == 4:
 		set_sounds(4)
+		_on_Escuchar_pressed()
 		set_options(json, 0)
 
 func reintentar():
 	$TopPanel.update_score(score_user)
-	$Main/VBox/HBox/Margin2/Escuchar.visible = true
+	$Margin2/Escuchar.visible = true
 	# Timer
 	$Timer.stop()
 	# Containers
@@ -705,13 +713,17 @@ func reintentar():
 	set_objects(json)
 	if level == 1:
 		set_sounds(2)
+		_on_Escuchar_pressed()
 		set_options(json, 0)
 	if level == 2:
 		set_sounds(2)
+		_on_Escuchar_pressed()
 		set_options(json, 1)
 	if level == 3:
 		set_sounds(3)
+		_on_Escuchar_pressed()
 		set_options(json, 0)
 	if level == 4:
 		set_sounds(4)
+		_on_Escuchar_pressed()
 		set_options(json, 0)

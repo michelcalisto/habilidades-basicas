@@ -21,7 +21,7 @@ func _ready():
 	# Labels
 	$TopPanel.update_level(level)
 	$TopPanel.update_score(score_total)
-	$Main.update_indicaciones("ESCUCHA CON ATENCION.\n\nPRESIONA EL ANIMAL ESCUCHADO.")
+	$Main.update_indicaciones("ESCUCHA CON ATENCION\n\n\"PRESIONA EL ANIMAL ESCUCHADO\"")
 	# Transition
 	$Transition.visible = true
 	$Transition/AnimationPlayer.play("fade-out")
@@ -37,6 +37,7 @@ func _ready():
 	json = read_json()
 	set_objects(json)
 	set_sounds(1)
+	_on_Escuchar_pressed()
 	set_options(json, 1)
 
 func read_json():
@@ -108,8 +109,8 @@ func set_options(x, agregar):
 		indexList.remove(y)
 		all.remove(y)
 	
-	var card_x = 640 - (85 * (options.size()-1))
-	var card_width = 170
+	var card_x = 640 - ((100 + 25) * (options.size()-1))
+	var card_width = 200 + 50
 	var in_list = range(options.size())
 	for i in range(options.size()):
 		randomize()
@@ -122,7 +123,7 @@ func set_options(x, agregar):
 				obj.set_code(x[z]["code"])
 				obj.set_sound(x[z]["sound"])
 				obj.set_image(x[z]["image"])
-				obj.position = Vector2(card_x,500)
+				obj.position = Vector2(card_x,550)
 				obj.connect("is_code", self, "_is_code", [obj])
 				card_x = card_x + card_width
 				$ObjectsOptions.add_child(obj)
@@ -294,12 +295,15 @@ func next():
 	if intentos_level < 5:
 		if level == 1:
 			set_sounds(1)
+			_on_Escuchar_pressed()
 			set_options(json, 1)
 		if level == 2:
 			set_sounds(2)
+			_on_Escuchar_pressed()
 			set_options(json, 1)
 		if level == 3:
 			set_sounds(2)
+			_on_Escuchar_pressed()
 			set_options(json, 1)
 	else:
 		if score_level >= 4:
@@ -368,9 +372,9 @@ func _on_Rechazar_pressed():
 
 func next_level(s,t,l):
 	if l == 2:
-		$Main.update_indicaciones("\n\nPRESIONA LOS ANIMALES QUE ESCUCHES.")
+		$Main.update_indicaciones("\n\n\"PRESIONA LOS ANIMALES QUE ESCUCHES\"")
 	if l == 3:
-		$Main.update_indicaciones("\n\nPRESIONA EL ANIMAL NO ESCUCHADO.")
+		$Main.update_indicaciones("\n\n\"PRESIONA EL ANIMAL NO ESCUCHADO\"")
 	$Main/VBox/Margin2/Escuchar.visible = true
 	# Timer
 	$Timer.stop()
@@ -393,9 +397,11 @@ func next_level(s,t,l):
 	set_objects(json)
 	if level == 2:
 		set_sounds(2)
+		_on_Escuchar_pressed()
 		set_options(json, 1)
 	if level == 3:
 		set_sounds(2)
+		_on_Escuchar_pressed()
 		set_options(json, 1)
 
 func reintentar():
@@ -421,10 +427,13 @@ func reintentar():
 	set_objects(json)
 	if level == 1:
 		set_sounds(1)
+		_on_Escuchar_pressed()
 		set_options(json, 1)
 	if level == 2:
 		set_sounds(2)
+		_on_Escuchar_pressed()
 		set_options(json, 1)
 	if level == 3:
 		set_sounds(2)
+		_on_Escuchar_pressed()
 		set_options(json, 1)

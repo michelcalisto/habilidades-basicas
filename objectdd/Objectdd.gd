@@ -21,6 +21,7 @@ func _ready():
 
 func _process(delta):
 	if in_action:
+		self.z_index = 1
 		self.position = get_global_mouse_position()
 
 func set_id(x):
@@ -52,7 +53,7 @@ func set_image(x):
 	var res = load(image)
 	$Background/Imagen.texture = res
 	$Background/Imagen.texture.set_flags(1)
-	$Background/Imagen.set_scale(Vector2(0.3,0.3))
+	$Background/Imagen.set_scale(Vector2(0.37,0.37))
 
 func get_image():
 	return image
@@ -60,9 +61,10 @@ func get_image():
 func set_status(x):
 	image = x
 	var res = load(image)
-	$Background/Imagen/Status.texture = res
-	$Background/Imagen/Status.texture.set_flags(1)
-	$Background/Imagen/Status/AnimationPlayer.play("scale")
+	$Background/Status.texture = res
+	$Background/Status.texture.set_flags(1)
+	$Background/ColorRect/AnimationPlayer.play("fade-in")
+	$Background/Status/AnimationPlayer.play("scale")
 
 func set_start_position(x,y):
 	start_position_x = x
@@ -76,6 +78,7 @@ func _on_Control_gui_input(event):
 		in_action = true
 		liberado = false
 	if event.is_action_released("left_click"):
+		self.z_index = 0
 		liberado = true
 
 func reset_start_position():
@@ -87,6 +90,6 @@ func reset_start_position():
 func set_obj_slot(x, y, z):
 	in_action = false
 	liberado = false
-	self.position = Vector2(x+80, y+80)
+	self.position = Vector2(x+95, y+95)
 	order_slot = z
 	emit_signal("is_order_and_code")

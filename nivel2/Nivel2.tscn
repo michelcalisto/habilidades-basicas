@@ -12,7 +12,7 @@
 [ext_resource path="res://assets/buttons/nivels/regresar-press.png" type="Texture" id=10]
 [ext_resource path="res://nivel2/Parallax.gd" type="Script" id=11]
 [ext_resource path="res://nivel2/TopPanel.gd" type="Script" id=12]
-[ext_resource path="res://assets/boxs/nivels.png" type="Texture" id=13]
+[ext_resource path="res://assets/boxs/nivels2.png" type="Texture" id=13]
 [ext_resource path="res://assets/buttons/nivels/audio-basic.png" type="Texture" id=14]
 [ext_resource path="res://assets/buttons/nivels/audio-press.png" type="Texture" id=15]
 [ext_resource path="res://nivel2/Main.gd" type="Script" id=16]
@@ -239,69 +239,52 @@ __meta__ = {
 }
 
 [node name="Margin1" type="MarginContainer" parent="Main/VBox"]
-margin_right = 1044.0
+margin_right = 1040.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 1040, 150 )
 
 [node name="Indicaciones" type="Label" parent="Main/VBox/Margin1"]
 margin_top = 61.0
-margin_right = 1044.0
+margin_right = 1040.0
 margin_bottom = 89.0
 custom_fonts/font = SubResource( 3 )
 align = 1
 
 [node name="HBox" type="HBoxContainer" parent="Main/VBox"]
 margin_top = 154.0
-margin_right = 1044.0
+margin_right = 1040.0
 margin_bottom = 568.0
 rect_min_size = Vector2( 1040, 414 )
 
 [node name="VBox" type="VBoxContainer" parent="Main/VBox/HBox"]
-margin_right = 800.0
+margin_right = 850.0
 margin_bottom = 414.0
-rect_min_size = Vector2( 800, 414 )
-
-[node name="Margin2" type="MarginContainer" parent="Main/VBox/HBox"]
-margin_left = 804.0
-margin_right = 1044.0
-margin_bottom = 414.0
-rect_min_size = Vector2( 240, 150 )
-
-[node name="Escuchar" type="TextureButton" parent="Main/VBox/HBox/Margin2"]
-margin_left = 67.0
-margin_top = 154.0
-margin_right = 172.0
-margin_bottom = 259.0
-rect_min_size = Vector2( 105, 105 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 15 )
-expand = true
-stretch_mode = 3
+rect_min_size = Vector2( 850, 414 )
 
 [node name="Panels" type="HBoxContainer" parent="."]
 margin_left = 120.0
 margin_top = 230.0
-margin_right = 932.0
-margin_bottom = 390.0
+margin_right = 952.0
+margin_bottom = 435.0
+rect_min_size = Vector2( 1000, 205 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Margin1" type="MarginContainer" parent="Panels"]
-margin_right = 200.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 200, 160 )
+margin_right = 250.0
+margin_bottom = 205.0
+rect_min_size = Vector2( 250, 205 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel1" type="Panel" parent="Panels/Margin1"]
-margin_left = 20.0
-margin_right = 180.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 160, 160 )
+margin_left = 29.0
+margin_top = 7.0
+margin_right = 219.0
+margin_bottom = 197.0
+rect_min_size = Vector2( 190, 190 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource( 19 )
@@ -309,7 +292,7 @@ script = ExtResource( 19 )
 [node name="MarginContainer" type="MarginContainer" parent="Panels/Margin1/Panel1"]
 margin_right = 160.0
 margin_bottom = 160.0
-rect_min_size = Vector2( 160, 160 )
+rect_min_size = Vector2( 205, 205 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 __meta__ = {
@@ -317,26 +300,27 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Panels/Margin1/Panel1/MarginContainer"]
-margin_left = 61.0
-margin_top = 42.0
-margin_right = 99.0
-margin_bottom = 118.0
+margin_left = 83.0
+margin_top = 64.0
+margin_right = 121.0
+margin_bottom = 140.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 4 )
 text = "1"
 align = 1
 
 [node name="Margin2" type="MarginContainer" parent="Panels"]
-margin_left = 204.0
-margin_right = 404.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 200, 160 )
+margin_left = 254.0
+margin_right = 504.0
+margin_bottom = 205.0
+rect_min_size = Vector2( 250, 205 )
 
 [node name="Panel2" type="Panel" parent="Panels/Margin2"]
-margin_left = 20.0
-margin_right = 180.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 160, 160 )
+margin_left = 29.0
+margin_top = 7.0
+margin_right = 219.0
+margin_bottom = 197.0
+rect_min_size = Vector2( 190, 190 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource( 20 )
@@ -344,7 +328,7 @@ script = ExtResource( 20 )
 [node name="MarginContainer" type="MarginContainer" parent="Panels/Margin2/Panel2"]
 margin_right = 40.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 160, 160 )
+rect_min_size = Vector2( 205, 205 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 __meta__ = {
@@ -352,26 +336,27 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Panels/Margin2/Panel2/MarginContainer"]
-margin_left = 55.0
-margin_top = 42.0
-margin_right = 105.0
-margin_bottom = 118.0
+margin_left = 77.0
+margin_top = 64.0
+margin_right = 127.0
+margin_bottom = 140.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 4 )
 text = "2"
 align = 1
 
 [node name="Margin3" type="MarginContainer" parent="Panels"]
-margin_left = 408.0
-margin_right = 608.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 200, 160 )
+margin_left = 508.0
+margin_right = 758.0
+margin_bottom = 205.0
+rect_min_size = Vector2( 250, 205 )
 
 [node name="Panel3" type="Panel" parent="Panels/Margin3"]
-margin_left = 20.0
-margin_right = 180.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 160, 160 )
+margin_left = 29.0
+margin_top = 7.0
+margin_right = 219.0
+margin_bottom = 197.0
+rect_min_size = Vector2( 190, 190 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource( 21 )
@@ -379,7 +364,7 @@ script = ExtResource( 21 )
 [node name="MarginContainer" type="MarginContainer" parent="Panels/Margin3/Panel3"]
 margin_right = 40.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 160, 160 )
+rect_min_size = Vector2( 205, 205 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 __meta__ = {
@@ -387,26 +372,27 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Panels/Margin3/Panel3/MarginContainer"]
-margin_left = 55.0
-margin_top = 42.0
-margin_right = 105.0
-margin_bottom = 118.0
+margin_left = 77.0
+margin_top = 64.0
+margin_right = 127.0
+margin_bottom = 140.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 4 )
 text = "3"
 align = 1
 
 [node name="Margin4" type="MarginContainer" parent="Panels"]
-margin_left = 612.0
-margin_right = 812.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 200, 160 )
+margin_left = 762.0
+margin_right = 1012.0
+margin_bottom = 205.0
+rect_min_size = Vector2( 250, 205 )
 
 [node name="Panel4" type="Panel" parent="Panels/Margin4"]
-margin_left = 20.0
-margin_right = 180.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 160, 160 )
+margin_left = 29.0
+margin_top = 7.0
+margin_right = 219.0
+margin_bottom = 197.0
+rect_min_size = Vector2( 190, 190 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource( 23 )
@@ -414,7 +400,7 @@ script = ExtResource( 23 )
 [node name="MarginContainer" type="MarginContainer" parent="Panels/Margin4/Panel4"]
 margin_right = 40.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 160, 160 )
+rect_min_size = Vector2( 205, 205 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 __meta__ = {
@@ -422,14 +408,37 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Panels/Margin4/Panel4/MarginContainer"]
-margin_left = 55.0
-margin_top = 42.0
-margin_right = 105.0
-margin_bottom = 118.0
+margin_left = 77.0
+margin_top = 64.0
+margin_right = 127.0
+margin_bottom = 140.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 4 )
 text = "4"
 align = 1
+
+[node name="Margin2" type="MarginContainer" parent="."]
+margin_left = 974.0
+margin_top = 480.0
+margin_right = 1164.0
+margin_bottom = 670.0
+rect_min_size = Vector2( 190, 190 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Escuchar" type="TextureButton" parent="Margin2"]
+margin_left = 42.0
+margin_top = 42.0
+margin_right = 147.0
+margin_bottom = 147.0
+rect_min_size = Vector2( 105, 105 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
+expand = true
+stretch_mode = 3
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -519,7 +528,7 @@ size_flags_vertical = 4
 expand = true
 stretch_mode = 3
 [connection signal="pressed" from="TopPanel/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]
-[connection signal="pressed" from="Main/VBox/HBox/Margin2/Escuchar" to="." method="_on_Escuchar_pressed"]
+[connection signal="pressed" from="Margin2/Escuchar" to="." method="_on_Escuchar_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="PopUp/VBox/HBox/Margin1/Aceptar" to="." method="_on_Aceptar_pressed"]
 [connection signal="pressed" from="PopUp/VBox/HBox/Margin2/Rechazar" to="." method="_on_Rechazar_pressed"]

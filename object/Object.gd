@@ -36,7 +36,7 @@ func set_image(x):
 	var res = load(image)
 	$Background/Imagen.texture = res
 	$Background/Imagen.texture.set_flags(1)
-	$Background/Imagen.set_scale(Vector2(0.3,0.3))
+	$Background/Imagen.set_scale(Vector2(0.37,0.37))
 
 func get_image():
 	return image
@@ -44,9 +44,10 @@ func get_image():
 func set_status(x):
 	image = x
 	var res = load(image)
-	$Background/Imagen/Status.texture = res
-	$Background/Imagen/Status.texture.set_flags(1)
-	$Background/Imagen/Status/AnimationPlayer.play("scale")
+	$Background/Status.texture = res
+	$Background/Status.texture.set_flags(1)
+	$Background/ColorRect/AnimationPlayer.play("fa")
+	$Background/Status/AnimationPlayer.play("scale")
 
 func _on_Control_gui_input(event):
 	if event is InputEventMouseButton:
