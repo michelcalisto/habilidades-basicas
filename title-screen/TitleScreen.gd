@@ -16,7 +16,7 @@ func _on_Nivel2_pressed():
 	$ColorRect.visible = true
 	$ColorRect/AnimationPlayer.play("fadein")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
-	get_tree().change_scene("res://nivel2-1/Nivel2-1.tscn")
+	get_tree().change_scene("res://nivel2/Nivel2.tscn")
 
 func _on_Nivel3_pressed():
 	$ColorRect.visible = true
