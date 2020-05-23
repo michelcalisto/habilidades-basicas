@@ -1,12 +1,12 @@
 [gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/buttons/titlescreen/01-basic.png" type="Texture" id=2]
-[ext_resource path="res://assets/buttons/titlescreen/03-basic.png" type="Texture" id=3]
-[ext_resource path="res://assets/buttons/titlescreen/02-press.png" type="Texture" id=4]
+[ext_resource path="res://assets/buttons/titlescreen/01-b.png" type="Texture" id=2]
+[ext_resource path="res://assets/buttons/titlescreen/03-b.png" type="Texture" id=3]
+[ext_resource path="res://assets/buttons/titlescreen/02-p.png" type="Texture" id=4]
 [ext_resource path="res://assets/boxs/titlescreen.png" type="Texture" id=5]
-[ext_resource path="res://assets/buttons/titlescreen/02-basic.png" type="Texture" id=6]
-[ext_resource path="res://assets/buttons/titlescreen/03-press.png" type="Texture" id=7]
+[ext_resource path="res://assets/buttons/titlescreen/02-b.png" type="Texture" id=6]
+[ext_resource path="res://assets/buttons/titlescreen/01-p.png" type="Texture" id=7]
 [ext_resource path="res://title-screen/TitleScreen.gd" type="Script" id=8]
 [ext_resource path="res://assets/img/Hills2.png" type="Texture" id=9]
 [ext_resource path="res://assets/img/Hills6.png" type="Texture" id=10]
@@ -15,7 +15,7 @@
 [ext_resource path="res://assets/img/Hills5.png" type="Texture" id=13]
 [ext_resource path="res://assets/img/Hills4.png" type="Texture" id=14]
 [ext_resource path="res://assets/img/Hills3.png" type="Texture" id=15]
-[ext_resource path="res://assets/buttons/titlescreen/01-press.png" type="Texture" id=16]
+[ext_resource path="res://assets/buttons/titlescreen/03-p.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -205,7 +205,7 @@ rect_min_size = Vector2( 450, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 16 )
+texture_pressed = ExtResource( 7 )
 expand = true
 stretch_mode = 3
 
@@ -241,7 +241,7 @@ rect_min_size = Vector2( 450, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 7 )
+texture_pressed = ExtResource( 16 )
 expand = true
 stretch_mode = 3
 
