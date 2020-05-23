@@ -87,6 +87,6 @@ func reset_start_position():
 func set_obj_slot(x, y, z):
 	in_action = false
 	liberado = false
-	self.position = Vector2(x+80, y+110)
+	self.position = Vector2(x+80, y+80)
 	order_slot = z
 	emit_signal("is_order_and_code")

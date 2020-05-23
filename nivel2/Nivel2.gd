@@ -18,11 +18,13 @@ var eleccion_correcta2 = false
 var eleccion_correcta3 = false
 
 func _ready():
+	var panels_x = 526 - (200 * (2-1))
+	$Panels.rect_position.x = panels_x
 	# Panels
-	$Main/VBox/HBox/VBox/HBox/Margin1.visible = true
-	$Main/VBox/HBox/VBox/HBox/Margin2.visible = true
-	$Main/VBox/HBox/VBox/HBox/Margin3.visible = false
-	$Main/VBox/HBox/VBox/HBox/Margin4.visible = false
+	$Panels/Margin1.visible = true
+	$Panels/Margin2.visible = true
+	$Panels/Margin3.visible = false
+	$Panels/Margin4.visible = false
 	# PopUp
 	$PopUp.visible = false
 	# Labels
@@ -52,14 +54,14 @@ func _process(delta):
 		var count = 0
 		for i in $ObjectsOptions.get_children():
 			if $ObjectsOptions.get_child(count).in_action == true:
-				if $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().has_point(cursor_pos) and $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.contain_slot_item == false:
+				if $Panels/Margin1/Panel1.get_global_rect().has_point(cursor_pos) and $Panels/Margin1/Panel1.contain_slot_item == false:
 					if $ObjectsOptions.get_child(count).liberado == true:
-						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().position.y, 1)
-						$Main/VBox/HBox/VBox/HBox/Margin1/Panel1.set_slot_item(true)
-				elif $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().has_point(cursor_pos) and $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.contain_slot_item == false:
+						$ObjectsOptions.get_child(count).set_obj_slot($Panels/Margin1/Panel1.get_global_rect().position.x, $Panels/Margin1/Panel1.get_global_rect().position.y, 1)
+						$Panels/Margin1/Panel1.set_slot_item(true)
+				elif $Panels/Margin2/Panel2.get_global_rect().has_point(cursor_pos) and $Panels/Margin2/Panel2.contain_slot_item == false:
 					if $ObjectsOptions.get_child(count).liberado == true:
-						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().position.y, 2)
-						$Main/VBox/HBox/VBox/HBox/Margin2/Panel2.set_slot_item(true)
+						$ObjectsOptions.get_child(count).set_obj_slot($Panels/Margin2/Panel2.get_global_rect().position.x, $Panels/Margin2/Panel2.get_global_rect().position.y, 2)
+						$Panels/Margin2/Panel2.set_slot_item(true)
 				elif $ObjectsOptions.get_child(count).liberado == true:
 					$ObjectsOptions.get_child(count).reset_start_position()
 			count += 1
@@ -67,14 +69,14 @@ func _process(delta):
 		var count = 0
 		for i in $ObjectsOptions.get_children():
 			if $ObjectsOptions.get_child(count).in_action == true:
-				if $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().has_point(cursor_pos) and $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.contain_slot_item == false:
+				if $Panels/Margin1/Panel1.get_global_rect().has_point(cursor_pos) and $Panels/Margin1/Panel1.contain_slot_item == false:
 					if $ObjectsOptions.get_child(count).liberado == true:
-						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().position.y, 1)
-						$Main/VBox/HBox/VBox/HBox/Margin1/Panel1.set_slot_item(true)
-				elif $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().has_point(cursor_pos) and $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.contain_slot_item == false:
+						$ObjectsOptions.get_child(count).set_obj_slot($Panels/Margin1/Panel1.get_global_rect().position.x, $Panels/Margin1/Panel1.get_global_rect().position.y, 1)
+						$Panels/Margin1/Panel1.set_slot_item(true)
+				elif $Panels/Margin2/Panel2.get_global_rect().has_point(cursor_pos) and $Panels/Margin2/Panel2.contain_slot_item == false:
 					if $ObjectsOptions.get_child(count).liberado == true:
-						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().position.y, 2)
-						$Main/VBox/HBox/VBox/HBox/Margin2/Panel2.set_slot_item(true)
+						$ObjectsOptions.get_child(count).set_obj_slot($Panels/Margin2/Panel2.get_global_rect().position.x, $Panels/Margin2/Panel2.get_global_rect().position.y, 2)
+						$Panels/Margin2/Panel2.set_slot_item(true)
 				elif $ObjectsOptions.get_child(count).liberado == true:
 					$ObjectsOptions.get_child(count).reset_start_position()
 			count += 1
@@ -82,18 +84,18 @@ func _process(delta):
 		var count = 0
 		for i in $ObjectsOptions.get_children():
 			if $ObjectsOptions.get_child(count).in_action == true:
-				if $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().has_point(cursor_pos) and $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.contain_slot_item == false:
+				if $Panels/Margin1/Panel1.get_global_rect().has_point(cursor_pos) and $Panels/Margin1/Panel1.contain_slot_item == false:
 					if $ObjectsOptions.get_child(count).liberado == true:
-						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().position.y, 1)
-						$Main/VBox/HBox/VBox/HBox/Margin1/Panel1.set_slot_item(true)
-				elif $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().has_point(cursor_pos) and $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.contain_slot_item == false:
+						$ObjectsOptions.get_child(count).set_obj_slot($Panels/Margin1/Panel1.get_global_rect().position.x, $Panels/Margin1/Panel1.get_global_rect().position.y, 1)
+						$Panels/Margin1/Panel1.set_slot_item(true)
+				elif $Panels/Margin2/Panel2.get_global_rect().has_point(cursor_pos) and $Panels/Margin2/Panel2.contain_slot_item == false:
 					if $ObjectsOptions.get_child(count).liberado == true:
-						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().position.y, 2)
-						$Main/VBox/HBox/VBox/HBox/Margin2/Panel2.set_slot_item(true)
-				elif $Main/VBox/HBox/VBox/HBox/Margin3/Panel3.get_global_rect().has_point(cursor_pos) and $Main/VBox/HBox/VBox/HBox/Margin3/Panel3.contain_slot_item == false:
+						$ObjectsOptions.get_child(count).set_obj_slot($Panels/Margin2/Panel2.get_global_rect().position.x, $Panels/Margin2/Panel2.get_global_rect().position.y, 2)
+						$Panels/Margin2/Panel2.set_slot_item(true)
+				elif $Panels/Margin3/Panel3.get_global_rect().has_point(cursor_pos) and $Panels/Margin3/Panel3.contain_slot_item == false:
 					if $ObjectsOptions.get_child(count).liberado == true:
-						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin3/Panel3.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin3/Panel3.get_global_rect().position.y, 3)
-						$Main/VBox/HBox/VBox/HBox/Margin3/Panel3.set_slot_item(true)
+						$ObjectsOptions.get_child(count).set_obj_slot($Panels/Margin3/Panel3.get_global_rect().position.x, $Panels/Margin3/Panel3.get_global_rect().position.y, 3)
+						$Panels/Margin3/Panel3.set_slot_item(true)
 				elif $ObjectsOptions.get_child(count).liberado == true:
 					$ObjectsOptions.get_child(count).reset_start_position()
 			count += 1
@@ -101,22 +103,22 @@ func _process(delta):
 		var count = 0
 		for i in $ObjectsOptions.get_children():
 			if $ObjectsOptions.get_child(count).in_action == true:
-				if $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().has_point(cursor_pos) and $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.contain_slot_item == false:
+				if $Panels/Margin1/Panel1.get_global_rect().has_point(cursor_pos) and $Panels/Margin1/Panel1.contain_slot_item == false:
 					if $ObjectsOptions.get_child(count).liberado == true:
-						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin1/Panel1.get_global_rect().position.y, 1)
-						$Main/VBox/HBox/VBox/HBox/Margin1/Panel1.set_slot_item(true)
-				elif $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().has_point(cursor_pos) and $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.contain_slot_item == false:
+						$ObjectsOptions.get_child(count).set_obj_slot($Panels/Margin1/Panel1.get_global_rect().position.x, $Panels/Margin1/Panel1.get_global_rect().position.y, 1)
+						$Panels/Margin1/Panel1.set_slot_item(true)
+				elif $Panels/Margin2/Panel2.get_global_rect().has_point(cursor_pos) and $Panels/Margin2/Panel2.contain_slot_item == false:
 					if $ObjectsOptions.get_child(count).liberado == true:
-						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin2/Panel2.get_global_rect().position.y, 2)
-						$Main/VBox/HBox/VBox/HBox/Margin2/Panel2.set_slot_item(true)
-				elif $Main/VBox/HBox/VBox/HBox/Margin3/Panel3.get_global_rect().has_point(cursor_pos) and $Main/VBox/HBox/VBox/HBox/Margin3/Panel3.contain_slot_item == false:
+						$ObjectsOptions.get_child(count).set_obj_slot($Panels/Margin2/Panel2.get_global_rect().position.x, $Panels/Margin2/Panel2.get_global_rect().position.y, 2)
+						$Panels/Margin2/Panel2.set_slot_item(true)
+				elif $Panels/Margin3/Panel3.get_global_rect().has_point(cursor_pos) and $Panels/Margin3/Panel3.contain_slot_item == false:
 					if $ObjectsOptions.get_child(count).liberado == true:
-						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin3/Panel3.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin3/Panel3.get_global_rect().position.y, 3)
-						$Main/VBox/HBox/VBox/HBox/Margin3/Panel3.set_slot_item(true)
-				elif $Main/VBox/HBox/VBox/HBox/Margin4/Panel4.get_global_rect().has_point(cursor_pos) and $Main/VBox/HBox/VBox/HBox/Margin4/Panel4.contain_slot_item == false:
+						$ObjectsOptions.get_child(count).set_obj_slot($Panels/Margin3/Panel3.get_global_rect().position.x, $Panels/Margin3/Panel3.get_global_rect().position.y, 3)
+						$Panels/Margin3/Panel3.set_slot_item(true)
+				elif $Panels/Margin4/Panel4.get_global_rect().has_point(cursor_pos) and $Panels/Margin4/Panel4.contain_slot_item == false:
 					if $ObjectsOptions.get_child(count).liberado == true:
-						$ObjectsOptions.get_child(count).set_obj_slot($Main/VBox/HBox/VBox/HBox/Margin4/Panel4.get_global_rect().position.x, $Main/VBox/HBox/VBox/HBox/Margin4/Panel4.get_global_rect().position.y, 4)
-						$Main/VBox/HBox/VBox/HBox/Margin4/Panel4.set_slot_item(true)
+						$ObjectsOptions.get_child(count).set_obj_slot($Panels/Margin4/Panel4.get_global_rect().position.x, $Panels/Margin4/Panel4.get_global_rect().position.y, 4)
+						$Panels/Margin4/Panel4.set_slot_item(true)
 				elif $ObjectsOptions.get_child(count).liberado == true:
 					$ObjectsOptions.get_child(count).reset_start_position()
 			count += 1
@@ -190,8 +192,8 @@ func set_options(x, agregar):
 				options.append(z)
 		indexList.remove(y)
 		all.remove(y)
-	
-	var card_x = 601 - (175 * (options.size()-1))
+		
+	var card_x = 526 - (100 * (options.size()-1))
 	var card_width = 205
 	var in_list = range(options.size())
 	for i in range(options.size()):
@@ -526,20 +528,20 @@ func next():
 	eleccion_correcta2 = false
 	eleccion_correcta3 = false
 	if level == 1:
-		$Main/VBox/HBox/VBox/HBox/Margin1/Panel1.set_slot_item(false)
-		$Main/VBox/HBox/VBox/HBox/Margin2/Panel2.set_slot_item(false)
+		$Panels/Margin1/Panel1.set_slot_item(false)
+		$Panels/Margin2/Panel2.set_slot_item(false)
 	if level == 2:
-		$Main/VBox/HBox/VBox/HBox/Margin1/Panel1.set_slot_item(false)
-		$Main/VBox/HBox/VBox/HBox/Margin2/Panel2.set_slot_item(false)
+		$Panels/Margin1/Panel1.set_slot_item(false)
+		$Panels/Margin2/Panel2.set_slot_item(false)
 	if level == 3:
-		$Main/VBox/HBox/VBox/HBox/Margin1/Panel1.set_slot_item(false)
-		$Main/VBox/HBox/VBox/HBox/Margin2/Panel2.set_slot_item(false)
-		$Main/VBox/HBox/VBox/HBox/Margin3/Panel3.set_slot_item(false)
+		$Panels/Margin1/Panel1.set_slot_item(false)
+		$Panels/Margin2/Panel2.set_slot_item(false)
+		$Panels/Margin3/Panel3.set_slot_item(false)
 	if level == 4:
-		$Main/VBox/HBox/VBox/HBox/Margin1/Panel1.set_slot_item(false)
-		$Main/VBox/HBox/VBox/HBox/Margin2/Panel2.set_slot_item(false)
-		$Main/VBox/HBox/VBox/HBox/Margin3/Panel3.set_slot_item(false)
-		$Main/VBox/HBox/VBox/HBox/Margin4/Panel4.set_slot_item(false)
+		$Panels/Margin1/Panel1.set_slot_item(false)
+		$Panels/Margin2/Panel2.set_slot_item(false)
+		$Panels/Margin3/Panel3.set_slot_item(false)
+		$Panels/Margin4/Panel4.set_slot_item(false)
 	if intentos_level < 2:
 		if level == 1:
 			set_sounds(2)
@@ -620,25 +622,31 @@ func _on_Rechazar_pressed():
 
 func next_level(s,t,l):
 	if l == 2:
+		var panels_x = 526 - (200 * (2-1))
+		$Panels.rect_position.x = panels_x
 		# Panels
-		$Main/VBox/HBox/VBox/HBox/Margin1.visible = true
-		$Main/VBox/HBox/VBox/HBox/Margin2.visible = true
-		$Main/VBox/HBox/VBox/HBox/Margin3.visible = false
-		$Main/VBox/HBox/VBox/HBox/Margin4.visible = false
+		$Panels/Margin1.visible = true
+		$Panels/Margin2.visible = true
+		$Panels/Margin3.visible = false
+		$Panels/Margin4.visible = false
 		$Main.update_indicaciones("\n\nORDENA LAS IMAGENES SEGUN LO ESCUCHADO.")
 	if l == 3:
+		var panels_x = 426 - (100 * (3-1))
+		$Panels.rect_position.x = panels_x
 		# Panels
-		$Main/VBox/HBox/VBox/HBox/Margin1.visible = true
-		$Main/VBox/HBox/VBox/HBox/Margin2.visible = true
-		$Main/VBox/HBox/VBox/HBox/Margin3.visible = true
-		$Main/VBox/HBox/VBox/HBox/Margin4.visible = false
+		$Panels/Margin1.visible = true
+		$Panels/Margin2.visible = true
+		$Panels/Margin3.visible = true
+		$Panels/Margin4.visible = false
 		$Main.update_indicaciones("\n\nORDENA LAS IMAGENES SEGUN LO ESCUCHADO.")
 	if l == 4:
+		var panels_x = 426 - (100 * (4-1))
+		$Panels.rect_position.x = panels_x
 		# Panels
-		$Main/VBox/HBox/VBox/HBox/Margin1.visible = true
-		$Main/VBox/HBox/VBox/HBox/Margin2.visible = true
-		$Main/VBox/HBox/VBox/HBox/Margin3.visible = true
-		$Main/VBox/HBox/VBox/HBox/Margin4.visible = true
+		$Panels/Margin1.visible = true
+		$Panels/Margin2.visible = true
+		$Panels/Margin3.visible = true
+		$Panels/Margin4.visible = true
 		$Main.update_indicaciones("\n\nORDENA LAS IMAGENES SEGUN LO ESCUCHADO.")
 	$Main/VBox/HBox/Margin2/Escuchar.visible = true
 	# Timer

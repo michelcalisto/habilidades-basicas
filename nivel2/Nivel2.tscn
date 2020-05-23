@@ -36,10 +36,11 @@ font_data = ExtResource( 8 )
 size = 18
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=4]
+size = 50
 font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -53,7 +54,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -67,7 +68,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 8 )
 
 [node name="Nivel2" type="Node2D"]
@@ -238,179 +239,31 @@ __meta__ = {
 }
 
 [node name="Margin1" type="MarginContainer" parent="Main/VBox"]
-margin_right = 1056.0
+margin_right = 1044.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 1040, 150 )
 
 [node name="Indicaciones" type="Label" parent="Main/VBox/Margin1"]
 margin_top = 61.0
-margin_right = 1056.0
+margin_right = 1044.0
 margin_bottom = 89.0
 custom_fonts/font = SubResource( 3 )
 align = 1
 
 [node name="HBox" type="HBoxContainer" parent="Main/VBox"]
 margin_top = 154.0
-margin_right = 1056.0
+margin_right = 1044.0
 margin_bottom = 568.0
 rect_min_size = Vector2( 1040, 414 )
 
 [node name="VBox" type="VBoxContainer" parent="Main/VBox/HBox"]
-margin_right = 812.0
+margin_right = 800.0
 margin_bottom = 414.0
 rect_min_size = Vector2( 800, 414 )
 
-[node name="HBox" type="HBoxContainer" parent="Main/VBox/HBox/VBox"]
-margin_right = 812.0
-margin_bottom = 205.0
-rect_min_size = Vector2( 800, 205 )
-
-[node name="Margin1" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox"]
-margin_right = 200.0
-margin_bottom = 205.0
-rect_min_size = Vector2( 200, 205 )
-
-[node name="Panel1" type="Panel" parent="Main/VBox/HBox/VBox/HBox/Margin1"]
-margin_left = 20.0
-margin_top = 7.0
-margin_right = 180.0
-margin_bottom = 197.0
-rect_min_size = Vector2( 160, 190 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource( 19 )
-
-[node name="MarginContainer" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox/Margin1/Panel1"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 160, 40 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Main/VBox/HBox/VBox/HBox/Margin1/Panel1/MarginContainer"]
-margin_left = 74.0
-margin_top = 8.0
-margin_right = 86.0
-margin_bottom = 32.0
-size_flags_horizontal = 4
-custom_fonts/font = SubResource( 7 )
-text = "1"
-align = 1
-
-[node name="Margin2" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox"]
-margin_left = 204.0
-margin_right = 404.0
-margin_bottom = 205.0
-rect_min_size = Vector2( 200, 205 )
-
-[node name="Panel2" type="Panel" parent="Main/VBox/HBox/VBox/HBox/Margin2"]
-margin_left = 20.0
-margin_top = 7.0
-margin_right = 180.0
-margin_bottom = 197.0
-rect_min_size = Vector2( 160, 190 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource( 20 )
-
-[node name="MarginContainer" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox/Margin2/Panel2"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 160, 40 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Main/VBox/HBox/VBox/HBox/Margin2/Panel2/MarginContainer"]
-margin_left = 72.0
-margin_top = 8.0
-margin_right = 88.0
-margin_bottom = 32.0
-size_flags_horizontal = 4
-custom_fonts/font = SubResource( 7 )
-text = "2"
-align = 1
-
-[node name="Margin3" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox"]
-margin_left = 408.0
-margin_right = 608.0
-margin_bottom = 205.0
-rect_min_size = Vector2( 200, 205 )
-
-[node name="Panel3" type="Panel" parent="Main/VBox/HBox/VBox/HBox/Margin3"]
-margin_left = 20.0
-margin_top = 7.0
-margin_right = 180.0
-margin_bottom = 197.0
-rect_min_size = Vector2( 160, 190 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource( 21 )
-
-[node name="MarginContainer" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox/Margin3/Panel3"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 160, 40 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Main/VBox/HBox/VBox/HBox/Margin3/Panel3/MarginContainer"]
-margin_left = 72.0
-margin_top = 8.0
-margin_right = 88.0
-margin_bottom = 32.0
-size_flags_horizontal = 4
-custom_fonts/font = SubResource( 7 )
-text = "3"
-align = 1
-
-[node name="Margin4" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox"]
-margin_left = 612.0
-margin_right = 812.0
-margin_bottom = 205.0
-rect_min_size = Vector2( 200, 205 )
-
-[node name="Panel4" type="Panel" parent="Main/VBox/HBox/VBox/HBox/Margin4"]
-margin_left = 20.0
-margin_top = 7.0
-margin_right = 180.0
-margin_bottom = 197.0
-rect_min_size = Vector2( 160, 190 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource( 23 )
-
-[node name="MarginContainer" type="MarginContainer" parent="Main/VBox/HBox/VBox/HBox/Margin4/Panel4"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 160, 40 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Main/VBox/HBox/VBox/HBox/Margin4/Panel4/MarginContainer"]
-margin_left = 72.0
-margin_top = 8.0
-margin_right = 88.0
-margin_bottom = 32.0
-size_flags_horizontal = 4
-custom_fonts/font = SubResource( 7 )
-text = "4"
-align = 1
-
 [node name="Margin2" type="MarginContainer" parent="Main/VBox/HBox"]
-margin_left = 816.0
-margin_right = 1056.0
+margin_left = 804.0
+margin_right = 1044.0
 margin_bottom = 414.0
 rect_min_size = Vector2( 240, 150 )
 
@@ -426,6 +279,157 @@ texture_normal = ExtResource( 14 )
 texture_pressed = ExtResource( 15 )
 expand = true
 stretch_mode = 3
+
+[node name="Panels" type="HBoxContainer" parent="."]
+margin_left = 120.0
+margin_top = 230.0
+margin_right = 932.0
+margin_bottom = 390.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin1" type="MarginContainer" parent="Panels"]
+margin_right = 200.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 200, 160 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel1" type="Panel" parent="Panels/Margin1"]
+margin_left = 20.0
+margin_right = 180.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 160, 160 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource( 19 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panels/Margin1/Panel1"]
+margin_right = 160.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 160, 160 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panels/Margin1/Panel1/MarginContainer"]
+margin_left = 61.0
+margin_top = 42.0
+margin_right = 99.0
+margin_bottom = 118.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 4 )
+text = "1"
+align = 1
+
+[node name="Margin2" type="MarginContainer" parent="Panels"]
+margin_left = 204.0
+margin_right = 404.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 200, 160 )
+
+[node name="Panel2" type="Panel" parent="Panels/Margin2"]
+margin_left = 20.0
+margin_right = 180.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 160, 160 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource( 20 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panels/Margin2/Panel2"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 160, 160 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panels/Margin2/Panel2/MarginContainer"]
+margin_left = 55.0
+margin_top = 42.0
+margin_right = 105.0
+margin_bottom = 118.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 4 )
+text = "2"
+align = 1
+
+[node name="Margin3" type="MarginContainer" parent="Panels"]
+margin_left = 408.0
+margin_right = 608.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 200, 160 )
+
+[node name="Panel3" type="Panel" parent="Panels/Margin3"]
+margin_left = 20.0
+margin_right = 180.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 160, 160 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource( 21 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panels/Margin3/Panel3"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 160, 160 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panels/Margin3/Panel3/MarginContainer"]
+margin_left = 55.0
+margin_top = 42.0
+margin_right = 105.0
+margin_bottom = 118.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 4 )
+text = "3"
+align = 1
+
+[node name="Margin4" type="MarginContainer" parent="Panels"]
+margin_left = 612.0
+margin_right = 812.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 200, 160 )
+
+[node name="Panel4" type="Panel" parent="Panels/Margin4"]
+margin_left = 20.0
+margin_right = 180.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 160, 160 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource( 23 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panels/Margin4/Panel4"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 160, 160 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panels/Margin4/Panel4/MarginContainer"]
+margin_left = 55.0
+margin_top = 42.0
+margin_right = 105.0
+margin_bottom = 118.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 4 )
+text = "4"
+align = 1
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -443,8 +447,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-anims/fade-in = SubResource( 4 )
-anims/fade-out = SubResource( 5 )
+anims/fade-in = SubResource( 5 )
+anims/fade-out = SubResource( 6 )
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -472,7 +476,7 @@ rect_min_size = Vector2( 500, 172 )
 margin_top = 74.0
 margin_right = 504.0
 margin_bottom = 98.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "Info"
 align = 1
 
