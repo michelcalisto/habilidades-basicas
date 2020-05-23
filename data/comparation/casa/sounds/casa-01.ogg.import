@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/casa-01.ogg-892d8a7543761ac62a1e5851a572b48a.oggstr"
+
+[deps]
+
+source_file="res://data/comparation/casa/sounds/casa-01.ogg"
+dest_files=[ "res://.import/casa-01.ogg-892d8a7543761ac62a1e5851a572b48a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

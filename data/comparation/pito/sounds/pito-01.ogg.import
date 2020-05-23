@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pito-01.ogg-9d488e7ce429c9e0000dca1d31cb0cb5.oggstr"
+
+[deps]
+
+source_file="res://data/comparation/pito/sounds/pito-01.ogg"
+dest_files=[ "res://.import/pito-01.ogg-9d488e7ce429c9e0000dca1d31cb0cb5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

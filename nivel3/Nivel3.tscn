@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://assets/img/Hills1.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/Hills4.png" type="Texture" id=2]
@@ -11,9 +11,14 @@
 [ext_resource path="res://assets/buttons/nivels/regresar-basic.png" type="Texture" id=9]
 [ext_resource path="res://assets/buttons/nivels/regresar-press.png" type="Texture" id=10]
 [ext_resource path="res://nivel3/Icon.gd" type="Script" id=11]
-[ext_resource path="res://assets/boxs/nivels.png" type="Texture" id=13]
+[ext_resource path="res://assets/boxs/nivels2.png" type="Texture" id=12]
+[ext_resource path="res://assets/boxs/popupx650.png" type="Texture" id=13]
 [ext_resource path="res://assets/buttons/nivels/audio-basic.png" type="Texture" id=14]
 [ext_resource path="res://assets/buttons/nivels/audio-press.png" type="Texture" id=15]
+[ext_resource path="res://assets/buttons/nivels/diff-press.png" type="Texture" id=16]
+[ext_resource path="res://assets/buttons/nivels/igual-basic.png" type="Texture" id=17]
+[ext_resource path="res://assets/buttons/nivels/diff-basic.png" type="Texture" id=18]
+[ext_resource path="res://assets/buttons/nivels/igual-press.png" type="Texture" id=19]
 [ext_resource path="res://object/Object.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/boxs/popup.png" type="Texture" id=22]
 
@@ -21,7 +26,7 @@
 script/source = "extends Node2D
 
 export(PackedScene) var Objeto
-const objects_file = \"res://data/animals-comparation.json\"
+const objects_file = \"res://data/comparation.json\"
 var json
 var audio = AudioStreamPlayer.new()
 var ogg = AudioStreamOGGVorbis.new()
@@ -40,6 +45,7 @@ func _ready():
 	# Buttons
 	$Main/VBox/HBox.visible = false
 	# PopUp
+	$PopUpStatus.visible = false
 	$PopUp.visible = false
 	# Labels
 	$TopPanel.update_level(level)
@@ -60,6 +66,7 @@ func _ready():
 	json = read_json()
 	set_objects(json)
 	set_sounds(2)
+	_on_Escuchar_pressed()
 	set_options(json, 0)
 
 func read_json():
@@ -79,23 +86,53 @@ func set_objects(x):
 	var deck = Array()
 	for i in x:
 		deck.append(i)
-	var indexList = range(deck.size())
-	var y = 0
-	for i in range(deck.size()):
-#		randomize()
-#		var y = randi()%indexList.size()	
-		for z in x:
-			if z == deck[y]:
-				var obj = Objeto.instance()
-				obj.set_id(z)
-				obj.set_nombre(x[z][\"name\"])
-				obj.set_code(x[z][\"code\"])
-				obj.set_sound(x[z][\"sound\"])
-				obj.set_image(x[z][\"image\"])
-				$Objects.add_child(obj)
-		#indexList.remove(y)
-		#deck.remove(y)
-		y += 1
+		
+	while deck.size() != 0:
+		var indexList = range(deck.size())
+		randomize()
+		var y = randi()%indexList.size()
+		var residuo = y % 2
+		if residuo == 0:
+			for z in x:
+				if z == deck[y]:
+					var obj = Objeto.instance()
+					obj.set_id(z)
+					obj.set_nombre(x[z][\"name\"])
+					obj.set_code(x[z][\"code\"])
+					obj.set_sound(x[z][\"sound\"])
+					obj.set_image(x[z][\"image\"])
+					$Objects.add_child(obj)
+				if z == deck[y+1]:
+					var obj = Objeto.instance()
+					obj.set_id(z)
+					obj.set_nombre(x[z][\"name\"])
+					obj.set_code(x[z][\"code\"])
+					obj.set_sound(x[z][\"sound\"])
+					obj.set_image(x[z][\"image\"])
+					$Objects.add_child(obj)
+			indexList.remove(y+1)
+			deck.remove(y+1)
+			indexList.remove(y)
+			deck.remove(y)
+	
+#	var y = 0
+#	for i in range(deck.size()):
+##		randomize()
+##		var y = randi()%indexList.size()	
+#		for z in x:
+#			if z == deck[y]:
+#				var obj = Objeto.instance()
+#				obj.set_id(z)
+#				obj.set_nombre(x[z][\"name\"])
+#				obj.set_code(x[z][\"code\"])
+#				obj.set_sound(x[z][\"sound\"])
+#				obj.set_image(x[z][\"image\"])
+#				$Objects.add_child(obj)
+#		#indexList.remove(y)
+#		#deck.remove(y)
+#		y += 1
+		
+		
 
 func set_sounds(x):
 	var count = 0
@@ -135,8 +172,8 @@ func set_options(x, agregar):
 	
 	#var card_x = 640 - (85 * (options.size()-1))
 	#var card_width = 170
-	var card_x = 480
-	var card_width = 170 + 150
+	var card_x = 480 - 10
+	var card_width = 170 + 150 +10 + 10
 	var in_list = range(options.size())
 	for i in range(options.size()):
 		randomize()
@@ -190,6 +227,7 @@ func _on_Igual_pressed():
 			incorrect()
 
 func _on_Diferente_pressed():
+	$Main/VBox/HBox.visible = false
 	if level == 1 and seleccionados == 0:
 		seleccionados += 1
 		intentos_level += 1
@@ -205,11 +243,9 @@ func correct():
 		score_total += 1
 		$TopPanel.update_score(score_total)
 		$Timer.start()
-		$PopUp.z_index = 0
-		$PopUp.update_info(\"\")
+		$PopUpStatus.z_index = 0
 		$TopPanel/Margin1/ToMenu.disabled = true
-		$PopUp.set_nextlevel()
-		$PopUp.visible = true
+		$PopUpStatus.visible = true
 		$ObjectsOptions.visible = true
 		$Icon.update_icon(\"res://assets/icons/correct.png\")
 		$Icon.visible = true
@@ -220,11 +256,16 @@ func incorrect():
 		$Timer.start()
 		$TopPanel.update_score(score_total)
 		$Timer.start()
-		$PopUp.z_index = 0
-		$PopUp.update_info(\"\")
+		
+		$PopUpStatus.z_index = 0
 		$TopPanel/Margin1/ToMenu.disabled = true
-		$PopUp.set_nextlevel()
-		$PopUp.visible = true
+		$PopUpStatus.visible = true
+		
+#		$PopUp.z_index = 0
+#		$PopUp.update_info(\"\")
+#		$TopPanel/Margin1/ToMenu.disabled = true
+#		$PopUp.set_nextlevel()
+#		$PopUp.visible = true
 		$ObjectsOptions.visible = true
 		$Icon.update_icon(\"res://assets/icons/incorrect.png\")
 		$Icon.visible = true
@@ -234,7 +275,7 @@ func incorrect():
 func _on_Timer_timeout():
 	time_left -=1
 	if time_left <= 0:
-		if intentos_level <= 5:
+		if intentos_level <= 8:
 			next()
 
 func next():
@@ -246,6 +287,7 @@ func next():
 	$Main/VBox/HBox.visible = false
 	# PopUp
 	$PopUp.visible = false
+	$PopUpStatus.visible = false
 	# Timer
 	$Timer.stop()
 	# Containers
@@ -256,12 +298,13 @@ func next():
 	# Functions
 	reset_containers()
 	
-	if intentos_level < 5:
+	if intentos_level < 8:
 		if level == 1:
 			set_sounds(2)
+			_on_Escuchar_pressed()
 			set_options(json, 0)
 	else:
-		if score_level >= 4:
+		if score_level >= 7:
 			popup_status = 1
 			$PopUp.update_info(\"FELICITACIONES HAS COMPLETADO\\nEL NIVEL\\n\\nPUNTAJE FINAL : \"+str(score_total)+\" de 8\")
 			$TopPanel/Margin1/ToMenu.disabled = true
@@ -338,6 +381,7 @@ func reintentar():
 	set_objects(json)
 	if level == 1:
 		set_sounds(2)
+		_on_Escuchar_pressed()
 		set_options(json, 0)
 "
 
@@ -584,7 +628,7 @@ margin_left = 120.0
 margin_top = 80.0
 margin_right = 1160.0
 margin_bottom = 640.0
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 script = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -647,8 +691,8 @@ margin_bottom = 127.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 15 )
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 19 )
 expand = true
 stretch_mode = 3
 
@@ -666,8 +710,8 @@ margin_bottom = 127.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 15 )
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 16 )
 expand = true
 stretch_mode = 3
 
@@ -758,6 +802,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 expand = true
 stretch_mode = 3
+
+[node name="PopUpStatus" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+texture = ExtResource( 13 )
 
 [node name="Icon" type="Sprite" parent="."]
 position = Vector2( 640, 360 )

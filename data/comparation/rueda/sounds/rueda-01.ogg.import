@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rueda-01.ogg-7a1fdaaffa148c8a3eb09eb0e5d875d4.oggstr"
+
+[deps]
+
+source_file="res://data/comparation/rueda/sounds/rueda-01.ogg"
+dest_files=[ "res://.import/rueda-01.ogg-7a1fdaaffa148c8a3eb09eb0e5d875d4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
