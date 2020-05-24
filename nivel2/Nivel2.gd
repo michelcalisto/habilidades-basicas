@@ -30,7 +30,7 @@ func _ready():
 	# Labels
 	$TopPanel.update_level(level)
 	$TopPanel.update_score(score_total)
-	$Main.update_indicaciones("ESCUCHA CON ATENCION\n\n\"ORDENA LAS IMAGENES SEGUN LO ESCUCHADO\"")
+	$Main.update_indicaciones("ESCUCHA CON ATENCION\n\n\"ARRASTRA LAS IMAGENES SEGUN LO ESCUCHADO\"")
 	# Transition
 	$Transition.visible = true
 	$Transition/AnimationPlayer.play("fade-out")
@@ -564,7 +564,7 @@ func next():
 		if score_level == 2:
 			if level == 4:
 				popup_status = 1
-				$PopUp.update_info("FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\n\nPUNTAJE FINAL : "+str(score_total)+" de 8")
+				$PopUp.update_info("FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\n\nPUNTAJE FINAL : "+str(score_total)+" DE 8 PUNTOS")
 				$TopPanel/Margin1/ToMenu.disabled = true
 				$PopUp.update_textures_aceptar("res://assets/buttons/nivels/finalizar-basic.png","res://assets/buttons/nivels/finalizar-press.png")
 				$PopUp.set_final()
@@ -580,7 +580,7 @@ func next():
 				$PopUp.visible = true
 		else:
 			popup_status = 2
-			$PopUp.update_info("SIGUELO INTENTANDO")
+			$PopUp.update_info("HAS OBTENIDO : "+str(score_total)+" DE 8 PUNTOS\nSIGUELO INTENTANDO")
 			$TopPanel/Margin1/ToMenu.disabled = true
 			$PopUp.update_textures_aceptar("res://assets/buttons/nivels/reintentar-basic.png","res://assets/buttons/nivels/reintentar-press.png")
 			$PopUp.update_textures_rechazar("res://assets/buttons/nivels/finalizar-basic.png","res://assets/buttons/nivels/finalizar-press.png")
@@ -634,7 +634,7 @@ func next_level(s,t,l):
 		$Panels/Margin2.visible = true
 		$Panels/Margin3.visible = false
 		$Panels/Margin4.visible = false
-		$Main.update_indicaciones("\n\n\"ORDENA LAS IMAGENES SEGUN LO ESCUCHADO\"")
+		$Main.update_indicaciones("\n\n\"ARRASTRA LAS IMAGENES SEGUN LO ESCUCHADO\"")
 	if l == 3:
 		var panels_x = 515 - (125 * (3-1))
 		$Panels.rect_position.x = panels_x
@@ -643,7 +643,7 @@ func next_level(s,t,l):
 		$Panels/Margin2.visible = true
 		$Panels/Margin3.visible = true
 		$Panels/Margin4.visible = false
-		$Main.update_indicaciones("\n\n\"ORDENA LAS IMAGENES SEGUN LO ESCUCHADO\"")
+		$Main.update_indicaciones("\n\n\"ARRASTRA LAS IMAGENES SEGUN LO ESCUCHADO\"")
 	if l == 4:
 		var panels_x = 515 - (125 * (4-1))
 		$Panels.rect_position.x = panels_x
@@ -652,7 +652,7 @@ func next_level(s,t,l):
 		$Panels/Margin2.visible = true
 		$Panels/Margin3.visible = true
 		$Panels/Margin4.visible = true
-		$Main.update_indicaciones("\n\n\"ORDENA LAS IMAGENES SEGUN LO ESCUCHADO\"")
+		$Main.update_indicaciones("\n\n\"ARRASTRA LAS IMAGENES SEGUN LO ESCUCHADO\"")
 	$Margin2/Escuchar.visible = true
 	# Timer
 	$Timer.stop()

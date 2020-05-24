@@ -309,7 +309,7 @@ func next():
 		if score_level >= 4:
 			if level == 3:
 				popup_status = 1
-				$PopUp.update_info("FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\n\nPUNTAJE FINAL : "+str(score_total)+" de 15")
+				$PopUp.update_info("FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\n\nPUNTAJE FINAL : "+str(score_total)+" DE 15 PUNTOS")
 				$TopPanel/Margin1/ToMenu.disabled = true
 				$PopUp.update_textures_aceptar("res://assets/buttons/nivels/finalizar-basic.png","res://assets/buttons/nivels/finalizar-press.png")
 				$PopUp.set_final()
@@ -325,7 +325,7 @@ func next():
 				$PopUp.visible = true
 		else:
 			popup_status = 2
-			$PopUp.update_info("SIGUELO INTENTANDO")
+			$PopUp.update_info("HAS OBTENIDO : "+str(score_total)+" DE 15 PUNTOS\nSIGUELO INTENTANDO")
 			$TopPanel/Margin1/ToMenu.disabled = true
 			$PopUp.update_textures_aceptar("res://assets/buttons/nivels/reintentar-basic.png","res://assets/buttons/nivels/reintentar-press.png")
 			$PopUp.update_textures_rechazar("res://assets/buttons/nivels/finalizar-basic.png","res://assets/buttons/nivels/finalizar-press.png")

@@ -114,25 +114,6 @@ func set_objects(x):
 			deck.remove(y+1)
 			indexList.remove(y)
 			deck.remove(y)
-	
-#	var y = 0
-#	for i in range(deck.size()):
-##		randomize()
-##		var y = randi()%indexList.size()	
-#		for z in x:
-#			if z == deck[y]:
-#				var obj = Objeto.instance()
-#				obj.set_id(z)
-#				obj.set_nombre(x[z][\"name\"])
-#				obj.set_code(x[z][\"code\"])
-#				obj.set_sound(x[z][\"sound\"])
-#				obj.set_image(x[z][\"image\"])
-#				$Objects.add_child(obj)
-#		#indexList.remove(y)
-#		#deck.remove(y)
-#		y += 1
-		
-		
 
 func set_sounds(x):
 	var count = 0
@@ -261,11 +242,6 @@ func incorrect():
 		$TopPanel/Margin1/ToMenu.disabled = true
 		$PopUpStatus.visible = true
 		
-#		$PopUp.z_index = 0
-#		$PopUp.update_info(\"\")
-#		$TopPanel/Margin1/ToMenu.disabled = true
-#		$PopUp.set_nextlevel()
-#		$PopUp.visible = true
 		$ObjectsOptions.visible = true
 		$Icon.update_icon(\"res://assets/icons/incorrect.png\")
 		$Icon.visible = true
@@ -306,7 +282,7 @@ func next():
 	else:
 		if score_level >= 7:
 			popup_status = 1
-			$PopUp.update_info(\"FELICITACIONES HAS COMPLETADO\\nEL NIVEL\\n\\nPUNTAJE FINAL : \"+str(score_total)+\" de 8\")
+			$PopUp.update_info(\"FELICITACIONES HAS COMPLETADO\\nEL NIVEL\\n\\nPUNTAJE FINAL : \"+str(score_total)+\" DE 8 PUNTOS\")
 			$TopPanel/Margin1/ToMenu.disabled = true
 			$PopUp.update_textures_aceptar(\"res://assets/buttons/nivels/finalizar-basic.png\",\"res://assets/buttons/nivels/finalizar-press.png\")
 			$PopUp.set_final()
@@ -314,7 +290,7 @@ func next():
 			$PopUp.visible = true
 		else:
 			popup_status = 2
-			$PopUp.update_info(\"SIGUELO INTENTANDO\")
+			$PopUp.update_info(\"HAS OBTENIDO : \"+str(score_total)+\" DE 8 PUNTOS\\nSIGUELO INTENTANDO\")
 			$TopPanel/Margin1/ToMenu.disabled = true
 			$PopUp.update_textures_aceptar(\"res://assets/buttons/nivels/reintentar-basic.png\",\"res://assets/buttons/nivels/reintentar-press.png\")
 			$PopUp.update_textures_rechazar(\"res://assets/buttons/nivels/finalizar-basic.png\",\"res://assets/buttons/nivels/finalizar-press.png\")
