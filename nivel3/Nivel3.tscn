@@ -725,7 +725,7 @@ stretch_mode = 3
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 1280, 720 )
-color = Color( 0, 0, 0, 0 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -809,7 +809,7 @@ texture = ExtResource( 13 )
 
 [node name="Icon" type="Sprite" parent="."]
 position = Vector2( 640, 360 )
-scale = Vector2( 2, 2 )
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Icon"]

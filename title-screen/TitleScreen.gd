@@ -23,3 +23,10 @@ func _on_Nivel3_pressed():
 	$ColorRect/AnimationPlayer.play("fadein")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	get_tree().change_scene("res://nivel3/Nivel3.tscn")
+
+
+func _on_Nivel4_pressed():
+	$ColorRect.visible = true
+	$ColorRect/AnimationPlayer.play("fadein")
+	yield($ColorRect/AnimationPlayer, "animation_finished")
+	get_tree().change_scene("res://indicaciones/Indicaciones.tscn")
