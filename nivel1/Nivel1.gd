@@ -309,6 +309,7 @@ func next():
 		if score_level >= 4:
 			if level == 3:
 				popup_status = 1
+				$Particles2D.emitting = true
 				$PopUp.update_info("FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\n\nPUNTAJE FINAL : "+str(score_total)+" DE 15 PUNTOS")
 				$TopPanel/Margin1/ToMenu.disabled = true
 				$PopUp.update_textures_aceptar("res://assets/buttons/nivels/finalizar-basic.png","res://assets/buttons/nivels/finalizar-press.png")

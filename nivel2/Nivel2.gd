@@ -564,6 +564,7 @@ func next():
 		if score_level == 2:
 			if level == 4:
 				popup_status = 1
+				$Particles2D.emitting = true
 				$PopUp.update_info("FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\n\nPUNTAJE FINAL : "+str(score_total)+" DE 8 PUNTOS")
 				$TopPanel/Margin1/ToMenu.disabled = true
 				$PopUp.update_textures_aceptar("res://assets/buttons/nivels/finalizar-basic.png","res://assets/buttons/nivels/finalizar-press.png")

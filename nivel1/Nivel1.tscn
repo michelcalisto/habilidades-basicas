@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/img/Hills1.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/Hills4.png" type="Texture" id=2]
@@ -32,6 +32,24 @@ font_data = ExtResource( 8 )
 size = 18
 font_data = ExtResource( 8 )
 
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 2
+emission_box_extents = Vector3( 640, 1, 1 )
+flag_disable_z = true
+spread = 140.55
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 200.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 10.0
+scale_random = 0.3
+color = Color( 0.352941, 0.807843, 0.121569, 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
 [sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -59,9 +77,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
-
-[sub_resource type="DynamicFont" id=6]
-font_data = ExtResource( 8 )
 
 [node name="Nivel1" type="Node2D"]
 script = ExtResource( 7 )
@@ -267,21 +282,6 @@ stretch_mode = 3
 
 [node name="ObjectsOptions" type="Node2D" parent="."]
 
-[node name="Transition" type="ColorRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 1280, 720 )
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-anims/fade-in = SubResource( 4 )
-anims/fade-out = SubResource( 5 )
-
-[node name="Timer" type="Timer" parent="."]
-
 [node name="PopUp" type="Sprite" parent="."]
 position = Vector2( 640, 360 )
 texture = ExtResource( 22 )
@@ -348,8 +348,30 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 expand = true
 stretch_mode = 3
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 640, 0 )
+emitting = false
+amount = 100
+lifetime = 4.0
+process_material = SubResource( 7 )
+
+[node name="Transition" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1280, 720 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
+anims/fade-in = SubResource( 4 )
+anims/fade-out = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
 [connection signal="pressed" from="TopPanel/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]
 [connection signal="pressed" from="Main/VBox/Margin2/Escuchar" to="." method="_on_Escuchar_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="PopUp/VBox/HBox/Margin1/Aceptar" to="." method="_on_Aceptar_pressed"]
 [connection signal="pressed" from="PopUp/VBox/HBox/Margin2/Rechazar" to="." method="_on_Rechazar_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

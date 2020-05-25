@@ -3,18 +3,18 @@
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://indicaciones/Indicaciones.gd" type="Script" id=2]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=3]
 size = 12
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "fade"
 length = 2.0
 loop = true
@@ -31,8 +31,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "fade-in"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -46,8 +45,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "fade-out"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -103,7 +101,7 @@ margin_top = 12.0
 margin_right = 782.0
 margin_bottom = 88.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
 custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
 custom_constants/shadow_offset_x = 4
@@ -123,7 +121,7 @@ margin_top = 218.0
 margin_right = 604.0
 margin_bottom = 242.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "INDICACIONES"
 align = 1
 
@@ -141,7 +139,7 @@ __meta__ = {
 margin_top = 21.0
 margin_right = 1040.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 3 )
 text = "Para continuar, presiona \"Enter\" o haz un click en la pantalla."
 align = 2
 
@@ -156,7 +154,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/ColorRect"]
-anims/fade = SubResource( 6 )
+anims/fade = SubResource( 4 )
 
 [node name="Control" type="Control" parent="."]
 margin_right = 1280.0
@@ -166,6 +164,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 1280, 720 )
@@ -175,6 +174,6 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
-anims/fade-in = SubResource( 3 )
-anims/fade-out = SubResource( 2 )
+anims/fade-in = SubResource( 5 )
+anims/fade-out = SubResource( 6 )
 [connection signal="gui_input" from="Control" to="." method="_on_Control_gui_input"]

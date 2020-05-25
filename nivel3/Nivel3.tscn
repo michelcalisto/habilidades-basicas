@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://assets/img/Hills1.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/Hills4.png" type="Texture" id=2]
@@ -40,6 +40,7 @@ var time_left = 2
 var popup_status = 0
 
 func _ready():
+	
 	# Icon
 	$Icon.visible = false
 	# Buttons
@@ -281,6 +282,7 @@ func next():
 			set_options(json, 0)
 	else:
 		if score_level >= 7:
+			$Particles2D.emitting = true
 			popup_status = 1
 			$PopUp.update_info(\"FELICITACIONES HAS COMPLETADO\\nEL NIVEL\\n\\nPUNTAJE FINAL : \"+str(score_total)+\" DE 8 PUNTOS\")
 			$TopPanel/Margin1/ToMenu.disabled = true
@@ -404,6 +406,39 @@ func update_indicaciones(x):
 size = 18
 font_data = ExtResource( 8 )
 
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "scale"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="ParticlesMaterial" id=12]
+emission_shape = 2
+emission_box_extents = Vector3( 640, 1, 1 )
+flag_disable_z = true
+spread = 140.55
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 200.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 10.0
+scale_random = 0.3
+color = Color( 0.905882, 0.27451, 0.27451, 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
 [sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -430,24 +465,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
-
-[sub_resource type="DynamicFont" id=10]
-font_data = ExtResource( 8 )
-
-[sub_resource type="Animation" id=11]
-resource_name = "scale"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
 }
 
 [node name="Nivel3" type="Node2D"]
@@ -697,21 +714,6 @@ stretch_mode = 3
 
 [node name="ObjectsOptions" type="Node2D" parent="."]
 
-[node name="Transition" type="ColorRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 1280, 720 )
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-anims/fade-in = SubResource( 8 )
-anims/fade-out = SubResource( 9 )
-
-[node name="Timer" type="Timer" parent="."]
-
 [node name="PopUp" type="Sprite" parent="."]
 position = Vector2( 640, 360 )
 texture = ExtResource( 22 )
@@ -790,10 +792,32 @@ script = ExtResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Icon"]
 anims/scale = SubResource( 11 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 640, 0 )
+emitting = false
+amount = 100
+lifetime = 4.0
+process_material = SubResource( 12 )
+
+[node name="Transition" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1280, 720 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
+anims/fade-in = SubResource( 8 )
+anims/fade-out = SubResource( 9 )
+
+[node name="Timer" type="Timer" parent="."]
 [connection signal="pressed" from="TopPanel/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]
 [connection signal="pressed" from="Main/VBox/Margin2/Escuchar" to="." method="_on_Escuchar_pressed"]
 [connection signal="pressed" from="Main/VBox/HBox/Margin3/Igual" to="." method="_on_Igual_pressed"]
 [connection signal="pressed" from="Main/VBox/HBox/Margin4/Diferente" to="." method="_on_Diferente_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="PopUp/VBox/HBox/Margin1/Aceptar" to="." method="_on_Aceptar_pressed"]
 [connection signal="pressed" from="PopUp/VBox/HBox/Margin2/Rechazar" to="." method="_on_Rechazar_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
