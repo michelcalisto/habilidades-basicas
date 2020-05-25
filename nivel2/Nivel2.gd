@@ -426,80 +426,102 @@ func correct(x):
 	if level == 1:
 		if seleccionados == 1:
 			x.set_status("res://assets/icons/correct.png")
+			x.set_sound_victory()
 		elif seleccionados == 2:
 			if eleccion_correcta == true:
 				score_level += 1
 				score_total += 1
 			$TopPanel.update_score(score_total)
 			x.set_status("res://assets/icons/correct.png")
+			x.set_sound_victory()
 			$Timer.start()
 	if level == 2:
 		if seleccionados == 1:
 			x.set_status("res://assets/icons/correct.png")
+			x.set_sound_victory()
 		elif seleccionados == 2:
 			if eleccion_correcta == true:
 				score_level += 1
 				score_total += 1
 			$TopPanel.update_score(score_total)
 			x.set_status("res://assets/icons/correct.png")
+			x.set_sound_victory()
 			$Timer.start()
 	if level == 3:
 		if seleccionados == 1:
 			x.set_status("res://assets/icons/correct.png")
+			x.set_sound_victory()
 		elif seleccionados == 2:
 			x.set_status("res://assets/icons/correct.png")
+			x.set_sound_victory()
 		elif seleccionados == 3:
 			if eleccion_correcta == true and eleccion_correcta2 == true:
 				score_level += 1
 				score_total += 1
 			$TopPanel.update_score(score_total)
 			x.set_status("res://assets/icons/correct.png")
+			x.set_sound_victory()
 			$Timer.start()
 	if level == 4:
 		if seleccionados == 1:
 			x.set_status("res://assets/icons/correct.png")
+			x.set_sound_victory()
 		elif seleccionados == 2:
 			x.set_status("res://assets/icons/correct.png")
+			x.set_sound_victory()
 		elif seleccionados == 3:
 			x.set_status("res://assets/icons/correct.png")
+			x.set_sound_victory()
 		elif seleccionados == 4:
 			if eleccion_correcta == true and eleccion_correcta2 == true and eleccion_correcta3 == true:
 				score_level += 1
 				score_total += 1
 			$TopPanel.update_score(score_total)
 			x.set_status("res://assets/icons/correct.png")
+			x.set_sound_victory()
 			$Timer.start()
 	
 func incorrect(x):
 	if level == 1:
 		if seleccionados == 1:
 			x.set_status("res://assets/icons/incorrect.png")
+			x.set_sound_lose()
 		elif seleccionados == 2:
 			x.set_status("res://assets/icons/incorrect.png")
+			x.set_sound_lose()
 			$Timer.start()
 	if level == 2:
 		if seleccionados == 1:
 			x.set_status("res://assets/icons/incorrect.png")
+			x.set_sound_lose()
 		elif seleccionados == 2:
 			x.set_status("res://assets/icons/incorrect.png")
+			x.set_sound_lose()
 			$Timer.start()
 	if level == 3:
 		if seleccionados == 1:
 			x.set_status("res://assets/icons/incorrect.png")
+			x.set_sound_lose()
 		elif seleccionados == 2:
 			x.set_status("res://assets/icons/incorrect.png")
+			x.set_sound_lose()
 		elif seleccionados == 3:
 			x.set_status("res://assets/icons/incorrect.png")
+			x.set_sound_lose()
 			$Timer.start()
 	if level == 4:
 		if seleccionados == 1:
 			x.set_status("res://assets/icons/incorrect.png")
+			x.set_sound_lose()
 		elif seleccionados == 2:
 			x.set_status("res://assets/icons/incorrect.png")
+			x.set_sound_lose()
 		elif seleccionados == 3:
 			x.set_status("res://assets/icons/incorrect.png")
+			x.set_sound_lose()
 		elif seleccionados == 4:
 			x.set_status("res://assets/icons/incorrect.png")
+			x.set_sound_lose()
 			$Timer.start()
 
 # Timer

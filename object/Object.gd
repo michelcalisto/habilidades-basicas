@@ -6,6 +6,12 @@ var code
 var sound
 var image
 signal is_code
+var audio = AudioStreamPlayer.new()
+var ogg = AudioStreamOGGVorbis.new()
+
+func _ready():
+	# Childs
+	add_child(audio)
 
 func set_id(x):
 	id = x
@@ -53,3 +59,15 @@ func _on_Control_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			emit_signal("is_code")
+
+func set_sound_victory():
+	ogg = load("res://assets/sounds/Ganar.ogg")
+	ogg.loop = false
+	audio.stream = ogg
+	audio.play()
+
+func set_sound_lose():
+	ogg = load("res://assets/sounds/Perder.ogg")
+	ogg.loop = false
+	audio.stream = ogg
+	audio.play()

@@ -21,6 +21,7 @@ func _ready():
 	# Labels
 	$TopPanel.update_level(level)
 	$TopPanel.update_score(score_total)
+	$Main.update_indicaciones_rich("[center]ESCUCHA CON ATENCION\n\n\"PRESIONA [color=#FFD948]EL[/color] ANIMAL ESCUCHADO\"[/center]")
 	$Main.update_indicaciones("ESCUCHA CON ATENCION\n\n\"PRESIONA EL ANIMAL ESCUCHADO\"")
 	# Transition
 	$Transition.visible = true
@@ -235,36 +236,44 @@ func correct(x):
 		score_total += 1
 		$TopPanel.update_score(score_total)
 		x.set_status("res://assets/icons/correct.png")
+		x.set_sound_victory()
 		$Timer.start()
 	if level == 2:
 		if seleccionados == 1:
 			x.set_status("res://assets/icons/correct.png")
+			x.set_sound_victory()
 		elif seleccionados == 2:
 			if eleccion_correcta == true:
 				score_level += 1
 				score_total += 1
 			$TopPanel.update_score(score_total)
 			x.set_status("res://assets/icons/correct.png")
+			x.set_sound_victory()
 			$Timer.start()
 	if level == 3:
 		score_level += 1
 		score_total += 1
 		$TopPanel.update_score(score_total)
 		x.set_status("res://assets/icons/correct.png")
+		x.set_sound_victory()
 		$Timer.start()
 	
 func incorrect(x):
 	if level == 1:
 		x.set_status("res://assets/icons/incorrect.png")
+		x.set_sound_lose()
 		$Timer.start()
 	if level == 2:
 		if seleccionados == 1:
 			x.set_status("res://assets/icons/incorrect.png")
+			x.set_sound_lose()
 		elif seleccionados == 2:
 			x.set_status("res://assets/icons/incorrect.png")
+			x.set_sound_lose()
 			$Timer.start()
 	if level == 3:
 		x.set_status("res://assets/icons/incorrect.png")
+		x.set_sound_lose()
 		$Timer.start()
 
 # Timer
@@ -373,8 +382,10 @@ func _on_Rechazar_pressed():
 
 func next_level(s,t,l):
 	if l == 2:
+		$Main.update_indicaciones_rich("[center]\n\n\"PRESIONA [color=#FFD948]LOS[/color] ANIMALES QUE ESCUCHES\"[/center]")
 		$Main.update_indicaciones("\n\n\"PRESIONA LOS ANIMALES QUE ESCUCHES\"")
 	if l == 3:
+		$Main.update_indicaciones_rich("[center]\n\n\"PRESIONA [color=#FFD948]EL[/color] ANIMAL [color=#FFD948]NO[/color] ESCUCHADO\"[/center]")
 		$Main.update_indicaciones("\n\n\"PRESIONA EL ANIMAL NO ESCUCHADO\"")
 	$Main/VBox/Margin2/Escuchar.visible = true
 	# Timer

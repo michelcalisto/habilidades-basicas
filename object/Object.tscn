@@ -3,7 +3,7 @@
 [ext_resource path="res://object/Object.gd" type="Script" id=1]
 [ext_resource path="res://assets/objects/b.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "fa"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -18,8 +18,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.627451 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "scale"
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
@@ -53,13 +52,13 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/ColorRect"]
-anims/fa = SubResource( 3 )
+anims/fa = SubResource( 1 )
 
 [node name="Status" type="Sprite" parent="Background"]
 scale = Vector2( 0.5, 0.5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Status"]
-anims/scale = SubResource( 1 )
+anims/scale = SubResource( 2 )
 
 [node name="Control" type="Control" parent="."]
 margin_left = -100.0

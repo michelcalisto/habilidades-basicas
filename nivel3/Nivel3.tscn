@@ -38,6 +38,8 @@ var score_user = 0
 var score_total = 0
 var time_left = 2
 var popup_status = 0
+var audio_status = AudioStreamPlayer.new()
+var ogg_status = AudioStreamOGGVorbis.new()
 
 func _ready():
 	
@@ -63,6 +65,7 @@ func _ready():
 	$ObjectsOptions.visible = false
 	# Childs
 	add_child(audio)
+	add_child(audio_status)
 	# Functions
 	json = read_json()
 	set_objects(json)
@@ -157,11 +160,10 @@ func set_options(x, agregar):
 	var card_x = 480 - 10
 	var card_width = 170 + 150 +10 + 10
 	var in_list = range(options.size())
+	var c = 0
 	for i in range(options.size()):
-		randomize()
-		var y = randi()%in_list.size()	
 		for z in x:
-			if z == options[y]:
+			if z == options[c] and c < in_list.size():
 				var obj = Objeto.instance()
 				obj.z_index = 1
 				obj.set_id(z)
@@ -172,8 +174,29 @@ func set_options(x, agregar):
 				obj.position = Vector2(card_x,360)
 				card_x = card_x + card_width
 				$ObjectsOptions.add_child(obj)
-		in_list.remove(y)
-		options.remove(y)
+		c+=1
+#		for z in x:
+#			if z == options[c] and c < in_list.size():
+#				print(c)
+#				var obj = Objeto.instance()
+#				obj.z_index = 1
+#				obj.set_id(z)
+#				obj.set_nombre(x[z][\"name\"])
+#				obj.set_code(x[z][\"code\"])
+#				obj.set_sound(x[z][\"sound\"])
+#				obj.set_image(x[z][\"image\"])
+#				obj.position = Vector2(card_x,360)
+#				card_x = card_x + card_width
+#				$ObjectsOptions.add_child(obj)
+#				c += 1
+#				in_list.remove(c)
+#				options.remove(c)
+			#in_list.remove(c)
+			#options.remove(c)
+			#c += 1
+			
+				#newcount +=1
+
 
 # Main
 func _on_Escuchar_pressed():
@@ -232,6 +255,10 @@ func correct():
 		$Icon.update_icon(\"res://assets/icons/correct.png\")
 		$Icon.visible = true
 		$Icon/AnimationPlayer.play(\"scale\")
+		ogg = load(\"res://assets/sounds/Ganar.ogg\")
+		ogg.loop = false
+		audio.stream = ogg
+		audio.play()
 
 func incorrect():
 	if level == 1:
@@ -247,6 +274,11 @@ func incorrect():
 		$Icon.update_icon(\"res://assets/icons/incorrect.png\")
 		$Icon.visible = true
 		$Icon/AnimationPlayer.play(\"scale\")
+		
+		ogg = load(\"res://assets/sounds/Perder.ogg\")
+		ogg.loop = false
+		audio.stream = ogg
+		audio.play()
 
 # Timer
 func _on_Timer_timeout():
@@ -406,10 +438,10 @@ func update_indicaciones(x):
 size = 18
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=9]
 resource_name = "scale"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -424,7 +456,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
 }
 
-[sub_resource type="ParticlesMaterial" id=12]
+[sub_resource type="ParticlesMaterial" id=10]
 emission_shape = 2
 emission_box_extents = Vector3( 640, 1, 1 )
 flag_disable_z = true
@@ -435,11 +467,11 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 10.0
 scale_random = 0.3
-color = Color( 0.905882, 0.27451, 0.27451, 1 )
+color = Color( 0.160784, 0.403922, 0.976471, 1 )
 hue_variation = 1.0
 hue_variation_random = 1.0
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -453,7 +485,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -738,7 +770,7 @@ rect_min_size = Vector2( 500, 172 )
 margin_top = 74.0
 margin_right = 504.0
 margin_bottom = 98.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 8 )
 text = "Info"
 align = 1
 
@@ -791,14 +823,14 @@ scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Icon"]
-anims/scale = SubResource( 11 )
+anims/scale = SubResource( 9 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 640, 0 )
 emitting = false
 amount = 100
 lifetime = 4.0
-process_material = SubResource( 12 )
+process_material = SubResource( 10 )
 
 [node name="Transition" type="ColorRect" parent="."]
 margin_right = 40.0
@@ -810,8 +842,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-anims/fade-in = SubResource( 8 )
-anims/fade-out = SubResource( 9 )
+anims/fade-in = SubResource( 11 )
+anims/fade-out = SubResource( 12 )
 
 [node name="Timer" type="Timer" parent="."]
 [connection signal="pressed" from="TopPanel/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]

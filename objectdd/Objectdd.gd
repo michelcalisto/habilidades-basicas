@@ -12,8 +12,12 @@ var start_position_x
 var start_position_y
 var order_audio
 var order_slot
+var audio = AudioStreamPlayer.new()
+var ogg = AudioStreamOGGVorbis.new()
 
 func _ready():
+	# Childs
+	add_child(audio)
 	in_action = false
 	liberado = false
 	order_audio = 0
@@ -93,3 +97,15 @@ func set_obj_slot(x, y, z):
 	self.position = Vector2(x+95, y+95)
 	order_slot = z
 	emit_signal("is_order_and_code")
+
+func set_sound_victory():
+	ogg = load("res://assets/sounds/Ganar.ogg")
+	ogg.loop = false
+	audio.stream = ogg
+	audio.play()
+
+func set_sound_lose():
+	ogg = load("res://assets/sounds/Perder.ogg")
+	ogg.loop = false
+	audio.stream = ogg
+	audio.play()
