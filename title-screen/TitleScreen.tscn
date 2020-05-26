@@ -16,8 +16,8 @@
 [ext_resource path="res://assets/img/Hills4.png" type="Texture" id=14]
 [ext_resource path="res://assets/img/Hills3.png" type="Texture" id=15]
 [ext_resource path="res://assets/buttons/titlescreen/03-p.png" type="Texture" id=16]
-[ext_resource path="res://assets/buttons/titlescreen/04-b.png" type="Texture" id=17]
-[ext_resource path="res://assets/buttons/titlescreen/04-p.png" type="Texture" id=18]
+[ext_resource path="res://assets/buttons/titlescreen/05-p.png" type="Texture" id=17]
+[ext_resource path="res://assets/buttons/titlescreen/05-b.png" type="Texture" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -260,8 +260,8 @@ margin_bottom = 69.0
 rect_min_size = Vector2( 450, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 17 )
-texture_pressed = ExtResource( 18 )
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 17 )
 expand = true
 stretch_mode = 3
 

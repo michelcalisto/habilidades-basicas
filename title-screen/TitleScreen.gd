@@ -29,4 +29,4 @@ func _on_Nivel4_pressed():
 	$ColorRect.visible = true
 	$ColorRect/AnimationPlayer.play("fadein")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
-	get_tree().change_scene("res://indicaciones/Indicaciones.tscn")
+	get_tree().change_scene("res://instrucciones/Instrucciones.tscn")

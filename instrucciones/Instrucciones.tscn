@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://indicaciones/Indicaciones.gd" type="Script" id=2]
+[ext_resource path="res://instrucciones/Instrucciones.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/Kenney Mini.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/logo/logo.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -64,7 +63,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[node name="Indicaciones" type="Control"]
+[node name="Instrucciones" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -93,7 +92,7 @@ __meta__ = {
 
 [node name="VBox" type="VBoxContainer" parent="Background/Margin1"]
 margin_right = 1040.0
-margin_bottom = 560.0
+margin_bottom = 568.0
 
 [node name="Margin1" type="MarginContainer" parent="Background/Margin1/VBox"]
 margin_right = 1040.0
@@ -101,9 +100,9 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 1040, 100 )
 
 [node name="Title" type="Label" parent="Background/Margin1/VBox/Margin1"]
-margin_left = 101.0
+margin_left = 219.0
 margin_top = 12.0
-margin_right = 939.0
+margin_right = 820.0
 margin_bottom = 88.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 1 )
@@ -111,7 +110,7 @@ custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
 custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
 custom_constants/shadow_offset_x = 4
 custom_constants/shadow_offset_y = 4
-text = "HABILIDADES BASICAS"
+text = "INSTRUCCIONES"
 align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Background/Margin1/VBox"]
@@ -123,30 +122,27 @@ rect_min_size = Vector2( 0, 60 )
 [node name="Margin2" type="MarginContainer" parent="Background/Margin1/VBox"]
 margin_top = 168.0
 margin_right = 1040.0
-margin_bottom = 368.0
-rect_min_size = Vector2( 1040, 200 )
+margin_bottom = 568.0
+rect_min_size = Vector2( 1040, 400 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Background/Margin1/VBox/Margin2"]
 margin_right = 1040.0
-margin_bottom = 200.0
+margin_bottom = 400.0
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = true
-bbcode_text = "[center]EL JUEGO DE [wave][color=#ffd948]\"HABILIDADES BASICAS\"[/color][/wave] ESTIMULA ([rainbow freq=0.1 sat=0.5 val=1]LA ATENCION AUDITIVA[/rainbow],
-[rainbow freq=0.1 sat=0.5 val=1]MEMORIA AUDITIVA[/rainbow] Y [rainbow freq=0.1 sat=0.5 val=1]DISCRIMANACION AUDITIVA[/rainbow]) CON EL FIN DE FACILITAR
-Y MEJORAR EL PROCESO DE ADQUISICION DE LA LECTURA.
+bbcode_text = "[center][rainbow freq=0.1 sat=0.5 val=1]LA ATENCION AUDITIVA :[/rainbow]
 
-DESTINADO A NIÑOS DE ENTRE 4 Y 7 AÑOS.[/center]"
-text = "EL JUEGO DE \"HABILIDADES BASICAS\" ESTIMULA (LA ATENCION AUDITIVA,
-MEMORIA AUDITIVA Y DISCRIMANACION AUDITIVA) CON EL FIN DE FACILITAR
-Y MEJORAR EL PROCESO DE ADQUISICION DE LA LECTURA.
+[rainbow freq=0.1 sat=0.5 val=1]MEMORIA AUDITIVA :[/rainbow]
 
-DESTINADO A NIÑOS DE ENTRE 4 Y 7 AÑOS."
+[rainbow freq=0.1 sat=0.5 val=1]DISCRIMANACION AUDITIVA :[/rainbow]
+[/center]"
+text = "LA ATENCION AUDITIVA :
 
-[node name="Sprite" type="Sprite" parent="Background/Margin1/VBox"]
-position = Vector2( 510, 450 )
-scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 4 )
+MEMORIA AUDITIVA :
+
+DISCRIMANACION AUDITIVA :
+"
 
 [node name="Margin2" type="MarginContainer" parent="Background"]
 margin_left = 120.0
@@ -187,6 +183,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 1280, 720 )
