@@ -30,6 +30,8 @@ func _ready():
 	# Labels
 	$TopPanel.update_level(level)
 	$TopPanel.update_score(score_total)
+	$Main.update_indicaciones_rich("[center]ESCUCHA CON ATENCION [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
+	
 	$Main.update_indicaciones("ESCUCHA CON ATENCION\n\n\"ARRASTRA LAS IMAGENES SEGUN LO ESCUCHADO\"")
 	# Transition
 	$Transition.visible = true
@@ -587,6 +589,8 @@ func next():
 			if level == 4:
 				popup_status = 1
 				$Particles2D.emitting = true
+				$PopUp.update_info_rich("[center]FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\nPUNTAJE FINAL : "+str(score_total)+" DE 8 PUNTOS\n[img=50x50]res://assets/emojis/win-1.png[/img][img=50x50]res://assets/emojis/win-2.png[/img][img=50x50]res://assets/emojis/win-3.png[/img][/center]")
+	
 				$PopUp.update_info("FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\n\nPUNTAJE FINAL : "+str(score_total)+" DE 8 PUNTOS")
 				$TopPanel/Margin1/ToMenu.disabled = true
 				$PopUp.update_textures_aceptar("res://assets/buttons/nivels/finalizar-basic.png","res://assets/buttons/nivels/finalizar-press.png")
@@ -596,6 +600,8 @@ func next():
 			else:
 				intentos_level += 1
 				$Timer.start()
+				$PopUp.update_info_rich("[center]FELICITACIONES SIGUE AVANZANDO\n\n[img=50x50]res://assets/emojis/nivel-1.png[/img][img=50x50]res://assets/emojis/nivel-2.png[/img][/center]")
+	
 				$PopUp.update_info("FELICITACIONES SIGUE AVANZANDO")
 				$TopPanel/Margin1/ToMenu.disabled = true
 				$PopUp.set_nextlevel()
@@ -603,6 +609,8 @@ func next():
 				$PopUp.visible = true
 		else:
 			popup_status = 2
+			$PopUp.update_info_rich("[center]HAS OBTENIDO : "+str(score_total)+" DE 8 PUNTOS\nSIGUELO INTENTANDO\n\n[img=50x50]res://assets/emojis/loser-1.png[/img][img=50x50]res://assets/emojis/loser-2.png[/img][/center]")
+	
 			$PopUp.update_info("HAS OBTENIDO : "+str(score_total)+" DE 8 PUNTOS\nSIGUELO INTENTANDO")
 			$TopPanel/Margin1/ToMenu.disabled = true
 			$PopUp.update_textures_aceptar("res://assets/buttons/nivels/reintentar-basic.png","res://assets/buttons/nivels/reintentar-press.png")
@@ -619,6 +627,8 @@ func reset_containers():
 # TopPanel
 func _on_ToMenu_pressed():
 	popup_status = 1
+	$PopUp.update_info_rich("[center]RECUERDA QUE AL REGRESAR AL\nMENU PRINCIPAL PERDERAS TU\nPROGRESO[/center]")
+	
 	$PopUp.update_info("RECUERDA QUE AL REGRESAR AL\nMENU PRINCIPAL PERDERAS TU\nPROGRESO")
 	$PopUp.update_textures_aceptar("res://assets/buttons/nivels/si-basic.png","res://assets/buttons/nivels/si-press.png")
 	$PopUp.update_textures_rechazar("res://assets/buttons/nivels/no-basic.png","res://assets/buttons/nivels/no-press.png")
@@ -657,6 +667,8 @@ func next_level(s,t,l):
 		$Panels/Margin2.visible = true
 		$Panels/Margin3.visible = false
 		$Panels/Margin4.visible = false
+		$Main.update_indicaciones_rich("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
+	
 		$Main.update_indicaciones("\n\n\"ARRASTRA LAS IMAGENES SEGUN LO ESCUCHADO\"")
 	if l == 3:
 		var panels_x = 515 - (125 * (3-1))
@@ -666,6 +678,8 @@ func next_level(s,t,l):
 		$Panels/Margin2.visible = true
 		$Panels/Margin3.visible = true
 		$Panels/Margin4.visible = false
+		$Main.update_indicaciones_rich("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
+	
 		$Main.update_indicaciones("\n\n\"ARRASTRA LAS IMAGENES SEGUN LO ESCUCHADO\"")
 	if l == 4:
 		var panels_x = 515 - (125 * (4-1))
@@ -675,6 +689,8 @@ func next_level(s,t,l):
 		$Panels/Margin2.visible = true
 		$Panels/Margin3.visible = true
 		$Panels/Margin4.visible = true
+		$Main.update_indicaciones_rich("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
+	
 		$Main.update_indicaciones("\n\n\"ARRASTRA LAS IMAGENES SEGUN LO ESCUCHADO\"")
 	$Margin2/Escuchar.visible = true
 	# Timer

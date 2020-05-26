@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/img/Hills1.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/Hills4.png" type="Texture" id=2]
@@ -53,6 +53,8 @@ func _ready():
 	# Labels
 	$TopPanel.update_level(level)
 	$TopPanel.update_score(score_total)
+	$Main.update_indicaciones_rich(\"[center]ESCUCHA CON ATENCION [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\\n\\n\\\"E IDENTIFICA SI LAS PALABRAS SON [color=#FFD948]IGUALES[/color] O [color=#FFD948]DIFERENTES[/color]\\\"[/center]\")
+	
 	$Main.update_indicaciones(\"ESCUCHA CON ATENCION LAS PALABRAS E IDENTIFICA\\nSI SON IGUALES O DIFERENTES.\")
 	# Transition
 	$Transition.visible = true
@@ -316,6 +318,8 @@ func next():
 		if score_level >= 7:
 			$Particles2D.emitting = true
 			popup_status = 1
+			$PopUp.update_info_rich(\"[center]FELICITACIONES HAS COMPLETADO\\nTODOS LOS NIVELES\\nPUNTAJE FINAL : \"+str(score_total)+\" DE 8 PUNTOS\\n[img=50x50]res://assets/emojis/win-1.png[/img][img=45x45]res://assets/emojis/win-2.png[/img][img=50x50]res://assets/emojis/win-3.png[/img][/center]\")
+	
 			$PopUp.update_info(\"FELICITACIONES HAS COMPLETADO\\nEL NIVEL\\n\\nPUNTAJE FINAL : \"+str(score_total)+\" DE 8 PUNTOS\")
 			$TopPanel/Margin1/ToMenu.disabled = true
 			$PopUp.update_textures_aceptar(\"res://assets/buttons/nivels/finalizar-basic.png\",\"res://assets/buttons/nivels/finalizar-press.png\")
@@ -324,6 +328,8 @@ func next():
 			$PopUp.visible = true
 		else:
 			popup_status = 2
+			$PopUp.update_info_rich(\"[center]HAS OBTENIDO : \"+str(score_total)+\" DE 8 PUNTOS\\nSIGUELO INTENTANDO\\n\\n[img=50x50]res://assets/emojis/loser-1.png[/img][img=50x50]res://assets/emojis/loser-2.png[/img][/center]\")
+	
 			$PopUp.update_info(\"HAS OBTENIDO : \"+str(score_total)+\" DE 8 PUNTOS\\nSIGUELO INTENTANDO\")
 			$TopPanel/Margin1/ToMenu.disabled = true
 			$PopUp.update_textures_aceptar(\"res://assets/buttons/nivels/reintentar-basic.png\",\"res://assets/buttons/nivels/reintentar-press.png\")
@@ -340,6 +346,8 @@ func reset_containers():
 # TopPanel
 func _on_ToMenu_pressed():
 	popup_status = 1
+	$PopUp.update_info_rich(\"[center]RECUERDA QUE AL REGRESAR AL\\nMENU PRINCIPAL PERDERAS TU\\nPROGRESO[/center]\")
+	
 	$PopUp.update_info(\"RECUERDA QUE AL REGRESAR AL\\nMENU PRINCIPAL PERDERAS TU\\nPROGRESO\")
 	$PopUp.update_textures_aceptar(\"res://assets/buttons/nivels/si-basic.png\",\"res://assets/buttons/nivels/si-press.png\")
 	$PopUp.update_textures_rechazar(\"res://assets/buttons/nivels/no-basic.png\",\"res://assets/buttons/nivels/no-press.png\")
@@ -432,13 +440,29 @@ script/source = "extends TextureRect
 
 func update_indicaciones(x):
 	$VBox/Margin1/Indicaciones.text = str(x)
+
+func update_indicaciones_rich(x):
+	$VBox/Margin1/RichTextLabel.clear()
+	$VBox/Margin1/RichTextLabel.append_bbcode(str(x))
+	#$VBox/Margin1/RichTextLabel.
 "
 
 [sub_resource type="DynamicFont" id=7]
 size = 18
 font_data = ExtResource( 8 )
 
+[sub_resource type="DynamicFont" id=14]
+size = 18
+extra_spacing_top = 2
+extra_spacing_space = 5
+font_data = ExtResource( 8 )
+
 [sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=13]
+extra_spacing_top = 2
+extra_spacing_space = 5
 font_data = ExtResource( 8 )
 
 [sub_resource type="Animation" id=9]
@@ -666,22 +690,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Margin1" type="MarginContainer" parent="Main/VBox"]
+[node name="MarginContainer" type="MarginContainer" parent="Main/VBox"]
 margin_right = 1044.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 1040, 150 )
+margin_bottom = 20.0
+rect_min_size = Vector2( 1044, 20 )
+
+[node name="Margin1" type="MarginContainer" parent="Main/VBox"]
+margin_top = 24.0
+margin_right = 1044.0
+margin_bottom = 154.0
+rect_min_size = Vector2( 1040, 130 )
 
 [node name="Indicaciones" type="Label" parent="Main/VBox/Margin1"]
-margin_top = 61.0
+visible = false
+margin_top = 51.0
 margin_right = 1044.0
-margin_bottom = 89.0
+margin_bottom = 79.0
 custom_fonts/font = SubResource( 7 )
 align = 1
 
-[node name="Margin2" type="MarginContainer" parent="Main/VBox"]
-margin_top = 154.0
+[node name="RichTextLabel" type="RichTextLabel" parent="Main/VBox/Margin1"]
 margin_right = 1044.0
-margin_bottom = 304.0
+margin_bottom = 130.0
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+
+[node name="Margin2" type="MarginContainer" parent="Main/VBox"]
+margin_top = 158.0
+margin_right = 1044.0
+margin_bottom = 308.0
 rect_min_size = Vector2( 1040, 150 )
 
 [node name="Escuchar" type="TextureButton" parent="Main/VBox/Margin2"]
@@ -698,9 +735,9 @@ expand = true
 stretch_mode = 3
 
 [node name="HBox" type="HBoxContainer" parent="Main/VBox"]
-margin_top = 308.0
+margin_top = 312.0
 margin_right = 1044.0
-margin_bottom = 458.0
+margin_bottom = 462.0
 rect_min_size = Vector2( 1040, 150 )
 
 [node name="Margin3" type="MarginContainer" parent="Main/VBox/HBox"]
@@ -761,23 +798,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Margin" type="MarginContainer" parent="PopUp/VBox"]
+[node name="MarginContainer" type="MarginContainer" parent="PopUp/VBox"]
 margin_right = 504.0
-margin_bottom = 172.0
-rect_min_size = Vector2( 500, 172 )
+margin_bottom = 20.0
+rect_min_size = Vector2( 504, 20 )
+
+[node name="Margin" type="MarginContainer" parent="PopUp/VBox"]
+margin_top = 24.0
+margin_right = 504.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 500, 152 )
 
 [node name="Info" type="Label" parent="PopUp/VBox/Margin"]
-margin_top = 74.0
+visible = false
+margin_top = 64.0
 margin_right = 504.0
-margin_bottom = 98.0
+margin_bottom = 88.0
 custom_fonts/font = SubResource( 8 )
 text = "Info"
 align = 1
 
-[node name="HBox" type="HBoxContainer" parent="PopUp/VBox"]
-margin_top = 176.0
+[node name="RichTextLabel" type="RichTextLabel" parent="PopUp/VBox/Margin"]
 margin_right = 504.0
-margin_bottom = 276.0
+margin_bottom = 152.0
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+
+[node name="HBox" type="HBoxContainer" parent="PopUp/VBox"]
+margin_top = 180.0
+margin_right = 504.0
+margin_bottom = 280.0
 rect_min_size = Vector2( 500, 100 )
 
 [node name="Margin1" type="MarginContainer" parent="PopUp/VBox/HBox"]

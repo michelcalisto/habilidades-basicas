@@ -394,7 +394,6 @@ lifetime = 4.0
 process_material = SubResource( 6 )
 
 [node name="Transition" type="ColorRect" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 1280, 720 )
