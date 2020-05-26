@@ -21,7 +21,7 @@ func _ready():
 	# Labels
 	$TopPanel.update_level(level)
 	$TopPanel.update_score(score_total)
-	$Main.update_indicaciones_rich("[center]ESCUCHA CON ATENCION\n\n\"PRESIONA [color=#FFD948]EL[/color] ANIMAL ESCUCHADO\"[/center]")
+	$Main.update_indicaciones_rich("[center]ESCUCHA CON ATENCION [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"PRESIONA [color=#FFD948]EL[/color] ANIMAL ESCUCHADO\"[/center]")
 	$Main.update_indicaciones("ESCUCHA CON ATENCION\n\n\"PRESIONA EL ANIMAL ESCUCHADO\"")
 	# Transition
 	$Transition.visible = true
@@ -319,6 +319,8 @@ func next():
 			if level == 3:
 				popup_status = 1
 				$Particles2D.emitting = true
+				$PopUp.update_info_rich("[center]FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\nPUNTAJE FINAL : "+str(score_total)+" DE 15 PUNTOS\n[img=50x50]res://assets/emojis/win-1.png[/img][img=50x50]res://assets/emojis/win-2.png[/img][img=50x50]res://assets/emojis/win-3.png[/img][/center]")
+	
 				$PopUp.update_info("FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\n\nPUNTAJE FINAL : "+str(score_total)+" DE 15 PUNTOS")
 				$TopPanel/Margin1/ToMenu.disabled = true
 				$PopUp.update_textures_aceptar("res://assets/buttons/nivels/finalizar-basic.png","res://assets/buttons/nivels/finalizar-press.png")
@@ -328,6 +330,8 @@ func next():
 			else:
 				intentos_level += 1
 				$Timer.start()
+				$PopUp.update_info_rich("[center]FELICITACIONES SIGUE AVANZANDO\n\n[img=50x50]res://assets/emojis/nivel-1.png[/img][img=50x50]res://assets/emojis/nivel-2.png[/img][/center]")
+	
 				$PopUp.update_info("FELICITACIONES SIGUE AVANZANDO")
 				$TopPanel/Margin1/ToMenu.disabled = true
 				$PopUp.set_nextlevel()
@@ -335,6 +339,8 @@ func next():
 				$PopUp.visible = true
 		else:
 			popup_status = 2
+			$PopUp.update_info_rich("[center]HAS OBTENIDO : "+str(score_total)+" DE 15 PUNTOS\nSIGUELO INTENTANDO\n\n[img=50x50]res://assets/emojis/loser-1.png[/img][img=50x50]res://assets/emojis/loser-2.png[/img][/center]")
+	
 			$PopUp.update_info("HAS OBTENIDO : "+str(score_total)+" DE 15 PUNTOS\nSIGUELO INTENTANDO")
 			$TopPanel/Margin1/ToMenu.disabled = true
 			$PopUp.update_textures_aceptar("res://assets/buttons/nivels/reintentar-basic.png","res://assets/buttons/nivels/reintentar-press.png")
@@ -351,6 +357,8 @@ func reset_containers():
 # TopPanel
 func _on_ToMenu_pressed():
 	popup_status = 1
+	$PopUp.update_info_rich("[center]RECUERDA QUE AL REGRESAR AL\nMENU PRINCIPAL PERDERAS TU\nPROGRESO[/center]")
+	
 	$PopUp.update_info("RECUERDA QUE AL REGRESAR AL\nMENU PRINCIPAL PERDERAS TU\nPROGRESO")
 	$PopUp.update_textures_aceptar("res://assets/buttons/nivels/si-basic.png","res://assets/buttons/nivels/si-press.png")
 	$PopUp.update_textures_rechazar("res://assets/buttons/nivels/no-basic.png","res://assets/buttons/nivels/no-press.png")
@@ -382,10 +390,10 @@ func _on_Rechazar_pressed():
 
 func next_level(s,t,l):
 	if l == 2:
-		$Main.update_indicaciones_rich("[center]\n\n\"PRESIONA [color=#FFD948]LOS[/color] ANIMALES QUE ESCUCHES\"[/center]")
+		$Main.update_indicaciones_rich("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"PRESIONA [color=#FFD948]LOS[/color] ANIMALES QUE ESCUCHES\"[/center]")
 		$Main.update_indicaciones("\n\n\"PRESIONA LOS ANIMALES QUE ESCUCHES\"")
 	if l == 3:
-		$Main.update_indicaciones_rich("[center]\n\n\"PRESIONA [color=#FFD948]EL[/color] ANIMAL [color=#FFD948]NO[/color] ESCUCHADO\"[/center]")
+		$Main.update_indicaciones_rich("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"PRESIONA [color=#FFD948]EL[/color] ANIMAL [color=#FFD948]NO[/color] ESCUCHADO\"[/center]")
 		$Main.update_indicaciones("\n\n\"PRESIONA EL ANIMAL NO ESCUCHADO\"")
 	$Main/VBox/Margin2/Escuchar.visible = true
 	# Timer
