@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/buttons/nivels/regresar-basic.png" type="Texture" id=9]
 [ext_resource path="res://assets/buttons/nivels/regresar-press.png" type="Texture" id=10]
 [ext_resource path="res://nivel3/Icon.gd" type="Script" id=11]
-[ext_resource path="res://assets/boxs/nivels2.png" type="Texture" id=12]
+[ext_resource path="res://assets/boxs/nivels.png" type="Texture" id=12]
 [ext_resource path="res://assets/boxs/popupx650.png" type="Texture" id=13]
 [ext_resource path="res://assets/buttons/nivels/audio-basic.png" type="Texture" id=14]
 [ext_resource path="res://assets/buttons/nivels/audio-press.png" type="Texture" id=15]
@@ -451,22 +451,21 @@ func update_indicaciones_rich(x):
 size = 18
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=8]
 size = 18
 extra_spacing_top = 2
 extra_spacing_space = 5
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=10]
 extra_spacing_top = 2
 extra_spacing_space = 5
 font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=9]
-resource_name = "scale"
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
@@ -477,10 +476,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 0.3, 0.3 ) ]
 }
 
-[sub_resource type="ParticlesMaterial" id=10]
+[sub_resource type="ParticlesMaterial" id=12]
 emission_shape = 2
 emission_box_extents = Vector3( 640, 1, 1 )
 flag_disable_z = true
@@ -495,7 +494,7 @@ color = Color( 0.160784, 0.403922, 0.976471, 1 )
 hue_variation = 1.0
 hue_variation_random = 1.0
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -509,7 +508,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -712,7 +711,7 @@ align = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="Main/VBox/Margin1"]
 margin_right = 1044.0
 margin_bottom = 130.0
-custom_fonts/normal_font = SubResource( 14 )
+custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
 
 [node name="Margin2" type="MarginContainer" parent="Main/VBox"]
@@ -737,19 +736,19 @@ stretch_mode = 3
 [node name="HBox" type="HBoxContainer" parent="Main/VBox"]
 margin_top = 312.0
 margin_right = 1044.0
-margin_bottom = 462.0
-rect_min_size = Vector2( 1040, 150 )
+margin_bottom = 642.0
+rect_min_size = Vector2( 1040, 330 )
 
 [node name="Margin3" type="MarginContainer" parent="Main/VBox/HBox"]
 margin_right = 520.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 520, 150 )
+margin_bottom = 330.0
+rect_min_size = Vector2( 520, 330 )
 
 [node name="Igual" type="TextureButton" parent="Main/VBox/HBox/Margin3"]
 margin_left = 207.0
-margin_top = 22.0
+margin_top = 112.0
 margin_right = 312.0
-margin_bottom = 127.0
+margin_bottom = 217.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -761,14 +760,14 @@ stretch_mode = 3
 [node name="Margin4" type="MarginContainer" parent="Main/VBox/HBox"]
 margin_left = 524.0
 margin_right = 1044.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 520, 150 )
+margin_bottom = 330.0
+rect_min_size = Vector2( 520, 330 )
 
 [node name="Diferente" type="TextureButton" parent="Main/VBox/HBox/Margin4"]
 margin_left = 207.0
-margin_top = 22.0
+margin_top = 112.0
 margin_right = 312.0
-margin_bottom = 127.0
+margin_bottom = 217.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -814,14 +813,14 @@ visible = false
 margin_top = 64.0
 margin_right = 504.0
 margin_bottom = 88.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 text = "Info"
 align = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PopUp/VBox/Margin"]
 margin_right = 504.0
 margin_bottom = 152.0
-custom_fonts/normal_font = SubResource( 13 )
+custom_fonts/normal_font = SubResource( 10 )
 bbcode_enabled = true
 
 [node name="HBox" type="HBoxContainer" parent="PopUp/VBox"]
@@ -869,18 +868,18 @@ texture = ExtResource( 13 )
 
 [node name="Icon" type="Sprite" parent="."]
 position = Vector2( 640, 360 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.3, 0.3 )
 script = ExtResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Icon"]
-anims/scale = SubResource( 9 )
+anims/scale = SubResource( 11 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 640, 0 )
 emitting = false
 amount = 100
 lifetime = 4.0
-process_material = SubResource( 10 )
+process_material = SubResource( 12 )
 
 [node name="Transition" type="ColorRect" parent="."]
 margin_right = 40.0
@@ -892,8 +891,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-anims/fade-in = SubResource( 11 )
-anims/fade-out = SubResource( 12 )
+anims/fade-in = SubResource( 13 )
+anims/fade-out = SubResource( 14 )
 
 [node name="Timer" type="Timer" parent="."]
 [connection signal="pressed" from="TopPanel/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]

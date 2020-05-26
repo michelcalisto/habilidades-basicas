@@ -147,14 +147,14 @@ __meta__ = {
 
 [node name="Margin1" type="MarginContainer" parent="VBox"]
 margin_right = 1040.0
-margin_bottom = 256.0
-rect_min_size = Vector2( 1040, 256 )
+margin_bottom = 247.0
+rect_min_size = Vector2( 1040, 247 )
 
 [node name="Title" type="Label" parent="VBox/Margin1"]
 margin_left = 101.0
-margin_top = 90.0
+margin_top = 85.0
 margin_right = 939.0
-margin_bottom = 166.0
+margin_bottom = 161.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
@@ -165,9 +165,9 @@ text = "HABILIDADES BASICAS"
 align = 1
 
 [node name="Margin2" type="MarginContainer" parent="VBox"]
-margin_top = 260.0
+margin_top = 251.0
 margin_right = 1040.0
-margin_bottom = 1316.0
+margin_bottom = 1307.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -190,13 +190,13 @@ size_flags_vertical = 5
 
 [node name="Margin0" type="MarginContainer" parent="VBox/Margin2/VBoxContainer"]
 margin_right = 450.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 0, 50 )
+margin_bottom = 35.0
+rect_min_size = Vector2( 0, 35 )
 
 [node name="Margin1" type="MarginContainer" parent="VBox/Margin2/VBoxContainer"]
-margin_top = 54.0
+margin_top = 39.0
 margin_right = 450.0
-margin_bottom = 136.0
+margin_bottom = 121.0
 rect_min_size = Vector2( 0, 82 )
 
 [node name="Nivel1" type="TextureButton" parent="VBox/Margin2/VBoxContainer/Margin1"]
@@ -212,9 +212,9 @@ expand = true
 stretch_mode = 3
 
 [node name="Margin2" type="MarginContainer" parent="VBox/Margin2/VBoxContainer"]
-margin_top = 140.0
+margin_top = 125.0
 margin_right = 450.0
-margin_bottom = 222.0
+margin_bottom = 207.0
 rect_min_size = Vector2( 450, 82 )
 
 [node name="Nivel2" type="TextureButton" parent="VBox/Margin2/VBoxContainer/Margin2"]
@@ -230,9 +230,9 @@ expand = true
 stretch_mode = 3
 
 [node name="Margin3" type="MarginContainer" parent="VBox/Margin2/VBoxContainer"]
-margin_top = 226.0
+margin_top = 211.0
 margin_right = 450.0
-margin_bottom = 308.0
+margin_bottom = 293.0
 rect_min_size = Vector2( 450, 82 )
 
 [node name="Nivel3" type="TextureButton" parent="VBox/Margin2/VBoxContainer/Margin3"]
@@ -248,9 +248,9 @@ expand = true
 stretch_mode = 3
 
 [node name="Margin4" type="MarginContainer" parent="VBox/Margin2/VBoxContainer"]
-margin_top = 312.0
+margin_top = 297.0
 margin_right = 450.0
-margin_bottom = 394.0
+margin_bottom = 379.0
 rect_min_size = Vector2( 450, 82 )
 
 [node name="Nivel4" type="TextureButton" parent="VBox/Margin2/VBoxContainer/Margin4"]

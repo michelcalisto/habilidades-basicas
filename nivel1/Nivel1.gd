@@ -124,7 +124,7 @@ func set_options(x, agregar):
 				obj.set_code(x[z]["code"])
 				obj.set_sound(x[z]["sound"])
 				obj.set_image(x[z]["image"])
-				obj.position = Vector2(card_x,550)
+				obj.position = Vector2(card_x,560)
 				obj.connect("is_code", self, "_is_code", [obj])
 				card_x = card_x + card_width
 				$ObjectsOptions.add_child(obj)

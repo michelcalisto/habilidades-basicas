@@ -29,7 +29,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ) ]
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 0.3, 0.3 ) ]
 }
 
 [node name="Object" type="Area2D"]
@@ -55,7 +55,7 @@ __meta__ = {
 anims/fa = SubResource( 1 )
 
 [node name="Status" type="Sprite" parent="Background"]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.3, 0.3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Status"]
 anims/scale = SubResource( 2 )
