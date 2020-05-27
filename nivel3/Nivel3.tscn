@@ -8,17 +8,17 @@
 [ext_resource path="res://assets/img/Hills6.png" type="Texture" id=6]
 [ext_resource path="res://nivel3/PopUp.gd" type="Script" id=7]
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://assets/buttons/nivels/regresar-basic.png" type="Texture" id=9]
-[ext_resource path="res://assets/buttons/nivels/regresar-press.png" type="Texture" id=10]
+[ext_resource path="res://assets/buttons/nivels/diffbasic.png" type="Texture" id=9]
+[ext_resource path="res://assets/buttons/nivels/diffpress.png" type="Texture" id=10]
 [ext_resource path="res://nivel3/Icon.gd" type="Script" id=11]
 [ext_resource path="res://assets/boxs/nivels.png" type="Texture" id=12]
 [ext_resource path="res://assets/boxs/popupx650.png" type="Texture" id=13]
-[ext_resource path="res://assets/buttons/nivels/audio-basic.png" type="Texture" id=14]
-[ext_resource path="res://assets/buttons/nivels/audio-press.png" type="Texture" id=15]
-[ext_resource path="res://assets/buttons/nivels/diff-press.png" type="Texture" id=16]
-[ext_resource path="res://assets/buttons/nivels/igual-basic.png" type="Texture" id=17]
-[ext_resource path="res://assets/buttons/nivels/diff-basic.png" type="Texture" id=18]
-[ext_resource path="res://assets/buttons/nivels/igual-press.png" type="Texture" id=19]
+[ext_resource path="res://assets/buttons/nivels/audiopress.png" type="Texture" id=14]
+[ext_resource path="res://assets/buttons/nivels/igualpress.png" type="Texture" id=15]
+[ext_resource path="res://assets/buttons/nivels/regresarbasic.png" type="Texture" id=16]
+[ext_resource path="res://assets/buttons/nivels/regresarpress.png" type="Texture" id=17]
+[ext_resource path="res://assets/buttons/nivels/igualbasic.png" type="Texture" id=18]
+[ext_resource path="res://assets/buttons/nivels/audiobasic.png" type="Texture" id=19]
 [ext_resource path="res://object/Object.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/boxs/popup.png" type="Texture" id=22]
 
@@ -203,7 +203,7 @@ func set_options(x, agregar):
 # Main
 func _on_Escuchar_pressed():
 	if level == 1 and seleccionados != 1:
-		$Main/VBox/Margin2/Escuchar.texture_normal = load(\"res://assets/buttons/nivels/audio-press.png\")
+		$Main/VBox/Margin2/Escuchar.texture_normal = load(\"res://assets/buttons/nivels/audiopress.png\")
 		$Main/VBox/Margin2/Escuchar.disabled = true
 		for i in $ObjectsSounds.get_children():
 			if seleccionados != 1:
@@ -215,12 +215,12 @@ func _on_Escuchar_pressed():
 			else:
 				$Main/VBox/Margin2/Escuchar.disabled = false
 				$Main/VBox/HBox.visible = false
-				$Main/VBox/Margin2/Escuchar.texture_normal = load(\"res://assets/buttons/nivels/audio-basic.png\")
+				$Main/VBox/Margin2/Escuchar.texture_normal = load(\"res://assets/buttons/nivels/audiobasic.png\")
 				break
 		if  seleccionados != 1:
 			$Main/VBox/Margin2/Escuchar.disabled = false
 			$Main/VBox/HBox.visible = true
-			$Main/VBox/Margin2/Escuchar.texture_normal = load(\"res://assets/buttons/nivels/audio-basic.png\")
+			$Main/VBox/Margin2/Escuchar.texture_normal = load(\"res://assets/buttons/nivels/audiobasic.png\")
 
 func _on_Igual_pressed():
 	$Main/VBox/HBox.visible = false
@@ -318,22 +318,25 @@ func next():
 		if score_level >= 7:
 			$Particles2D.emitting = true
 			popup_status = 1
-			$PopUp.update_info_rich(\"[center]FELICITACIONES HAS COMPLETADO\\nTODOS LOS NIVELES\\nPUNTAJE FINAL : \"+str(score_total)+\" DE 8 PUNTOS\\n[img=50x50]res://assets/emojis/win-1.png[/img][img=45x45]res://assets/emojis/win-2.png[/img][img=50x50]res://assets/emojis/win-3.png[/img][/center]\")
-	
+			#$PopUp.update_info_rich(\"[center]FELICITACIONES HAS COMPLETADO\\nTODOS LOS NIVELES\\nPUNTAJE FINAL : \"+str(score_total)+\" DE 8 PUNTOS\\n[img=50x50]res://assets/emojis/win-1.png[/img][img=45x45]res://assets/emojis/win-2.png[/img][img=50x50]res://assets/emojis/win-3.png[/img][/center]\")
+			$PopUp.update_info_rich(\"[center]FELICITACIONES HAS COMPLETADO\\nTODOS LOS NIVELES\\nPUNTAJE FINAL : \"+str(score_total)+\" DE 8 PUNTOS[/center]\")
+			$PopUp/VBox/Margin.rect_min_size.y = 90
+			$PopUp/VBox/Margin3.visible = true
+			
 			$PopUp.update_info(\"FELICITACIONES HAS COMPLETADO\\nEL NIVEL\\n\\nPUNTAJE FINAL : \"+str(score_total)+\" DE 8 PUNTOS\")
 			$TopPanel/Margin1/ToMenu.disabled = true
-			$PopUp.update_textures_aceptar(\"res://assets/buttons/nivels/finalizar-basic.png\",\"res://assets/buttons/nivels/finalizar-press.png\")
+			$PopUp.update_textures_aceptar(\"res://assets/buttons/nivels/finalizarbasic.png\",\"res://assets/buttons/nivels/finalizarpress.png\")
 			$PopUp.set_final()
 			$Main/VBox/Margin2/Escuchar.visible = false
 			$PopUp.visible = true
 		else:
 			popup_status = 2
-			$PopUp.update_info_rich(\"[center]HAS OBTENIDO : \"+str(score_total)+\" DE 8 PUNTOS\\nSIGUELO INTENTANDO\\n\\n[img=50x50]res://assets/emojis/loser-1.png[/img][img=50x50]res://assets/emojis/loser-2.png[/img][/center]\")
+			$PopUp.update_info_rich(\"[center]HAS OBTENIDO : \"+str(score_total)+\" DE 8 PUNTOS\\nSIGUELO INTENTANDO\\n\\n[img=50x50]res://assets/emojis/loser1.png[/img][img=50x50]res://assets/emojis/loser2.png[/img][/center]\")
 	
 			$PopUp.update_info(\"HAS OBTENIDO : \"+str(score_total)+\" DE 8 PUNTOS\\nSIGUELO INTENTANDO\")
 			$TopPanel/Margin1/ToMenu.disabled = true
-			$PopUp.update_textures_aceptar(\"res://assets/buttons/nivels/reintentar-basic.png\",\"res://assets/buttons/nivels/reintentar-press.png\")
-			$PopUp.update_textures_rechazar(\"res://assets/buttons/nivels/finalizar-basic.png\",\"res://assets/buttons/nivels/finalizar-press.png\")
+			$PopUp.update_textures_aceptar(\"res://assets/buttons/nivels/reintentarbasic.png\",\"res://assets/buttons/nivels/reintentarpress.png\")
+			$PopUp.update_textures_rechazar(\"res://assets/buttons/nivels/finalizarbasic.png\",\"res://assets/buttons/nivels/finalizarpress.png\")
 			$Main/VBox/Margin2/Escuchar.visible = false
 			$PopUp.visible = true
 
@@ -349,8 +352,8 @@ func _on_ToMenu_pressed():
 	$PopUp.update_info_rich(\"[center]RECUERDA QUE AL REGRESAR AL\\nMENU PRINCIPAL PERDERAS TU\\nPROGRESO[/center]\")
 	
 	$PopUp.update_info(\"RECUERDA QUE AL REGRESAR AL\\nMENU PRINCIPAL PERDERAS TU\\nPROGRESO\")
-	$PopUp.update_textures_aceptar(\"res://assets/buttons/nivels/si-basic.png\",\"res://assets/buttons/nivels/si-press.png\")
-	$PopUp.update_textures_rechazar(\"res://assets/buttons/nivels/no-basic.png\",\"res://assets/buttons/nivels/no-press.png\")
+	$PopUp.update_textures_aceptar(\"res://assets/buttons/nivels/sibasic.png\",\"res://assets/buttons/nivels/sipress.png\")
+	$PopUp.update_textures_rechazar(\"res://assets/buttons/nivels/nobasic.png\",\"res://assets/buttons/nivels/nopress.png\")
 	$PopUp.visible = true
 
 # PopUp
@@ -360,7 +363,7 @@ func _on_Aceptar_pressed():
 		$Transition.visible = true
 		$Transition/AnimationPlayer.play(\"fade-in\")
 		yield($Transition/AnimationPlayer, \"animation_finished\")
-		get_tree().change_scene(\"res://title-screen/TitleScreen.tscn\")
+		get_tree().change_scene(\"res://titlescreen/TitleScreen.tscn\")
 	if popup_status == 2:
 		reintentar()
 		$TopPanel/Margin1/ToMenu.disabled = false
@@ -375,7 +378,7 @@ func _on_Rechazar_pressed():
 		$Transition.visible = true
 		$Transition/AnimationPlayer.play(\"fade-in\")
 		yield($Transition/AnimationPlayer, \"animation_finished\")
-		get_tree().change_scene(\"res://title-screen/TitleScreen.tscn\")
+		get_tree().change_scene(\"res://titlescreen/TitleScreen.tscn\")
 
 func reintentar():
 	$TopPanel.update_score(score_user)
@@ -626,8 +629,8 @@ margin_bottom = 68.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 17 )
 expand = true
 stretch_mode = 3
 
@@ -728,8 +731,8 @@ margin_bottom = 127.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 15 )
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 14 )
 expand = true
 stretch_mode = 3
 
@@ -752,8 +755,8 @@ margin_bottom = 217.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 17 )
-texture_pressed = ExtResource( 19 )
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 15 )
 expand = true
 stretch_mode = 3
 
@@ -771,8 +774,8 @@ margin_bottom = 217.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 18 )
-texture_pressed = ExtResource( 16 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
 expand = true
 stretch_mode = 3
 
@@ -822,6 +825,21 @@ margin_right = 504.0
 margin_bottom = 152.0
 custom_fonts/normal_font = SubResource( 10 )
 bbcode_enabled = true
+text = "
+	"
+
+[node name="Margin3" type="MarginContainer" parent="PopUp/VBox"]
+visible = false
+margin_top = 118.0
+margin_right = 504.0
+margin_bottom = 173.0
+rect_min_size = Vector2( 0, 55 )
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PopUp/VBox/Margin3"]
+margin_right = 504.0
+margin_bottom = 55.0
+bbcode_enabled = true
+bbcode_text = "[center][img=50x50]res://assets/emojis/win1.png[/img][img=50x50]res://assets/emojis/win2.png[/img][img=50x50]res://assets/emojis/win3.png[/img][/center]"
 
 [node name="HBox" type="HBoxContainer" parent="PopUp/VBox"]
 margin_top = 180.0

@@ -134,7 +134,7 @@ func set_options(x, agregar):
 # Main
 func _on_Escuchar_pressed():
 	if level == 1 and seleccionados != 1:
-		$Main/VBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-press.png")
+		$Main/VBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiopress.png")
 		$Main/VBox/Margin2/Escuchar.disabled = true
 		for i in $ObjectsSounds.get_children():
 			if seleccionados != 1:
@@ -147,9 +147,9 @@ func _on_Escuchar_pressed():
 				break
 		$Main/VBox/Margin2/Escuchar.disabled = false
 		$ObjectsOptions.visible = true
-		$Main/VBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-basic.png")
+		$Main/VBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiobasic.png")
 	if level == 2 and seleccionados != 2:
-		$Main/VBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-press.png")
+		$Main/VBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiopress.png")
 		$Main/VBox/Margin2/Escuchar.disabled = true
 		for i in $ObjectsSounds.get_children():
 			if seleccionados != 2:
@@ -162,9 +162,9 @@ func _on_Escuchar_pressed():
 				break
 		$Main/VBox/Margin2/Escuchar.disabled = false
 		$ObjectsOptions.visible = true
-		$Main/VBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-basic.png")
+		$Main/VBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiobasic.png")
 	if level == 3 and seleccionados != 1:
-		$Main/VBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-press.png")
+		$Main/VBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiopress.png")
 		$Main/VBox/Margin2/Escuchar.disabled = true
 		for i in $ObjectsSounds.get_children():
 			if seleccionados != 1:
@@ -177,7 +177,7 @@ func _on_Escuchar_pressed():
 				break
 		$Main/VBox/Margin2/Escuchar.disabled = false
 		$ObjectsOptions.visible = true
-		$Main/VBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audio-basic.png")
+		$Main/VBox/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiobasic.png")
 
 # Funcion que se ejecuta al clickear en un objeto
 func _is_code(x):
@@ -319,18 +319,21 @@ func next():
 			if level == 3:
 				popup_status = 1
 				$Particles2D.emitting = true
-				$PopUp.update_info_rich("[center]FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\nPUNTAJE FINAL : "+str(score_total)+" DE 15 PUNTOS\n[img=50x50]res://assets/emojis/win-1.png[/img][img=50x50]res://assets/emojis/win-2.png[/img][img=50x50]res://assets/emojis/win-3.png[/img][/center]")
-	
+				#$PopUp.update_info_rich("[center]FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\nPUNTAJE FINAL : "+str(score_total)+" DE 15 PUNTOS\n[img=50x50]res://assets/emojis/win-1.png[/img][img=50x50]res://assets/emojis/win-2.png[/img][img=50x50]res://assets/emojis/win-3.png[/img][/center]")
+				$PopUp.update_info_rich("[center]FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\nPUNTAJE FINAL : "+str(score_total)+" DE 15 PUNTOS[/center]")
+				$PopUp/VBox/Margin.rect_min_size.y = 90
+				$PopUp/VBox/Margin3.visible = true
+				
 				$PopUp.update_info("FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\n\nPUNTAJE FINAL : "+str(score_total)+" DE 15 PUNTOS")
 				$TopPanel/Margin1/ToMenu.disabled = true
-				$PopUp.update_textures_aceptar("res://assets/buttons/nivels/finalizar-basic.png","res://assets/buttons/nivels/finalizar-press.png")
+				$PopUp.update_textures_aceptar("res://assets/buttons/nivels/finalizarbasic.png","res://assets/buttons/nivels/finalizarpress.png")
 				$PopUp.set_final()
 				$Main/VBox/Margin2/Escuchar.visible = false
 				$PopUp.visible = true
 			else:
 				intentos_level += 1
 				$Timer.start()
-				$PopUp.update_info_rich("[center]FELICITACIONES SIGUE AVANZANDO\n\n[img=50x50]res://assets/emojis/nivel-1.png[/img][img=50x50]res://assets/emojis/nivel-2.png[/img][/center]")
+				$PopUp.update_info_rich("[center]FELICITACIONES SIGUE AVANZANDO\n\n[img=50x50]res://assets/emojis/nivel1.png[/img][img=50x50]res://assets/emojis/nivel2.png[/img][/center]")
 	
 				$PopUp.update_info("FELICITACIONES SIGUE AVANZANDO")
 				$TopPanel/Margin1/ToMenu.disabled = true
@@ -339,12 +342,12 @@ func next():
 				$PopUp.visible = true
 		else:
 			popup_status = 2
-			$PopUp.update_info_rich("[center]HAS OBTENIDO : "+str(score_total)+" DE 15 PUNTOS\nSIGUELO INTENTANDO\n\n[img=50x50]res://assets/emojis/loser-1.png[/img][img=50x50]res://assets/emojis/loser-2.png[/img][/center]")
+			$PopUp.update_info_rich("[center]HAS OBTENIDO : "+str(score_total)+" DE 15 PUNTOS\nSIGUELO INTENTANDO\n\n[img=50x50]res://assets/emojis/loser1.png[/img][img=50x50]res://assets/emojis/loser2.png[/img][/center]")
 	
 			$PopUp.update_info("HAS OBTENIDO : "+str(score_total)+" DE 15 PUNTOS\nSIGUELO INTENTANDO")
 			$TopPanel/Margin1/ToMenu.disabled = true
-			$PopUp.update_textures_aceptar("res://assets/buttons/nivels/reintentar-basic.png","res://assets/buttons/nivels/reintentar-press.png")
-			$PopUp.update_textures_rechazar("res://assets/buttons/nivels/finalizar-basic.png","res://assets/buttons/nivels/finalizar-press.png")
+			$PopUp.update_textures_aceptar("res://assets/buttons/nivels/reintentarbasic.png","res://assets/buttons/nivels/reintentarpress.png")
+			$PopUp.update_textures_rechazar("res://assets/buttons/nivels/finalizarbasic.png","res://assets/buttons/nivels/finalizarpress.png")
 			$Main/VBox/Margin2/Escuchar.visible = false
 			$PopUp.visible = true
 
@@ -360,8 +363,8 @@ func _on_ToMenu_pressed():
 	$PopUp.update_info_rich("[center]RECUERDA QUE AL REGRESAR AL\nMENU PRINCIPAL PERDERAS TU\nPROGRESO[/center]")
 	
 	$PopUp.update_info("RECUERDA QUE AL REGRESAR AL\nMENU PRINCIPAL PERDERAS TU\nPROGRESO")
-	$PopUp.update_textures_aceptar("res://assets/buttons/nivels/si-basic.png","res://assets/buttons/nivels/si-press.png")
-	$PopUp.update_textures_rechazar("res://assets/buttons/nivels/no-basic.png","res://assets/buttons/nivels/no-press.png")
+	$PopUp.update_textures_aceptar("res://assets/buttons/nivels/sibasic.png","res://assets/buttons/nivels/sipress.png")
+	$PopUp.update_textures_rechazar("res://assets/buttons/nivels/nobasic.png","res://assets/buttons/nivels/nopress.png")
 	$PopUp.visible = true
 
 # PopUp
@@ -371,7 +374,7 @@ func _on_Aceptar_pressed():
 		$Transition.visible = true
 		$Transition/AnimationPlayer.play("fade-in")
 		yield($Transition/AnimationPlayer, "animation_finished")
-		get_tree().change_scene("res://title-screen/TitleScreen.tscn")
+		get_tree().change_scene("res://titlescreen/TitleScreen.tscn")
 	if popup_status == 2:
 		reintentar()
 		$TopPanel/Margin1/ToMenu.disabled = false
@@ -386,7 +389,7 @@ func _on_Rechazar_pressed():
 		$Transition.visible = true
 		$Transition/AnimationPlayer.play("fade-in")
 		yield($Transition/AnimationPlayer, "animation_finished")
-		get_tree().change_scene("res://title-screen/TitleScreen.tscn")
+		get_tree().change_scene("res://titlescreen/TitleScreen.tscn")
 
 func next_level(s,t,l):
 	if l == 2:

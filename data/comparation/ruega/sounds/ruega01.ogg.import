@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ruega01.ogg-70dd2dde3b31b5394c998e3be10b671f.oggstr"
+
+[deps]
+
+source_file="res://data/comparation/ruega/sounds/ruega01.ogg"
+dest_files=[ "res://.import/ruega01.ogg-70dd2dde3b31b5394c998e3be10b671f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

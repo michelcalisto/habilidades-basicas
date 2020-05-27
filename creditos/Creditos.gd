@@ -5,9 +5,13 @@ func _ready():
 	$ColorRect/AnimationPlayer.play("fade-out")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	$ColorRect.visible = false
-	$Background/ColorRect.visible = true
-	$Background/ColorRect/AnimationPlayer.play("fade")
-
+	$TextureRect/ColorRect.visible = true
+	$TextureRect/ColorRect/AnimationPlayer.play("fade")
+	
+	# scroll
+	$tween_scroll.interpolate_property($scrolling, "position", Vector2(0, 610), Vector2(0, -970), 30, Tween.TRANS_LINEAR, 0)
+	$tween_scroll.start()
+	
 func _process(delta):
 	if Input.is_action_pressed("ui_accept"):
 		$ColorRect.visible = true

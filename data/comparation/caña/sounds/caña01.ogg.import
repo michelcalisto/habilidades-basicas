@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/caña01.ogg-e41166ba5613b27c6d244e97b52b8b33.oggstr"
+
+[deps]
+
+source_file="res://data/comparation/caña/sounds/caña01.ogg"
+dest_files=[ "res://.import/caña01.ogg-e41166ba5613b27c6d244e97b52b8b33.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

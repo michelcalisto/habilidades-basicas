@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/perro01.ogg-d050916e7af9a8561f73fe8603581d5b.oggstr"
+
+[deps]
+
+source_file="res://data/animals/perro/sounds/perro01.ogg"
+dest_files=[ "res://.import/perro01.ogg-d050916e7af9a8561f73fe8603581d5b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

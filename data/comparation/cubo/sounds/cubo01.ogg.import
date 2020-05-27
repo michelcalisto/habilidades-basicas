@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cubo01.ogg-43abd3b6893bb94b1e5caf92fe72a554.oggstr"
+
+[deps]
+
+source_file="res://data/comparation/cubo/sounds/cubo01.ogg"
+dest_files=[ "res://.import/cubo01.ogg-43abd3b6893bb94b1e5caf92fe72a554.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

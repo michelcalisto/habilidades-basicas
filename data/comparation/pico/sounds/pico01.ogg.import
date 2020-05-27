@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pico01.ogg-72073da6a109bf93c53ace7f618cadab.oggstr"
+
+[deps]
+
+source_file="res://data/comparation/pico/sounds/pico01.ogg"
+dest_files=[ "res://.import/pico01.ogg-72073da6a109bf93c53ace7f618cadab.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gallina01.ogg-7ffae4b6ac54179aebc0a86afbf5c858.oggstr"
+
+[deps]
+
+source_file="res://data/animals/gallina/sounds/gallina01.ogg"
+dest_files=[ "res://.import/gallina01.ogg-7ffae4b6ac54179aebc0a86afbf5c858.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

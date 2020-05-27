@@ -8,13 +8,13 @@
 [ext_resource path="res://assets/img/Hills6.png" type="Texture" id=6]
 [ext_resource path="res://nivel1/Nivel1.gd" type="Script" id=7]
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://assets/buttons/nivels/regresar-basic.png" type="Texture" id=9]
-[ext_resource path="res://assets/buttons/nivels/regresar-press.png" type="Texture" id=10]
+[ext_resource path="res://assets/buttons/nivels/audiopress.png" type="Texture" id=9]
+[ext_resource path="res://assets/buttons/nivels/regresarbasic.png" type="Texture" id=10]
 [ext_resource path="res://nivel1/Parallax.gd" type="Script" id=11]
 [ext_resource path="res://nivel1/TopPanel.gd" type="Script" id=12]
 [ext_resource path="res://assets/boxs/nivels.png" type="Texture" id=13]
-[ext_resource path="res://assets/buttons/nivels/audio-basic.png" type="Texture" id=14]
-[ext_resource path="res://assets/buttons/nivels/audio-press.png" type="Texture" id=15]
+[ext_resource path="res://assets/buttons/nivels/regresarpress.png" type="Texture" id=14]
+[ext_resource path="res://assets/buttons/nivels/audiobasic.png" type="Texture" id=15]
 [ext_resource path="res://nivel1/PopUp.gd" type="Script" id=16]
 [ext_resource path="res://nivel1/Box.gd" type="Script" id=20]
 [ext_resource path="res://object/Object.tscn" type="PackedScene" id=21]
@@ -193,8 +193,8 @@ margin_bottom = 68.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 14 )
 expand = true
 stretch_mode = 3
 
@@ -295,8 +295,8 @@ margin_bottom = 127.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 15 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 9 )
 expand = true
 stretch_mode = 3
 
@@ -346,6 +346,19 @@ margin_right = 504.0
 margin_bottom = 152.0
 custom_fonts/normal_font = SubResource( 6 )
 bbcode_enabled = true
+
+[node name="Margin3" type="MarginContainer" parent="PopUp/VBox"]
+visible = false
+margin_top = 180.0
+margin_right = 504.0
+margin_bottom = 235.0
+rect_min_size = Vector2( 504, 55 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PopUp/VBox/Margin3"]
+margin_right = 504.0
+margin_bottom = 55.0
+bbcode_enabled = true
+bbcode_text = "[center][img=50x50]res://assets/emojis/win1.png[/img][img=50x50]res://assets/emojis/win2.png[/img][img=50x50]res://assets/emojis/win3.png[/img][/center]"
 
 [node name="HBox" type="HBoxContainer" parent="PopUp/VBox"]
 margin_top = 180.0

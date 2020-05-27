@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pato01.ogg-b9f2130afea423511f118254a917852c.oggstr"
+
+[deps]
+
+source_file="res://data/animals/pato/sounds/pato01.ogg"
+dest_files=[ "res://.import/pato01.ogg-b9f2130afea423511f118254a917852c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

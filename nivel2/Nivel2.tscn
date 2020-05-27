@@ -8,13 +8,13 @@
 [ext_resource path="res://assets/img/Hills6.png" type="Texture" id=6]
 [ext_resource path="res://nivel2/Nivel2.gd" type="Script" id=7]
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://assets/buttons/nivels/regresar-basic.png" type="Texture" id=9]
-[ext_resource path="res://assets/buttons/nivels/regresar-press.png" type="Texture" id=10]
+[ext_resource path="res://assets/buttons/nivels/audiopress.png" type="Texture" id=9]
+[ext_resource path="res://assets/buttons/nivels/regresarbasic.png" type="Texture" id=10]
 [ext_resource path="res://nivel2/Parallax.gd" type="Script" id=11]
 [ext_resource path="res://nivel2/TopPanel.gd" type="Script" id=12]
 [ext_resource path="res://assets/boxs/nivels.png" type="Texture" id=13]
-[ext_resource path="res://assets/buttons/nivels/audio-basic.png" type="Texture" id=14]
-[ext_resource path="res://assets/buttons/nivels/audio-press.png" type="Texture" id=15]
+[ext_resource path="res://assets/buttons/nivels/regresarpress.png" type="Texture" id=14]
+[ext_resource path="res://assets/buttons/nivels/audiobasic.png" type="Texture" id=15]
 [ext_resource path="res://nivel2/Main.gd" type="Script" id=16]
 [ext_resource path="res://nivel2/PopUp.gd" type="Script" id=17]
 [ext_resource path="res://objectdd/Objectdd.tscn" type="PackedScene" id=18]
@@ -42,44 +42,7 @@ extra_spacing_top = 2
 extra_spacing_space = 5
 font_data = ExtResource( 8 )
 
-[sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0.752941, 0.619608, 0.686275, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="DynamicFont" id=5]
-size = 50
-font_data = ExtResource( 8 )
-
-[sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0.752941, 0.619608, 0.686275, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id=13]
-bg_color = Color( 0.752941, 0.619608, 0.686275, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.752941, 0.619608, 0.686275, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -91,14 +54,51 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="DynamicFont" id=6]
+size = 50
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.752941, 0.619608, 0.686275, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.752941, 0.619608, 0.686275, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.752941, 0.619608, 0.686275, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=11]
 extra_spacing_top = 2
 extra_spacing_space = 5
 font_data = ExtResource( 8 )
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=12]
 emission_shape = 2
 emission_box_extents = Vector3( 640, 1, 1 )
 flag_disable_z = true
@@ -113,7 +113,7 @@ color = Color( 0.211765, 0.184314, 0.992157, 1 )
 hue_variation = 1.0
 hue_variation_random = 1.0
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=13]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -127,7 +127,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=14]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -245,8 +245,8 @@ margin_bottom = 68.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 14 )
 expand = true
 stretch_mode = 3
 
@@ -370,7 +370,7 @@ margin_bottom = 197.0
 rect_min_size = Vector2( 190, 190 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_styles/panel = SubResource( 11 )
+custom_styles/panel = SubResource( 5 )
 script = ExtResource( 19 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Panels/Margin1/Panel1"]
@@ -389,7 +389,7 @@ margin_top = 64.0
 margin_right = 121.0
 margin_bottom = 140.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "1"
 align = 1
 
@@ -407,7 +407,7 @@ margin_bottom = 197.0
 rect_min_size = Vector2( 190, 190 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_styles/panel = SubResource( 12 )
+custom_styles/panel = SubResource( 7 )
 script = ExtResource( 20 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Panels/Margin2/Panel2"]
@@ -426,7 +426,7 @@ margin_top = 64.0
 margin_right = 127.0
 margin_bottom = 140.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "2"
 align = 1
 
@@ -444,7 +444,7 @@ margin_bottom = 197.0
 rect_min_size = Vector2( 190, 190 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_styles/panel = SubResource( 13 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 21 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Panels/Margin3/Panel3"]
@@ -463,7 +463,7 @@ margin_top = 64.0
 margin_right = 127.0
 margin_bottom = 140.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "3"
 align = 1
 
@@ -481,7 +481,7 @@ margin_bottom = 197.0
 rect_min_size = Vector2( 190, 190 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 9 )
 script = ExtResource( 23 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Panels/Margin4/Panel4"]
@@ -500,7 +500,7 @@ margin_top = 64.0
 margin_right = 127.0
 margin_bottom = 140.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "4"
 align = 1
 
@@ -522,8 +522,8 @@ margin_bottom = 147.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 15 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 9 )
 expand = true
 stretch_mode = 3
 
@@ -564,15 +564,28 @@ visible = false
 margin_top = 64.0
 margin_right = 504.0
 margin_bottom = 88.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 10 )
 text = "Info"
 align = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PopUp/VBox/Margin"]
 margin_right = 504.0
 margin_bottom = 152.0
-custom_fonts/normal_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 11 )
 bbcode_enabled = true
+
+[node name="Margin3" type="MarginContainer" parent="PopUp/VBox"]
+visible = false
+margin_top = 180.0
+margin_right = 504.0
+margin_bottom = 235.0
+rect_min_size = Vector2( 504, 55 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PopUp/VBox/Margin3"]
+margin_right = 504.0
+margin_bottom = 55.0
+bbcode_enabled = true
+bbcode_text = "[center][img=50x50]res://assets/emojis/win1.png[/img][img=50x50]res://assets/emojis/win2.png[/img][img=50x50]res://assets/emojis/win3.png[/img][/center]"
 
 [node name="HBox" type="HBoxContainer" parent="PopUp/VBox"]
 margin_top = 180.0
@@ -618,7 +631,7 @@ position = Vector2( 640, 0 )
 emitting = false
 amount = 100
 lifetime = 4.0
-process_material = SubResource( 8 )
+process_material = SubResource( 12 )
 
 [node name="Transition" type="ColorRect" parent="."]
 margin_right = 40.0
@@ -630,8 +643,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-anims/fade-in = SubResource( 9 )
-anims/fade-out = SubResource( 10 )
+anims/fade-in = SubResource( 13 )
+anims/fade-out = SubResource( 14 )
 
 [node name="Timer" type="Timer" parent="."]
 [connection signal="pressed" from="TopPanel/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]

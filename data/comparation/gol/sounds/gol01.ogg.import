@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gol01.ogg-747757b3447f9bee66cff2c036dd8706.oggstr"
+
+[deps]
+
+source_file="res://data/comparation/gol/sounds/gol01.ogg"
+dest_files=[ "res://.import/gol01.ogg-747757b3447f9bee66cff2c036dd8706.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

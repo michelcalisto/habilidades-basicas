@@ -1,17 +1,18 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://instrucciones/Instrucciones1.gd" type="Script" id=1]
+[ext_resource path="res://creditos/Creditos.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Kenney Mini.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/boxs/aa.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 50
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=2]
 size = 26
 extra_spacing_space = 5
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 22
@@ -63,7 +64,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[node name="Instrucciones1" type="Control"]
+[node name="Creditos" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -80,7 +81,80 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Margin1" type="MarginContainer" parent="Background"]
+[node name="scrolling" type="Node2D" parent="."]
+position = Vector2( 0, 720 )
+
+[node name="MarginContainer" type="MarginContainer" parent="scrolling"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1280, 1500 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="scrolling/MarginContainer"]
+margin_right = 1280.0
+margin_bottom = 1500.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center][img=250x250]res://assets/emojis/nivel1.png[/img]
+FONOAUDIOLOGA
+
+
+
+[img=250x250]res://assets/emojis/nivel1.png[/img]
+DISEÑADOR GRAFICO
+
+
+
+[img=250x250]res://assets/emojis/nivel1.png[/img]
+PROGRAMADOR
+
+
+
+
+
+
+
+
+¡GRACIAS POR JUGAR!
+
+[img=50x50]res://assets/emojis/nivel1.png[/img][/center]"
+text = "
+FONOAUDIOLOGA
+
+
+
+
+DISEÑADOR GRAFICO
+
+
+
+
+PROGRAMADOR
+
+
+
+
+
+
+
+
+¡GRACIAS POR JUGAR!
+
+"
+
+[node name="tween_scroll" type="Tween" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin1" type="MarginContainer" parent="TextureRect"]
 margin_left = 120.0
 margin_top = 80.0
 margin_right = 1160.0
@@ -90,53 +164,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBox" type="VBoxContainer" parent="Background/Margin1"]
+[node name="VBox" type="VBoxContainer" parent="TextureRect/Margin1"]
 margin_right = 1040.0
 margin_bottom = 560.0
 
-[node name="Margin1" type="MarginContainer" parent="Background/Margin1/VBox"]
+[node name="Margin1" type="MarginContainer" parent="TextureRect/Margin1/VBox"]
 margin_right = 1040.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 1040, 100 )
 
-[node name="Title" type="Label" parent="Background/Margin1/VBox/Margin1"]
-margin_left = 150.0
+[node name="Title" type="Label" parent="TextureRect/Margin1/VBox/Margin1"]
+margin_left = 332.0
 margin_top = 12.0
-margin_right = 890.0
+margin_right = 708.0
 margin_bottom = 88.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
 custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
 custom_constants/shadow_offset_x = 4
 custom_constants/shadow_offset_y = 4
-text = "ATENCION AUDITIVA"
+text = "CREDITOS"
 align = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Background/Margin1/VBox"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/Margin1/VBox"]
 margin_top = 104.0
 margin_right = 1040.0
 margin_bottom = 134.0
 rect_min_size = Vector2( 0, 30 )
 
-[node name="Margin2" type="MarginContainer" parent="Background/Margin1/VBox"]
+[node name="Margin2" type="MarginContainer" parent="TextureRect/Margin1/VBox"]
 margin_top = 138.0
 margin_right = 1040.0
 margin_bottom = 538.0
 rect_min_size = Vector2( 1040, 400 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Background/Margin1/VBox/Margin2"]
-margin_right = 1040.0
-margin_bottom = 400.0
-custom_fonts/normal_font = SubResource( 2 )
-custom_colors/default_color = Color( 1, 1, 1, 1 )
-bbcode_enabled = true
-bbcode_text = "[fill]EN ESTE JUEGO TENDRAS QUE ESTAR MUY ATENTO/A, PORQUE TIENES QUE ESCUCHAR SONIDOS. ESTE JUEGO CONSTA DE TRES ETAPAS, LAS CUALES IRAN AUMENTANDO SU DIFICULTAD A MEDIDA QUE AVANCES POR LOS NIVELES. 
-EN LA PRIMERA ETAPA, ESCUCHARAS UN SONIDO Y APARECERAN DOS IMAGENES, TU DEBES RECONOCER [color=#ffd948]¿A CUAL DE LOS ANIMALES PERTENECE EL SONIDO?[/color]. EN LA SEGUNDA ETAPA, ESCUCHARAS DOS SONIDOS Y SE PRESENTARAN TRES IMAGENES, TU DEBES IDENTIFICAR [color=#ffd948]¿A CUALES DE LOS ANIMALES PRESENTADOS PERTENECEN LOS SONIDOS ESCUCHADOS?[/color]. EN LA ETAPA FINAL CAMBIA LA DINAMICA, ESCUCHARAS DOS SONIDOS Y SE PRESENTARAN TRES IMAGENES, PERO [color=#ffd948]¿CUAL ANIMAL NO ESCUCHASTES?[/color]. SI OBTIENES UN PUNTAJE [rainbow freq=0.1 sat=0.5 val=1]IGUAL O SUPERIOR[/rainbow] A [color=#ffd948]CUATRO PUNTOS[/color] EN CADA FASE PASAS A LA SIGUIENTE, SINO LO PUEDES VOLVER A INTENTAR LAS VECES QUE QUIERAS.[/fill]"
-text = "EN ESTE JUEGO TENDRAS QUE ESTAR MUY ATENTO/A, PORQUE TIENES QUE ESCUCHAR SONIDOS. ESTE JUEGO CONSTA DE TRES ETAPAS, LAS CUALES IRAN AUMENTANDO SU DIFICULTAD A MEDIDA QUE AVANCES POR LOS NIVELES. 
-EN LA PRIMERA ETAPA, ESCUCHARAS UN SONIDO Y APARECERAN DOS IMAGENES, TU DEBES RECONOCER ¿A CUAL DE LOS ANIMALES PERTENECE EL SONIDO?. EN LA SEGUNDA ETAPA, ESCUCHARAS DOS SONIDOS Y SE PRESENTARAN TRES IMAGENES, TU DEBES IDENTIFICAR ¿A CUALES DE LOS ANIMALES PRESENTADOS PERTENECEN LOS SONIDOS ESCUCHADOS?. EN LA ETAPA FINAL CAMBIA LA DINAMICA, ESCUCHARAS DOS SONIDOS Y SE PRESENTARAN TRES IMAGENES, PERO ¿CUAL ANIMAL NO ESCUCHASTES?. SI OBTIENES UN PUNTAJE IGUAL O SUPERIOR A CUATRO PUNTOS EN CADA FASE PASAS A LA SIGUIENTE, SINO LO PUEDES VOLVER A INTENTAR LAS VECES QUE QUIERAS."
-
-[node name="Margin2" type="MarginContainer" parent="Background"]
+[node name="Margin2" type="MarginContainer" parent="TextureRect"]
 margin_left = 120.0
 margin_top = 640.0
 margin_right = 1160.0
@@ -146,7 +209,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Background/Margin2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/Margin2"]
 margin_right = 1040.0
 margin_bottom = 60.0
 custom_fonts/normal_font = SubResource( 3 )
@@ -154,17 +217,17 @@ bbcode_enabled = true
 bbcode_text = "[center]Para continuar, presiona [wave][color=#ffd948]\"Enter\"[/color][/wave] o haz un [wave][color=#ffd948]click[/color][/wave] en la pantalla.[/center]"
 text = "Para continuar, presiona \"Enter\" o haz un click en la pantalla."
 
-[node name="ColorRect" type="ColorRect" parent="Background"]
+[node name="ColorRect" type="ColorRect" parent="TextureRect"]
 margin_top = 640.0
-margin_right = 1040.0
+margin_right = 1280.0
 margin_bottom = 700.0
 rect_min_size = Vector2( 1280, 60 )
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0.5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/ColorRect"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/ColorRect"]
 anims/fade = SubResource( 4 )
 
 [node name="Control" type="Control" parent="."]
@@ -175,6 +238,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 1280, 720 )
