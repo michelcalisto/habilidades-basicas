@@ -85,30 +85,29 @@ __meta__ = {
 position = Vector2( 0, 720 )
 
 [node name="MarginContainer" type="MarginContainer" parent="scrolling"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 1280, 1500 )
+margin_right = 1280.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 1280, 800 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="scrolling/MarginContainer"]
 margin_right = 1280.0
-margin_bottom = 1500.0
+margin_bottom = 800.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center][img=250x250]res://assets/emojis/nivel1.png[/img]
+bbcode_text = "[center]DESARROLLO
+
 FONOAUDIOLOGA
-
-
-
-[img=250x250]res://assets/emojis/nivel1.png[/img]
 DISEÑADOR GRAFICO
-
-
-
-[img=250x250]res://assets/emojis/nivel1.png[/img]
 PROGRAMADOR
+
+
+CONTACTO
+
+frommarsstudio@gmail.com
+
 
 
 
@@ -120,18 +119,17 @@ PROGRAMADOR
 ¡GRACIAS POR JUGAR!
 
 [img=50x50]res://assets/emojis/nivel1.png[/img][/center]"
-text = "
+text = "DESARROLLO
+
 FONOAUDIOLOGA
-
-
-
-
 DISEÑADOR GRAFICO
-
-
-
-
 PROGRAMADOR
+
+
+CONTACTO
+
+frommarsstudio@gmail.com
+
 
 
 

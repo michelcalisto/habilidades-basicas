@@ -9,7 +9,7 @@ func _ready():
 	$TextureRect/ColorRect/AnimationPlayer.play("fade")
 	
 	# scroll
-	$tween_scroll.interpolate_property($scrolling, "position", Vector2(0, 610), Vector2(0, -970), 30, Tween.TRANS_LINEAR, 0)
+	$tween_scroll.interpolate_property($scrolling, "position", Vector2(0, 610), Vector2(0, -280), 20, Tween.TRANS_LINEAR, 0)
 	$tween_scroll.start()
 	
 func _process(delta):
