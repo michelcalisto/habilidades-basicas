@@ -38,8 +38,8 @@
   "07": {
     "name": "Caña",
     "code": "07-Caña",
-    "sound": "res://data/comparation/caña/sounds/caña01.ogg",
-    "image": "res://data/comparation/caña/images/caña01.png"
+    "sound": "res://data/comparation/cana/sounds/cana01.ogg",
+    "image": "res://data/comparation/cana/images/cana01.png"
   },
   "08": {
     "name": "Cama",

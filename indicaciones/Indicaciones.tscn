@@ -134,14 +134,14 @@ custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = true
 bbcode_text = "[center]EL JUEGO DE [wave][color=#ffd948]\"HABILIDADES BASICAS\"[/color][/wave] ESTIMULA ([rainbow freq=0.1 sat=0.5 val=1]LA ATENCION AUDITIVA[/rainbow],
 [rainbow freq=0.1 sat=0.5 val=1]MEMORIA AUDITIVA[/rainbow] Y [rainbow freq=0.1 sat=0.5 val=1]DISCRIMANACION AUDITIVA[/rainbow]) CON EL FIN DE FACILITAR
-Y MEJORAR EL PROCESO DE ADQUISICION DE LA LECTURA.
+Y MEJORAR EL PROCESO DE ADQUISICION DE LA LECTURA.[/center]
 
-DESTINADO A NIÑOS DE ENTRE 4 Y 7 AÑOS.[/center]"
+[center]DESTINADO A NIÑOS DESDE 4 AÑOS.[/center]"
 text = "EL JUEGO DE \"HABILIDADES BASICAS\" ESTIMULA (LA ATENCION AUDITIVA,
 MEMORIA AUDITIVA Y DISCRIMANACION AUDITIVA) CON EL FIN DE FACILITAR
 Y MEJORAR EL PROCESO DE ADQUISICION DE LA LECTURA.
 
-DESTINADO A NIÑOS DE ENTRE 4 Y 7 AÑOS."
+DESTINADO A NIÑOS DESDE 4 AÑOS."
 
 [node name="Sprite" type="Sprite" parent="Background/Margin1/VBox"]
 position = Vector2( 510, 450 )

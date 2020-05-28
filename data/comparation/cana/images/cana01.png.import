@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/caña01.png-c15e674b881ee056360e59ad112988ae.stex"
+path="res://.import/cana01.png-2010bf3786be6db26f618e8b00778a9c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/comparation/caña/images/caña01.png"
-dest_files=[ "res://.import/caña01.png-c15e674b881ee056360e59ad112988ae.stex" ]
+source_file="res://data/comparation/cana/images/cana01.png"
+dest_files=[ "res://.import/cana01.png-2010bf3786be6db26f618e8b00778a9c.stex" ]
 
 [params]
 

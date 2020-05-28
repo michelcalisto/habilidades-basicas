@@ -1,10 +1,19 @@
 extends Control
 
+var audio = AudioStreamPlayer.new()
+var ogg = AudioStreamOGGVorbis.new()
+
 func _ready():
 	$ColorRect.visible = true
 	$ColorRect/AnimationPlayer.play("fadeout")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	$ColorRect.visible = false
+	# Childs
+	add_child(audio)
+	ogg = load("res://assets/sounds/title.ogg")
+	ogg.loop = true
+	audio.stream = ogg
+	audio.play()
 
 func _on_Nivel1_pressed():
 	$ColorRect.visible = true
