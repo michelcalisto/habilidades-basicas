@@ -1,8 +1,9 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://instrucciones/Instrucciones1.gd" type="Script" id=1]
+[ext_resource path="res://instrucciones1/Instrucciones1.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Kenney Mini.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=3]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 50

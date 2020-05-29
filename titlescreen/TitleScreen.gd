@@ -14,7 +14,7 @@ func _ready():
 	add_child(audio)
 	add_child(audiobtn)
 	ogg = load("res://assets/sounds/title.ogg")
-	oggbtn = load("res://assets/sounds/drop_004.ogg")
+	oggbtn = load("res://assets/sounds/click.ogg")
 	ogg.loop = true
 	oggbtn.loop = false
 	audio.stream = ogg
@@ -26,7 +26,7 @@ func _on_Nivel1_pressed():
 	$ColorRect.visible = true
 	$ColorRect/AnimationPlayer.play("fadein")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
-	get_tree().change_scene("res://instrucciones/Instrucciones1.tscn")
+	get_tree().change_scene("res://instrucciones1/Instrucciones1.tscn")
 
 func _on_Nivel2_pressed():
 	audiobtn.play()
