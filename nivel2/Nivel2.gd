@@ -1,5 +1,7 @@
 extends Node2D
 
+var audiobtn = AudioStreamPlayer.new()
+var oggbtn = AudioStreamOGGVorbis.new()
 export(PackedScene) var Objeto
 const objects_file = "res://data/animals.json"
 var json
@@ -50,7 +52,11 @@ func _ready():
 	set_sounds(2)
 	_on_Escuchar_pressed()
 	set_options(json, 0)
-
+	add_child(audiobtn)
+	oggbtn = load("res://assets/sounds/drop_004.ogg")
+	oggbtn.loop = false
+	audiobtn.stream = oggbtn
+	
 func _process(delta):
 	var cursor_pos = get_global_mouse_position()
 	if level == 1 and $ObjectsOptions.get_child_count() != 0:
@@ -629,6 +635,7 @@ func reset_containers():
 
 # TopPanel
 func _on_ToMenu_pressed():
+	audiobtn.play()
 	popup_status = 1
 	$PopUp.update_info_rich("[center]RECUERDA QUE AL REGRESAR AL\nMENU PRINCIPAL PERDERAS TU\nPROGRESO[/center]")
 	
@@ -639,6 +646,7 @@ func _on_ToMenu_pressed():
 
 # PopUp
 func _on_Aceptar_pressed():
+	audiobtn.play()
 	if popup_status == 1:
 		$PopUp.visible = false
 		$Transition.visible = true
@@ -652,6 +660,7 @@ func _on_Aceptar_pressed():
 		$PopUp.visible = false
 
 func _on_Rechazar_pressed():
+	audiobtn.play()
 	if popup_status == 1:
 		$PopUp.visible = false
 	if popup_status == 2:
