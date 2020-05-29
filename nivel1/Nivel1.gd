@@ -43,7 +43,7 @@ func _ready():
 	_on_Escuchar_pressed()
 	set_options(json, 1)
 	add_child(audiobtn)
-	oggbtn = load("res://assets/sounds/drop_004.ogg")
+	oggbtn = load("res://assets/sounds/click.ogg")
 	oggbtn.loop = false
 	audiobtn.stream = oggbtn
 
