@@ -1,16 +1,18 @@
 extends Control
 
-signal redirect
+#signal redirect
 
-func fadeIn():
-	$ColorRect.visible = true
+func fadeIn(scene):
+	self.visible = true
 	$ColorRect/AnimationPlayer.play("fade-in")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
-	$ColorRect.visible = false
-	emit_signal("redirect")
+	self.visible = false
+	get_tree().change_scene("res://scenes/"+scene+".tscn")
+
+	#emit_signal("redirect")
 
 func fadeOut():
-	$ColorRect.visible = true
+	self.visible = true
 	$ColorRect/AnimationPlayer.play("fade-out")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
-	$ColorRect.visible = false
+	self.visible = false

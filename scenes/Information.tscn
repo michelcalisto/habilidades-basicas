@@ -53,9 +53,9 @@ margin_bottom = 130.0
 rect_min_size = Vector2( 1040, 130 )
 
 [node name="Title" type="Label" parent="Background/Margin1/VBox/Margin1"]
-margin_left = 520.0
+margin_left = 98.0
 margin_top = 27.0
-margin_right = 520.0
+margin_right = 941.0
 margin_bottom = 103.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 1 )
@@ -63,6 +63,7 @@ custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
 custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
 custom_constants/shadow_offset_x = 4
 custom_constants/shadow_offset_y = 4
+text = "HABILIDADES BASICAS"
 align = 1
 valign = 1
 
@@ -76,8 +77,22 @@ rect_min_size = Vector2( 1040, 470 )
 margin_right = 1040.0
 margin_bottom = 470.0
 custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]EL JUEGO DE [wave][color=#ffd948]\"HABILIDADES BASICAS\"[/color][/wave] ESTIMULA ([rainbow freq=0.1 sat=0.5 val=1]LA ATENCION AUDITIVA[/rainbow],
+[rainbow freq=0.1 sat=0.5 val=1]MEMORIA AUDITIVA[/rainbow] Y [rainbow freq=0.1 sat=0.5 val=1]DISCRIMANACION AUDITIVA[/rainbow]) CON EL FIN DE FACILITAR
+Y MEJORAR EL PROCESO DE ADQUISICION DE LA LECTURA.[/center]
+
+[center]DESTINADO A NIÑOS DESDE 4 AÑOS.[/center]
+
+[center][img=150x180]res://assets/logos/colegio.png[/img][/center]"
+text = "EL JUEGO DE \"HABILIDADES BASICAS\" ESTIMULA (LA ATENCION AUDITIVA,
+MEMORIA AUDITIVA Y DISCRIMANACION AUDITIVA) CON EL FIN DE FACILITAR
+Y MEJORAR EL PROCESO DE ADQUISICION DE LA LECTURA.
+
+DESTINADO A NIÑOS DESDE 4 AÑOS.
+
+"
 
 [node name="PressToContinue" parent="Background" instance=ExtResource( 5 )]
 
 [node name="Transition" parent="." instance=ExtResource( 2 )]
-[connection signal="redirect" from="Transition" to="." method="_on_Transition_redirect"]

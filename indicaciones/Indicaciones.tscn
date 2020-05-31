@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://indicaciones/Indicaciones.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/Kenney Mini.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/logo/logo.png" type="Texture" id=4]
+[ext_resource path="res://assets/logos/colegio.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
