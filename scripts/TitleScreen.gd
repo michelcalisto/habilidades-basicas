@@ -6,6 +6,7 @@ var audiobtn = AudioStreamPlayer.new()
 var oggbtn = AudioStreamOGGVorbis.new()
 
 func _ready():
+	# Transition
 	$Transition.fadeOut()
 	# Childs
 	add_child(audio)

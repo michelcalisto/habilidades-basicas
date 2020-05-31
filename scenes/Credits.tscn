@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/boxs/credits.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://scenes/PressToContinue.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Credits.gd" type="Script" id=6]
+[ext_resource path="res://scripts/Credits.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 26

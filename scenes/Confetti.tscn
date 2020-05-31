@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 6, 1, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 250.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 10.0
+scale_random = 0.3
+color = Color( 0.129412, 0.203922, 0.980392, 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[node name="Confetti" type="Node2D"]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 640, 0 )
+emitting = false
+amount = 110
+lifetime = 4.0
+process_material = SubResource( 1 )
