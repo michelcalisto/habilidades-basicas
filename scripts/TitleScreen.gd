@@ -20,12 +20,16 @@ func _ready():
 
 func _on_Nivel1_pressed():
 	audiobtn.play()
+	$Transition.fadeIn("Nivel1")
 
 func _on_Nivel2_pressed():
 	audiobtn.play()
+	$Transition.fadeIn("Nivel2")
 
 func _on_Nivel3_pressed():
 	audiobtn.play()
+	$Transition.fadeIn("Nivel3")
 
 func _on_Credits_pressed():
 	audiobtn.play()
+	$Transition.fadeIn("Credits")
