@@ -5,6 +5,7 @@ func _ready():
 	$ColorRect/AnimationPlayer.play("fade-out")
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	$ColorRect.visible = false
+	
 	$Background/ColorRect.visible = true
 	$Background/ColorRect/AnimationPlayer.play("fade")
 

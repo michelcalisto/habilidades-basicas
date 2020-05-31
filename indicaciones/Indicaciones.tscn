@@ -168,7 +168,7 @@ text = "Para continuar, presiona \"Enter\" o haz un click en la pantalla."
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
 margin_top = 640.0
-margin_right = 1040.0
+margin_right = 1280.0
 margin_bottom = 700.0
 rect_min_size = Vector2( 1280, 60 )
 color = Color( 0, 0, 0, 1 )
