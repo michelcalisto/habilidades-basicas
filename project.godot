@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SInfo="*res://scripts/SInfo.gd"
+SPopUp="*res://scripts/SPopUp.gd"
 
 [display]
 
