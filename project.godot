@@ -22,7 +22,6 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://scripts/Global.gd"
-SInfo="*res://scripts/SInfo.gd"
 SPopUp="*res://scripts/SPopUp.gd"
 
 [display]

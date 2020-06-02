@@ -8,6 +8,6 @@ func _ready():
 	
 func _process(delta):
 	if Input.is_action_pressed("ui_accept"):
-		$Transition.fadeIn(SInfo.redirect)
+		$Transition.fadeIn(Global.information_redirect)
 	if Input.is_action_pressed("left_click"):
-		$Transition.fadeIn(SInfo.redirect)
+		$Transition.fadeIn(Global.information_redirect)
