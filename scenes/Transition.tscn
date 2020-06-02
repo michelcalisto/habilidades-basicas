@@ -33,6 +33,7 @@ tracks/0/keys = {
 }
 
 [node name="Transition" type="ColorRect"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 1280, 720 )

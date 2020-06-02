@@ -10,12 +10,11 @@ func _ready():
 	oggbtn.loop = false
 	audiobtn.stream = oggbtn
 
-func update_score(x):
-	$Margin3/Score.text = "Puntaje : " + str(x)
-
-func update_level(x):
-	$Margin2/Nivel.text = "Nivel : " + str(x)
-
-func _on_ToMenu_pressed():
+func _on_Si_pressed():
 	audiobtn.play()
-	$PopUpBack/Sprite.visible = true
+	$Sprite.visible = false
+	$Transition.fadeIn("TitleScreen")
+
+func _on_No_pressed():
+	audiobtn.play()
+	$Sprite.visible = false
