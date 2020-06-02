@@ -132,5 +132,7 @@ align = 1
 valign = 1
 
 [node name="PressToContinue" parent="." instance=ExtResource( 5 )]
+margin_top = 660.0
+margin_bottom = 0.00012207
 
 [node name="Transition" parent="." instance=ExtResource( 1 )]

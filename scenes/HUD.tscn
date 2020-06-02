@@ -38,9 +38,9 @@ margin_bottom = 80.0
 rect_min_size = Vector2( 426, 80 )
 
 [node name="ToMenu" type="TextureButton" parent="TopPanel/Margin1"]
-margin_left = 102.0
+margin_left = 103.0
 margin_top = 11.0
-margin_right = 322.0
+margin_right = 323.0
 margin_bottom = 68.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4

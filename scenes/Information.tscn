@@ -36,7 +36,7 @@ __meta__ = {
 [node name="Display" type="VBoxContainer" parent="."]
 margin_left = 120.0
 margin_right = 1160.0
-margin_bottom = 654.0
+margin_bottom = 660.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -63,15 +63,17 @@ valign = 1
 [node name="Margin2" type="MarginContainer" parent="Display"]
 margin_top = 184.0
 margin_right = 1040.0
-margin_bottom = 654.0
-rect_min_size = Vector2( 1040, 470 )
+margin_bottom = 660.0
+rect_min_size = Vector2( 1040, 476 )
 
 [node name="Description" type="RichTextLabel" parent="Display/Margin2"]
 margin_right = 1040.0
-margin_bottom = 470.0
+margin_bottom = 476.0
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 
 [node name="PressToContinue" parent="." instance=ExtResource( 5 )]
+margin_top = 660.0
+margin_bottom = 0.00012207
 
 [node name="Transition" parent="." instance=ExtResource( 2 )]
