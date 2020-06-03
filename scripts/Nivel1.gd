@@ -303,7 +303,10 @@ func _on_Timer_timeout():
 		if intentos_level <= 5:
 			next()
 		else:
+			
 			$HUD/TopPanel/Margin1/ToMenu.disabled = false
+			$HUD/PopUpInfo.visible = false
+			
 			#$PopUp.visible = false
 			#$PopUp.reset_nextlevel()
 			#next_level(score_level, score_total, level+1)
@@ -358,9 +361,13 @@ func next():
 #				$Main/VBox/Margin2/Escuchar.visible = false
 #				$PopUp.visible = true
 			else:
-				print("sigue avanzando")
-#				intentos_level += 1
-#				$Timer.start()
+				#print("sigue avanzando")
+				intentos_level += 1
+				$Timer.start()
+				$HUD/PopUpInfo.update_info("[center]FELICITACIONES SIGUE AVANZANDO\n\n[img=50x50]res://assets/emojis/nivel1.png[/img][img=50x50]res://assets/emojis/nivel2.png[/img][/center]")
+				$HUD/TopPanel/Margin1/ToMenu.disabled = true
+				$Display/Margin2/Escuchar.visible = false
+				$HUD/PopUpInfo.visible = true
 #				$PopUp.update_info_rich("[center]FELICITACIONES SIGUE AVANZANDO\n\n[img=50x50]res://assets/emojis/nivel1.png[/img][img=50x50]res://assets/emojis/nivel2.png[/img][/center]")
 #
 #				$PopUp.update_info("FELICITACIONES SIGUE AVANZANDO")

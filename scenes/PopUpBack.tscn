@@ -28,9 +28,9 @@ position = Vector2( 640, 360 )
 texture = ExtResource( 1 )
 
 [node name="VBox" type="VBoxContainer" parent="Sprite"]
-margin_left = -252.0
+margin_left = -250.0
 margin_top = -136.0
-margin_right = 248.0
+margin_right = 250.0
 margin_bottom = 136.0
 rect_min_size = Vector2( 500, 272 )
 __meta__ = {
