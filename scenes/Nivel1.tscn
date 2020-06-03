@@ -89,3 +89,4 @@ visible = false
 
 [node name="Timer" type="Timer" parent="."]
 [connection signal="pressed" from="Display/Margin2/Escuchar" to="." method="_on_Escuchar_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

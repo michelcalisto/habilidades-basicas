@@ -8,6 +8,7 @@ var oggbtn = AudioStreamOGGVorbis.new()
 func _ready():
 	# Transition
 	$Transition.fadeOut()
+	yield($Transition/AnimationPlayer, "animation_finished")
 	# Childs
 	add_child(audio)
 	add_child(audiobtn)
