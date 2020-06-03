@@ -11,7 +11,7 @@ var seleccionados = 0
 var intentos_level = 0
 var level = 1
 var score_level = 0
-#var score_user = 0
+var score_user = 0
 var score_total = 0
 var time_left = 2
 #var popup_status = 0
@@ -309,7 +309,7 @@ func _on_Timer_timeout():
 			
 			#$PopUp.visible = false
 			#$PopUp.reset_nextlevel()
-			#next_level(score_level, score_total, level+1)
+			next_level(score_level, score_total, level+1)
 
 func reset_containers():
 	for i in $Sounds.get_children():
@@ -346,7 +346,12 @@ func next():
 	else:
 		if score_level >= 4:
 			if level == 3:
-				print("final")
+				$Confetti.emitting = true
+				$HUD/PopUpFinalizar.update_info("[center]FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\nPUNTAJE FINAL : "+str(score_total)+" DE 15 PUNTOS\n[img=50x50]res://assets/emojis/win-1.png[/img][img=50x50]res://assets/emojis/win-2.png[/img][img=50x50]res://assets/emojis/win-3.png[/img][/center]")
+				$HUD/TopPanel/Margin1/ToMenu.disabled = true
+				$Display/Margin2/Escuchar.visible = false
+				$HUD/PopUpFinalizar/Sprite.visible = true
+				#print("final")
 #				popup_status = 1
 #				$Particles2D.emitting = true
 #				#$PopUp.update_info_rich("[center]FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\nPUNTAJE FINAL : "+str(score_total)+" DE 15 PUNTOS\n[img=50x50]res://assets/emojis/win-1.png[/img][img=50x50]res://assets/emojis/win-2.png[/img][img=50x50]res://assets/emojis/win-3.png[/img][/center]")
@@ -376,7 +381,11 @@ func next():
 #				$Main/VBox/Margin2/Escuchar.visible = false
 #				$PopUp.visible = true
 		else:
-			print("siguelo intentando")
+			$HUD/PopUpReintentar.update_info("[center]HAS OBTENIDO : "+str(score_total)+" DE 15 PUNTOS\nSIGUELO INTENTANDO\n\n[img=50x50]res://assets/emojis/loser1.png[/img][img=50x50]res://assets/emojis/loser2.png[/img][/center]")
+			$HUD/TopPanel/Margin1/ToMenu.disabled = true
+			$Display/Margin2/Escuchar.visible = false
+			$HUD/PopUpReintentar/Sprite.visible = true
+			#print("siguelo intentando")
 #			popup_status = 2
 #			$PopUp.update_info_rich("[center]HAS OBTENIDO : "+str(score_total)+" DE 15 PUNTOS\nSIGUELO INTENTANDO\n\n[img=50x50]res://assets/emojis/loser1.png[/img][img=50x50]res://assets/emojis/loser2.png[/img][/center]")
 #
@@ -386,3 +395,45 @@ func next():
 #			$PopUp.update_textures_rechazar("res://assets/buttons/nivels/finalizarbasic.png","res://assets/buttons/nivels/finalizarpress.png")
 #			$Main/VBox/Margin2/Escuchar.visible = false
 #			$PopUp.visible = true
+
+func next_level(s,t,l):
+	if l == 2:
+		update_indicaciones("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"PRESIONA [color=#FFD948]LOS[/color] ANIMALES QUE ESCUCHES\"[/center]")
+	
+		#$Main.update_indicaciones_rich("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"PRESIONA [color=#FFD948]LOS[/color] ANIMALES QUE ESCUCHES\"[/center]")
+		#$Main.update_indicaciones("\n\n\"PRESIONA LOS ANIMALES QUE ESCUCHES\"")
+	if l == 3:
+		update_indicaciones("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"PRESIONA [color=#FFD948]EL[/color] ANIMAL [color=#FFD948]NO[/color] ESCUCHADO\"[/center]")
+	
+		#$Main.update_indicaciones_rich("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"PRESIONA [color=#FFD948]EL[/color] ANIMAL [color=#FFD948]NO[/color] ESCUCHADO\"[/center]")
+		#$Main.update_indicaciones("\n\n\"PRESIONA EL ANIMAL NO ESCUCHADO\"")
+	#$Main/VBox/Margin2/Escuchar.visible = true
+	$Display/Margin2/Escuchar.visible = true
+	# Timer
+	$Timer.stop()
+	# Containers
+	$Options.visible = false
+	# Vars
+	seleccionados = 0
+	intentos_level = 0
+	level = l
+	score_level = 0
+	score_user = t
+	score_total = score_user
+	time_left = 2
+	#popup_status = 0
+	eleccion_correcta = false
+	# Functions
+	reset_containers()
+	$HUD.update_level(level)
+	#$TopPanel.update_level(level)
+	json = read_json()
+	set_objects(json)
+	if level == 2:
+		set_sounds(2)
+		_on_Escuchar_pressed()
+		set_options(json, 1)
+	if level == 3:
+		set_sounds(2)
+		_on_Escuchar_pressed()
+		set_options(json, 1)
