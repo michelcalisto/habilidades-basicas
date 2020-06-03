@@ -16,6 +16,7 @@ func _ready():
 	# HUD
 	$HUD.update_level(Global.nivels_level)
 	$HUD.update_score(Global.nivels_score)
+	score_total = Global.nivels_score
 	# Display
 	if Global.nivels_level == 1:
 		update_indicaciones("[center]¡ESCUCHA CON ATENCION! [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"PRESIONA [color=#FFD948]EL[/color] ANIMAL ESCUCHADO\"[/center]")
