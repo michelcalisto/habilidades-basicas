@@ -6,6 +6,7 @@ var json
 var audio = AudioStreamPlayer.new()
 var ogg = AudioStreamOGGVorbis.new()
 var seleccionados = 0
+var code_seleccionado
 var intentos_level = 0
 var score_level = 0
 var score_total = 0
@@ -205,6 +206,7 @@ func _is_code(x):
 	if Global.nivels_level == 2:
 		if seleccionados == 0:
 			seleccionados += 1
+			code_seleccionado = x.code
 			var existe = false
 			for i in $Sounds.get_children():
 				if i.code == x.code:
@@ -214,7 +216,7 @@ func _is_code(x):
 				correct(x)
 			else:
 				incorrect(x)
-		elif seleccionados == 1:
+		elif seleccionados == 1 and code_seleccionado != x.code:
 			seleccionados += 1
 			intentos_level += 1
 			audio.stop()
