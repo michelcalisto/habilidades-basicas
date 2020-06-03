@@ -17,7 +17,7 @@ func update_info(x):
 func _on_Reintentar_pressed():
 	audiobtn.play()
 	$Sprite.visible = false
-	$Transition.fadeIn("Nivel1")
+	$Transition.fadeIn(Global.information_redirect)
 	
 func _on_Finalizar_pressed():
 	audiobtn.play()

@@ -22,13 +22,15 @@ func _on_ToMenu_pressed():
 	$PopUpInfo.visible = false
 	$PopUpReintentar/Sprite.visible = false
 	$PopUpFinalizar/Sprite.visible = false
-	
+	$PopUpComparation.visible = false
+
 func show_popup_info():
 	$TopPanel/Margin1/ToMenu.disabled = true
 	$PopUpBack/Sprite.visible = false
 	$PopUpInfo.visible = true
 	$PopUpReintentar/Sprite.visible = false
 	$PopUpFinalizar/Sprite.visible = false
+	$PopUpComparation.visible = false
 
 func reset_popup_info():
 	$TopPanel/Margin1/ToMenu.disabled = false
@@ -41,6 +43,7 @@ func show_popup_reintentar(x):
 	$PopUpInfo.visible = false
 	$PopUpReintentar/Sprite.visible = true
 	$PopUpFinalizar/Sprite.visible = false
+	$PopUpComparation.visible = false
 
 func show_popup_finalizar(x):
 	$PopUpFinalizar.update_info(x)
@@ -50,3 +53,17 @@ func show_popup_finalizar(x):
 	$PopUpReintentar/Sprite.visible = false
 	$PopUpFinalizar/Sprite.visible = true
 	$PopUpFinalizar/Confetti.emitting = true
+	$PopUpComparation.visible = false
+
+func show_popup_comparation(x,y):
+	$PopUpComparation.update_comparation(x,y)
+	$TopPanel/Margin1/ToMenu.disabled = true
+	$PopUpBack/Sprite.visible = false
+	$PopUpInfo.visible = false
+	$PopUpReintentar/Sprite.visible = false
+	$PopUpFinalizar/Sprite.visible = false
+	$PopUpComparation.visible = true
+
+func reset_popup_comparation():
+	$TopPanel/Margin1/ToMenu.disabled = false
+	$PopUpComparation.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/buttons/nivels/regresarbasic.png" type="Texture" id=1]
 [ext_resource path="res://assets/buttons/nivels/regresarpress.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/PopUpInfo.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/PopUpReintentar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/PopUpFinalizar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/PopUpComparation.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -100,4 +101,6 @@ valign = 1
 [node name="PopUpReintentar" parent="." instance=ExtResource( 7 )]
 
 [node name="PopUpFinalizar" parent="." instance=ExtResource( 8 )]
+
+[node name="PopUpComparation" parent="." instance=ExtResource( 9 )]
 [connection signal="pressed" from="TopPanel/Margin1/ToMenu" to="." method="_on_ToMenu_pressed"]
