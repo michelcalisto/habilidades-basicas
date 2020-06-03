@@ -1,7 +1,5 @@
 extends Node2D
 
-#var audiobtn = AudioStreamPlayer.new()
-#var oggbtn = AudioStreamOGGVorbis.new()
 export(PackedScene) var Objeto
 const objects_file = "res://data/animals.json"
 var json
@@ -9,49 +7,44 @@ var audio = AudioStreamPlayer.new()
 var ogg = AudioStreamOGGVorbis.new()
 var seleccionados = 0
 var intentos_level = 0
-var level = 1
+#var level = 1
 var score_level = 0
-var score_user = 0
+#var score_user = 0
 var score_total = 0
 var time_left = 2
-#var popup_status = 0
 var eleccion_correcta = false
 
 func _ready():
-	# PopUp
-	#$PopUp.visible = false
 	# HUD
-	$HUD.update_level(level)
-	$HUD.update_score(score_total)
-	#$TopPanel.update_level(level)
-	#$TopPanel.update_score(score_total)
+	$HUD.update_level(Global.nivel1_level)
+	$HUD.update_score(Global.nivel1_score)
 	# Display
-	update_indicaciones("[center]¡ESCUCHA CON ATENCION! [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"PRESIONA [color=#FFD948]EL[/color] ANIMAL ESCUCHADO\"[/center]")
-	#$Main.update_indicaciones_rich("[center]ESCUCHA CON ATENCION [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"PRESIONA [color=#FFD948]EL[/color] ANIMAL ESCUCHADO\"[/center]")
-	#$Main.update_indicaciones("ESCUCHA CON ATENCION\n\n\"PRESIONA EL ANIMAL ESCUCHADO\"")
+	if Global.nivel1_level == 1:
+		update_indicaciones("[center]¡ESCUCHA CON ATENCION! [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"PRESIONA [color=#FFD948]EL[/color] ANIMAL ESCUCHADO\"[/center]")
+	if Global.nivel1_level == 2:
+		update_indicaciones("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"PRESIONA [color=#FFD948]LOS[/color] ANIMALES QUE ESCUCHES\"[/center]")
+	if Global.nivel1_level == 3:
+		update_indicaciones("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"PRESIONA [color=#FFD948]EL[/color] ANIMAL [color=#FFD948]NO[/color] ESCUCHADO\"[/center]")
 	# Transition
 	$Transition.fadeOut()
 	yield($Transition/AnimationPlayer, "animation_finished")
-#	$Transition.visible = true
-#	$Transition/AnimationPlayer.play("fade-out")
-#	yield($Transition/AnimationPlayer, "animation_finished")
-#	$Transition.visible = false
-	# Containers
-#	$Objects.visible = false
-#	$ObjectsSounds.visible = false
-#	$ObjectsOptions.visible = false
 	# Childs
 	add_child(audio)
 	# Functions
 	json = read_json()
 	set_objects(json)
-	set_sounds(1)
-	_on_Escuchar_pressed()
-	set_options(json, 1)
-#	add_child(audiobtn)
-#	oggbtn = load("res://assets/sounds/click.ogg")
-#	oggbtn.loop = false
-#	audiobtn.stream = oggbtn
+	if Global.nivel1_level == 1:
+		set_sounds(1)
+		_on_Escuchar_pressed()
+		set_options(json, 1)
+	if Global.nivel1_level == 2:
+		set_sounds(2)
+		_on_Escuchar_pressed()
+		set_options(json, 1)
+	if Global.nivel1_level == 3:
+		set_sounds(2)
+		_on_Escuchar_pressed()
+		set_options(json, 1)
 
 func update_indicaciones(x):
 	$Display/Margin1/Indicaciones.clear()
@@ -149,7 +142,7 @@ func set_options(x, agregar):
 
 # Escuchar
 func _on_Escuchar_pressed():
-	if level == 1 and seleccionados != 1:
+	if Global.nivel1_level == 1 and seleccionados != 1:
 		$Display/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiopress.png")
 		$Display/Margin2/Escuchar.disabled = true
 		for i in $Sounds.get_children():
@@ -164,7 +157,7 @@ func _on_Escuchar_pressed():
 		$Display/Margin2/Escuchar.disabled = false
 		$Options.visible = true
 		$Display/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiobasic.png")
-	if level == 2 and seleccionados != 2:
+	if Global.nivel1_level == 2 and seleccionados != 2:
 		$Display/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiopress.png")
 		$Display/Margin2/Escuchar.disabled = true
 		for i in $Sounds.get_children():
@@ -179,7 +172,7 @@ func _on_Escuchar_pressed():
 		$Display/Margin2/Escuchar.disabled = false
 		$Options.visible = true
 		$Display/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiobasic.png")
-	if level == 3 and seleccionados != 1:
+	if Global.nivel1_level == 3 and seleccionados != 1:
 		$Display/Margin2/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiopress.png")
 		$Display/Margin2/Escuchar.disabled = true
 		for i in $Sounds.get_children():
@@ -198,7 +191,7 @@ func _on_Escuchar_pressed():
 
 # Funcion que se ejecuta al clickear en un objeto
 func _is_code(x):
-	if level == 1 and seleccionados == 0:
+	if Global.nivel1_level == 1 and seleccionados == 0:
 		seleccionados += 1
 		intentos_level += 1
 		audio.stop()
@@ -210,7 +203,7 @@ func _is_code(x):
 			correct(x)
 		else:
 			incorrect(x)
-	if level == 2:
+	if Global.nivel1_level == 2:
 		if seleccionados == 0:
 			seleccionados += 1
 			var existe = false
@@ -234,7 +227,7 @@ func _is_code(x):
 				correct(x)
 			else:
 				incorrect(x)
-	if level == 3 and seleccionados == 0:
+	if Global.nivel1_level == 3 and seleccionados == 0:
 		seleccionados += 1
 		intentos_level += 1
 		audio.stop()
@@ -248,7 +241,7 @@ func _is_code(x):
 			correct(x)
 
 func correct(x):
-	if level == 1:
+	if Global.nivel1_level == 1:
 		score_level += 1
 		score_total += 1
 		$HUD.update_score(score_total)
@@ -256,7 +249,7 @@ func correct(x):
 		x.set_status("res://assets/icons/correct.png")
 		x.set_sound_victory()
 		$Timer.start()
-	if level == 2:
+	if Global.nivel1_level == 2:
 		if seleccionados == 1:
 			x.set_status("res://assets/icons/correct.png")
 			x.set_sound_victory()
@@ -269,7 +262,7 @@ func correct(x):
 			x.set_status("res://assets/icons/correct.png")
 			x.set_sound_victory()
 			$Timer.start()
-	if level == 3:
+	if Global.nivel1_level == 3:
 		score_level += 1
 		score_total += 1
 		$HUD.update_score(score_total)
@@ -279,11 +272,11 @@ func correct(x):
 		$Timer.start()
 	
 func incorrect(x):
-	if level == 1:
+	if Global.nivel1_level == 1:
 		x.set_status("res://assets/icons/incorrect.png")
 		x.set_sound_lose()
 		$Timer.start()
-	if level == 2:
+	if Global.nivel1_level == 2:
 		if seleccionados == 1:
 			x.set_status("res://assets/icons/incorrect.png")
 			x.set_sound_lose()
@@ -291,7 +284,7 @@ func incorrect(x):
 			x.set_status("res://assets/icons/incorrect.png")
 			x.set_sound_lose()
 			$Timer.start()
-	if level == 3:
+	if Global.nivel1_level == 3:
 		x.set_status("res://assets/icons/incorrect.png")
 		x.set_sound_lose()
 		$Timer.start()
@@ -309,7 +302,7 @@ func _on_Timer_timeout():
 			
 			#$PopUp.visible = false
 			#$PopUp.reset_nextlevel()
-			next_level(score_level, score_total, level+1)
+			next_level(score_level, score_total, Global.nivel1_level+1)
 
 func reset_containers():
 	for i in $Sounds.get_children():
@@ -331,26 +324,28 @@ func next():
 	eleccion_correcta = false
 	
 	if intentos_level < 5:
-		if level == 1:
+		if Global.nivel1_level == 1:
 			set_sounds(1)
 			_on_Escuchar_pressed()
 			set_options(json, 1)
-		if level == 2:
+		if Global.nivel1_level == 2:
 			set_sounds(2)
 			_on_Escuchar_pressed()
 			set_options(json, 1)
-		if level == 3:
+		if Global.nivel1_level == 3:
 			set_sounds(2)
 			_on_Escuchar_pressed()
 			set_options(json, 1)
 	else:
 		if score_level >= 4:
-			if level == 3:
+			if Global.nivel1_level == 3:
+				
 				$Confetti.emitting = true
 				$HUD/PopUpFinalizar.update_info("[center]FELICITACIONES HAS COMPLETADO\nTODOS LOS NIVELES\nPUNTAJE FINAL : "+str(score_total)+" DE 15 PUNTOS\n[img=50x50]res://assets/emojis/win-1.png[/img][img=50x50]res://assets/emojis/win-2.png[/img][img=50x50]res://assets/emojis/win-3.png[/img][/center]")
 				$HUD/TopPanel/Margin1/ToMenu.disabled = true
 				$Display/Margin2/Escuchar.visible = false
 				$HUD/PopUpFinalizar/Sprite.visible = true
+				
 				#print("final")
 #				popup_status = 1
 #				$Particles2D.emitting = true
@@ -369,11 +364,13 @@ func next():
 				#print("sigue avanzando")
 				intentos_level += 1
 				$Timer.start()
+				
 				$HUD/PopUpInfo.update_info("[center]FELICITACIONES SIGUE AVANZANDO\n\n[img=50x50]res://assets/emojis/nivel1.png[/img][img=50x50]res://assets/emojis/nivel2.png[/img][/center]")
 				$HUD/TopPanel/Margin1/ToMenu.disabled = true
 				$Display/Margin2/Escuchar.visible = false
 				$HUD/PopUpInfo.visible = true
-#				$PopUp.update_info_rich("[center]FELICITACIONES SIGUE AVANZANDO\n\n[img=50x50]res://assets/emojis/nivel1.png[/img][img=50x50]res://assets/emojis/nivel2.png[/img][/center]")
+#				
+				#$PopUp.update_info_rich("[center]FELICITACIONES SIGUE AVANZANDO\n\n[img=50x50]res://assets/emojis/nivel1.png[/img][img=50x50]res://assets/emojis/nivel2.png[/img][/center]")
 #
 #				$PopUp.update_info("FELICITACIONES SIGUE AVANZANDO")
 #				$TopPanel/Margin1/ToMenu.disabled = true
@@ -385,6 +382,7 @@ func next():
 			$HUD/TopPanel/Margin1/ToMenu.disabled = true
 			$Display/Margin2/Escuchar.visible = false
 			$HUD/PopUpReintentar/Sprite.visible = true
+			
 			#print("siguelo intentando")
 #			popup_status = 2
 #			$PopUp.update_info_rich("[center]HAS OBTENIDO : "+str(score_total)+" DE 15 PUNTOS\nSIGUELO INTENTANDO\n\n[img=50x50]res://assets/emojis/loser1.png[/img][img=50x50]res://assets/emojis/loser2.png[/img][/center]")
@@ -416,24 +414,60 @@ func next_level(s,t,l):
 	# Vars
 	seleccionados = 0
 	intentos_level = 0
-	level = l
+	Global.update_nivel1_level(l)
+	#level = l
 	score_level = 0
-	score_user = t
-	score_total = score_user
+	Global.update_nivel1_score(t)
+	#score_user = t
+	score_total = Global.nivel1_score
 	time_left = 2
 	#popup_status = 0
 	eleccion_correcta = false
 	# Functions
 	reset_containers()
-	$HUD.update_level(level)
+	$HUD.update_level(Global.nivel1_level)
 	#$TopPanel.update_level(level)
 	json = read_json()
 	set_objects(json)
-	if level == 2:
+	if Global.nivel1_level == 2:
 		set_sounds(2)
 		_on_Escuchar_pressed()
 		set_options(json, 1)
-	if level == 3:
+	if Global.nivel1_level == 3:
 		set_sounds(2)
 		_on_Escuchar_pressed()
 		set_options(json, 1)
+
+#func reintentar():
+#	$TopPanel.update_score(score_user)
+#	$Main/VBox/Margin2/Escuchar.visible = true
+#	# Timer
+#	$Timer.stop()
+#	# Containers
+#	$ObjectsOptions.visible = false
+#	# Vars
+#	seleccionados = 0
+#	intentos_level = 0
+#	#level = 1
+#	score_level = 0
+#	#score_user = 0
+#	score_total = score_user
+#	time_left = 2
+#	#popup_status = 0
+#	eleccion_correcta = false
+#	# Functions
+#	reset_containers()
+#	json = read_json()
+#	set_objects(json)
+#	if level == 1:
+#		set_sounds(1)
+#		_on_Escuchar_pressed()
+#		set_options(json, 1)
+#	if level == 2:
+#		set_sounds(2)
+#		_on_Escuchar_pressed()
+#		set_options(json, 1)
+#	if level == 3:
+#		set_sounds(2)
+#		_on_Escuchar_pressed()
+#		set_options(json, 1)

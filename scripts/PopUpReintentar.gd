@@ -22,4 +22,6 @@ func _on_Reintentar_pressed():
 func _on_Finalizar_pressed():
 	audiobtn.play()
 	$Sprite.visible = false
+	Global.update_nivel1_level(1)
+	Global.update_nivel1_score(0)
 	$Transition.fadeIn("TitleScreen")
