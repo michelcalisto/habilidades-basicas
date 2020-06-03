@@ -39,14 +39,14 @@ __meta__ = {
 
 [node name="Margin" type="MarginContainer" parent="Sprite/VBox"]
 margin_right = 500.0
-margin_bottom = 168.0
-rect_min_size = Vector2( 500, 168 )
+margin_bottom = 178.0
+rect_min_size = Vector2( 500, 178 )
 
 [node name="Info" type="Label" parent="Sprite/VBox/Margin"]
 margin_left = 60.0
-margin_top = 49.0
+margin_top = 54.0
 margin_right = 440.0
-margin_bottom = 118.0
+margin_bottom = 123.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 1 )
 text = "¿QUIERES REGRESAR AL MENU
@@ -55,21 +55,21 @@ align = 1
 valign = 1
 
 [node name="HBox" type="HBoxContainer" parent="Sprite/VBox"]
-margin_top = 172.0
+margin_top = 182.0
 margin_right = 500.0
 margin_bottom = 272.0
-rect_min_size = Vector2( 500, 100 )
+rect_min_size = Vector2( 500, 90 )
 
 [node name="Margin1" type="MarginContainer" parent="Sprite/VBox/HBox"]
 margin_right = 248.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 248, 100 )
+margin_bottom = 90.0
+rect_min_size = Vector2( 248, 90 )
 
 [node name="Si" type="TextureButton" parent="Sprite/VBox/HBox/Margin1"]
 margin_left = 14.0
-margin_top = 21.0
+margin_top = 16.0
 margin_right = 234.0
-margin_bottom = 78.0
+margin_bottom = 73.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -81,14 +81,14 @@ stretch_mode = 3
 [node name="Margin2" type="MarginContainer" parent="Sprite/VBox/HBox"]
 margin_left = 252.0
 margin_right = 500.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 248, 100 )
+margin_bottom = 90.0
+rect_min_size = Vector2( 248, 90 )
 
 [node name="No" type="TextureButton" parent="Sprite/VBox/HBox/Margin2"]
 margin_left = 14.0
-margin_top = 21.0
+margin_top = 16.0
 margin_right = 234.0
-margin_bottom = 78.0
+margin_bottom = 73.0
 rect_min_size = Vector2( 220, 57 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
