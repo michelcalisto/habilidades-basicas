@@ -61,23 +61,23 @@ valign = 1
 [node name="Margin2" type="MarginContainer" parent="VBox"]
 margin_top = 184.0
 margin_right = 1040.0
-margin_bottom = 1240.0
+margin_bottom = 776.0
 rect_min_size = Vector2( 1040, 0 )
 
 [node name="Background" type="TextureRect" parent="VBox/Margin2"]
 margin_left = 235.0
 margin_right = 805.0
-margin_bottom = 1056.0
-rect_min_size = Vector2( 570, 0 )
+margin_bottom = 592.0
+rect_min_size = Vector2( 570, 592 )
 size_flags_horizontal = 4
 texture = ExtResource( 4 )
 
 [node name="VBox" type="VBoxContainer" parent="VBox/Margin2"]
 margin_left = 295.0
-margin_top = 30.0
+margin_top = 60.0
 margin_right = 745.0
-margin_bottom = 1026.0
-rect_min_size = Vector2( 450, 996 )
+margin_bottom = 530.0
+rect_min_size = Vector2( 450, 470 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
