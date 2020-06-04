@@ -258,6 +258,7 @@ func _on_Escuchar_pressed():
 			else:
 				break
 		$Margin/Escuchar.disabled = false
+		$Panels.visible = true
 		$Options.visible = true
 		$Margin/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiobasic.png")
 	if Global.nivels_level == 2 and seleccionados != 2:
@@ -273,6 +274,7 @@ func _on_Escuchar_pressed():
 			else:
 				break
 		$Margin/Escuchar.disabled = false
+		$Panels.visible = true
 		$Options.visible = true
 		$Margin/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiobasic.png")
 	if Global.nivels_level == 3 and seleccionados != 3:
@@ -288,6 +290,7 @@ func _on_Escuchar_pressed():
 			else:
 				break
 		$Margin/Escuchar.disabled = false
+		$Panels.visible = true
 		$Options.visible = true
 		$Margin/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiobasic.png")
 	if Global.nivels_level == 4 and seleccionados != 4:
@@ -303,6 +306,7 @@ func _on_Escuchar_pressed():
 			else:
 				break
 		$Margin/Escuchar.disabled = false
+		$Panels.visible = true
 		$Options.visible = true
 		$Margin/Escuchar.texture_normal = load("res://assets/buttons/nivels/audiobasic.png")
 
@@ -570,6 +574,7 @@ func next():
 	# Timer
 	$Timer.stop()
 	# Containers
+	$Panels.visible = false
 	$Options.visible = false
 	# Vars
 	time_left = 2

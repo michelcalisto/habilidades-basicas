@@ -61,6 +61,7 @@ custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 
 [node name="Panels" type="HBoxContainer" parent="."]
+visible = false
 margin_left = 120.0
 margin_top = 230.0
 margin_right = 160.0
