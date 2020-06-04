@@ -18,7 +18,7 @@ func _ready():
 	score_total = Global.nivels_score
 	# Display
 	if Global.nivels_level == 1:
-		update_indicaciones("[center]ESCUCHA CON ATENCION [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"E IDENTIFICA SI LAS PALABRAS SON [color=#FFD948]IGUALES[/color] O [color=#FFD948]DIFERENTES[/color]\"[/center]")
+		update_indicaciones("[center]ESCUCHA CON ATENCION [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"E IDENTIFICA SI LAS PALABRAS SON [color=#FFD948]IGUALES[/color] O [color=#FFD948]DIFERENTES[/color]\"[/center]")
 	# Transition
 	$Transition.fadeOut()
 	yield($Transition/AnimationPlayer, "animation_finished")

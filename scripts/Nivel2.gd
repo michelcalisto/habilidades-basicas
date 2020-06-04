@@ -77,7 +77,6 @@ func update_indicaciones(x):
 	$Display/Margin1/Indicaciones.clear()
 	$Display/Margin1/Indicaciones.append_bbcode(str(x))
 
-
 func _process(delta):
 	var cursor_pos = get_global_mouse_position()
 	if Global.nivels_level == 1 and $Options.get_child_count() != 0:
