@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/Information.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/fonts/Kenney Mini.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scenes/PressToContinue.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+extra_spacing_space = 5
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+extra_spacing_space = 5
+font_data = ExtResource( 4 )
+
+[node name="Information" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1280, 720 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Display" type="VBoxContainer" parent="."]
+margin_left = 120.0
+margin_right = 1160.0
+margin_bottom = 660.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin1" type="MarginContainer" parent="Display"]
+margin_right = 1040.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 1040, 180 )
+
+[node name="Title" type="Label" parent="Display/Margin1"]
+margin_left = 520.0
+margin_top = 52.0
+margin_right = 520.0
+margin_bottom = 128.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
+custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+align = 1
+valign = 1
+
+[node name="Margin2" type="MarginContainer" parent="Display"]
+margin_top = 184.0
+margin_right = 1040.0
+margin_bottom = 660.0
+rect_min_size = Vector2( 1040, 476 )
+
+[node name="Description" type="RichTextLabel" parent="Display/Margin2"]
+margin_right = 1040.0
+margin_bottom = 476.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+
+[node name="PressToContinue" parent="." instance=ExtResource( 5 )]
+margin_top = 660.0
+margin_bottom = 0.00012207
+
+[node name="Transition" parent="." instance=ExtResource( 2 )]

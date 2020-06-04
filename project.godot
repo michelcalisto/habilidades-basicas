@@ -16,8 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="habilidades-basicas"
-run/main_scene="res://indicaciones/Indicaciones.tscn"
+run/main_scene="res://scenes/Information.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://scripts/Global.gd"
+SPopUp="*res://scripts/SPopUp.gd"
 
 [display]
 

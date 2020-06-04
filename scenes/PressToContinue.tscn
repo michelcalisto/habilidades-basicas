@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/fonts/Kenney Mini.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/PressToContinue.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+extra_spacing_space = 5
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="PressToContinue" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 654.0
+margin_bottom = -5.99994
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+margin_left = 120.0
+margin_right = 1160.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 1040, 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Margin"]
+margin_right = 1040.0
+margin_bottom = 60.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Para continuar, presiona [wave][color=#ffd948]\"Enter\"[/color][/wave] o haz un [wave][color=#ffd948]click[/color][/wave] en la pantalla.[/center]"
+text = "Para continuar, presiona \"Enter\" o haz un click en la pantalla."
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 1280, 60 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+anims/fade = SubResource( 2 )

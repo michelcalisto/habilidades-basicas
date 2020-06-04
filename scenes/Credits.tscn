@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fonts/Kenney Mini.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/boxs/credits.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scenes/PressToContinue.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/Credits.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+extra_spacing_space = 5
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+extra_spacing_space = 5
+font_data = ExtResource( 4 )
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1280, 720 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="Scrolling" type="Node2D" parent="."]
+position = Vector2( 0, 720 )
+
+[node name="Margin" type="MarginContainer" parent="Scrolling"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1280, 800 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="RichTextLabel" parent="Scrolling/Margin"]
+margin_right = 1280.0
+margin_bottom = 800.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]DESARROLLO
+
+FONOAUDIOLOGA
+DISEÑADOR GRAFICO
+PROGRAMADOR
+
+
+CONTACTO
+
+frommarsstudio@gmail.com
+
+
+
+
+
+
+
+
+
+¡GRACIAS POR JUGAR!
+
+[img=50x50]res://assets/emojis/nivel1.png[/img][/center]"
+text = "DESARROLLO
+
+FONOAUDIOLOGA
+DISEÑADOR GRAFICO
+PROGRAMADOR
+
+
+CONTACTO
+
+frommarsstudio@gmail.com
+
+
+
+
+
+
+
+
+
+¡GRACIAS POR JUGAR!
+
+"
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="HeaderFooter" type="TextureRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Display" type="VBoxContainer" parent="."]
+margin_left = 120.0
+margin_right = 1160.0
+margin_bottom = 604.0
+rect_min_size = Vector2( 1040, 604 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin1" type="MarginContainer" parent="Display"]
+margin_right = 1040.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 1040, 180 )
+
+[node name="Title" type="Label" parent="Display/Margin1"]
+margin_left = 332.0
+margin_top = 52.0
+margin_right = 708.0
+margin_bottom = 128.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.85098, 0.282353, 1 )
+custom_colors/font_color_shadow = Color( 0.607843, 0.482353, 0.00784314, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+text = "CREDITOS"
+align = 1
+valign = 1
+
+[node name="PressToContinue" parent="." instance=ExtResource( 5 )]
+margin_top = 660.0
+margin_bottom = 0.00012207
+
+[node name="Transition" parent="." instance=ExtResource( 1 )]

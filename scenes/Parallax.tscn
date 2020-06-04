@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/parallax/Hills5.png" type="Texture" id=1]
+[ext_resource path="res://assets/parallax/Hills2.png" type="Texture" id=2]
+[ext_resource path="res://assets/parallax/Hills6.png" type="Texture" id=3]
+[ext_resource path="res://assets/parallax/Hills3.png" type="Texture" id=4]
+[ext_resource path="res://assets/parallax/Hills4.png" type="Texture" id=5]
+[ext_resource path="res://assets/parallax/Hills1.png" type="Texture" id=6]
+[ext_resource path="res://scripts/Parallax.gd" type="Script" id=7]
+
+[node name="Parallax" type="ParallaxBackground"]
+script = ExtResource( 7 )
+
+[node name="Layer1" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 1042, 0 )
+
+[node name="Texture" type="TextureRect" parent="Layer1"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Layer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 1042, 0 )
+
+[node name="Texture" type="TextureRect" parent="Layer2"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Layer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 1042, 0 )
+
+[node name="Texture" type="TextureRect" parent="Layer3"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Layer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 1042, 0 )
+
+[node name="Texture" type="TextureRect" parent="Layer4"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Layer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.8, 1 )
+motion_mirroring = Vector2( 1042, 0 )
+
+[node name="Texture" type="TextureRect" parent="Layer5"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Layer6" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.9, 1 )
+motion_mirroring = Vector2( 1042, 0 )
+
+[node name="Texture" type="TextureRect" parent="Layer6"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
