@@ -356,7 +356,6 @@ func next_level(s,t,l):
 	seleccionados = 0
 	intentos_level = 0
 	Global.update_level(l)
-	#level = l
 	score_level = 0
 	Global.update_score(t)
 	score_total = Global.nivels_score
