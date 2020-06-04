@@ -332,7 +332,7 @@ func next():
 		if score_level >= 4:
 			if Global.nivels_level == 3:
 				$Display/Margin2/Escuchar.visible = false
-				$HUD.show_popup_finalizar("[center]¡FELICITACIONES! SUPERASTE EL NIVEL\nPUNTAJE FINAL : "+str(score_total)+" DE 15 PUNTOS\n\n[img=50x50]res://assets/emojis/win1.png[/img][img=50x50]res://assets/emojis/win2.png[/img][img=50x50]res://assets/emojis/win3.png[/img][/center]")
+				$HUD.show_popup_finalizar("[center]¡FELICITACIONES!\nPUNTAJE FINAL : "+str(score_total)+" DE 15 PUNTOS\n\n[img=50x50]res://assets/emojis/win1.png[/img][img=50x50]res://assets/emojis/win2.png[/img][img=50x50]res://assets/emojis/win3.png[/img][/center]")
 			else:
 				intentos_level += 1
 				$Timer.start()

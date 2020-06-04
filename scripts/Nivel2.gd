@@ -19,21 +19,22 @@ func _ready():
 	$HUD.update_level(Global.nivels_level)
 	$HUD.update_score(Global.nivels_score)
 	score_total = Global.nivels_score
-	# Display
-	update_indicaciones("[center]ESCUCHA CON ATENCION [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
 	# Panels
 	if Global.nivels_level == 1:
+		update_indicaciones("[center]ESCUCHA CON ATENCION [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
 		var panels_x = 515 - (125 * (2-1))
 		$Panels.rect_position.x = panels_x
 		$Panels/Margin1.visible = true
 		$Panels/Margin2.visible = true
 	if Global.nivels_level == 2:
+		update_indicaciones("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
 		var panels_x = 515 - (125 * (2-1))
 		$Panels.rect_position.x = panels_x
 		# Panels
 		$Panels/Margin1.visible = true
 		$Panels/Margin2.visible = true
 	if Global.nivels_level == 3:
+		update_indicaciones("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
 		var panels_x = 515 - (125 * (3-1))
 		$Panels.rect_position.x = panels_x
 		# Panels
@@ -41,6 +42,7 @@ func _ready():
 		$Panels/Margin2.visible = true
 		$Panels/Margin3.visible = true
 	if Global.nivels_level == 4:
+		update_indicaciones("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
 		var panels_x = 515 - (125 * (4-1))
 		$Panels.rect_position.x = panels_x
 		# Panels
@@ -621,7 +623,7 @@ func next():
 		if score_level == 2:
 			if Global.nivels_level == 4:
 				$Margin/Escuchar.visible = false
-				$HUD.show_popup_finalizar("[center]¡FELICITACIONES! SUPERASTE EL NIVEL\nPUNTAJE FINAL : "+str(score_total)+" DE 8 PUNTOS\n\n[img=50x50]res://assets/emojis/win1.png[/img][img=50x50]res://assets/emojis/win2.png[/img][img=50x50]res://assets/emojis/win3.png[/img][/center]")
+				$HUD.show_popup_finalizar("[center]¡FELICITACIONES!\nPUNTAJE FINAL : "+str(score_total)+" DE 8 PUNTOS\n\n[img=50x50]res://assets/emojis/win1.png[/img][img=50x50]res://assets/emojis/win2.png[/img][img=50x50]res://assets/emojis/win3.png[/img][/center]")
 			else:
 				intentos_level += 1
 				$Timer.start()
@@ -638,10 +640,8 @@ func next_level(s,t,l):
 		$Panels.rect_position.x = panels_x
 		$Panels/Margin1.visible = true
 		$Panels/Margin2.visible = true
-		$Panels/Margin3.visible = false
-		$Panels/Margin4.visible = false
 		# Display
-		update_indicaciones("[center]ESCUCHA CON ATENCION [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
+		update_indicaciones("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
 	if l == 3:
 		# Panels
 		var panels_x = 515 - (125 * (3-1))
@@ -649,9 +649,8 @@ func next_level(s,t,l):
 		$Panels/Margin1.visible = true
 		$Panels/Margin2.visible = true
 		$Panels/Margin3.visible = true
-		$Panels/Margin4.visible = false
 		# Display
-		update_indicaciones("[center]ESCUCHA CON ATENCION [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
+		update_indicaciones("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
 	if l == 4:
 		# Panels
 		var panels_x = 515 - (125 * (4-1))
@@ -661,7 +660,7 @@ func next_level(s,t,l):
 		$Panels/Margin3.visible = true
 		$Panels/Margin4.visible = true
 		# Display
-		update_indicaciones("[center]ESCUCHA CON ATENCION [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
+		update_indicaciones("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"[color=#FFD948]ARRASTRA[/color] LAS IMAGENES SEGUN LO ESCUCHADO\"[/center]")
 	$Margin/Escuchar.visible = true
 	# Timer
 	$Timer.stop()

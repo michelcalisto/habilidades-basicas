@@ -226,7 +226,7 @@ func next():
 	else:
 		if score_level >= 7:
 			$Display/Margin2/Escuchar.visible = false
-			$HUD.show_popup_finalizar("[center]¡FELICITACIONES! SUPERASTE EL NIVEL\nPUNTAJE FINAL : "+str(score_total)+" DE 8 PUNTOS\n\n[img=50x50]res://assets/emojis/win1.png[/img][img=50x50]res://assets/emojis/win2.png[/img][img=50x50]res://assets/emojis/win3.png[/img][/center]")
+			$HUD.show_popup_finalizar("[center]¡FELICITACIONES!\nPUNTAJE FINAL : "+str(score_total)+" DE 8 PUNTOS\n\n[img=50x50]res://assets/emojis/win1.png[/img][img=50x50]res://assets/emojis/win2.png[/img][img=50x50]res://assets/emojis/win3.png[/img][/center]")
 		else:
 			$Display/Margin2/Escuchar.visible = false
 			$HUD.show_popup_reintentar("[center]HAS OBTENIDO : "+str(score_total)+" DE 8 PUNTOS\nSIGUELO INTENTANDO\n\n[img=50x50]res://assets/emojis/loser1.png[/img][img=50x50]res://assets/emojis/loser2.png[/img][/center]")
