@@ -10,4 +10,4 @@ Destinado a niños desde los 4 años.
 
 ## Política de Privacidad
 
-Revisa la [Política de Privacidad](https://laloinsane.github.io/habilidades-basicas/index.html) de la aplicación para mantenerte informado del uso y la protección de los datos que nos facilitan los usuarios.
+Revisa la [Política de Privacidad](https://laloinsane.github.io/habilidades-basicas/index.html) de la aplicación para mantenerte informado del uso y la protección de los datos de nuestros usuarios.
