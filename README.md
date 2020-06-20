@@ -9,7 +9,7 @@ El juego de "Habilidades Básicas" estimula (La Atención Auditiva, La Memoria A
 
 ## Requisitos
 
-- Godot Engine v3.2.1 o superior
+- Godot Engine >= v3.2.1
 
 ## Política de Privacidad
 
