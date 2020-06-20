@@ -4,4 +4,4 @@ El juego de "Habilidades Básicas" estimula (La Atención Auditiva, La Memoria A
 
 ## Status
 
-[![Godot Engine](https://img.shields.io/badge/Godot%20Engine-v3.2.1-blue)]
+[!https://img.shields.io/badge/Godot%20Engine-v3.2.1-blue]
