@@ -17,8 +17,7 @@ _global_script_class_icons={
 
 config/name="habilidades-basicas"
 run/main_scene="res://scenes/Information.tscn"
-boot_splash/image="res://assets/boxs/splashscreen.png"
-boot_splash/bg_color=Color( 0.235294, 0.231373, 0.235294, 1 )
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]

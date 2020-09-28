@@ -74,9 +74,9 @@ texture = ExtResource( 4 )
 
 [node name="VBox" type="VBoxContainer" parent="VBox/Margin2"]
 margin_left = 295.0
-margin_top = 60.0
+margin_top = 61.0
 margin_right = 745.0
-margin_bottom = 530.0
+margin_bottom = 531.0
 rect_min_size = Vector2( 450, 470 )
 size_flags_horizontal = 4
 size_flags_vertical = 4

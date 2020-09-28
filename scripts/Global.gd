@@ -7,6 +7,25 @@ var information_redirect = "TitleScreen"
 # Nivels
 var nivels_level = 1
 var nivels_score = 0
+# Main Theme
+var audio = AudioStreamPlayer.new()
+var ogg = AudioStreamOGGVorbis.new()
+var played = false
+
+func _ready():
+	# Childs
+	add_child(audio)
+	ogg = load("res://assets/sounds/main_theme.ogg")
+	ogg.loop = true
+	audio.stream = ogg
+
+func play_song():
+	played = true
+	audio.play()
+
+func stop_song():
+	played = false
+	audio.stop()
 
 # Information
 func update_title(title):
