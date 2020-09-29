@@ -11,6 +11,8 @@ var nivels_score = 0
 var audio = AudioStreamPlayer.new()
 var ogg = AudioStreamOGGVorbis.new()
 var played = false
+# Categories
+var categorie
 
 func _ready():
 	# Childs
@@ -43,3 +45,7 @@ func update_level(level):
 
 func update_score(score):
 	self.nivels_score = score
+
+# Categories
+func update_categorie(categorie):
+	self.categorie = str(categorie)

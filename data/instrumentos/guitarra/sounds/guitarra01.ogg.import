@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/guitarra01.ogg-f2281f70c9979e5bf110cdfb38889845.oggstr"
+
+[deps]
+
+source_file="res://data/instrumentos/guitarra/sounds/guitarra01.ogg"
+dest_files=[ "res://.import/guitarra01.ogg-f2281f70c9979e5bf110cdfb38889845.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

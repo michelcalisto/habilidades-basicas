@@ -414,6 +414,8 @@ anims/Out = SubResource( 3 )
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin1/Atencion1" to="." method="_on_Atencion1_pressed"]
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin1/Atencion2" to="." method="_on_Atencion2_pressed"]
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin1/Intensidad" to="." method="_on_Intensidad_pressed"]
+[connection signal="pressed" from="VBox/Margin2/VBox/Margin1/Categories/Margin1/Animals" to="." method="_on_Animals_pressed"]
+[connection signal="pressed" from="VBox/Margin2/VBox/Margin1/Categories/Margin2/Instruments" to="." method="_on_Instruments_pressed"]
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin2/Nivel2" to="." method="_on_Nivel2_pressed"]
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin2/Memoria1" to="." method="_on_Memoria1_pressed"]
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin2/Memoria2" to="." method="_on_Memoria2_pressed"]

@@ -302,3 +302,21 @@ func _on_Regresar2_3_pressed():
 	menu()
 	$ColorRect.fadeOut()
 	yield($ColorRect/AnimationPlayer, "animation_finished")
+
+func _on_Animals_pressed():
+	audiobtn.play()
+	Global.update_title("ATENCION AUDITIVA")
+	Global.update_description("[fill]EN ESTE JUEGO TENDRAS QUE ESTAR MUY ATENTO/A, PORQUE TIENES QUE ESCUCHAR SONIDOS. ESTE JUEGO CONSTA DE CUATRO ETAPAS, LAS CUALES IRAN AUMENTANDO SU DIFICULTAD A MEDIDA QUE AVANCES POR LOS NIVELES. [rainbow freq=0.1 sat=0.5 val=1]ACIERTA A CADA SONIDO QUE ESCUCHES[/rainbow] Y COMPLETARAS CON EXITO ESTA ACTIVIDAD. SI TE EQUIVOCAS, NO TE PREOCUPES, LO PUEDES VOLVER A INTENTAR LAS VECES QUE QUIERAS.[/fill]")
+	Global.update_redirect("nivel2/Nivel1")
+	Global.update_categorie("animals")
+	$Transition.fadeIn("Information")
+	Global.stop_song()
+
+func _on_Instruments_pressed():
+	audiobtn.play()
+	Global.update_title("ATENCION AUDITIVA")
+	Global.update_description("[fill]EN ESTE JUEGO TENDRAS QUE ESTAR MUY ATENTO/A, PORQUE TIENES QUE ESCUCHAR SONIDOS. ESTE JUEGO CONSTA DE CUATRO ETAPAS, LAS CUALES IRAN AUMENTANDO SU DIFICULTAD A MEDIDA QUE AVANCES POR LOS NIVELES. [rainbow freq=0.1 sat=0.5 val=1]ACIERTA A CADA SONIDO QUE ESCUCHES[/rainbow] Y COMPLETARAS CON EXITO ESTA ACTIVIDAD. SI TE EQUIVOCAS, NO TE PREOCUPES, LO PUEDES VOLVER A INTENTAR LAS VECES QUE QUIERAS.[/fill]")
+	Global.update_redirect("nivel2/Nivel1")
+	Global.update_categorie("instrumentos")
+	$Transition.fadeIn("Information")
+	Global.stop_song()

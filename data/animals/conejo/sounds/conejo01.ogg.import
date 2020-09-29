@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/conejo01.ogg-13ca731e211ea8b989a82dfccc4b2190.oggstr"
+
+[deps]
+
+source_file="res://data/animals/conejo/sounds/conejo01.ogg"
+dest_files=[ "res://.import/conejo01.ogg-13ca731e211ea8b989a82dfccc4b2190.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

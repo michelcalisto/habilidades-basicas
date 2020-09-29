@@ -58,5 +58,17 @@
     "code": "10-Vaca",
     "sound": "res://data/animals/vaca/sounds/vaca01.ogg",
     "image": "res://data/animals/vaca/images/vaca01.png"
+  },
+  "11": {
+    "name": "Cabra",
+    "code": "11-Cabra",
+    "sound": "res://data/animals/cabra/sounds/cabra01.ogg",
+    "image": "res://data/animals/cabra/images/cabra01.png"
+  },
+  "12": {
+    "name": "Conejo",
+    "code": "12-Conejo",
+    "sound": "res://data/animals/conejo/sounds/conejo01.ogg",
+    "image": "res://data/animals/conejo/images/conejo01.png"
   }
 }
