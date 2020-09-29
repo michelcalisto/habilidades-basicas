@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/03p.png-2a7d10cc2d62ec9884304652e09e921c.stex"
+path="res://.import/duracion-press.png-abe2148b40255776ce4e871ca72c43e5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/titlescreen/03p.png"
-dest_files=[ "res://.import/03p.png-2a7d10cc2d62ec9884304652e09e921c.stex" ]
+source_file="res://assets/buttons/titlescreen/nivel2/discriminacion/duracion-press.png"
+dest_files=[ "res://.import/duracion-press.png-abe2148b40255776ce4e871ca72c43e5.stex" ]
 
 [params]
 

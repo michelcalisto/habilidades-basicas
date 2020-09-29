@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/04p.png-48a5cbe5fe44bdf41b4eedb78eea7874.stex"
+path="res://.import/nivel2-basic.png-58ce5724bde8515ef0c6c2718b28f347.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/titlescreen/04p.png"
-dest_files=[ "res://.import/04p.png-48a5cbe5fe44bdf41b4eedb78eea7874.stex" ]
+source_file="res://assets/buttons/titlescreen/main/nivel2-basic.png"
+dest_files=[ "res://.import/nivel2-basic.png-58ce5724bde8515ef0c6c2718b28f347.stex" ]
 
 [params]
 

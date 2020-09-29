@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/02b.png-b7e3b99c8716e8446cbcb1b82e4b345c.stex"
+path="res://.import/creditos-basic.png-3a6f075df10dc30bc668f3a8ab88cf6a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/titlescreen/02b.png"
-dest_files=[ "res://.import/02b.png-b7e3b99c8716e8446cbcb1b82e4b345c.stex" ]
+source_file="res://assets/buttons/titlescreen/main/creditos-basic.png"
+dest_files=[ "res://.import/creditos-basic.png-3a6f075df10dc30bc668f3a8ab88cf6a.stex" ]
 
 [params]
 

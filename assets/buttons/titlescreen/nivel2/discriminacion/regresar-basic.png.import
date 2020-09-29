@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/02p.png-4ef497a81aa0f4d654f0f37c73c41fba.stex"
+path="res://.import/regresar-basic.png-7e763920c18c7e4bcc7e33bf7d3ec814.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/titlescreen/02p.png"
-dest_files=[ "res://.import/02p.png-4ef497a81aa0f4d654f0f37c73c41fba.stex" ]
+source_file="res://assets/buttons/titlescreen/nivel2/discriminacion/regresar-basic.png"
+dest_files=[ "res://.import/regresar-basic.png-7e763920c18c7e4bcc7e33bf7d3ec814.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/03b.png-3204d44bd300f57f9d30b6f0916fb4ca.stex"
+path="res://.import/regresar-press.png-2263610cc594c3d29a0a682c96ca4266.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/titlescreen/03b.png"
-dest_files=[ "res://.import/03b.png-3204d44bd300f57f9d30b6f0916fb4ca.stex" ]
+source_file="res://assets/buttons/titlescreen/nivel2/regresar-press.png"
+dest_files=[ "res://.import/regresar-press.png-2263610cc594c3d29a0a682c96ca4266.stex" ]
 
 [params]
 
