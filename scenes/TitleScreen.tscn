@@ -323,6 +323,30 @@ texture_pressed = ExtResource( 32 )
 expand = true
 stretch_mode = 3
 
+[node name="Regresar2_2" type="TextureButton" parent="VBox/Margin2/VBox/Margin4"]
+margin_top = 14.0
+margin_right = 450.0
+margin_bottom = 71.0
+rect_min_size = Vector2( 450, 57 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 28 )
+texture_pressed = ExtResource( 32 )
+expand = true
+stretch_mode = 3
+
+[node name="Regresar2_3" type="TextureButton" parent="VBox/Margin2/VBox/Margin4"]
+margin_top = 14.0
+margin_right = 450.0
+margin_bottom = 71.0
+rect_min_size = Vector2( 450, 57 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 28 )
+texture_pressed = ExtResource( 32 )
+expand = true
+stretch_mode = 3
+
 [node name="Transition" parent="." instance=ExtResource( 2 )]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -354,3 +378,5 @@ anims/Out = SubResource( 6 )
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin4/Regresar1" to="." method="_on_Regresar1_pressed"]
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin4/Regresar2" to="." method="_on_Regresar2_pressed"]
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin4/Regresar2_1" to="." method="_on_Regresar2_1_pressed"]
+[connection signal="pressed" from="VBox/Margin2/VBox/Margin4/Regresar2_2" to="." method="_on_Regresar2_2_pressed"]
+[connection signal="pressed" from="VBox/Margin2/VBox/Margin4/Regresar2_3" to="." method="_on_Regresar2_3_pressed"]

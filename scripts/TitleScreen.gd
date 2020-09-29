@@ -40,6 +40,8 @@ func menu():
 		$VBox/Margin2/VBox/Margin4/Regresar1.hide()
 		$VBox/Margin2/VBox/Margin4/Regresar2.hide()
 		$VBox/Margin2/VBox/Margin4/Regresar2_1.hide()
+		$VBox/Margin2/VBox/Margin4/Regresar2_2.hide()
+		$VBox/Margin2/VBox/Margin4/Regresar2_3.hide()
 	else:
 		if nivel1 == true:
 			$VBox/Margin2/VBox/Margin1/Nivel1.hide()
@@ -59,6 +61,8 @@ func menu():
 			$VBox/Margin2/VBox/Margin4/Regresar1.show()
 			$VBox/Margin2/VBox/Margin4/Regresar2.hide()
 			$VBox/Margin2/VBox/Margin4/Regresar2_1.hide()
+			$VBox/Margin2/VBox/Margin4/Regresar2_2.hide()
+			$VBox/Margin2/VBox/Margin4/Regresar2_3.hide()
 		else: 
 			if nivel2 == true:
 				$VBox/Margin2/VBox/Margin1/Nivel1.hide()
@@ -78,6 +82,8 @@ func menu():
 				$VBox/Margin2/VBox/Margin4/Regresar1.hide()
 				$VBox/Margin2/VBox/Margin4/Regresar2.show()
 				$VBox/Margin2/VBox/Margin4/Regresar2_1.hide()
+				$VBox/Margin2/VBox/Margin4/Regresar2_2.hide()
+				$VBox/Margin2/VBox/Margin4/Regresar2_3.hide()
 			else: 
 				if nivel2_3 == true:
 					$VBox/Margin2/VBox/Margin1/Nivel1.hide()
@@ -96,7 +102,9 @@ func menu():
 					$VBox/Margin2/VBox/Margin4/Credits.hide()
 					$VBox/Margin2/VBox/Margin4/Regresar1.hide()
 					$VBox/Margin2/VBox/Margin4/Regresar2.hide()
-					$VBox/Margin2/VBox/Margin4/Regresar2_1.show()
+					$VBox/Margin2/VBox/Margin4/Regresar2_1.hide()
+					$VBox/Margin2/VBox/Margin4/Regresar2_2.hide()
+					$VBox/Margin2/VBox/Margin4/Regresar2_3.show()
 
 func _on_Nivel1_pressed():
 	audiobtn.play()
@@ -210,6 +218,13 @@ func _on_Regresar2_pressed():
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 
 func _on_Regresar2_1_pressed():
+	pass
+
+func _on_Regresar2_2_pressed():
+	pass # Replace with function body.
+
+
+func _on_Regresar2_3_pressed():
 	audiobtn.play()
 	main = false
 	nivel1 = false
