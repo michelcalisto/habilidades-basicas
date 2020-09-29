@@ -231,6 +231,48 @@ texture_pressed = ExtResource( 34 )
 expand = true
 stretch_mode = 3
 
+[node name="Categories2" type="HBoxContainer" parent="VBox/Margin2/VBox/Margin1"]
+visible = false
+margin_right = 454.0
+margin_bottom = 170.0
+
+[node name="Margin1" type="MarginContainer" parent="VBox/Margin2/VBox/Margin1/Categories2"]
+margin_right = 225.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 225, 170 )
+
+[node name="Animals2" type="TextureButton" parent="VBox/Margin2/VBox/Margin1/Categories2/Margin1"]
+margin_left = 59.0
+margin_top = 32.0
+margin_right = 164.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 105, 105 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 36 )
+texture_pressed = ExtResource( 35 )
+expand = true
+stretch_mode = 3
+
+[node name="Margin2" type="MarginContainer" parent="VBox/Margin2/VBox/Margin1/Categories2"]
+margin_left = 229.0
+margin_right = 454.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 225, 170 )
+
+[node name="Instruments2" type="TextureButton" parent="VBox/Margin2/VBox/Margin1/Categories2/Margin2"]
+margin_left = 59.0
+margin_top = 32.0
+margin_right = 164.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 105, 105 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 33 )
+texture_pressed = ExtResource( 34 )
+expand = true
+stretch_mode = 3
+
 [node name="Margin2" type="MarginContainer" parent="VBox/Margin2/VBox"]
 margin_top = 89.0
 margin_right = 450.0
@@ -416,6 +458,8 @@ anims/Out = SubResource( 3 )
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin1/Intensidad" to="." method="_on_Intensidad_pressed"]
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin1/Categories/Margin1/Animals" to="." method="_on_Animals_pressed"]
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin1/Categories/Margin2/Instruments" to="." method="_on_Instruments_pressed"]
+[connection signal="pressed" from="VBox/Margin2/VBox/Margin1/Categories2/Margin1/Animals2" to="." method="_on_Animals2_pressed"]
+[connection signal="pressed" from="VBox/Margin2/VBox/Margin1/Categories2/Margin2/Instruments2" to="." method="_on_Instruments2_pressed"]
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin2/Nivel2" to="." method="_on_Nivel2_pressed"]
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin2/Memoria1" to="." method="_on_Memoria1_pressed"]
 [connection signal="pressed" from="VBox/Margin2/VBox/Margin2/Memoria2" to="." method="_on_Memoria2_pressed"]
