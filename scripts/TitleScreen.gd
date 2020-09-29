@@ -6,6 +6,7 @@ var oggbtn = AudioStreamOGGVorbis.new()
 var main = true
 var nivel1 = false
 var nivel2 = false
+var nivel2_1 = false
 var nivel2_3 = false
 
 func _ready():
@@ -27,7 +28,9 @@ func menu():
 		$VBox/Margin2/VBox/Margin1/Atencion1.hide()
 		$VBox/Margin2/VBox/Margin1/Atencion2.hide()
 		$VBox/Margin2/VBox/Margin1/Intensidad.hide()
+		$VBox/Margin2/VBox/Margin1/Categories.hide()
 		
+		$VBox/Margin2/VBox/Margin2.show()
 		$VBox/Margin2/VBox/Margin2/Nivel2.show()
 		$VBox/Margin2/VBox/Margin2/Memoria1.hide()
 		$VBox/Margin2/VBox/Margin2/Memoria2.hide()
@@ -48,7 +51,9 @@ func menu():
 			$VBox/Margin2/VBox/Margin1/Atencion1.show()
 			$VBox/Margin2/VBox/Margin1/Atencion2.hide()
 			$VBox/Margin2/VBox/Margin1/Intensidad.hide()
+			$VBox/Margin2/VBox/Margin1/Categories.hide()
 			
+			$VBox/Margin2/VBox/Margin2.show()
 			$VBox/Margin2/VBox/Margin2/Nivel2.hide()
 			$VBox/Margin2/VBox/Margin2/Memoria1.show()
 			$VBox/Margin2/VBox/Margin2/Memoria2.hide()
@@ -69,7 +74,9 @@ func menu():
 				$VBox/Margin2/VBox/Margin1/Atencion1.hide()
 				$VBox/Margin2/VBox/Margin1/Atencion2.show()
 				$VBox/Margin2/VBox/Margin1/Intensidad.hide()
+				$VBox/Margin2/VBox/Margin1/Categories.hide()
 				
+				$VBox/Margin2/VBox/Margin2.show()
 				$VBox/Margin2/VBox/Margin2/Nivel2.hide()
 				$VBox/Margin2/VBox/Margin2/Memoria1.hide()
 				$VBox/Margin2/VBox/Margin2/Memoria2.show()
@@ -90,7 +97,9 @@ func menu():
 					$VBox/Margin2/VBox/Margin1/Atencion1.hide()
 					$VBox/Margin2/VBox/Margin1/Atencion2.hide()
 					$VBox/Margin2/VBox/Margin1/Intensidad.show()
+					$VBox/Margin2/VBox/Margin1/Categories.hide()
 					
+					$VBox/Margin2/VBox/Margin2.show()
 					$VBox/Margin2/VBox/Margin2/Nivel2.hide()
 					$VBox/Margin2/VBox/Margin2/Memoria1.hide()
 					$VBox/Margin2/VBox/Margin2/Memoria2.hide()
@@ -105,12 +114,36 @@ func menu():
 					$VBox/Margin2/VBox/Margin4/Regresar2_1.hide()
 					$VBox/Margin2/VBox/Margin4/Regresar2_2.hide()
 					$VBox/Margin2/VBox/Margin4/Regresar2_3.show()
+				else: 
+					if nivel2_1 == true:
+						$VBox/Margin2/VBox/Margin1/Nivel1.hide()
+						$VBox/Margin2/VBox/Margin1/Atencion1.hide()
+						$VBox/Margin2/VBox/Margin1/Atencion2.hide()
+						$VBox/Margin2/VBox/Margin1/Intensidad.hide()
+						$VBox/Margin2/VBox/Margin1/Categories.show()
+						
+						$VBox/Margin2/VBox/Margin2.hide()
+						$VBox/Margin2/VBox/Margin2/Nivel2.hide()
+						$VBox/Margin2/VBox/Margin2/Memoria1.hide()
+						$VBox/Margin2/VBox/Margin2/Memoria2.hide()
+						$VBox/Margin2/VBox/Margin2/Duracion.hide()
+						
+						$VBox/Margin2/VBox/Margin3/Discriminacion1.hide()
+						$VBox/Margin2/VBox/Margin3/Discriminacion2.hide()
+						
+						$VBox/Margin2/VBox/Margin4/Credits.hide()
+						$VBox/Margin2/VBox/Margin4/Regresar1.hide()
+						$VBox/Margin2/VBox/Margin4/Regresar2.hide()
+						$VBox/Margin2/VBox/Margin4/Regresar2_1.show()
+						$VBox/Margin2/VBox/Margin4/Regresar2_2.hide()
+						$VBox/Margin2/VBox/Margin4/Regresar2_3.hide()
 
 func _on_Nivel1_pressed():
 	audiobtn.play()
 	main = false
 	nivel1 = true
 	nivel2 = false
+	nivel2_1 = false
 	nivel2_3 = false
 	$ColorRect.fadeIn()
 	yield($ColorRect/AnimationPlayer, "animation_finished")
@@ -127,7 +160,17 @@ func _on_Atencion1_pressed():
 	Global.stop_song()
 
 func _on_Atencion2_pressed():
-	pass # Replace with function body.
+	audiobtn.play()
+	main = false
+	nivel1 = false
+	nivel2 = false
+	nivel2_1 = true
+	nivel2_3 = false
+	$ColorRect.fadeIn()
+	yield($ColorRect/AnimationPlayer, "animation_finished")
+	menu()
+	$ColorRect.fadeOut()
+	yield($ColorRect/AnimationPlayer, "animation_finished")
 
 func _on_Intensidad_pressed():
 	audiobtn.play()
@@ -142,6 +185,7 @@ func _on_Nivel2_pressed():
 	main = false
 	nivel1 = false
 	nivel2 = true
+	nivel2_1 = false
 	nivel2_3 = false
 	$ColorRect.fadeIn()
 	yield($ColorRect/AnimationPlayer, "animation_finished")
@@ -182,6 +226,7 @@ func _on_Discriminacion2_pressed():
 	main = false
 	nivel1 = false
 	nivel2 = false
+	nivel2_1 = false
 	nivel2_3 = true
 	$ColorRect.fadeIn()
 	yield($ColorRect/AnimationPlayer, "animation_finished")
@@ -198,6 +243,7 @@ func _on_Regresar1_pressed():
 	main = true
 	nivel1 = false
 	nivel2 = false
+	nivel2_1 = false
 	nivel2_3 = false
 	$ColorRect.fadeIn()
 	yield($ColorRect/AnimationPlayer, "animation_finished")
@@ -210,6 +256,7 @@ func _on_Regresar2_pressed():
 	main = true
 	nivel1 = false
 	nivel2 = false
+	nivel2_1 = false
 	nivel2_3 = false
 	$ColorRect.fadeIn()
 	yield($ColorRect/AnimationPlayer, "animation_finished")
@@ -218,17 +265,37 @@ func _on_Regresar2_pressed():
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 
 func _on_Regresar2_1_pressed():
-	pass
+	audiobtn.play()
+	main = false
+	nivel1 = false
+	nivel2 = true
+	nivel2_1 = false
+	nivel2_3 = false
+	$ColorRect.fadeIn()
+	yield($ColorRect/AnimationPlayer, "animation_finished")
+	menu()
+	$ColorRect.fadeOut()
+	yield($ColorRect/AnimationPlayer, "animation_finished")
 
 func _on_Regresar2_2_pressed():
-	pass # Replace with function body.
-
+	audiobtn.play()
+	main = false
+	nivel1 = false
+	nivel2 = true
+	nivel2_1 = false
+	nivel2_3 = false
+	$ColorRect.fadeIn()
+	yield($ColorRect/AnimationPlayer, "animation_finished")
+	menu()
+	$ColorRect.fadeOut()
+	yield($ColorRect/AnimationPlayer, "animation_finished")
 
 func _on_Regresar2_3_pressed():
 	audiobtn.play()
 	main = false
 	nivel1 = false
 	nivel2 = true
+	nivel2_1 = false
 	nivel2_3 = false
 	$ColorRect.fadeIn()
 	yield($ColorRect/AnimationPlayer, "animation_finished")
