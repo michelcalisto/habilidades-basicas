@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/string-section-long-low.ogg-ce6c35e96da2d66817d4e64b5077ca94.oggstr"
+
+[deps]
+
+source_file="res://data/instruments/string-section/sounds/string-section-long-low.ogg"
+dest_files=[ "res://.import/string-section-long-low.ogg-ce6c35e96da2d66817d4e64b5077ca94.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

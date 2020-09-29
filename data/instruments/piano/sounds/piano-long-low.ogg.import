@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/piano-long-low.ogg-fcc2c21daf0a9ba84f9cda05e941204d.oggstr"
+
+[deps]
+
+source_file="res://data/instruments/piano/sounds/piano-long-low.ogg"
+dest_files=[ "res://.import/piano-long-low.ogg-fcc2c21daf0a9ba84f9cda05e941204d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

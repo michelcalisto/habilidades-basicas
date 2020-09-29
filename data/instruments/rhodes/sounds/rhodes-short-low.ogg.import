@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rhodes-short-low.ogg-6d8679c134d8ea0b771c827ff570346f.oggstr"
+
+[deps]
+
+source_file="res://data/instruments/rhodes/sounds/rhodes-short-low.ogg"
+dest_files=[ "res://.import/rhodes-short-low.ogg-6d8679c134d8ea0b771c827ff570346f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

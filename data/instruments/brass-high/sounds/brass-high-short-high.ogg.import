@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/brass-high-short-high.ogg-12b7e0ac374f26f198f1c002f479574f.oggstr"
+
+[deps]
+
+source_file="res://data/instruments/brass-high/sounds/brass-high-short-high.ogg"
+dest_files=[ "res://.import/brass-high-short-high.ogg-12b7e0ac374f26f198f1c002f479574f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

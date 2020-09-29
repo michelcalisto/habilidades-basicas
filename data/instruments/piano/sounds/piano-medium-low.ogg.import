@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/piano-medium-low.ogg-2ef9dc60dd982627f2de983e112afd1e.oggstr"
+
+[deps]
+
+source_file="res://data/instruments/piano/sounds/piano-medium-low.ogg"
+dest_files=[ "res://.import/piano-medium-low.ogg-2ef9dc60dd982627f2de983e112afd1e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/orch-medium-low.ogg-d1f81c38c1a46aeefc6773ac9ee422f5.oggstr"
+
+[deps]
+
+source_file="res://data/instruments/orch/sounds/orch-medium-low.ogg"
+dest_files=[ "res://.import/orch-medium-low.ogg-d1f81c38c1a46aeefc6773ac9ee422f5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

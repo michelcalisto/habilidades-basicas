@@ -122,8 +122,13 @@ func _on_Atencion2_pressed():
 	pass # Replace with function body.
 
 func _on_Intensidad_pressed():
-	pass # Replace with function body.
-	
+	audiobtn.play()
+	Global.update_title("INTENSIDAD")
+	Global.update_description("[fill]EL JUEGO CONSTA DE DOS ETAPAS. EN LAS CUALES ESCUCHARAS DOS SONIDOS, DEBES COLOCAR MUCHA ATENCION E IDENTIFICAR SI LOS SONIDOS TIENEN [color=#ffd948]IGUAL[/color] ([img=25x25]res://assets/icons/igual.png[/img]) O [color=#ffd948]DIFERENTE[/color] ([img=25x25]res://assets/icons/diffss.png[/img]) INTENSIDAD. SI PRESENTAS UN PUNTAJE [rainbow freq=0.1 sat=0.5 val=1]IGUAL O SUPERIOR[/rainbow] A [color=#ffd948]SIETE[/color] EN CADA ETAPA PASAS A LA SIGUIENTE, SINO LO PUEDES VOLVER A INTERNTAR LAS VECES QUE QUIERAS.[/fill]")
+	Global.update_redirect("nivel2/nivel2_1/Nivel1")
+	$Transition.fadeIn("Information")
+	Global.stop_song()
+
 func _on_Nivel2_pressed():
 	audiobtn.play()
 	main = false
@@ -149,7 +154,12 @@ func _on_Memoria2_pressed():
 	pass # Replace with function body.
 
 func _on_Duracion_pressed():
-	pass # Replace with function body.
+	audiobtn.play()
+	Global.update_title("DURACION")
+	Global.update_description("[fill]EL JUEGO CONSTA DE DOS ETAPAS. EN LAS CUALES ESCUCHARAS DOS SONIDOS, DEBES COLOCAR MUCHA ATENCION E IDENTIFICAR SI LOS SONIDOS TIENEN [color=#ffd948]IGUAL[/color] ([img=25x25]res://assets/icons/igual.png[/img]) O [color=#ffd948]DIFERENTE[/color] ([img=25x25]res://assets/icons/diffss.png[/img]) DURACION. SI PRESENTAS UN PUNTAJE [rainbow freq=0.1 sat=0.5 val=1]IGUAL O SUPERIOR[/rainbow] A [color=#ffd948]SIETE[/color] EN CADA ETAPA PASAS A LA SIGUIENTE, SINO LO PUEDES VOLVER A INTERNTAR LAS VECES QUE QUIERAS.[/fill]")
+	Global.update_redirect("nivel2/nivel2_1/Nivel2")
+	$Transition.fadeIn("Information")
+	Global.stop_song()
 
 func _on_Discriminacion1_pressed():
 	audiobtn.play()

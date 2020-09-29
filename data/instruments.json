@@ -1,0 +1,819 @@
+{
+  "01": {
+    "name": "String Section",
+    "code": "01-string-section",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/string-section/sounds/string-section-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/string-section/sounds/string-section-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/string-section/sounds/string-section-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/string-section/sounds/string-section-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/string-section/sounds/string-section-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/string-section/sounds/string-section-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/string-section/sounds/string-section-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/string-section/sounds/string-section-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/string-section/sounds/string-section-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "02": {
+    "name": "Piano",
+    "code": "02-piano",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/piano/sounds/piano-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/piano/sounds/piano-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/piano/sounds/piano-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/piano/sounds/piano-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/piano/sounds/piano-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/piano/sounds/piano-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/piano/sounds/piano-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/piano/sounds/piano-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/piano/sounds/piano-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "03": {
+    "name": "Rhodes",
+    "code": "03-rhodes",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "04": {
+    "name": "Gamer",
+    "code": "04-gamer",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/gamer/sounds/gamer-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/gamer/sounds/gamer-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/gamer/sounds/gamer-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/gamer/sounds/gamer-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/gamer/sounds/gamer-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/gamer/sounds/gamer-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/gamer/sounds/gamer-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/gamer/sounds/gamer-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/gamer/sounds/gamer-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "05": {
+    "name": "Orch",
+    "code": "05-orch",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/orch/sounds/orch-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/orch/sounds/orch-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/orch/sounds/orch-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/orch/sounds/orch-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/orch/sounds/orch-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/orch/sounds/orch-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/orch/sounds/orch-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/orch/sounds/orch-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/orch/sounds/orch-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "06": {
+    "name": "Guitar Chorus",
+    "code": "06-guitar-chorus",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "07": {
+    "name": "Choir",
+    "code": "07-choir",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/choir/sounds/choir-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/choir/sounds/choir-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/choir/sounds/choir-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/choir/sounds/choir-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/choir/sounds/choir-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/choir/sounds/choir-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/choir/sounds/choir-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/choir/sounds/choir-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/choir/sounds/choir-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "08": {
+    "name": "Brass High",
+    "code": "08-brass-high",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "09": {
+    "name": "String Section",
+    "code": "01-string-section",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/string-section/sounds/string-section-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/string-section/sounds/string-section-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/string-section/sounds/string-section-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/string-section/sounds/string-section-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/string-section/sounds/string-section-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/string-section/sounds/string-section-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/string-section/sounds/string-section-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/string-section/sounds/string-section-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/string-section/sounds/string-section-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "10": {
+    "name": "Piano",
+    "code": "02-piano",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/piano/sounds/piano-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/piano/sounds/piano-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/piano/sounds/piano-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/piano/sounds/piano-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/piano/sounds/piano-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/piano/sounds/piano-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/piano/sounds/piano-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/piano/sounds/piano-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/piano/sounds/piano-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "11": {
+    "name": "Rhodes",
+    "code": "03-rhodes",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "12": {
+    "name": "Gamer",
+    "code": "04-gamer",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/gamer/sounds/gamer-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/gamer/sounds/gamer-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/gamer/sounds/gamer-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/gamer/sounds/gamer-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/gamer/sounds/gamer-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/gamer/sounds/gamer-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/gamer/sounds/gamer-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/gamer/sounds/gamer-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/gamer/sounds/gamer-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "13": {
+    "name": "Orch",
+    "code": "05-orch",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/orch/sounds/orch-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/orch/sounds/orch-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/orch/sounds/orch-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/orch/sounds/orch-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/orch/sounds/orch-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/orch/sounds/orch-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/orch/sounds/orch-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/orch/sounds/orch-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/orch/sounds/orch-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "14": {
+    "name": "Guitar Chorus",
+    "code": "06-guitar-chorus",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "15": {
+    "name": "Choir",
+    "code": "07-choir",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/choir/sounds/choir-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/choir/sounds/choir-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/choir/sounds/choir-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/choir/sounds/choir-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/choir/sounds/choir-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/choir/sounds/choir-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/choir/sounds/choir-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/choir/sounds/choir-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/choir/sounds/choir-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  },
+  "16": {
+    "name": "Brass High",
+    "code": "08-brass-high",
+    "sounds": {
+      "00": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-short-low.ogg",
+        "duration": "s",
+        "volume": "l"
+      },
+      "01": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-short-medium.ogg",
+        "duration": "s",
+        "volume": "m"
+      },
+      "02": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-short-high.ogg",
+        "duration": "s",
+        "volume": "h"
+      },
+      "03": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-medium-low.ogg",
+        "duration": "m",
+        "volume": "l"
+      },
+      "04": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-medium-medium.ogg",
+        "duration": "m",
+        "volume": "m"
+      },
+      "05": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-medium-high.ogg",
+        "duration": "m",
+        "volume": "h"
+      },
+      "06": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-long-low.ogg",
+        "duration": "l",
+        "volume": "l"
+      },
+      "07": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-long-medium.ogg",
+        "duration": "l",
+        "volume": "m"
+      },
+      "08": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-long-high.ogg",
+        "duration": "l",
+        "volume": "h"
+      }
+    }
+  }
+}
+
