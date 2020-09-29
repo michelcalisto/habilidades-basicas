@@ -6,7 +6,7 @@ var oggbtn = AudioStreamOGGVorbis.new()
 var main = true
 var nivel1 = false
 var nivel2 = false
-var nivel2_1 = false
+var nivel2_3 = false
 
 func _ready():
 	if Global.played == false:
@@ -79,7 +79,7 @@ func menu():
 				$VBox/Margin2/VBox/Margin4/Regresar2.show()
 				$VBox/Margin2/VBox/Margin4/Regresar2_1.hide()
 			else: 
-				if nivel2_1 == true:
+				if nivel2_3 == true:
 					$VBox/Margin2/VBox/Margin1/Nivel1.hide()
 					$VBox/Margin2/VBox/Margin1/Atencion1.hide()
 					$VBox/Margin2/VBox/Margin1/Atencion2.hide()
@@ -103,7 +103,7 @@ func _on_Nivel1_pressed():
 	main = false
 	nivel1 = true
 	nivel2 = false
-	nivel2_1 = false
+	nivel2_3 = false
 	$ColorRect.fadeIn()
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	menu()
@@ -125,7 +125,7 @@ func _on_Intensidad_pressed():
 	audiobtn.play()
 	Global.update_title("INTENSIDAD")
 	Global.update_description("[fill]EL JUEGO CONSTA DE DOS ETAPAS. EN LAS CUALES ESCUCHARAS DOS SONIDOS, DEBES COLOCAR MUCHA ATENCION E IDENTIFICAR SI LOS SONIDOS TIENEN [color=#ffd948]IGUAL[/color] ([img=25x25]res://assets/icons/igual.png[/img]) O [color=#ffd948]DIFERENTE[/color] ([img=25x25]res://assets/icons/diffss.png[/img]) INTENSIDAD. SI PRESENTAS UN PUNTAJE [rainbow freq=0.1 sat=0.5 val=1]IGUAL O SUPERIOR[/rainbow] A [color=#ffd948]SIETE[/color] EN CADA ETAPA PASAS A LA SIGUIENTE, SINO LO PUEDES VOLVER A INTERNTAR LAS VECES QUE QUIERAS.[/fill]")
-	Global.update_redirect("nivel2/nivel2_1/Nivel1")
+	Global.update_redirect("nivel2/nivel2_3/Nivel1")
 	$Transition.fadeIn("Information")
 	Global.stop_song()
 
@@ -134,7 +134,7 @@ func _on_Nivel2_pressed():
 	main = false
 	nivel1 = false
 	nivel2 = true
-	nivel2_1 = false
+	nivel2_3 = false
 	$ColorRect.fadeIn()
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	menu()
@@ -157,7 +157,7 @@ func _on_Duracion_pressed():
 	audiobtn.play()
 	Global.update_title("DURACION")
 	Global.update_description("[fill]EL JUEGO CONSTA DE DOS ETAPAS. EN LAS CUALES ESCUCHARAS DOS SONIDOS, DEBES COLOCAR MUCHA ATENCION E IDENTIFICAR SI LOS SONIDOS TIENEN [color=#ffd948]IGUAL[/color] ([img=25x25]res://assets/icons/igual.png[/img]) O [color=#ffd948]DIFERENTE[/color] ([img=25x25]res://assets/icons/diffss.png[/img]) DURACION. SI PRESENTAS UN PUNTAJE [rainbow freq=0.1 sat=0.5 val=1]IGUAL O SUPERIOR[/rainbow] A [color=#ffd948]SIETE[/color] EN CADA ETAPA PASAS A LA SIGUIENTE, SINO LO PUEDES VOLVER A INTERNTAR LAS VECES QUE QUIERAS.[/fill]")
-	Global.update_redirect("nivel2/nivel2_1/Nivel2")
+	Global.update_redirect("nivel2/nivel2_3/Nivel2")
 	$Transition.fadeIn("Information")
 	Global.stop_song()
 
@@ -174,7 +174,7 @@ func _on_Discriminacion2_pressed():
 	main = false
 	nivel1 = false
 	nivel2 = false
-	nivel2_1 = true
+	nivel2_3 = true
 	$ColorRect.fadeIn()
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	menu()
@@ -190,7 +190,7 @@ func _on_Regresar1_pressed():
 	main = true
 	nivel1 = false
 	nivel2 = false
-	nivel2_1 = false
+	nivel2_3 = false
 	$ColorRect.fadeIn()
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	menu()
@@ -202,7 +202,7 @@ func _on_Regresar2_pressed():
 	main = true
 	nivel1 = false
 	nivel2 = false
-	nivel2_1 = false
+	nivel2_3 = false
 	$ColorRect.fadeIn()
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	menu()
@@ -214,7 +214,7 @@ func _on_Regresar2_1_pressed():
 	main = false
 	nivel1 = false
 	nivel2 = true
-	nivel2_1 = false
+	nivel2_3 = false
 	$ColorRect.fadeIn()
 	yield($ColorRect/AnimationPlayer, "animation_finished")
 	menu()
