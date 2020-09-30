@@ -13,6 +13,8 @@ var nivel2_3 = false
 func _ready():
 	if Global.played == false:
 		Global.play_song()
+	if Global.effect == true:
+		Global.remove_effect_song()
 	menu()
 	# Transition
 	$Transition.fadeOut()

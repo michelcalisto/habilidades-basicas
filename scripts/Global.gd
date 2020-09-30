@@ -10,11 +10,8 @@ var nivels_score = 0
 # Main Theme
 var audio = AudioStreamPlayer.new()
 var ogg = AudioStreamOGGVorbis.new()
-var reverb = AudioBusLayout.new()
-#var au = AudioServer.new()
-#var ef = AudioEffect.new()
-var audio_bus_name = "Master"
 var played = false
+var effect = false
 # Categories
 var categorie
 
@@ -27,16 +24,19 @@ func _ready():
 
 func play_song():
 	played = true
-#	var pan = AudioServer.get_bus_effect()
-#	var nose = audio.get_bus_index(audio_bus_name)
-#	audio.set_bus_volume_db(nose, 1)
-	var bus = AudioServer.get_bus_index(audio_bus_name)
-	AudioServer.set_bus_volume_db(bus, -30)
 	audio.play()
 
 func stop_song():
 	played = false
 	audio.stop()
+
+func add_effect_song():
+	effect = true
+	AudioServer.add_bus_effect(0, AudioEffectLowPassFilter.new())
+
+func remove_effect_song():
+	effect = false
+	AudioServer.remove_bus_effect(0, 0)
 
 # Information
 func update_title(title):

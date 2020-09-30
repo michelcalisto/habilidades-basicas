@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	Global.add_effect_song()
 	# Transition
 	$Transition.fadeOut()
 	# Scroll Credits
