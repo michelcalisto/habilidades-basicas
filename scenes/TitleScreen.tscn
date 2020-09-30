@@ -200,9 +200,9 @@ margin_bottom = 170.0
 rect_min_size = Vector2( 225, 170 )
 
 [node name="Animals" type="TextureButton" parent="VBox/Margin2/VBox/Margin1/Categories/Margin1"]
-margin_left = 59.0
+margin_left = 60.0
 margin_top = 32.0
-margin_right = 164.0
+margin_right = 165.0
 margin_bottom = 137.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
@@ -219,9 +219,9 @@ margin_bottom = 170.0
 rect_min_size = Vector2( 225, 170 )
 
 [node name="Instruments" type="TextureButton" parent="VBox/Margin2/VBox/Margin1/Categories/Margin2"]
-margin_left = 59.0
+margin_left = 60.0
 margin_top = 32.0
-margin_right = 164.0
+margin_right = 165.0
 margin_bottom = 137.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
@@ -242,9 +242,9 @@ margin_bottom = 170.0
 rect_min_size = Vector2( 225, 170 )
 
 [node name="Animals2" type="TextureButton" parent="VBox/Margin2/VBox/Margin1/Categories2/Margin1"]
-margin_left = 59.0
+margin_left = 60.0
 margin_top = 32.0
-margin_right = 164.0
+margin_right = 165.0
 margin_bottom = 137.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4
@@ -261,9 +261,9 @@ margin_bottom = 170.0
 rect_min_size = Vector2( 225, 170 )
 
 [node name="Instruments2" type="TextureButton" parent="VBox/Margin2/VBox/Margin1/Categories2/Margin2"]
-margin_left = 59.0
+margin_left = 60.0
 margin_top = 32.0
-margin_right = 164.0
+margin_right = 165.0
 margin_bottom = 137.0
 rect_min_size = Vector2( 105, 105 )
 size_flags_horizontal = 4

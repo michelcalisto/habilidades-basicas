@@ -185,7 +185,7 @@ func _on_Nivel1_pressed():
 func _on_Atencion1_pressed():
 	audiobtn.play()
 	Global.update_title("ATENCION AUDITIVA")
-	Global.update_description("[fill]EN ESTE JUEGO TENDRAS QUE ESTAR MUY ATENTO/A, PORQUE TIENES QUE ESCUCHAR SONIDOS DE ANIMALES. ESTE JUEGO CONSTA DE TRES ETAPAS, LAS CUALES IRAN AUMENTANDO SU DIFICULTAD A MEDIDA QUE AVANCES POR LOS NIVELES. SI OBTIENES UN PUNTAJE [rainbow freq=0.1 sat=0.5 val=1]IGUAL O SUPERIOR[/rainbow] A [color=#ffd948]CUATRO PUNTOS[/color] EN CADA FASE PASAS A LA SIGUIENTE, SINO LO PUEDES VOLVER A INTENTAR LAS VECES QUE QUIERAS.[/fill]")
+	Global.update_description("[fill]EN ESTE JUEGO TENDRAS QUE ESTAR MUY ATENTO/A, PORQUE TIENES QUE ESCUCHAR SONIDOS DE ANIMALES. ESTE JUEGO CONSTA DE TRES ETAPAS, LAS CUALES IRAN AUMENTANDO SU DIFICULTAD A MEDIDA QUE AVANCES POR LOS NIVELES. SI OBTIENES UN PUNTAJE [rainbow freq=0.1 sat=0.5 val=1]IGUAL O SUPERIOR[/rainbow] A [color=#ffd948]CUATRO PUNTOS[/color] EN CADA FASE, PASAS A LA SIGUIENTE, SINO LO PUEDES VOLVER A INTENTAR LAS VECES QUE QUIERAS.[/fill]")
 	Global.update_redirect("nivel1/Nivel1")
 	$Transition.fadeIn("Information")
 	Global.stop_song()
@@ -207,7 +207,7 @@ func _on_Atencion2_pressed():
 func _on_Intensidad_pressed():
 	audiobtn.play()
 	Global.update_title("INTENSIDAD")
-	Global.update_description("[fill]EL JUEGO CONSTA DE DOS ETAPAS. EN LAS CUALES ESCUCHARAS DOS SONIDOS, DEBES COLOCAR MUCHA ATENCION E IDENTIFICAR SI LOS SONIDOS TIENEN [color=#ffd948]IGUAL[/color] ([img=25x25]res://assets/icons/igual.png[/img]) O [color=#ffd948]DIFERENTE[/color] ([img=25x25]res://assets/icons/diffss.png[/img]) INTENSIDAD. SI PRESENTAS UN PUNTAJE [rainbow freq=0.1 sat=0.5 val=1]IGUAL O SUPERIOR[/rainbow] A [color=#ffd948]SIETE[/color] EN CADA ETAPA PASAS A LA SIGUIENTE, SINO LO PUEDES VOLVER A INTERNTAR LAS VECES QUE QUIERAS.[/fill]")
+	Global.update_description("[fill]EL JUEGO CONSTA DE DOS ETAPAS. EN LAS CUALES ESCUCHARAS DOS SONIDOS, DEBES COLOCAR MUCHA ATENCION E IDENTIFICAR SI LOS SONIDOS TIENEN [color=#ffd948]IGUAL[/color] ([img=25x25]res://assets/icons/igual.png[/img]) O [color=#ffd948]DIFERENTE[/color] ([img=25x25]res://assets/icons/diffss.png[/img]) INTENSIDAD. SI PRESENTAS UN PUNTAJE [rainbow freq=0.1 sat=0.5 val=1]IGUAL O SUPERIOR[/rainbow] A [color=#ffd948]SIETE[/color] EN CADA ETAPA, AVANZAS A LA SIGUIENTE, SINO LO PUEDES VOLVER A INTERNTAR LAS VECES QUE QUIERAS.[/fill]")
 	Global.update_redirect("nivel2/nivel2_3/Nivel1")
 	$Transition.fadeIn("Information")
 	Global.stop_song()
@@ -252,7 +252,7 @@ func _on_Memoria2_pressed():
 func _on_Duracion_pressed():
 	audiobtn.play()
 	Global.update_title("DURACION")
-	Global.update_description("[fill]EL JUEGO CONSTA DE DOS ETAPAS. EN LAS CUALES ESCUCHARAS DOS SONIDOS, DEBES COLOCAR MUCHA ATENCION E IDENTIFICAR SI LOS SONIDOS TIENEN [color=#ffd948]IGUAL[/color] ([img=25x25]res://assets/icons/igual.png[/img]) O [color=#ffd948]DIFERENTE[/color] ([img=25x25]res://assets/icons/diffss.png[/img]) DURACION. SI PRESENTAS UN PUNTAJE [rainbow freq=0.1 sat=0.5 val=1]IGUAL O SUPERIOR[/rainbow] A [color=#ffd948]SIETE[/color] EN CADA ETAPA PASAS A LA SIGUIENTE, SINO LO PUEDES VOLVER A INTERNTAR LAS VECES QUE QUIERAS.[/fill]")
+	Global.update_description("[fill]EL JUEGO CONSTA DE DOS ETAPAS. EN LAS CUALES ESCUCHARAS DOS SONIDOS, DEBES COLOCAR MUCHA ATENCION E IDENTIFICAR SI LOS SONIDOS TIENEN [color=#ffd948]IGUAL[/color] ([img=25x25]res://assets/icons/igual.png[/img]) O [color=#ffd948]DIFERENTE[/color] ([img=25x25]res://assets/icons/diffss.png[/img]) DURACION. SI PRESENTAS UN PUNTAJE [rainbow freq=0.1 sat=0.5 val=1]IGUAL O SUPERIOR[/rainbow] A [color=#ffd948]SIETE[/color] EN CADA ETAPA, AVANZAS A LA SIGUIENTE, SINO LO PUEDES VOLVER A INTERNTAR LAS VECES QUE QUIERAS.[/fill]")
 	Global.update_redirect("nivel2/nivel2_3/Nivel2")
 	$Transition.fadeIn("Information")
 	Global.stop_song()
@@ -260,7 +260,7 @@ func _on_Duracion_pressed():
 func _on_Discriminacion1_pressed():
 	audiobtn.play()
 	Global.update_title("DISCRIMIMACION AUDITIVA")
-	Global.update_description("[fill]EL JUEGO CONSTA DE UNA ETAPA. EN LA CUAL ESCUCHARAS DOS PALABRAS, DEBES COLOCAR MUCHA ATENCION E IDENTIFICAR SI LAS PALABRAS SUENAN [color=#ffd948]IGUAL[/color] ([img=25x25]res://assets/icons/igual.png[/img]) O [color=#ffd948]DIFERENTE[/color] ([img=25x25]res://assets/icons/diffss.png[/img]). SI OBTIENES UN PUNTAJE [rainbow freq=0.1 sat=0.5 val=1]IGUAL O SUPERIOR[/rainbow] A [color=#ffd948]SIETE[/color] GANAS.[/fill]")
+	Global.update_description("[fill]EL JUEGO CONSTA DE UNA ETAPA. EN LA CUAL ESCUCHARAS DOS PALABRAS, DEBES COLOCAR MUCHA ATENCION E IDENTIFICAR SI LAS PALABRAS SUENAN [color=#ffd948]IGUAL[/color] ([img=25x25]res://assets/icons/igual.png[/img]) O [color=#ffd948]DIFERENTE[/color] ([img=25x25]res://assets/icons/diffss.png[/img]). SI OBTIENES UN PUNTAJE [rainbow freq=0.1 sat=0.5 val=1]IGUAL O SUPERIOR[/rainbow] A [color=#ffd948]SIETE[/color], GANAS.[/fill]")
 	Global.update_redirect("nivel1/Nivel3")
 	$Transition.fadeIn("Information")
 	Global.stop_song()

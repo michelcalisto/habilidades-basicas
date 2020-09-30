@@ -2,7 +2,7 @@ extends Node
 
 # Information
 var information_title = "HABILIDADES BASICAS"
-var information_description = "[center]EL JUEGO DE [wave][color=#ffd948]\"HABILIDADES BASICAS\"[/color][/wave] ESTIMULA ([rainbow freq=0.1 sat=0.5 val=1]LA ATENCION AUDITIVA[/rainbow], [rainbow freq=0.1 sat=0.5 val=1]MEMORIA AUDITIVA[/rainbow] Y [rainbow freq=0.1 sat=0.5 val=1]DISCRIMANACION AUDITIVA[/rainbow]) CON EL FIN DE FACILITAR Y MEJORAR EL PROCESO DE ADQUISICION DE LA LECTURA.[/center]\n\n[center]DESTINADO A NIÑOS DESDE 4 AÑOS.[/center]\n\n\n[center][img=150x180]res://assets/logos/colegio.png[/img][/center]"
+var information_description = "[fill]EL JUEGO DE [wave][color=#ffd948]\"HABILIDADES BASICAS\"[/color][/wave] ESTIMULA ([rainbow freq=0.1 sat=0.5 val=1]LA ATENCION AUDITIVA[/rainbow], [rainbow freq=0.1 sat=0.5 val=1]MEMORIA AUDITIVA[/rainbow] Y [rainbow freq=0.1 sat=0.5 val=1]DISCRIMANACION AUDITIVA[/rainbow]) CON EL FIN DE MEJORAR LA COMPRENSION DE LOS SONIDOS DEL LENGUAJE.[/fill]\n\n[fill]TE INVITAMOS A PROBAR TU CAPACIDAD DE DISCRIMINAR, IDENTIFICAR E INTERPRETAR LOS MENSAJES SONOROS.[/fill]\n\n[center][img=150x180]res://assets/logos/colegio.png[/img]          [img=125x180]res://assets/logos/colegio2.png[/img][/center]"
 var information_redirect = "TitleScreen"
 # Nivels
 var nivels_level = 1
@@ -10,6 +10,10 @@ var nivels_score = 0
 # Main Theme
 var audio = AudioStreamPlayer.new()
 var ogg = AudioStreamOGGVorbis.new()
+var reverb = AudioBusLayout.new()
+#var au = AudioServer.new()
+#var ef = AudioEffect.new()
+var audio_bus_name = "Master"
 var played = false
 # Categories
 var categorie
@@ -23,6 +27,11 @@ func _ready():
 
 func play_song():
 	played = true
+#	var pan = AudioServer.get_bus_effect()
+#	var nose = audio.get_bus_index(audio_bus_name)
+#	audio.set_bus_volume_db(nose, 1)
+	var bus = AudioServer.get_bus_index(audio_bus_name)
+	AudioServer.set_bus_volume_db(bus, -30)
 	audio.play()
 
 func stop_song():
