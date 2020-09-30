@@ -4,7 +4,7 @@ func _ready():
 	# Transition
 	$Transition.fadeOut()
 	# Scroll Credits
-	$Tween.interpolate_property($Scrolling, "position", Vector2(0, 610), Vector2(0, -750), 30, Tween.TRANS_LINEAR, 0)
+	$Tween.interpolate_property($Scrolling, "position", Vector2(0, 610), Vector2(0, -720), 28, Tween.TRANS_LINEAR, 0)
 	$Tween.start()
 
 func _process(delta):
