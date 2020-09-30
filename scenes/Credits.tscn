@@ -35,23 +35,36 @@ color = Color( 0, 0, 0, 1 )
 position = Vector2( 0, 720 )
 
 [node name="Margin" type="MarginContainer" parent="Scrolling"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 1280, 800 )
+margin_right = 1280.0
+margin_bottom = 1300.0
+rect_min_size = Vector2( 1280, 1300 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Credits" type="RichTextLabel" parent="Scrolling/Margin"]
 margin_right = 1280.0
-margin_bottom = 800.0
+margin_bottom = 1300.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center]DESARROLLO
+bbcode_text = "[center]HABILIDADES BASICAS
 
-FONOAUDIOLOGA
-DISEÑADOR GRAFICO
-PROGRAMADOR
+
+DISEÑO DEL VIDEOJUEGO
+FANNY CALISTO
+
+
+PROGRAMACION
+MICHEL CALISTO
+
+
+DISEÑO GRAFICO
+ADRIAN CALISTO
+
+
+MUSICA
+JUAN MARQUEZ
+
 
 
 CONTACTO
@@ -69,11 +82,24 @@ frommarsstudio@gmail.com
 ¡GRACIAS POR JUGAR!
 
 [img=50x50]res://assets/emojis/nivel1.png[/img][/center]"
-text = "DESARROLLO
+text = "HABILIDADES BASICAS
 
-FONOAUDIOLOGA
-DISEÑADOR GRAFICO
-PROGRAMADOR
+
+DISEÑO DEL VIDEOJUEGO
+FANNY CALISTO
+
+
+PROGRAMACION
+MICHEL CALISTO
+
+
+DISEÑO GRAFICO
+ADRIAN CALISTO
+
+
+MUSICA
+JUAN MARQUEZ
+
 
 
 CONTACTO
