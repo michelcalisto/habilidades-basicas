@@ -18,7 +18,7 @@ var categorie
 func _ready():
 	# Childs
 	add_child(audio)
-	ogg = load("res://assets/sounds/main_theme.ogg")
+	ogg = load("res://assets/sounds/main_theme-900.ogg")
 	ogg.loop = true
 	audio.stream = ogg
 
