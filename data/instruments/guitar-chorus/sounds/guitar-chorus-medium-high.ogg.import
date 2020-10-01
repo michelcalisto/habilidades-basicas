@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/guitar-chorus-medium-high.ogg-44cbec99e9b1b595e12d5d881437e13b.oggstr"
+
+[deps]
+
+source_file="res://data/instruments/guitar-chorus/sounds/guitar-chorus-medium-high.ogg"
+dest_files=[ "res://.import/guitar-chorus-medium-high.ogg-44cbec99e9b1b595e12d5d881437e13b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

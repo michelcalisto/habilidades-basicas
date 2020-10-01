@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cabra01.ogg-15a9b96b6edac02cf534e67e27f64be4.oggstr"
+
+[deps]
+
+source_file="res://data/animals/cabra/sounds/cabra01.ogg"
+dest_files=[ "res://.import/cabra01.ogg-15a9b96b6edac02cf534e67e27f64be4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

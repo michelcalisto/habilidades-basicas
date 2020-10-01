@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gamer-long-low.ogg-dc6be2f998286b30270b2b64f4787700.oggstr"
+
+[deps]
+
+source_file="res://data/instruments/gamer/sounds/gamer-long-low.ogg"
+dest_files=[ "res://.import/gamer-long-low.ogg-dc6be2f998286b30270b2b64f4787700.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

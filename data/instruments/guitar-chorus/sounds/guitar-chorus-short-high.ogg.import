@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/guitar-chorus-short-high.ogg-f6cb87118705cf7480431ccb1f9005ab.oggstr"
+
+[deps]
+
+source_file="res://data/instruments/guitar-chorus/sounds/guitar-chorus-short-high.ogg"
+dest_files=[ "res://.import/guitar-chorus-short-high.ogg-f6cb87118705cf7480431ccb1f9005ab.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

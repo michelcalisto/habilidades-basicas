@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gamer-medium-high.ogg-cc14a6d978d0588ee1844b94caa02478.oggstr"
+
+[deps]
+
+source_file="res://data/instruments/gamer/sounds/gamer-medium-high.ogg"
+dest_files=[ "res://.import/gamer-medium-high.ogg-cc14a6d978d0588ee1844b94caa02478.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

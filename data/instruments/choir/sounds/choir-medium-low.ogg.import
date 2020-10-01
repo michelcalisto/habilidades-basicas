@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/choir-medium-low.ogg-eff7fd05fe9302e021902ee03532dbc7.oggstr"
+
+[deps]
+
+source_file="res://data/instruments/choir/sounds/choir-medium-low.ogg"
+dest_files=[ "res://.import/choir-medium-low.ogg-eff7fd05fe9302e021902ee03532dbc7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

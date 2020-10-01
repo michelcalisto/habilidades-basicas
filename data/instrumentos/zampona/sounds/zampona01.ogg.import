@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/zampona01.ogg-35b0fad0e5ad48e323f3556813bac5ba.oggstr"
+
+[deps]
+
+source_file="res://data/instrumentos/zampona/sounds/zampona01.ogg"
+dest_files=[ "res://.import/zampona01.ogg-35b0fad0e5ad48e323f3556813bac5ba.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
