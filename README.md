@@ -4,7 +4,7 @@ El juego de "Habilidades Básicas" estimula (La Atención Auditiva, La Memoria A
 
 ![Godot Engine](https://img.shields.io/badge/Godot%20Engine-v3.2.3-blue)
 ![OpenGL ES](https://img.shields.io/badge/OpenGL%20ES-v3.0-blue)
-![API](https://img.shields.io/badge/API-29-blue)
+![API Level](https://img.shields.io/badge/API%20Level-29-blue)
 
 <p align="left">
   <a href="https://play.google.com/store/apps/details?id=org.godotengine.habilidadesbasicas" target="_blank"><img src="https://gist.githubusercontent.com/laloinsane/c3f8c1d55bff39e606c0be5e3b400886/raw/5afed4ae3494a575cc1e93cee5e00adeb6aa82b4/google-play-badge.png" alt="Google Play" height="60"></a>
